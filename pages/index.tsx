@@ -1,17 +1,27 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
+import firebase from '../services/firebase'
+import { useState } from 'react'
+
+async function loadTest() {
+  const events = firebase.firestore().collection('events')
+  return await events.doc('test').get()
+}
 
 export default function Home() {
+  const [title, setTitle] = useState('Loading...')
+  loadTest().then(doc => setTitle(doc.data().title))
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Create Next App</title>
+        <title>{title}</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
       <main className={styles.main}>
         <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
+          {title}
         </h1>
 
         <p className={styles.description}>
