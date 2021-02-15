@@ -1,7 +1,8 @@
-import firebase from './firebase'
+export namespace Data {
 
-export interface Event {
-  title: String
+  export interface Event {
+    title: string
+    image: string
+  }
+
 }
-
-export const events = firebase.firestore().collection('events') as firebase.firestore.CollectionReference<Event>
