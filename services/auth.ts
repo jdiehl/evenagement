@@ -7,3 +7,7 @@ export async function email(email: string) {
   }
   await firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
 }
+
+export function auth() {
+  return firebase.auth()
+}
