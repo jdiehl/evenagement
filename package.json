@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "eslint .",
-    "dev": "NODE_OPTIONS='--inspect' next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -12,6 +12,7 @@
     "@material-ui/core": "^4.11.3",
     "@material-ui/icons": "^4.11.2",
     "@sendgrid/mail": "^7.4.2",
+    "date-fns": "^2.17.0",
     "firebase": "^8.2.9",
     "next": "10.0.6",
     "react": "17.0.1",

@@ -2,6 +2,7 @@ dependencies:
   '@material-ui/core': 4.11.3_react-dom@17.0.1+react@17.0.1
   '@material-ui/icons': 4.11.2_c640d2d0176bfcab1d99b942ffa7ebe7
   '@sendgrid/mail': 7.4.2
+  date-fns: 2.17.0
   firebase: 8.2.9
   next: 10.0.6_bdba1ca4a80d13560ab4ce49959c6ea2
   react: 17.0.1
@@ -1502,6 +1503,12 @@ packages:
       node: '>= 6'
     resolution:
       integrity: sha512-WboRycPNsVw3B3TL559F7kuBUM4d8CgMEvk6xEJlOp7OBPjt6G7z8WMWlD2rOFZLk6OYfFIUGsCOWzcQH9K2og==
+  /date-fns/2.17.0:
+    dev: false
+    engines:
+      node: '>=0.11'
+    resolution:
+      integrity: sha512-ZEhqxUtEZeGgg9eHNSOAJ8O9xqSgiJdrL0lzSSfMF54x6KXWJiOH/xntSJ9YomJPrYH/p08t6gWjGWq1SDJlSA==
   /debug/2.6.9:
     dependencies:
       ms: 2.0.0
@@ -4475,6 +4482,7 @@ specifiers:
   '@sendgrid/mail': ^7.4.2
   '@typescript-eslint/eslint-plugin': ^4.15.1
   '@typescript-eslint/parser': ^4.15.1
+  date-fns: ^2.17.0
   eslint: ^7.20.0
   eslint-config-standard: ^16.0.2
   eslint-plugin-import: ^2.22.1
