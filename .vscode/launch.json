@@ -3,6 +3,18 @@
   "configurations": [
     {
       "type": "node",
+      "request": "launch",
+      "name": "Launch Next.JS",
+      "skipFiles": ["<node_internals>/**"],
+      "cwd": "${workspaceFolder}",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": ["run", "dev"],
+      "env": {
+        "NODE_OPTIONS": "--inspect"
+      }
+    },
+    {
+      "type": "node",
       "request": "attach",
       "name": "Attach to Next.JS",
       "skipFiles": ["<node_internals>/**"],
