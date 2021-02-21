@@ -3,11 +3,12 @@ import getHours from 'date-fns/getHours'
 // import red from '@material-ui/core/colors/red'
 
 function paletteType() {
-  const hours = getHours(new Date())
-  if (hours < 6 || hours > 18) {
-    return 'dark'
+  // return 'dark'
+  if (typeof matchMedia === 'function') {
+    return matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
   }
-  return 'light'
+  const hours = getHours(new Date())
+  return (hours < 6 || hours > 18) ? 'dark' : 'light'
 }
 
 // Create a theme instance.
