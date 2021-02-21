@@ -17,7 +17,7 @@ export default function MainFooter() {
   const classes = useStyles()
   return (
     <footer className={classes.footer}>
-      <Container maxWidth="lg">
+      <Container>
         <Grid container spacing={2} justify="center">
           <Grid item xs={12}>
             <Divider variant="middle" />

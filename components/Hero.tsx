@@ -13,7 +13,7 @@ export default function Hero() {
   const css = useStyles()
   return (
     <Grid container justify="center" alignItems="center" direction="column" className={css.hero}>
-      <Container maxWidth="lg">
+      <Container>
         <Typography align="center" variant="h1">
           Evenagement
         </Typography>

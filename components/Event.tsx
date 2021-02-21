@@ -5,7 +5,7 @@ export default function Event() {
   return (
     <main>
       <EventHeader />
-      <Container maxWidth="lg">
+      <Container>
         <h1>Hiho</h1>
       </Container>
     </main>
