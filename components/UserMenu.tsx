@@ -12,11 +12,18 @@ import firebase from '../services/firebase'
 
 export default function UserMenu() {
   const user = useContext(UserContext)
+
+  // reference to element where to place the menu
   const menuRef = useRef(null)
+
+  // state: menu open?
   const [menuOpen, setMenuOpen] = useState(false)
 
+  // open/close the menu
   const openMenu = () => setMenuOpen(true)
   const closeMenu = () => setMenuOpen(false)
+
+  // log out the user
   const onLogoutClick = () => {
     firebase.auth().signOut()
     closeMenu()
