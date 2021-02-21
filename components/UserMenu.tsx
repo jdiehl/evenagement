@@ -1,4 +1,5 @@
 import { useContext, useRef, useState } from 'react'
+import Link from 'next/link'
 import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import IconButton from '@material-ui/core/IconButton'
 import ClickAwayListener from '@material-ui/core/ClickAwayListener'
@@ -41,6 +42,9 @@ export default function UserMenu() {
               <ClickAwayListener onClickAway={closeMenu}>
                 <List id="usermenu">
                   <ListItem>Hi, {user.displayName}</ListItem>
+                  <Link href="/communities">
+                    <ListItem button onClick={closeMenu}>My Communities</ListItem>
+                  </Link>
                   <ListItem button onClick={onLogoutClick}>Sign Out</ListItem>
                 </List>
               </ClickAwayListener>

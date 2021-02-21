@@ -5,4 +5,10 @@ export namespace Data {
     image: string
   }
 
+  export interface Community {
+    name: string
+    description: string
+    image: string
+  }
+
 }
