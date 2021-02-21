@@ -16,7 +16,15 @@ const config = {
 // Initialize Firebase
 if (firebase.apps.length === 0) {
   firebase.initializeApp(config)
-  if (typeof window !== 'undefined') firebase.analytics()
+
+  // Only run this in the browser
+  if (typeof window !== 'undefined') {
+    // make firebase available globally
+    (window as any).firebase = firebase
+
+    // start analytics
+    firebase.analytics()
+  }
 }
 
 export default firebase

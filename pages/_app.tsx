@@ -4,7 +4,6 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ThemeProvider } from '@material-ui/core/styles'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import firebase from 'firebase'
 import theme from '../styles/theme'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
@@ -14,9 +13,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     if (jssStyles) {
       jssStyles.parentElement.removeChild(jssStyles)
     }
-
-    // Make firebase available globally
-    (window as any).firebase = firebase
   }, [])
 
   return (
