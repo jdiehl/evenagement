@@ -22,10 +22,10 @@ function LoginButtonsOrUserMenu() {
 
   if (!user) {
     return (
-    <>
-      <Button color="inherit" onClick={() => signInAnonymously()}>Sign up</Button>
-      <Button color="inherit" onClick={() => signInAnonymously()}>Login</Button>
-    </>
+      <>
+        <Button color="inherit" onClick={() => signInAnonymously()}>Sign up</Button>
+        <Button color="inherit" onClick={() => signInAnonymously()}>Login</Button>
+      </>
     )
   }
 
