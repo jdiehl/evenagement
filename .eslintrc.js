@@ -31,6 +31,7 @@ module.exports = {
     'no-unreachable': ['warn'],
     'no-unused-vars': ['warn', { args: 'none' }],
     'react/react-in-jsx-scope': 0,
+    'react/jsx-indent': [2, 2],
     'require-await': 0,
     'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
     camelcase: 0,
