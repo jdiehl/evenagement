@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "test": "eslint .",
+    "dev-auth": "FIREBASE_AUTH_EMULATOR_HOST=localhost:9099 concurrently --kill-others \"npm run dev\" \"firebase emulators:start\"",
     "dev": "next dev",
     "build": "next build",
     "start": "next start"
@@ -20,6 +21,7 @@
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.15.1",
     "@typescript-eslint/parser": "^4.15.1",
+    "concurrently": "^5.3.0",
     "eslint": "^7.20.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
