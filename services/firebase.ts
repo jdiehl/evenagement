@@ -13,6 +13,11 @@ const config = {
   measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID
 }
 
+if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR) {
+  firebase.auth().useEmulator('http://localhost:9099/');
+  firebase.firestore().useEmulator('localhost', 8080)
+}
+
 // Initialize Firebase
 if (firebase.apps.length === 0) {
   firebase.initializeApp(config)
