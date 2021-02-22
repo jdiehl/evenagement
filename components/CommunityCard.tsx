@@ -18,11 +18,7 @@ export default function CommmunityCard({ community }: { community: Data.Communit
   return (
     <Card>
       <CardActionArea>
-        <CardMedia
-          className={classes.media}
-          image={community.image}
-          title={community.name}
-        />
+        <CardMedia className={classes.media} image={community.image} title={community.name} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
             {community.name}
