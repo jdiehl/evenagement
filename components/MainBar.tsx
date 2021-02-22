@@ -15,12 +15,8 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
-function LoginButtonsOrUserMenu() {
-  const user = useContext(UserContext)
-  return user ? <UserMenu /> : <LoginButton />
-}
-
 export default function MainBar() {
+  const user = useContext(UserContext)
   const classes = useStyles()
   return (
     <nav>
@@ -31,7 +27,7 @@ export default function MainBar() {
               <Button>Evenagement</Button>
             </Link>
             <div className={classes.grow} />
-            <LoginButtonsOrUserMenu />
+            {user ? <UserMenu /> : <LoginButton />}
           </Toolbar>
         </Container>
       </AppBar>
