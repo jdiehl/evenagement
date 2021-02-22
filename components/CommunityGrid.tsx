@@ -1,19 +1,14 @@
 import Grid from '@material-ui/core/Grid'
 import CommunityCard from './CommunityCard'
+import firebase from '../services/firebase'
 import { Data } from '../services/collections'
 
-export default function CommunityGrid() {
-  const communities: Data.Community[] = [
-    { name: 'Aachen Usability', description: 'Lorem ipsum', image: '' },
-    { name: 'Fotoclub', description: 'Lorem ipsum', image: '' },
-    { name: 'Wandergruppe', description: 'Lorem ipsum', image: '' },
-    { name: 'Coders ohne Grenze', description: 'Lorem ipsum', image: '' }
-  ]
+export default function CommunityGrid({ communities }: { communities: firebase.firestore.QuerySnapshot<Data.Community> }) {
   return (
     <Grid container spacing={1}>
-      {communities.map((community, i) => (
-        <Grid key={i} item md={4} sm={6} xs={12}>
-          <CommunityCard community={community} />
+      {communities.docs.map(community => (
+        <Grid key={community.id} item md={4} sm={6} xs={12}>
+          <CommunityCard community={community.data()} />
         </Grid>
       ))}
     </Grid>
