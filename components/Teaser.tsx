@@ -15,7 +15,7 @@ const useStyles = makeStyles(theme => ({
   }
 }))
 
-export default function Hero() {
+export default function Teaser() {
   const css = useStyles()
   return (
     <Grid container justify="center" alignItems="center" direction="column" className={css.hero}>
