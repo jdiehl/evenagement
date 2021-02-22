@@ -20,7 +20,7 @@ if (firebase.apps.length === 0) {
   // Only run this in the browser
   if (typeof window !== 'undefined') {
     // make firebase available globally
-    (window as any).firebase = firebase
+    if (process.env.NEXT_PUBLIC_DEBUG) (window as any).firebase = firebase
 
     // start analytics
     firebase.analytics()
