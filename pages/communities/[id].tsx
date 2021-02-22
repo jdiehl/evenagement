@@ -20,7 +20,7 @@ export default function Communities() {
     const ref = collection<Data.Community>('communities').doc(id)
     const unsub = ref.onSnapshot(doc => setCommunity(doc))
     return () => unsub()
-  })
+  }, [])
 
   const [editMode, setEditMode] = useState(false)
   const toggleEditMode = () => setEditMode(!editMode)

@@ -12,7 +12,7 @@ export default function Communities() {
     const ref = collection<Data.Community>('communities')
     const unsub = ref.onSnapshot(docs => setCommunities(docs))
     return () => unsub()
-  })
+  }, [])
   return (
     <Main>
       {communities ? <CommunityGrid communities={communities}/> : <Loading/>}

@@ -12,7 +12,7 @@ export default function EventPage() {
     const ref = collection<Data.Event>('events').doc('Z402pb7OQiBcXLEwDvoV')
     const unsub = ref.onSnapshot(doc => setEvent(doc))
     return () => unsub()
-  })
+  }, [])
 
   return (
     <EventContext.Provider value={event}>
