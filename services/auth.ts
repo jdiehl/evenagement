@@ -24,3 +24,7 @@ export async function signup(email: string, password: string): Promise<firebase.
       .catch(reject)
   })
 }
+
+export function auth() {
+  return firebase.auth()
+}
