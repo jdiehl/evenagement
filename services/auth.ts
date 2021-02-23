@@ -7,3 +7,20 @@ export async function email(email: string) {
   }
   await firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
 }
+
+export enum AuthProvider {
+  Email,
+  Google,
+  Facebook,
+  Apple
+}
+
+export async function signup(email: string, password: string): Promise<firebase.User> {
+  return new Promise((resolve, reject) => {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .then(userCredential => {
+        resolve(userCredential.user)
+      })
+      .catch(reject)
+  })
+}
