@@ -69,11 +69,11 @@ const LoginWindow = forwardRef(() => {
 
   const [windowState, setWindowState] = useState<LoginWindowState>('login')
 
-  const handleChange = (prop) => (ev: ChangeEvent<any>) => {
+  const handleChange = (prop: string) => (ev: ChangeEvent<any>) => {
     setLoginData({ ...loginData, [prop]: ev.target.value })
   }
 
-  const handleSignupChange = (prop) => (ev: ChangeEvent<any>) => {
+  const handleSignupChange = (prop: string) => (ev: ChangeEvent<any>) => {
     setSignupData({ ...signupData, [prop]: ev.target.value })
   }
 
@@ -83,6 +83,10 @@ const LoginWindow = forwardRef(() => {
       setWindowState('emailVerification')
       await user.sendEmailVerification()
     }
+  }
+
+  const tabIndexForState = (state: LoginWindowState) => {
+    return windowState === state ? 0 : -1
   }
 
   return <Box className={classes.loginWindow}>
@@ -97,8 +101,8 @@ const LoginWindow = forwardRef(() => {
         <Typography variant="body2" align="center">
           - or -
         </Typography>
-        <TextField variant="outlined" label="Email" value={loginData.email} onChange={handleChange('email')}></TextField>
-        <PasswordField label="Password" password={loginData.password} onChange={handleChange('password')} />
+        <TextField inputProps={{ tabIndex: tabIndexForState('login') }} variant="outlined" label="Email" value={loginData.email} onChange={handleChange('email')}></TextField>
+        <PasswordField tabIndex={tabIndexForState('login')} label="Password" password={loginData.password} onChange={handleChange('password')} />
         <Button variant="contained" color="primary">
           Login
         </Button>
@@ -115,9 +119,9 @@ const LoginWindow = forwardRef(() => {
         <Typography variant="body1" align="center">
           Welcome on board
         </Typography>
-        <TextField required variant="outlined" label="Username" value={signupData.username} onChange={handleSignupChange('username')}></TextField>
-        <TextField required variant="outlined" label="Email" value={signupData.email} onChange={handleSignupChange('email')}></TextField>
-        <PasswordField label="Password" password={signupData.password} onChange={handleSignupChange('password')} />
+        <TextField required inputProps={{ tabIndex: tabIndexForState('signup') }} variant="outlined" label="Username" value={signupData.username} onChange={handleSignupChange('username')}></TextField>
+        <TextField required inputProps={{ tabIndex: tabIndexForState('signup') }} variant="outlined" label="Email" value={signupData.email} onChange={handleSignupChange('email')}></TextField>
+        <PasswordField tabIndex={tabIndexForState('signup')} label="Password" password={signupData.password} onChange={handleSignupChange('password')} />
         <Button variant="contained" color="primary" onClick={handleSignup}>
           Sign Up
         </Button>

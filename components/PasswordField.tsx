@@ -10,33 +10,35 @@ interface PasswordFieldProps {
   password: string
   onChange: (event: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void
   label: string
+  tabIndex?: number
 }
 
 export default function PasswordField(props: PasswordFieldProps) {
   const [showPassword, setShowPassword] = useState(false)
 
   return (
-  <FormControl variant="outlined">
-    <InputLabel htmlFor="outlined-adornment-password">{props.label}</InputLabel>
-    <OutlinedInput
-      id="outlined-adornment-password"
-      type={showPassword ? 'text' : 'password'}
-      value={props.password}
-      onChange={props.onChange}
-      endAdornment={
-        <InputAdornment position="end">
-          <IconButton
-            aria-label="toggle password visibility"
-            onClick={ () => setShowPassword(!showPassword) }
-            onMouseDown={ (ev) => ev.preventDefault() }
-            edge="end"
-          >
-            {showPassword ? <Visibility /> : <VisibilityOff />}
-          </IconButton>
-        </InputAdornment>
-      }
-      labelWidth={70}
-    />
-  </FormControl>
+    <FormControl variant="outlined">
+      <InputLabel htmlFor="outlined-adornment-password">{props.label}</InputLabel>
+      <OutlinedInput
+        id="outlined-adornment-password"
+        type={showPassword ? 'text' : 'password'}
+        value={props.password}
+        onChange={props.onChange}
+        inputProps={{ tabIndex: props.tabIndex || 0 }}
+        endAdornment={
+          <InputAdornment position="end">
+            <IconButton
+              aria-label="toggle password visibility"
+              onClick={ () => setShowPassword(!showPassword) }
+              onMouseDown={ (ev) => ev.preventDefault() }
+              edge="end"
+            >
+              {showPassword ? <Visibility /> : <VisibilityOff />}
+            </IconButton>
+          </InputAdornment>
+        }
+        labelWidth={70}
+      />
+    </FormControl>
   )
 }
