@@ -16,7 +16,15 @@ const config = {
 // Initialize Firebase
 if (firebase.apps.length === 0) {
   firebase.initializeApp(config)
-  if (typeof window !== 'undefined') firebase.analytics()
+
+  // Only run this in the browser
+  if (typeof window !== 'undefined') {
+    // make firebase available globally
+    if (process.env.NEXT_PUBLIC_DEBUG) (window as any).firebase = firebase
+
+    // start analytics
+    firebase.analytics()
+  }
 }
 
 if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR) {
@@ -25,3 +33,7 @@ if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR) {
 }
 
 export default firebase
+
+export function collection<T>(name: string) {
+  return firebase.firestore().collection(name) as firebase.firestore.CollectionReference<T>
+}

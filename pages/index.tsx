@@ -1,16 +1,12 @@
-import Container from '@material-ui/core/Container'
-import Typography from '@material-ui/core/Typography'
-import MainBar from '../components/MainBar'
-import MainFooter from '../components/MainFooter'
+import Main from '../components/Main'
+import Hero from '../components/Hero'
+import Teaser from '../components/Teaser'
 
 export default function Home() {
-  return <Container maxWidth="lg">
-    <MainBar />
-    <main>
-      <Typography variant="h1">
-        Evenagement
-      </Typography>
-    </main>
-    <MainFooter />
-  </Container>
+  return (
+    <Main>
+      <Hero />
+      <Teaser />
+    </Main>
+  )
 }
