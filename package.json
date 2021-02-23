@@ -4,10 +4,10 @@
   "private": true,
   "scripts": {
     "test": "eslint .",
-    "dev-auth": "NEXT_PUBLIC_USE_FIREBASE_EMULATOR=1 concurrently --kill-others \"npm run dev\" \"firebase emulators:start\"",
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "emulator": "firebase emulators:start"
   },
   "dependencies": {
     "@material-ui/core": "^4.11.3",
