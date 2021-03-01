@@ -1,14 +1,13 @@
 import { Story, Meta } from '@storybook/react'
 import CommunityCard from './CommunityCard'
-import { Data } from '../services/collections'
 
 export default {
   title: 'CommunityCard',
   component: CommunityCard,
-  argTypes: {}
+  argTypes: { onClick: { action: 'clicked' } }
 } as Meta
 
-const Template: Story<Data.Community> = (community) => <CommunityCard community={community} />
+const Template: Story<any> = (args) => <CommunityCard community={args} onClick={args.onClick}/>
 
 export const Primary = Template.bind({})
 Primary.args = {

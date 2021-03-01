@@ -1,14 +1,6 @@
 import { Story, Meta } from '@storybook/react'
+import CommmunityCard from './CommunityCard'
 import CommunityGrid from './CommunityGrid'
-
-function mockQuery(docs: any): any {
-  return {
-    docs: docs.map((doc: any) => ({
-      id: doc.id,
-      data: () => doc
-    }))
-  }
-}
 
 export default {
   title: 'CommunityGrid',
@@ -16,7 +8,11 @@ export default {
   argTypes: {}
 } as Meta
 
-const Template: Story<any> = (args) => <CommunityGrid communities={mockQuery(args.docs)} />
+const Template: Story<any> = (args) => (
+  <CommunityGrid>
+    {args.docs.map((doc, i) => <CommmunityCard key={i}community={doc} />)}
+  </CommunityGrid>
+)
 
 export const Primary = Template.bind({})
 Primary.args = {
