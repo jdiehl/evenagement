@@ -17,6 +17,12 @@ const config = {
 if (firebase.apps.length === 0) {
   firebase.initializeApp(config)
 
+  // Enable firebase emulator
+  if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR) {
+    firebase.auth().useEmulator('http://localhost:9099/')
+    firebase.firestore().useEmulator('localhost', 8080)
+  }
+
   // Only run this in the browser
   if (typeof window !== 'undefined') {
     // make firebase available globally
@@ -27,13 +33,4 @@ if (firebase.apps.length === 0) {
   }
 }
 
-if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR) {
-  firebase.auth().useEmulator('http://localhost:9099/')
-  firebase.firestore().useEmulator('localhost', 8080)
-}
-
 export default firebase
-
-export function collection<T>(name: string) {
-  return firebase.firestore().collection(name) as firebase.firestore.CollectionReference<T>
-}
