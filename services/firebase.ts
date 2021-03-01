@@ -34,7 +34,3 @@ if (firebase.apps.length === 0) {
 }
 
 export default firebase
-
-export function collection<T>(name: string) {
-  return firebase.firestore().collection(name) as firebase.firestore.CollectionReference<T>
-}

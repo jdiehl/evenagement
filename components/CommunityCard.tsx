@@ -12,12 +12,11 @@ const useStyles = makeStyles({
   },
 })
 
-export default function CommmunityCard({ community }: { community: Data.Community }) {
+export default function CommmunityCard({ community, onClick }: { community: Data.Community, onClick?: () => void }) {
   const classes = useStyles()
-
   return (
     <Card>
-      <CardActionArea>
+      <CardActionArea onClick={onClick}>
         <CardMedia className={classes.media} image={community.image} title={community.name} />
         <CardContent>
           <Typography gutterBottom variant="h5" component="h2">
