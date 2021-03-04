@@ -5,6 +5,7 @@
   "scripts": {
     "test": "eslint .",
     "dev": "next dev",
+    "dev-emulator": "concurrently -k \"npm:dev\" \"npm:emulator\"",
     "build": "next build",
     "start": "next start",
     "emulator": "firebase emulators:start",
