@@ -7,8 +7,8 @@ export default async (req: NextApiRequest, res: NextApiResponse) => {
   await mail.send({
     to: 'jonathan.diehl@gmail.com',
     from: 'no-reply@evenagement.com',
-    subject: 'Test from Evenagement',
-    text: 'Hello how are you'
+    subject: 'Test Email',
+    text: 'nt'
   })
 
   res.status(200).json({ status: 'ok' })
