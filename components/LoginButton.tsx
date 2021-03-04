@@ -1,9 +1,8 @@
 import Button from '@material-ui/core/Button'
 import Box from '@material-ui/core/Box'
-import firebase from '../services/firebase'
 import { useState } from 'react'
 import Modal from '@material-ui/core/Modal'
-import LoginWindow from './LoginWindow'
+import LoginWindow from './LoginWindow/LoginWindow'
 
 export default function LoginButton() {
   // click handler

@@ -8,7 +8,15 @@ export function UserContextProvider({ children }: PropsWithChildren<{}>) {
   const [user, setUser] = useState(auth().currentUser)
 
   useEffect(() => {
-    const unsub = auth().onAuthStateChanged(() => setUser(auth().currentUser))
+    const unsub = auth().onAuthStateChanged(() => {
+      const user = auth().currentUser
+      if (user &&
+        (user.providerData[0].providerId === firebase.auth.EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD) &&
+        (!user.emailVerified)) {
+        return
+      }
+      setUser(user)
+    })
     return () => unsub()
   })
 
