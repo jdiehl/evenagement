@@ -24,9 +24,20 @@ Evenagement is a web application to manage communities.
 
 ### Development with Firebase Emulator
 
+We use the [Firebase Emulator](https://firebase.google.com/docs/emulator-suite) when developing or testing the app.
+
 1. Add `NEXT_PUBLIC_USE_FIREBASE_EMULATOR=1` to `.env.local`
 2. Start emulator: `pnpm run emulator`
 3. Start development as described above
+
+### Storybook
+
+We use [Storybook](https://storybook.js.org) to test and showcase our components.
+
+1. Run `pnpm run storybook`
+2. Open [http://localhost:9009]
+
+Edit `[component].stories.tsx` to configure the options of a component
 
 
 ## Configuration
