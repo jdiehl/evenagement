@@ -15,11 +15,15 @@ export enum AuthProvider {
   Apple
 }
 
+const getURLRoot = () => {
+  return `${window.location.protocol}//${window.location.hostname}` + (window.location.port ? `:${window.location.port}` : '')
+}
+
 export async function signup(email: string, password: string): Promise<firebase.User> {
   const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password)
   if (!userCredential.user.emailVerified) {
     await userCredential.user.sendEmailVerification({
-      url: 'http://localhost:3000/verifyEmail'
+      url: `${getURLRoot()}/verifyEmail`
     })
   }
   return userCredential.user
