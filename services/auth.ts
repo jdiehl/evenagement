@@ -32,3 +32,17 @@ export async function signup(email: string, password: string): Promise<firebase.
 export function auth() {
   return firebase.auth()
 }
+
+export async function signInWithApple() {
+  const provider = new firebase.auth.OAuthProvider('apple.com')
+
+  // TODO: Generalize everything below
+
+  try {
+    const result = await firebase.auth().signInWithPopup(provider)
+    console.log(result)
+  } catch (error) {
+    // TODO: Handle this error
+    console.error(error)
+  }
+}

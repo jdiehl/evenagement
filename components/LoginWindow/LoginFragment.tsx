@@ -8,6 +8,7 @@ import { ChangeEvent, useContext } from 'react'
 import PasswordField from '../PasswordField'
 import useStyles from './LoginWindowStyles'
 import LoginWindowContext from './LoginWindowContext'
+import { signInWithApple } from '../../services/auth'
 
 interface LoginFragmentProps {
   loginData: {email: string, password: string}
@@ -24,7 +25,7 @@ export default function LoginFragment(props: LoginFragmentProps) {
 
   return (
     <Box component="div" className={classes.loginWindowContent}>
-      <Button variant="contained" startIcon={<AppleIcon />}>
+      <Button variant="contained" startIcon={<AppleIcon />} onClick={signInWithApple}>
         Sign in with Apple
       </Button>
       <Button variant="contained" startIcon={<FacebookIcon />}>
