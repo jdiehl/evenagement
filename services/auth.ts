@@ -46,3 +46,10 @@ export async function signInWithApple() {
     console.error(error)
   }
 }
+
+export function isValidUser(user: firebase.User | undefined): Boolean {
+  if (!user) return false
+  if (user.providerData[0].providerId === firebase.auth.EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD &&
+    !user.emailVerified) return false
+  return true
+}

@@ -1,7 +1,7 @@
 import firebase from 'firebase'
 import { createContext, useState, useEffect, PropsWithChildren } from 'react'
 
-import { auth } from '../services/auth'
+import { auth, isValidUser } from '../services/auth'
 
 const UserContext = createContext<firebase.User | null>(null)
 
@@ -10,12 +10,12 @@ export function UserContextProvider({ children }: PropsWithChildren<{}>) {
 
   useEffect(() => {
     const unsub = auth().onAuthStateChanged(() => {
-      const user = auth().currentUser
-      if (user &&
-        (user.providerData[0].providerId === firebase.auth.EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD) &&
-        (!user.emailVerified)) {
-        return
-      }
+      let user = auth().currentUser
+
+      // if the user is not valid set it to undefined
+      if (!isValidUser(user)) user = undefined
+
+      // store the user in the context
       setUser(user)
     })
     return () => unsub()
