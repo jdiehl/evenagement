@@ -28,6 +28,7 @@ const useStyles = makeStyles((theme) => ({
     transform: 'translateX(0)'
   },
   loginWindowContent: {
+    boxSizing: 'border-box',
     width: '100%',
     display: 'flex',
     padding: theme.spacing(0, 4, 0),

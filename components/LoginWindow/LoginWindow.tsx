@@ -7,7 +7,11 @@ import LoginWindowContext, { LoginWindowState } from './LoginWindowContext'
 import useStyles from './LoginWindowStyles'
 import SignupFragment from './SignupFragment'
 
-const LoginWindow = forwardRef(() => {
+interface LoginWindowProps {
+  state?: LoginWindowState
+}
+
+const LoginWindow = forwardRef(({ state }: LoginWindowProps) => {
   const classes = useStyles()
 
   const [loginData, setLoginData] = useState({
@@ -21,7 +25,7 @@ const LoginWindow = forwardRef(() => {
     username: ''
   })
 
-  const [windowState, setWindowState] = useState<LoginWindowState>('login')
+  const [windowState, setWindowState] = useState<LoginWindowState>(state || 'login')
 
   const handleChange = (prop: string) => (ev: ChangeEvent<any>) => {
     setLoginData({ ...loginData, [prop]: ev.target.value })
