@@ -43,7 +43,7 @@ export default function LoginFragment(props: LoginFragmentProps) {
       <Button variant="contained" startIcon={<FacebookIcon />} onClick={() => performSignInWith('facebook')}>
         Sign in with Facebook
       </Button>
-      <Button variant="contained" startIcon={<GoogleIcon />} onClick={() => performSignInWith('facebook')}>
+      <Button variant="contained" startIcon={<GoogleIcon />} onClick={() => performSignInWith('google')}>
         Sign in with Google
       </Button>
       <Typography variant="body2" align="center">
