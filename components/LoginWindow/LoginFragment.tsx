@@ -6,7 +6,7 @@ import AppleIcon from '@material-ui/icons/Apple'
 import FacebookIcon from '@material-ui/icons/Facebook'
 import { ChangeEvent, useContext } from 'react'
 
-import { signInWithApple } from '../../services/auth'
+import { AuthProvider, signInWith } from '../../services/auth'
 import PasswordField from '../PasswordField'
 
 import LoginWindowContext from './LoginWindowContext'
@@ -25,12 +25,21 @@ export default function LoginFragment(props: LoginFragmentProps) {
     return context.windowState === 'login' ? 0 : -1
   }
 
+  const performSignInWith = async (authProvider: AuthProvider) => {
+    try {
+      await signInWith(authProvider)
+    } catch (error) {
+      // TODO: Handle the error
+      console.error(error)
+    }
+  }
+
   return (
     <Box component="div" className={classes.loginWindowContent}>
-      <Button variant="contained" startIcon={<AppleIcon />} onClick={signInWithApple}>
+      <Button variant="contained" startIcon={<AppleIcon />} onClick={() => performSignInWith('apple')}>
         Sign in with Apple
       </Button>
-      <Button variant="contained" startIcon={<FacebookIcon />}>
+      <Button variant="contained" startIcon={<FacebookIcon />} onClick={() => performSignInWith('facebook')}>
         Sign in with Facebook
       </Button>
       <Typography variant="body2" align="center">
