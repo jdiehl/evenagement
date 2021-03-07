@@ -18,9 +18,8 @@ export default function PasswordField(props: PasswordFieldProps) {
 
   return (
     <FormControl variant="outlined">
-      <InputLabel htmlFor="outlined-adornment-password">{props.label}</InputLabel>
+      <InputLabel>{props.label}</InputLabel>
       <OutlinedInput
-        id="outlined-adornment-password"
         type={showPassword ? 'text' : 'password'}
         value={props.password}
         onChange={props.onChange}
