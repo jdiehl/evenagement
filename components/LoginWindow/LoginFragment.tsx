@@ -30,6 +30,7 @@ export default function LoginFragment(props: LoginFragmentProps) {
       await signInWith(authProvider)
     } catch (error) {
       // TODO: Handle the error
+      // eslint-disable-next-line no-console
       console.error(error)
     }
   }
