@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
+
 import mail from '../../services/mail'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {

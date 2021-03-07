@@ -1,10 +1,11 @@
-import { ChangeEvent, forwardRef, useState } from 'react'
 import Box from '@material-ui/core/Box'
-import useStyles from './LoginWindowStyles'
-import LoginFragment from './LoginFragment'
-import SignupFragment from './SignupFragment'
+import { ChangeEvent, forwardRef, useState } from 'react'
+
 import EmailVerificationFragment from './EmailVerificationFragment'
+import LoginFragment from './LoginFragment'
 import LoginWindowContext, { LoginWindowState } from './LoginWindowContext'
+import useStyles from './LoginWindowStyles'
+import SignupFragment from './SignupFragment'
 
 const LoginWindow = forwardRef(() => {
   const classes = useStyles()

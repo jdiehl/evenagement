@@ -1,7 +1,8 @@
 // from: https://github.com/mui-org/material-ui/blob/master/examples/nextjs/pages/_document.js
-import { Children } from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheets } from '@material-ui/core/styles'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
+import { Children } from 'react'
+
 import theme from '../styles/theme'
 
 export default class MyDocument extends Document {

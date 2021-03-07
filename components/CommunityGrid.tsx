@@ -1,5 +1,5 @@
-import { Children, PropsWithChildren } from 'react'
 import Grid from '@material-ui/core/Grid'
+import { Children, PropsWithChildren } from 'react'
 
 export default function CommunityGrid({ children }: PropsWithChildren<{}>) {
   return (

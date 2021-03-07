@@ -1,14 +1,16 @@
 import Box from '@material-ui/core/Box'
 import Button from '@material-ui/core/Button'
 import TextField from '@material-ui/core/TextField'
+import Typography from '@material-ui/core/Typography'
 import AppleIcon from '@material-ui/icons/Apple'
 import FacebookIcon from '@material-ui/icons/Facebook'
-import Typography from '@material-ui/core/Typography'
 import { ChangeEvent, useContext } from 'react'
-import PasswordField from '../PasswordField'
-import useStyles from './LoginWindowStyles'
-import LoginWindowContext from './LoginWindowContext'
+
 import { signInWithApple } from '../../services/auth'
+import PasswordField from '../PasswordField'
+
+import LoginWindowContext from './LoginWindowContext'
+import useStyles from './LoginWindowStyles'
 
 interface LoginFragmentProps {
   loginData: {email: string, password: string}

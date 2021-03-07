@@ -3,12 +3,14 @@ import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
-import { ChangeEvent, useContext, useState } from 'react'
-import PasswordField from '../PasswordField'
-import useStyles from './LoginWindowStyles'
 import ArrowBackIcon from '@material-ui/icons/ArrowBack'
+import { ChangeEvent, useContext, useState } from 'react'
+
 import { signup } from '../../services/auth'
+import PasswordField from '../PasswordField'
+
 import LoginWindowContext from './LoginWindowContext'
+import useStyles from './LoginWindowStyles'
 
 interface SignupFragmentProps {
   signupData: {username: string, email: string, password: string}

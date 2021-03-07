@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react'
+
 import Teaser from './Teaser'
 
 export default {

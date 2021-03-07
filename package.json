@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "eslint .",
+    "test": "eslint . --ext .js,.jsx,.ts,.tsx",
     "dev": "next dev",
     "dev-emulator": "concurrently -k \"npm:dev\" \"npm:emulator\"",
     "build": "next build",

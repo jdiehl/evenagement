@@ -1,5 +1,6 @@
-import { createContext, useState, useEffect, PropsWithChildren } from 'react'
 import firebase from 'firebase'
+import { createContext, useState, useEffect, PropsWithChildren } from 'react'
+
 import { auth } from '../services/auth'
 
 const UserContext = createContext<firebase.User | null>(null)
