@@ -1,22 +1,24 @@
 import firebase from './firebase'
 
+export type AuthProvider = 'email' | 'google' | 'facebook' | 'apple'
+
+const getURLRoot = () => {
+  return `${window.location.protocol}//${window.location.hostname}` + (window.location.port ? `:${window.location.port}` : '')
+}
+
+function makeAuthProvider(authProvider: AuthProvider) {
+  switch (authProvider) {
+    case 'apple': return new firebase.auth.OAuthProvider('apple.com')
+    default: throw new Error('Missing Auth Provider Definition')
+  }
+}
+
 export async function email(email: string) {
   const actionCodeSettings = {
     url: 'http://localhost:3000/signin',
     dynamicLinkDomain: 'evenagement.com'
   }
   await firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
-}
-
-export enum AuthProvider {
-  Email,
-  Google,
-  Facebook,
-  Apple
-}
-
-const getURLRoot = () => {
-  return `${window.location.protocol}//${window.location.hostname}` + (window.location.port ? `:${window.location.port}` : '')
 }
 
 export async function signup(email: string, password: string): Promise<firebase.User> {
@@ -29,24 +31,13 @@ export async function signup(email: string, password: string): Promise<firebase.
   return userCredential.user
 }
 
-export function auth() {
-  return firebase.auth()
+// sign in with the given auth provider
+export async function signInWith(authProvider: AuthProvider) {
+  const provider = makeAuthProvider(authProvider)
+  await firebase.auth().signInWithPopup(provider)
 }
 
-export async function signInWithApple() {
-  const provider = new firebase.auth.OAuthProvider('apple.com')
-
-  // TODO: Generalize everything below
-
-  try {
-    const result = await firebase.auth().signInWithPopup(provider)
-    console.log(result)
-  } catch (error) {
-    // TODO: Handle this error
-    console.error(error)
-  }
-}
-
+// check if the user is valid
 export function isValidUser(user: firebase.User | undefined): Boolean {
   if (!user) return false
   if (user.providerData[0].providerId === firebase.auth.EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD &&
