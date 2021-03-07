@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+
 import firebase from './firebase'
 
 // get a typed firestore collection

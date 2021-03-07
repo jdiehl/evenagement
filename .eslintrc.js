@@ -27,11 +27,12 @@ module.exports = {
   rules: {
     'arrow-parens': 0,
     'comma-dangle': 0,
+    'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index'], 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
     'no-console': ['warn'],
     'no-unreachable': ['warn'],
     'no-unused-vars': ['warn', { args: 'none' }],
-    'react/react-in-jsx-scope': 0,
     'react/jsx-indent': [2, 2],
+    'react/react-in-jsx-scope': 0,
     'require-await': 0,
     'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
     camelcase: 0,

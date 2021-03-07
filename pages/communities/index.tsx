@@ -1,9 +1,10 @@
 import { useRouter } from 'next/router'
-import { collection, useQuery } from '../../services/firestore'
-import { Data } from '../../services/collections'
-import Main from '../../components/Main'
-import CommunityGrid from '../../components/CommunityGrid'
+
 import CommunityCard from '../../components/CommunityCard'
+import CommunityGrid from '../../components/CommunityGrid'
+import Main from '../../components/Main'
+import { Data } from '../../services/collections'
+import { collection, useQuery } from '../../services/firestore'
 
 export default function Communities() {
   const router = useRouter()

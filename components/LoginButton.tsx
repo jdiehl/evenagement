@@ -1,11 +1,19 @@
 import Button from '@material-ui/core/Button'
-import firebase from '../services/firebase'
+import Modal from '@material-ui/core/Modal'
+import { useState } from 'react'
+
+import LoginWindow from './LoginWindow/LoginWindow'
 
 export default function LoginButton() {
   // click handler
-  const onClick = () => firebase.auth().signInAnonymously()
+  const [loginOpen, setLoginOpen] = useState(false)
 
   return (
-    <Button color="inherit" onClick={onClick}>Sign in</Button>
+    <>
+      <Button color="inherit" onClick={() => setLoginOpen(true)}>Sign in</Button>
+      <Modal open={loginOpen} onClose={() => setLoginOpen(false)}>
+        <LoginWindow />
+      </Modal>
+    </>
   )
 }

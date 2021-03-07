@@ -1,6 +1,8 @@
 import { Story, Meta } from '@storybook/react'
-import UserMenu from './UserMenu'
+
 import UserContext from '../context/UserContext'
+
+import UserMenu from './UserMenu'
 
 export default {
   title: 'UserMenu',
