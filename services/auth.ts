@@ -9,6 +9,8 @@ const getURLRoot = () => {
 function makeAuthProvider(authProvider: AuthProvider) {
   switch (authProvider) {
     case 'apple': return new firebase.auth.OAuthProvider('apple.com')
+    case 'facebook': return new firebase.auth.FacebookAuthProvider()
+    case 'google': return new firebase.auth.GoogleAuthProvider()
     default: throw new Error('Missing Auth Provider Definition')
   }
 }

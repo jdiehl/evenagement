@@ -8,7 +8,7 @@ import { ChangeEvent, useContext } from 'react'
 
 import { AuthProvider, signInWith } from '../../services/auth'
 import PasswordField from '../PasswordField'
-
+import GoogleIcon from './GoogleIcon'
 import LoginWindowContext from './LoginWindowContext'
 import useStyles from './LoginWindowStyles'
 
@@ -42,6 +42,9 @@ export default function LoginFragment(props: LoginFragmentProps) {
       </Button>
       <Button variant="contained" startIcon={<FacebookIcon />} onClick={() => performSignInWith('facebook')}>
         Sign in with Facebook
+      </Button>
+      <Button variant="contained" startIcon={<GoogleIcon />} onClick={() => performSignInWith('google')}>
+        Sign in with Google
       </Button>
       <Typography variant="body2" align="center">
         - or -
