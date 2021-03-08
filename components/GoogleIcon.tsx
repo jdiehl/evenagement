@@ -1,6 +1,6 @@
 export default function GoogleIcon() {
   return (
-    <svg className="MuiSvgIcon-root" width="100%" height="100%" viewBox="0 0 24 24" version="1.1" fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit={2}>
+    <svg className="MuiSvgIcon-root" width="1em" height="1em" viewBox="0 0 24 24" version="1.1" fillRule="evenodd" clipRule="evenodd" strokeLinejoin="round" strokeMiterlimit={2}>
       <g transform="matrix(0.0449859,0,0,0.0440933,0,0)">
         <path d="M533.5,278.4C533.5,259.9 532,241.3 528.8,223.1L272.1,223.1L272.1,327.9L419.1,327.9C413,361.7 393.4,391.6 364.7,410.6L364.7,478.6L452.4,478.6C503.9,431.2 533.5,361.2 533.5,278.4Z" fillRule="nonzero" fill="rgb(66,133,244)" />
       </g>
