@@ -8,6 +8,7 @@ import { ChangeEvent, useContext } from 'react'
 
 import { AuthProvider, signInWith } from '../../services/auth'
 import PasswordField from '../PasswordField'
+
 import GoogleIcon from './GoogleIcon'
 import LoginWindowContext from './LoginWindowContext'
 import useStyles from './LoginWindowStyles'
