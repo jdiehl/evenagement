@@ -4,7 +4,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import CommunityEdit from '../../../components/CommunityEdit'
+// import CommunityEdit from '../../../components/CommunityEdit'
 import Main from '../../../components/Main'
 
 export default function Communities() {
@@ -21,7 +21,7 @@ export default function Communities() {
           <Button startIcon={<ArrowBackIcon />}>Back to Communities</Button>
         </Link>
       </Grid>
-      <CommunityEdit id={id} />
+      {/* <CommunityEdit id={id} /> */}
     </Main>
   )
 }
