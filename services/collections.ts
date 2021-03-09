@@ -7,8 +7,24 @@ export namespace Data {
 
   export interface Community {
     name: string
-    description: string
-    image: string
+    details: {
+      description?: string
+      image?: string
+    }
   }
 
+}
+
+export interface Entity<T> {
+  collection: string
+}
+
+export namespace Entities {
+  export const Event: Entity<Data.Event> = {
+    collection: 'event'
+  }
+
+  export const Community: Entity<Data.Community> = {
+    collection: 'communities'
+  }
 }
