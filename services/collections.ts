@@ -7,10 +7,8 @@ export namespace Data {
 
   export interface Community {
     name: string
-    details: {
-      description?: string
-      image?: string
-    }
+    description?: string
+    image?: string
   }
 
 }
