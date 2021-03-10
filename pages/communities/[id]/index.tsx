@@ -6,11 +6,11 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-import CommunityCard from '../../components/CommunityCard'
-import Loading from '../../components/Loading'
-import Main from '../../components/Main'
-import { Data } from '../../services/collections'
-import { useDoc } from '../../services/firestore'
+import CommunityCard from '../../../components/CommunityCard'
+import Loading from '../../../components/Loading'
+import Main from '../../../components/Main'
+import { Entities } from '../../../services/collections'
+import { useDoc } from '../../../services/firestore'
 
 export default function Communities() {
   // require the router to be ready
@@ -18,7 +18,7 @@ export default function Communities() {
   const id = router.query.id as string
 
   // subscribe to the community document
-  const community = useDoc<Data.Community>('communities', id)
+  const community = useDoc(Entities.Community, id)
 
   // edit mode state
   const [editMode, setEditMode] = useState(false)
