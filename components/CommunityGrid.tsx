@@ -1,14 +1,9 @@
-import Grid from '@material-ui/core/Grid'
-import { Children, PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react'
 
 export default function CommunityGrid({ children }: PropsWithChildren<{}>) {
   return (
-    <Grid container spacing={1}>
-      {Children.map(children, child => (
-        <Grid item md={4} sm={6} xs={12}>
-          {child}
-        </Grid>
-      ))}
-    </Grid>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 m-4">
+      { children }
+    </div>
   )
 }
