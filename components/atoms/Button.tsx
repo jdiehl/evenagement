@@ -1,4 +1,4 @@
-import { createElement, PropsWithChildren } from 'react'
+import { createElement, MouseEventHandler, PropsWithChildren } from 'react'
 
 type ButtonType = 'fill' | 'outline'
 type ButtonTag = 'a' | 'button'
@@ -8,7 +8,7 @@ interface ButtonProps {
   type?: ButtonType
   tag?: ButtonTag
   href?: string
-  onClick?: () => void
+  onClick?: MouseEventHandler
 }
 
 function extraStylesForTag(tag: ButtonTag) {
