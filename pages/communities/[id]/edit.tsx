@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 
 // import CommunityEdit from '../../../components/CommunityEdit'
-import Main from '../../../components/Main'
+import Main from '../../../components/organisms/Main'
 
 export default function Communities() {
   const router = useRouter()

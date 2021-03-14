@@ -1,8 +1,8 @@
 import Link from 'next/link'
 
-import Main from '../../components/Main'
 import CommunityGrid from '../../components/molecules/CommunityGrid'
 import CommunityTile from '../../components/molecules/CommunityTile'
+import Main from '../../components/organisms/Main'
 import { Entities } from '../../services/collections'
 import { collection, useQuery } from '../../services/firestore'
 

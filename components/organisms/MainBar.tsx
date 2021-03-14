@@ -6,10 +6,9 @@ import { makeStyles } from '@material-ui/core/styles'
 import Link from 'next/link'
 import { useContext } from 'react'
 
-import UserContext from '../context/UserContext'
-
-import UserMenu from './UserMenu'
-import LoginButton from './molecules/LoginButton'
+import UserContext from '../../context/UserContext'
+import UserMenu from '../UserMenu'
+import LoginButton from '../molecules/LoginButton'
 
 const useStyles = makeStyles(theme => ({
   grow: {

@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import MainFooter from './MainFooter'
 
 export default {
-  title: 'MainFooter',
+  title: 'Organisms/MainFooter',
   component: MainFooter,
   argTypes: {}
 } as Meta
