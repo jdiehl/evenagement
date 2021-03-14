@@ -8,8 +8,8 @@ import { useContext } from 'react'
 
 import UserContext from '../context/UserContext'
 
-import LoginButton from './LoginButton'
 import UserMenu from './UserMenu'
+import LoginButton from './molecules/LoginButton'
 
 const useStyles = makeStyles(theme => ({
   grow: {

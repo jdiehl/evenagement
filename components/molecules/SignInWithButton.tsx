@@ -45,7 +45,7 @@ export default function SignInWithButton({ provider, onError, onSuccess }: SignI
   }
 
   return (
-    <Button tag="button" type="fill" onClick={() => performSignInWith(provider)}>
+    <Button type="fill" onClick={() => performSignInWith(provider)}>
       <FontAwesomeIcon className="mr-2" icon={iconForProvider(provider)} />
       {signInName(provider)}
     </Button>
