@@ -8,7 +8,8 @@ export default {
   argTypes: {}
 } as Meta
 
-const Template: Story = (args) => <Hero {...args} />
+const Template: Story<any> = (args) => <Hero {...args} />
 
 export const Primary = Template.bind({})
-Primary.args = {}
+Primary.args = {
+}
