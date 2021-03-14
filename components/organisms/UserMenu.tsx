@@ -1,58 +1,55 @@
-import ClickAwayListener from '@material-ui/core/ClickAwayListener'
-import Grow from '@material-ui/core/Grow'
-import IconButton from '@material-ui/core/IconButton'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import Paper from '@material-ui/core/Paper'
-import Popper from '@material-ui/core/Popper'
-import AccountCircleIcon from '@material-ui/icons/AccountCircle'
+import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
-import { useContext, useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 
-import UserContext from '../../context/UserContext'
 import { signout } from '../../services/auth'
 
 export default function UserMenu() {
-  const user = useContext(UserContext)
-
   // reference to element where to place the menu
-  const menuRef = useRef(null)
+  const toggleRef = useRef<HTMLAnchorElement>(null)
+  const menuRef = useRef<HTMLDivElement>(null)
 
   // state: menu open?
-  const [menuOpen, setMenuOpen] = useState(false)
+  const [showMenu, setShowMenu] = useState(false)
 
-  // open/close the menu
-  const openMenu = () => setMenuOpen(true)
-  const closeMenu = () => setMenuOpen(false)
+  useEffect(() => {
+    if (!showMenu) return
+    const listener = (e: MouseEvent) => {
+      // for (let element = e.target as any; element; element = element.parentElement) {
+      //   if (element === menuRef.current) return
+      // }
+      setShowMenu(false)
+    }
+    document.addEventListener('click', listener)
+    return () => document.removeEventListener('click', listener)
+  }, [showMenu])
 
-  // log out the user
-  const onLogoutClick = () => {
-    signout()
-    closeMenu()
+  const style: any = {}
+  if (toggleRef.current) {
+    const rect = toggleRef.current.getBoundingClientRect()
+    style.top = rect.bottom
+    style.right = window.innerWidth - rect.right
   }
+
+  const menu = (
+    <div ref={menuRef} style={style} className="absolute overflow-hidden mt-1 w-56 rounded shadow bg-white" role="menu" aria-orientation="vertical" aria-labelledby="usermenu">
+      <Link href="/profile">
+        <a className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-gray-900" role="menuitem">My Profile</a>
+      </Link>
+      <Link href="/communities">
+        <a onClick={() => setShowMenu(false)} className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-gray-900" role="menuitem">My Communities</a>
+      </Link>
+      <a onClick={() => signout()} className="cursor-pointer block px-4 py-2 text-sm text-gray-700 hover:bg-gray-200 hover:text-gray-900" role="menuitem">Sign Out</a>
+    </div>
+  )
 
   return (
     <>
-      <IconButton ref={menuRef} aria-controls="usermenu" aria-haspopup="true" aria-label="User Menu" color="inherit" onClick={openMenu}>
-        <AccountCircleIcon />
-      </IconButton>
-      <Popper open={menuOpen} anchorEl={menuRef.current} role={undefined} transition disablePortal>
-        {({ TransitionProps, placement }) => (
-          <Grow {...TransitionProps} style={{ transformOrigin: placement === 'bottom' ? 'right top' : 'right bottom' }}>
-            <Paper>
-              <ClickAwayListener onClickAway={closeMenu}>
-                <List id="usermenu">
-                  <ListItem>Hi, {user.displayName}</ListItem>
-                  <Link href="/communities">
-                    <ListItem button onClick={closeMenu}>My Communities</ListItem>
-                  </Link>
-                  <ListItem button onClick={onLogoutClick}>Sign Out</ListItem>
-                </List>
-              </ClickAwayListener>
-            </Paper>
-          </Grow>
-        )}
-      </Popper>
+      <a className="cursor-pointer text-xl" ref={toggleRef} aria-controls="usermenu" aria-haspopup="true" aria-label="User Menu" onClick={() => setShowMenu(true)}>
+        <FontAwesomeIcon icon={faUserCircle} />
+      </a>
+      {showMenu && menu}
     </>
   )
 }

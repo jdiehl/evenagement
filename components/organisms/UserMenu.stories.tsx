@@ -1,7 +1,5 @@
 import { Story, Meta } from '@storybook/react'
 
-import UserContext from '../../context/UserContext'
-
 import UserMenu from './UserMenu'
 
 export default {
@@ -10,11 +8,11 @@ export default {
   argTypes: {}
 } as Meta
 
-const Template: Story = (args) => (
-  <UserContext.Provider value={args.user}>
+const Template: Story = () => (
+  <div className="w-64 flex flex-row-reverse">
     <UserMenu />
-  </UserContext.Provider>
+  </div>
 )
 
 export const Primary = Template.bind({})
-Primary.args = { user: { displayName: 'Testuser' } }
+Primary.args = {}

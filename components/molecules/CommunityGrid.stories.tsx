@@ -17,7 +17,7 @@ const community = {
 
 const Template: Story<any> = (args) => (
   <CommunityGrid>
-    {[...Array(args.tiles)].map((i) => <CommunityTile key={i} community={community} />)}
+    {[...Array(args.tiles)].map((_, i) => <CommunityTile key={i} community={community} />)}
   </CommunityGrid>
 )
 
