@@ -37,6 +37,10 @@ export async function signup(email: string, password: string): Promise<firebase.
   return userCredential.user
 }
 
+export async function signin(email: string, password: string): Promise<void> {
+  await firebase.auth().signInWithEmailAndPassword(email, password)
+}
+
 // sign in with the given auth provider
 export async function signInWith(authProvider: AuthProvider) {
   const provider = makeAuthProvider(authProvider)

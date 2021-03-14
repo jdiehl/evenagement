@@ -4,7 +4,7 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import { ChangeEvent, useContext } from 'react'
 
-import { AuthProvider } from '../../services/auth'
+import { AuthProvider, signin } from '../../services/auth'
 import PasswordField from '../PasswordField'
 import SignInWithButton from '../molecules/SignInWithButton'
 
@@ -34,7 +34,7 @@ export default function LoginFragment(props: LoginFragmentProps) {
       </Typography>
       <TextField inputProps={{ tabIndex: tabIndex() }} variant="outlined" label="Email" value={props.loginData.email} onChange={props.handleChange('email')}></TextField>
       <PasswordField tabIndex={tabIndex()} label="Password" password={props.loginData.password} onChange={props.handleChange('password')} />
-      <Button variant="contained" color="primary">
+      <Button variant="contained" color="primary" onClick={() => signin(props.loginData.email, props.loginData.password)}>
         Login
       </Button>
       <Button size="small" onClick={() => context.setWindowState('signup')}>
