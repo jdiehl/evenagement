@@ -1,6 +1,6 @@
 interface HeroProps {
-  title: string
-  subtitle: string
+  title?: string
+  subtitle?: string
 }
 
 export default function Hero({ title, subtitle }: HeroProps) {
