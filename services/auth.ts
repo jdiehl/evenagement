@@ -1,4 +1,4 @@
-import firebase from './firebase'
+import firebase from 'firebase/app'
 
 export type AuthProvider = 'email' | 'google' | 'facebook' | 'apple'
 
@@ -15,12 +15,16 @@ function makeAuthProvider(authProvider: AuthProvider) {
   }
 }
 
-export async function email(email: string) {
+export async function email(email: string): Promise<void> {
   const actionCodeSettings = {
     url: 'http://localhost:3000/signin',
     dynamicLinkDomain: 'evenagement.com'
   }
   await firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
+}
+
+export async function signout(): Promise<void> {
+  return firebase.auth().signOut()
 }
 
 export async function signup(email: string, password: string): Promise<firebase.User> {

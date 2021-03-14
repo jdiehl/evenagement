@@ -1,7 +1,7 @@
+import firebase from 'firebase/app'
 import { createContext, useState, useEffect, PropsWithChildren } from 'react'
 
 import { isValidUser } from '../services/auth'
-import firebase from '../services/firebase'
 
 const UserContext = createContext<firebase.User | null>(null)
 

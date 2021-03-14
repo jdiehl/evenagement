@@ -10,7 +10,7 @@ import Link from 'next/link'
 import { useContext, useRef, useState } from 'react'
 
 import UserContext from '../context/UserContext'
-import firebase from '../services/firebase'
+import { signout } from '../services/auth'
 
 export default function UserMenu() {
   const user = useContext(UserContext)
@@ -27,7 +27,7 @@ export default function UserMenu() {
 
   // log out the user
   const onLogoutClick = () => {
-    firebase.auth().signOut()
+    signout()
     closeMenu()
   }
 

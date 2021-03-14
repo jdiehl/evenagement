@@ -1,7 +1,7 @@
+import firebase from 'firebase/app'
 import { useEffect, useState } from 'react'
 
 import { Entity } from './collections'
-import firebase from './firebase'
 
 // get a typed firestore collection
 export function collection<T>(entity: Entity<T>) {
