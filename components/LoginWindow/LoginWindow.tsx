@@ -11,7 +11,7 @@ interface LoginWindowProps {
   state?: LoginWindowState
 }
 
-const LoginWindow = forwardRef(({ state }: LoginWindowProps) => {
+const LoginWindow = forwardRef(({ state }: LoginWindowProps, ref) => {
   const classes = useStyles()
 
   const [loginData, setLoginData] = useState({
