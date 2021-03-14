@@ -9,8 +9,8 @@ import AccountCircleIcon from '@material-ui/icons/AccountCircle'
 import Link from 'next/link'
 import { useContext, useRef, useState } from 'react'
 
-import UserContext from '../context/UserContext'
-import { signout } from '../services/auth'
+import UserContext from '../../context/UserContext'
+import { signout } from '../../services/auth'
 
 export default function UserMenu() {
   const user = useContext(UserContext)

@@ -17,7 +17,7 @@ function extraStylesForType(type: ButtonType) {
 }
 
 function stylesForType(type: ButtonType) {
-  let styles = ['px-6', 'py-3', 'select-none', 'font-medium', 'rounded', 'shadow', 'hover:shadow-lg', 'outline-none', 'focus:outline-none', 'cursor-pointer']
+  let styles = ['px-6', 'py-2', 'select-none', 'text-base', 'font-medium', 'rounded', 'shadow', 'hover:shadow-lg', 'outline-none', 'focus:outline-none', 'cursor-pointer']
   styles = styles.concat(extraStylesForType(type))
   return styles.join(' ')
 }

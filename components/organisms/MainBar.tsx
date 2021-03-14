@@ -1,37 +1,44 @@
-import AppBar from '@material-ui/core/AppBar'
-import Button from '@material-ui/core/Button'
-import Container from '@material-ui/core/Container'
-import Toolbar from '@material-ui/core/Toolbar'
-import { makeStyles } from '@material-ui/core/styles'
 import Link from 'next/link'
-import { useContext } from 'react'
+import { useRouter } from 'next/router'
+import { PropsWithChildren, useContext } from 'react'
 
 import UserContext from '../../context/UserContext'
-import UserMenu from '../UserMenu'
 import LoginButton from '../molecules/LoginButton'
 
-const useStyles = makeStyles(theme => ({
-  grow: {
-    flexGrow: 1,
-  },
-}))
+import UserMenu from './UserMenu'
+
+interface NavBarItemProps {
+  href: string
+}
+
+function NavBarItem({ children, href }: PropsWithChildren<NavBarItemProps>) {
+  const router = useRouter()
+  let className = 'px-6 py-3 text-base text-medium hover:text-blue-700 transition-all border-b'
+  if (router.pathname === href) {
+    className += ' text-blue-600 border-blue-600'
+  } else {
+    className += '  border-transparent'
+  }
+  return (
+    <Link href={href}>
+      <a className={className}>
+        {children}
+      </a>
+    </Link>
+  )
+}
 
 export default function MainBar() {
   const user = useContext(UserContext)
-  const classes = useStyles()
   return (
-    <nav>
-      <AppBar color="transparent" elevation={0} position="static">
-        <Container>
-          <Toolbar>
-            <Link href="/">
-              <Button>Evenagement</Button>
-            </Link>
-            <div className={classes.grow} />
-            {user ? <UserMenu /> : <LoginButton />}
-          </Toolbar>
-        </Container>
-      </AppBar>
+    <nav className="container mx-auto flex items-center">
+      <Link href="/">
+        <a className="px-6 py-1 text-xl text-thin">Evenagement</a>
+      </Link>
+      <NavBarItem href="/">Home</NavBarItem>
+      <NavBarItem href="/communities">Communities</NavBarItem>
+      <div className="flex-grow" />
+      {user ? <UserMenu /> : <LoginButton />}
     </nav>
   )
 }
