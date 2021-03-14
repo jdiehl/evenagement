@@ -6,7 +6,7 @@ import { ChangeEvent, useContext } from 'react'
 
 import { AuthProvider } from '../../services/auth'
 import PasswordField from '../PasswordField'
-import SignInWithButton from '../SignInWithButton'
+import SignInWithButton from '../molecules/SignInWithButton'
 
 import LoginWindowContext from './LoginWindowContext'
 import useStyles from './LoginWindowStyles'

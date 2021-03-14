@@ -6,9 +6,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-import CommunityTile from '../../../components/CommunityTile'
 import Loading from '../../../components/Loading'
 import Main from '../../../components/Main'
+import CommunityTile from '../../../components/molecules/CommunityTile'
 import { Entities } from '../../../services/collections'
 import { useDoc } from '../../../services/firestore'
 

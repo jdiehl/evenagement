@@ -1,16 +1,16 @@
-import Button from '@material-ui/core/Button'
-import AppleIcon from '@material-ui/icons/Apple'
-import FacebookIcon from '@material-ui/icons/Facebook'
+import { faApple } from '@fortawesome/free-brands-svg-icons/faApple'
+import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook'
+import { faGoogle } from '@fortawesome/free-brands-svg-icons/faGoogle'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-import { AuthProvider, signInWith } from '../services/auth'
-
-import GoogleIcon from './GoogleIcon'
+import { AuthProvider, signInWith } from '../../services/auth'
+import Button from '../atoms/Button'
 
 function iconForProvider(provider: AuthProvider) {
   switch (provider) {
-    case 'apple': return <AppleIcon />
-    case 'facebook': return <FacebookIcon />
-    case 'google': return <GoogleIcon />
+    case 'apple': return faApple
+    case 'facebook': return faFacebook
+    case 'google': return faGoogle
     default: throw new Error(`Unknown auth provider: ${provider}`)
   }
 }
@@ -42,7 +42,8 @@ export default function SignInWithButton({ provider, onError, onSuccess }: SignI
   }
 
   return (
-    <Button variant="contained" startIcon={iconForProvider(provider)} onClick={() => performSignInWith(provider)}>
+    <Button tag="button" type="fill" onClick={() => performSignInWith(provider)}>
+      <FontAwesomeIcon className="mr-2" icon={iconForProvider(provider)} />
       {signInName(provider)}
     </Button>
   )

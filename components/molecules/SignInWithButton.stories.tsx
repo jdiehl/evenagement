@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import SignInWithButton from './SignInWithButton'
 
 export default {
-  title: 'SignInWithButton',
+  title: 'Molecules/SignInWithButton',
   component: SignInWithButton,
 } as Meta
 

@@ -1,4 +1,4 @@
-import { Data } from '../services/collections'
+import { Data } from '../../services/collections'
 
 interface CommunityTileProps {
   community: Data.Community
