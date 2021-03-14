@@ -21,12 +21,12 @@ export function useDoc<T = any>(entity: Entity<T>, id: string): firebase.firesto
 }
 
 // subscribe to a firestore query in a react component
-export function useQuery<T>(query: firebase.firestore.Query<T>): firebase.firestore.QueryDocumentSnapshot<T>[] | null {
+export function useQuery<T>(query: firebase.firestore.Query<T>, watch?: any): firebase.firestore.QueryDocumentSnapshot<T>[] | null {
   const [docs, setDocs] = useState(null)
 
   useEffect(() => {
     return query.onSnapshot(querySnapshot => setDocs(querySnapshot.docs))
-  }, [query])
+  }, [watch])
 
   return docs
 }
