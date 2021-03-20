@@ -1,16 +1,20 @@
 import { PropsWithChildren, useEffect } from 'react'
 
 interface MenuProps {
+  show: boolean
   className?: string
   onClose: () => void
 }
 
-export default function Menu({ className, children, onClose }: PropsWithChildren<MenuProps>) {
+export default function Menu({ className, show, onClose, children }: PropsWithChildren<MenuProps>) {
   // trigger on close on mouse click
   useEffect(() => {
+    if (!show) return
     document.addEventListener('click', onClose)
     return () => document.removeEventListener('click', onClose)
-  }, [])
+  }, [show])
+
+  if (!show) return null
 
   let classes = 'absolute overflow-hidden rounded shadow bg-white '
   if (className) classes += ' ' + className

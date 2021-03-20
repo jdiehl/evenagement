@@ -17,5 +17,6 @@ const Template: Story<any> = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
+  show: true,
   items: 5
 }

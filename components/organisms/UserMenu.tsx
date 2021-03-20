@@ -15,13 +15,11 @@ export default function UserMenu() {
       <a className="cursor-pointer text-xl" aria-controls="usermenu" aria-haspopup="true" aria-label="User Menu" onClick={() => setShowMenu(true)}>
         <FontAwesomeIcon icon={faUserCircle} />
       </a>
-      {showMenu && (
-        <Menu className="right-0" onClose={() => setShowMenu(false)}>
-          <MenuItem href="/profile" label="My Profile" />
-          <MenuItem href="/communities" label="My Communities" />
-          <MenuItem onClick={signout} label="Sign Out" />
-        </Menu>
-      )}
+      <Menu show={showMenu} className="right-0" onClose={() => setShowMenu(false)}>
+        <MenuItem href="/profile" label="My Profile" />
+        <MenuItem href="/communities" label="My Communities" />
+        <MenuItem onClick={signout} label="Sign Out" />
+      </Menu>
     </span>
   )
 }
