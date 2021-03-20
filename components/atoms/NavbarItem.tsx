@@ -9,11 +9,11 @@ interface NavBarItemProps {
 
 export default function NavbarItem({ active, children, href }: PropsWithChildren<NavBarItemProps>) {
   const router = useRouter()
-  let className = 'px-6 py-3 text-base text-medium hover:text-blue-700 transition-all border-b'
+  let className = 'px-6 py-3 text-base text-medium hover:text-primary-dark transition-all border-b hover:border-primary-dark'
   if (active || (router && router.pathname === href)) {
-    className += ' text-blue-600 border-blue-600'
+    className += ' text-primary border-primary'
   } else {
-    className += '  border-transparent'
+    className += ' border-transparent'
   }
   return (
     <Link href={href}>
