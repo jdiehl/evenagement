@@ -15,9 +15,9 @@ module.exports = {
           bg: colors.gray[100]
         },
         primary: {
-          DEFAULT: colors.blue[600],
-          light: colors.blue[500],
-          dark: colors.blue[700],
+          DEFAULT: '#3066BE', // colors.blue[600],
+          light: '#4B7FD2', // colors.blue[500],
+          dark: '#2958A3', // colors.blue[700],
         },
       }
     },
