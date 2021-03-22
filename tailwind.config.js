@@ -10,6 +10,7 @@ module.exports = {
         white: colors.white,
         gray: {
           DEFAULT: colors.gray[600],
+          light: colors.gray[300],
           line: colors.gray[200],
           bg: colors.gray[100]
         },

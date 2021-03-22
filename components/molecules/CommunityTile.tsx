@@ -11,7 +11,7 @@ export default function CommmunityTile({ community }: CommunityTileProps) {
       <img src={community.image} alt={community.name} className="w-full h-full object-cover" />
       <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 px-4 py-2">
         <h2 className="text-2xl text-white font-medium truncate">{community.name || 'Unnamed Community'}</h2>
-        <p className="text-gray truncate">{community.description}</p>
+        <p className="text-gray-light truncate">{community.description}</p>
       </div>
     </div>
   )
