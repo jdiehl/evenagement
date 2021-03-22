@@ -13,6 +13,7 @@ export namespace Data {
 
 }
 
+// eslint-disable-next-line no-unused-vars
 export interface Entity<T> {
   collection: string
 }

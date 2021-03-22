@@ -1,13 +1,12 @@
-import { useRouter } from 'next/router'
+import Link from 'next/link'
 
-import CommunityCard from '../../components/CommunityCard'
-import CommunityGrid from '../../components/CommunityGrid'
-import Main from '../../components/Main'
+import CommunityGrid from '../../components/molecules/CommunityGrid'
+import CommunityTile from '../../components/molecules/CommunityTile'
+import Main from '../../components/organisms/Main'
 import { Entities } from '../../services/collections'
 import { collection, useQuery } from '../../services/firestore'
 
 export default function Communities() {
-  const router = useRouter()
   const query = collection(Entities.Community).limit(10)
   const docs = useQuery(query) || []
 
@@ -15,7 +14,11 @@ export default function Communities() {
     <Main>
       <CommunityGrid>
         {docs.map(doc => (
-          <CommunityCard key={doc.id} community={doc.data()} onClick={() => router.push(`communities/${doc.id}`)} />
+          <Link key={doc.id} href={`communities/${doc.id}`}>
+            <a>
+              <CommunityTile community={doc.data()} />
+            </a>
+          </Link>
         ))}
       </CommunityGrid>
     </Main>

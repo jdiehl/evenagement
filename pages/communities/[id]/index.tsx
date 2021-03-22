@@ -6,9 +6,9 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
-import CommunityCard from '../../../components/CommunityCard'
-import Loading from '../../../components/Loading'
-import Main from '../../../components/Main'
+import Loading from '../../../components/atoms/Loading'
+import CommunityTile from '../../../components/molecules/CommunityTile'
+import Main from '../../../components/organisms/Main'
 import { Entities } from '../../../services/collections'
 import { useDoc } from '../../../services/firestore'
 
@@ -32,7 +32,7 @@ export default function Communities() {
         </Link>
         <Button startIcon={<EditIcon />} onClick={toggleEditMode}>Edit</Button>
       </Grid>
-      {community ? <CommunityCard community={community.data()}/> : <Loading/>}
+      {community ? <CommunityTile community={community.data()}/> : <Loading/>}
     </Main>
   )
 }

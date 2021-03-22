@@ -5,7 +5,11 @@ import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { useEffect } from 'react'
 
+import { init } from '../services/firebase'
+import '../styles/globals.css'
 import theme from '../styles/theme'
+
+init()
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {

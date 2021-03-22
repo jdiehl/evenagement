@@ -3,19 +3,19 @@ import 'firebase/analytics'
 import 'firebase/auth'
 import 'firebase/firestore'
 
-const config = {
-  apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
-  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTHDOMAIN,
-  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
-  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGEBUCKET,
-  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGINGSENDERID,
-  appId: process.env.NEXT_PUBLIC_FIREBASE_APPID,
-  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID
-}
-
 // Initialize Firebase
-if (firebase.apps.length === 0) {
-  firebase.initializeApp(config)
+export function init() {
+  if (firebase.apps.length > 0) return
+
+  firebase.initializeApp({
+    apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
+    authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTHDOMAIN,
+    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
+    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGEBUCKET,
+    messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGINGSENDERID,
+    appId: process.env.NEXT_PUBLIC_FIREBASE_APPID,
+    measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID
+  })
 
   // Enable firebase emulator
   if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR) {
@@ -32,5 +32,3 @@ if (firebase.apps.length === 0) {
     firebase.analytics()
   }
 }
-
-export default firebase
