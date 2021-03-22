@@ -1,4 +1,4 @@
-import firebase from 'firebase/App'
+import firebase from 'firebase/app'
 import { createContext } from 'react'
 
 import { Data } from '../services/collections'
