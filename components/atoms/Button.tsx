@@ -3,36 +3,35 @@ import { MouseEventHandler, PropsWithChildren } from 'react'
 type ButtonType = 'fill' | 'outline'
 
 interface ButtonProps {
+  tag?: 'a' | 'button' | 'input'
   label?: string
   type?: ButtonType
   href?: string
-  onClick?: MouseEventHandler
   className?: string
+  onClick?: MouseEventHandler
   floating?: boolean
 }
 
 function extraStylesForType(type: ButtonType) {
   switch (type) {
-    case 'fill': return ['text-white', 'bg-blue-600', 'hover:bg-blue-700', 'border', 'border-transparent']
-    case 'outline': return ['text-blue-600', 'hover:text-white', 'bg-transparent', 'hover:bg-blue-700', 'border', 'border-solid', 'border-blue-600']
+    case 'fill': return 'text-white bg-primary hover:bg-primary-dark border border-transparent'
+    case 'outline': return 'text-primary hover:text-white bg-transparent hover:bg-primary-dark border border-solid border-primary hover:border-primary-dark'
   }
 }
 
 function stylesForType(type: ButtonType) {
-  let styles = ['px-6', 'py-2', 'select-none', 'text-base', 'font-medium', 'rounded', 'shadow', 'hover:shadow-lg', 'outline-none', 'focus:outline-none', 'cursor-pointer']
-  styles = styles.concat(extraStylesForType(type))
-  return styles.join(' ')
+  const styles = 'transition-all inline-block px-6 py-1 select-none text-center text-base font-medium rounded shadow hover:shadow-lg outline-none focus:outline-none cursor-pointer'
+  return styles + ' ' + extraStylesForType(type)
 }
 
-export default function Button({ children, label, type, floating, className, ...props }: PropsWithChildren<ButtonProps>) {
-  let classes = stylesForType(type || 'fill')
-  if (className) { classes += ` ${className}` }
-  const style = { transition: 'all .15s ease' }
-
+export default function Button({ children, label, type, floating, tag, ...props }: PropsWithChildren<ButtonProps>) {
+  props.className = (props.className || '') + ' ' + stylesForType(type || 'fill')
   if (floating) {
-    classes += ' rounded-full shadow-xl'
+    props.className += ' rounded-full shadow-xl'
   }
-  return (
-    <a className={classes} style={style} {...props}>{label || children}</a>
-  )
+  switch (tag || 'a') {
+    case 'a': return <a {...props}>{label || children}</a>
+    case 'button': return <button {...props}>{label || children}</button>
+    case 'input': return <input type="submit" value={label} {...props} />
+  }
 }
