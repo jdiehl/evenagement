@@ -7,6 +7,8 @@ interface ButtonProps {
   type?: ButtonType
   href?: string
   onClick?: MouseEventHandler
+  className?: string
+  floating?: boolean
 }
 
 function extraStylesForType(type: ButtonType) {
@@ -22,10 +24,15 @@ function stylesForType(type: ButtonType) {
   return styles.join(' ')
 }
 
-export default function Button({ children, label, type, ...props }: PropsWithChildren<ButtonProps>) {
-  const className = stylesForType(type || 'fill')
+export default function Button({ children, label, type, floating, className, ...props }: PropsWithChildren<ButtonProps>) {
+  let classes = stylesForType(type || 'fill')
+  if (className) { classes += ` ${className}` }
   const style = { transition: 'all .15s ease' }
+
+  if (floating) {
+    classes += ' rounded-full shadow-xl'
+  }
   return (
-    <a className={className} style={style} {...props}>{label || children}</a>
+    <a className={classes} style={style} {...props}>{label || children}</a>
   )
 }

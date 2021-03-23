@@ -1,5 +1,6 @@
 import Link from 'next/link'
 
+import Button from '../../components/atoms/Button'
 import CommunityGrid from '../../components/molecules/CommunityGrid'
 import CommunityTile from '../../components/molecules/CommunityTile'
 import Main from '../../components/organisms/Main'
@@ -12,6 +13,9 @@ export default function Communities() {
 
   return (
     <Main>
+      <Link href="communities/create">
+        <Button>Create new...</Button>
+      </Link>
       <CommunityGrid>
         {docs.map(doc => (
           <Link key={doc.id} href={`communities/${doc.id}`}>
