@@ -6,6 +6,7 @@ interface ButtonProps {
   tag?: 'a' | 'button' | 'input'
   label?: string
   type?: ButtonType
+  floating?: boolean
   href?: string
   className?: string
   onClick?: MouseEventHandler
@@ -23,8 +24,14 @@ function stylesForType(type: ButtonType) {
   return styles + ' ' + extraStylesForType(type)
 }
 
-export default function Button({ children, label, type, tag, ...props }: PropsWithChildren<ButtonProps>) {
-  props.className = (props.className || '') + ' ' + stylesForType(type || 'fill')
+export default function Button({ children, label, type, tag, floating, ...props }: PropsWithChildren<ButtonProps>) {
+  props.className = stylesForType(type || 'fill') + (props.className ? ` ${props.className}` : '')
+
+  // add floating classes
+  if (floating) {
+    props.className += ' rounded-full shadow-xl'
+  }
+
   switch (tag || 'a') {
     case 'a': return <a {...props}>{label || children}</a>
     case 'button': return <button {...props}>{label || children}</button>
