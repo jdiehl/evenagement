@@ -56,7 +56,15 @@ NEXT_PUBLIC_FIREBASE_APPID=
 NEXT_PUBLIC_FIREBASE_MEASUREMENTID=
 ```
 
-Also set your project ID in [`.firebaserc`](./.firebaserc).
+Also set your project ID in [`.firebaserc`](./.firebaserc):
+
+```
+{
+  "projects": {
+    "default": "<your Firebase project ID>"
+  }
+}
+```
 
 **Development Configuration:**
 
