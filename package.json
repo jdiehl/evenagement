@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "tsc --project .; eslint . --ext .js,.jsx,.ts,.tsx",
+    "test": "tsc --project . && eslint . --ext .js,.jsx,.ts,.tsx",
     "prepare": "husky install",
     "dev": "next dev",
     "dev-emulator": "concurrently -k \"npm:dev\" \"npm:emulator\"",
