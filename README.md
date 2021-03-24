@@ -12,7 +12,7 @@ Evenagement is a web application to manage communities.
 
 ### Development
 
-We use the [Firebase Emulator](https://firebase.google.com/docs/emulator-suite) for development and testing. (Note that you still need to configure a real Firebase Project in the environment, as [shown below](#environment).)
+We use the [Firebase Emulator](https://firebase.google.com/docs/emulator-suite) for development and testing. (Note that you still need to configure a real Firebase project in the environment, as [shown below](#environment).)
 
 1. Ensure `NEXT_PUBLIC_USE_FIREBASE_EMULATOR=1` is set in [`.env.local`](./.env.local)
 2. Start emulator: `pnpm run emulator`
