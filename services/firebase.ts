@@ -28,7 +28,9 @@ export function init() {
     // make firebase available globally
     if (process.env.NEXT_PUBLIC_DEBUG) (window as any).firebase = firebase
 
-    // start analytics
-    firebase.analytics()
+    // start analytics (only if measurement id is set and not running in emulator)
+    if (!process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR && process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID) {
+      firebase.analytics()
+    }
   }
 }
