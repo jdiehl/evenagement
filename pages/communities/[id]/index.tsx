@@ -1,11 +1,10 @@
-import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
-import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-import EditIcon from '@material-ui/icons/Edit'
+import { faArrowLeft, faEdit } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
+import Button from '../../../components/atoms/Button'
 import Loading from '../../../components/atoms/Loading'
 import CommunityTile from '../../../components/molecules/CommunityTile'
 import Main from '../../../components/organisms/Main'
@@ -26,12 +25,12 @@ export default function Communities() {
 
   return (
     <Main>
-      <Grid container spacing={1}>
+      <div className="flex flex-row">
         <Link href="/communities">
-          <Button startIcon={<ArrowBackIcon />}>Back to Communities</Button>
+          <Button><FontAwesomeIcon icon={faArrowLeft} /> Back to Communities</Button>
         </Link>
-        <Button startIcon={<EditIcon />} onClick={toggleEditMode}>Edit</Button>
-      </Grid>
+        <Button onClick={toggleEditMode}><FontAwesomeIcon icon={faEdit} /> Edit</Button>
+      </div>
       {community ? <CommunityTile community={community.data()}/> : <Loading/>}
     </Main>
   )

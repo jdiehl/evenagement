@@ -1,17 +1,24 @@
 import TextField from '@material-ui/core/TextField'
 import { CloudUpload } from '@material-ui/icons'
 
-import { Entities, Data } from '../services/collections'
-import { useDoc } from '../services/firestore'
+import { Data } from '../services/collections'
+import useStateWithFormHelper from '../services/formUtils'
 
 import Button from './atoms/Button'
 
-export default function CommunityEdit(props: { doc: Data.Community }) {
+interface CommunityEditProps {
+  doc: Data.Community,
+  onSave?: (doc: Data.Community) => void
+}
+
+export default function CommunityEdit({ doc, onSave }: CommunityEditProps) {
+  const [localDoc, , onChange] = useStateWithFormHelper(doc)
+
   return (
     <form>
       <div className="flex justify-between pb-4">
         <Button type="outline">Cancel</Button>
-        <Button>Save</Button>
+        <Button onClick={() => onSave(localDoc)}>Save</Button>
       </div>
       <div className="flex flex-col">
         <div className="relative">
@@ -23,8 +30,8 @@ export default function CommunityEdit(props: { doc: Data.Community }) {
             <CloudUpload />
           </Button>
         </div>
-        <TextField id="name" label="Community Name" />
-        <TextField multiline rows={6} id="description" label="Description" />
+        <TextField id="name" label="Community Name" value={localDoc.name} onChange={onChange('name')}/>
+        <TextField multiline rows={6} id="description" label="Description" value={localDoc.description} onChange={onChange('description')}/>
       </div>
     </form>
   )
