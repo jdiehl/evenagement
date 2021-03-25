@@ -7,6 +7,7 @@ Evenagement is a web application to manage communities.
 
 1. Install [pnpm](https://pnpm.js.org): `npm i -g pnpm`
 2. Install [firebase-tools](https://firebase.google.com/docs/cli): `pnpm i -g firebase-tools`
+3. Initialize Firebase: `firebase init`
 
 ### Production Build
 
