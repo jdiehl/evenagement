@@ -35,6 +35,7 @@ module.exports = {
     'react/react-in-jsx-scope': 0,
     'require-await': 0,
     'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
+    'react/jsx-curly-spacing': [2, { when: 'never', children: true }],
     camelcase: 0,
     curly: ['error', 'multi-line'],
     semi: ['error', 'never'],

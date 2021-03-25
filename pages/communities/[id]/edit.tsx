@@ -6,6 +6,8 @@ import { useRouter } from 'next/router'
 
 import CommunityEdit from '../../../components/CommunityEdit'
 import Main from '../../../components/organisms/Main'
+import { Entities } from '../../../services/collections'
+import { useDoc } from '../../../services/firestore'
 
 export default function Communities() {
   const router = useRouter()
@@ -14,6 +16,8 @@ export default function Communities() {
     id = id[0]
   }
 
+  const doc = useDoc(Entities.Community, id)
+
   return (
     <Main>
       <Grid container spacing={1}>
@@ -21,7 +25,7 @@ export default function Communities() {
           <Button startIcon={<ArrowBackIcon />}>Back to Communities</Button>
         </Link>
       </Grid>
-      <CommunityEdit id={id} />
+      <CommunityEdit doc={doc.data} />
     </Main>
   )
 }
