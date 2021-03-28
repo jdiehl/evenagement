@@ -9,7 +9,7 @@ export default {
 } as Meta
 
 const Template: Story = (args) => (
-  <Carousell className="h-8" index={args.index}>
+  <Carousell index={args.index}>
     {[...Array(args.items)].map((_, i) => <div key={i}>Item {i}</div>)}
   </Carousell>
 )
