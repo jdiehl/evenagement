@@ -5,11 +5,11 @@ import Button from '../atoms/Button'
 
 import Modal from './Modal'
 
-interface LoginButtonProps {
+interface SignInButtonProps {
   label?: string
 }
 
-export default function LoginButton({ label }: LoginButtonProps) {
+export default function SignInButton({ label }: SignInButtonProps) {
   // click handler
   const [showLogin, setShowLogin] = useState(false)
 
