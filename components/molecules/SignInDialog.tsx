@@ -11,20 +11,21 @@ const providers: AuthProvider[] = ['apple', 'facebook', 'google']
 
 interface SignInDialogProps {
   onSignUp: (email: string) => void
+  onClose: () => void
 }
 
-export default function SignInDialog({ onSignUp }: SignInDialogProps) {
+export default function SignInDialog({ onSignUp, onClose }: SignInDialogProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  function onSubmit() {
+  const onSubmit = () => {
     // todo
   }
 
   return (
     <form onSubmit={onSubmit}>
       <div className="flex flex-col space-y-4">
-        {providers.map(provider => <SignInWithButton key={provider} provider={provider} />)}
+        {providers.map(provider => <SignInWithButton key={provider} provider={provider} onSuccess={onClose}/>)}
         <Line label="or" />
         <Input type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
         <Input type="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
