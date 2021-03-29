@@ -5,10 +5,11 @@ interface InputProps {
   label?: string
   placeholder?: string
   value?: string
+  minLength?: number
   onChange: ChangeEventHandler<HTMLInputElement>
 }
 
-export default function Input({ type, label, placeholder, value, onChange }: InputProps) {
+export default function Input({ minLength, type, label, placeholder, value, onChange }: InputProps) {
   return (
     <label className="block text-sm font-bold">
       {label && <div className="ml-1 mb-1">{label}</div>}
@@ -17,6 +18,7 @@ export default function Input({ type, label, placeholder, value, onChange }: Inp
         type={type || 'text'}
         placeholder={placeholder}
         value={value}
+        minLength={minLength}
         onChange={onChange} />
     </label>
   )

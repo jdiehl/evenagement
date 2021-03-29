@@ -32,7 +32,7 @@ export default function SignInModal({ show, onClose, index: initialIndex }: Sign
       <Dialog>
         <Carousell className="w-80" index={index}>
           <SignInDialog onSignUp={onSignUp} onClose={onClose} />
-          <SignUpDialog email={email} onBack={() => setIndex(0)} />
+          <SignUpDialog email={email} onBack={() => setIndex(0)} onSignUp={() => setIndex(2)} />
           <SignUpCompleteDialog />
         </Carousell>
       </Dialog>
