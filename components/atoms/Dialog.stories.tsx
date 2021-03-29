@@ -1,22 +1,18 @@
 import { Story, Meta } from '@storybook/react'
 
 import Dialog from './Dialog'
-import Modal from './Modal'
 
 export default {
-  title: 'Molecules/Modal',
-  component: Modal,
+  title: 'Atoms/Dialog',
+  component: Dialog,
 } as Meta
 
 const Template: Story<any> = (args) => (
-  <Modal {...args}>
-    <Dialog>
-      Modal Dialog
-    </Dialog>
-  </Modal>
+  <Dialog {...args}>
+    Sit deserunt veniam nostrud do velit commodo reprehenderit adipisicing sit aliqua.
+  </Dialog>
 )
 
 export const Primary = Template.bind({})
 Primary.args = {
-  show: true
 }

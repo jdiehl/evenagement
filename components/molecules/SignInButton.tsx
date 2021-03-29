@@ -1,9 +1,8 @@
 import { useState } from 'react'
 
-import LoginWindow from '../LoginWindow/LoginWindow'
 import Button from '../atoms/Button'
 
-import Modal from './Modal'
+import SignInModal from './SignInModal'
 
 interface SignInButtonProps {
   label?: string
@@ -16,9 +15,7 @@ export default function SignInButton({ label }: SignInButtonProps) {
   return (
     <>
       <Button onClick={() => setShowLogin(true)}>{label || 'Sign in'}</Button>
-      <Modal show={showLogin} onClose={() => setShowLogin(false)}>
-        <LoginWindow />
-      </Modal>
+      <SignInModal show={showLogin} onClose={() => setShowLogin(false)} />
     </>
   )
 }
