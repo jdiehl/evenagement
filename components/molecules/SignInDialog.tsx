@@ -1,9 +1,10 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 
-import { AuthProvider } from '../../services/auth'
+import { AuthProvider, signin } from '../../services/auth'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
 import Line from '../atoms/Line'
+import Toast from '../atoms/Toast'
 
 import SignInWithButton from './SignInWithButton'
 
@@ -17,9 +18,18 @@ interface SignInDialogProps {
 export default function SignInDialog({ onSignUp, onClose }: SignInDialogProps) {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showError, setShowError] = useState(false)
 
-  const onSubmit = () => {
-    // todo
+  // sign in via email
+  const onSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    try {
+      await signin(email, password)
+    } catch (err) {
+      setShowError(true)
+      return
+    }
+    onClose()
   }
 
   return (
@@ -31,6 +41,10 @@ export default function SignInDialog({ onSignUp, onClose }: SignInDialogProps) {
         <Input type="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <Button tag="input" label="Sign In" />
         <Button type="outline" onClick={() => onSignUp(email)}>Sign Up With Email</Button>
+        <Toast show={showError} onHide={() => setShowError(false)} type="error">
+          <p className="font-bold">Could not sign in</p>
+          <p>Please verify that you have entered the correct email and password.</p>
+        </Toast>
       </div>
     </form>
   )
