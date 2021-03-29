@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Carousell from '../atoms/Carousell'
 import Dialog from '../atoms/Dialog'
@@ -21,6 +21,11 @@ export default function SignInModal({ show, onClose, index: initialIndex }: Sign
     setEmail(email)
     setIndex(1)
   }
+
+  // reset index if dialog is reopened
+  useEffect(() => {
+    if (show) setIndex(initialIndex || 0)
+  }, [show])
 
   return (
     <Modal show={show} onClose={onClose}>
