@@ -28,8 +28,8 @@ export default function PasswordField(props: PasswordFieldProps) {
           <InputAdornment position="end">
             <IconButton
               aria-label="toggle password visibility"
-              onClick={ () => setShowPassword(!showPassword) }
-              onMouseDown={ (ev) => ev.preventDefault() }
+              onClick={() => setShowPassword(!showPassword)}
+              onMouseDown={(ev) => ev.preventDefault()}
               edge="end"
             >
               {showPassword ? <Visibility /> : <VisibilityOff />}

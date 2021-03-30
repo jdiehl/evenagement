@@ -50,7 +50,7 @@ export default function SignupFragment(props: SignupFragmentProps) {
       <TextField required inputProps={{ tabIndex: tabIndex() }} variant="outlined" label="Username" value={props.signupData.username} onChange={props.handleSignupChange('username')}></TextField>
       <TextField required inputProps={{ tabIndex: tabIndex() }} variant="outlined" label="Email" value={props.signupData.email} onChange={props.handleSignupChange('email')}></TextField>
       <PasswordField tabIndex={tabIndex()} label="Password" password={props.signupData.password} onChange={props.handleSignupChange('password')} />
-      <Typography variant='subtitle1' color='error'>{ errorMessage }</Typography>
+      <Typography variant='subtitle1' color='error'>{errorMessage}</Typography>
       <Button variant="contained" color="primary" onClick={handleSignup}>
         Sign Up
       </Button>
