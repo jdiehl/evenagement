@@ -27,18 +27,16 @@ export async function signout(): Promise<void> {
   return firebase.auth().signOut()
 }
 
-export async function signup(email: string, password: string): Promise<firebase.User> {
-  const userCredential = await firebase.auth().createUserWithEmailAndPassword(email, password)
-  if (!userCredential.user.emailVerified) {
-    await userCredential.user.sendEmailVerification({
-      url: `${getURLRoot()}/verifyEmail`
-    })
+export async function signup(email: string, password: string): Promise<void> {
+  const { user } = await firebase.auth().createUserWithEmailAndPassword(email, password)
+  if (!user.emailVerified) {
+    await user.sendEmailVerification({ url: `${getURLRoot()}/verifyEmail` })
   }
-  return userCredential.user
 }
 
 export async function signin(email: string, password: string): Promise<void> {
-  await firebase.auth().signInWithEmailAndPassword(email, password)
+  const { user } = await firebase.auth().signInWithEmailAndPassword(email, password)
+  if (!user.emailVerified) throw new Error('Email address is not verified')
 }
 
 // sign in with the given auth provider
