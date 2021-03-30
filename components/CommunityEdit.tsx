@@ -1,8 +1,8 @@
 import TextField from '@material-ui/core/TextField'
 import { CloudUpload } from '@material-ui/icons'
 
+import useBinding from '../lib/useBinding'
 import { Data } from '../services/collections'
-import useStateWithFormHelper from '../services/formUtils'
 
 import Button from './atoms/Button'
 
@@ -12,7 +12,7 @@ interface CommunityEditProps {
 }
 
 export default function CommunityEdit({ doc, onSave }: CommunityEditProps) {
-  const [localDoc, , onChange] = useStateWithFormHelper(doc)
+  const [localDoc, docBinding] = useBinding(doc)
 
   return (
     <form>
@@ -30,8 +30,8 @@ export default function CommunityEdit({ doc, onSave }: CommunityEditProps) {
             <CloudUpload />
           </Button>
         </div>
-        <TextField id="name" label="Community Name" value={localDoc.name} onChange={onChange('name')}/>
-        <TextField multiline rows={6} id="description" label="Description" value={localDoc.description} onChange={onChange('description')}/>
+        <TextField id="name" label="Community Name" {...docBinding('name')}/>
+        <TextField multiline rows={6} id="description" label="Description" {...docBinding('description')} />
       </div>
     </form>
   )
