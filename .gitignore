@@ -37,3 +37,7 @@ yarn-error.log*
 .firebaserc
 *-debug.log
 emulator-data
+
+# other lockfiles
+package-lock.json
+yarn.lock
