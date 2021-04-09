@@ -1,31 +1,36 @@
-import Button from '@material-ui/core/Button'
-import Grid from '@material-ui/core/Grid'
-import ArrowBackIcon from '@material-ui/icons/ArrowBack'
-import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { useState } from 'react'
 
-import CommunityEdit from '../../../components/CommunityEdit'
+import Loading from '../../../components/atoms/Loading'
+import Toast from '../../../components/atoms/Toast'
+import CommunityEdit from '../../../components/organisms/CommunityEdit'
 import Main from '../../../components/organisms/Main'
-import { Entities } from '../../../services/collections'
-import { useDoc } from '../../../services/firestore'
+import { Data, Entities } from '../../../services/collections'
+import { collection, useDoc } from '../../../services/firestore'
 
 export default function Communities() {
   const router = useRouter()
-  let id = router.query.id
-  if (Array.isArray(id)) {
-    id = id[0]
-  }
+  if (!router.query.id) return <Loading />
+
+  const id = router.query.id.toString()
+  const [error, setError] = useState('')
 
   const doc = useDoc(Entities.Community, id)
+  if (!doc) return <Loading />
+
+  const saveDoc = async (data: Data.Community) => {
+    try {
+      await collection(Entities.Community).doc(id).update(data)
+      router.push(`/communities/${id}`)
+    } catch (e) {
+      setError(`Unable to update document: ${e.message}`)
+    }
+  }
 
   return (
     <Main>
-      <Grid container spacing={1}>
-        <Link href="/communities">
-          <Button startIcon={<ArrowBackIcon />}>Back to Communities</Button>
-        </Link>
-      </Grid>
-      <CommunityEdit doc={doc.data} />
+      <CommunityEdit doc={doc.data()} onSave={saveDoc}/>
+      <Toast show={!!error} onHide={() => setError('')} type="error">{error}</Toast>
     </Main>
   )
 }
