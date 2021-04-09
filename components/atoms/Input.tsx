@@ -21,7 +21,7 @@ function elementForType(type: InputType, props: any) {
 }
 
 export default function Input({ type, label, ...props }: InputProps) {
-  props.className = "shadow appearance-none border rounded w-full py-2 px-3" + (props.className ? ` ${props.className}` : '')
+  props.className = 'shadow appearance-none border rounded w-full py-2 px-3' + (props.className ? ` ${props.className}` : '')
 
   const element = elementForType(type, props)
   return (

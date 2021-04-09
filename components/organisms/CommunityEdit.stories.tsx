@@ -8,6 +8,7 @@ export default {
   argTypes: {}
 } as Meta
 
+// eslint-disable-next-line react/prop-types
 const Template: Story<any> = ({ onSave, ...doc }) => {
   return <CommunityEdit onSave={onSave} doc={doc}/>
 }
