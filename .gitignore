@@ -34,5 +34,10 @@ yarn-error.log*
 .vercel
 
 # firebase
+.firebaserc
 *-debug.log
 emulator-data
+
+# other lockfiles
+package-lock.json
+yarn.lock

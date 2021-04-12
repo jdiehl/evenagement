@@ -6,29 +6,22 @@ Evenagement is a web application to manage communities.
 ## Setup
 
 1. Install [pnpm](https://pnpm.js.org): `npm i -g pnpm`
-2. Install [firebase-tools](https://firebase.google.com/docs/cli): `pnpm i -g firebase-tools`
-3. Configure environment (see below)
+2. Install [firebase-tools](https://firebase.google.com/docs/cli): `pnpm i -g firebase-tools` (only if you plan to use the emulator or use their hosting)
 
 ### Production Build
 
 1. Install packages: `pnpm i --frozen-lockfile`
-2. Build: `pnpm build`
-3. Start: `pnpm start`
-4. Open [http://localhost:3000/]
+2. Configure environment (see below)
+3. Build: `pnpm build`
+4. Start: `pnpm start`
+5. Open [http://localhost:3000/]
 
 ### Development
 
 1. Install packages: `pnpm i`
+2. Start [Firebase Emulator](https://firebase.google.com/docs/emulator-suite): `pnpm run emulator`
 2. Start development server: `pnpm run dev`
 3. Open [http://localhost:3000/]
-
-### Development with Firebase Emulator
-
-We use the [Firebase Emulator](https://firebase.google.com/docs/emulator-suite) when developing or testing the app.
-
-1. Add `NEXT_PUBLIC_USE_FIREBASE_EMULATOR=1` to `.env.local`
-2. Start emulator: `pnpm run emulator`
-3. Start development as described above
 
 ### Storybook
 

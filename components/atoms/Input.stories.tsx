@@ -34,3 +34,11 @@ Password.args = {
   label: 'Password',
   placeholder: 'Placeholder'
 }
+
+export const Textarea = Template.bind({})
+Textarea.args = {
+  type: 'textarea',
+  label: 'Textarea',
+  rows: 6,
+  placeholder: 'Elit nisi labore labore excepteur sit aute cupidatat aute incididunt quis aute tempor.'
+}
