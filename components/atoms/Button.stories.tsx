@@ -33,3 +33,9 @@ Input.args = {
   label: 'Input Tag',
   tag: 'input'
 }
+
+export const Floating = Template.bind({})
+Floating.args = {
+  label: 'Floating Button',
+  floating: true
+}
