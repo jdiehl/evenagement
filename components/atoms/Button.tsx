@@ -1,15 +1,16 @@
-import { MouseEventHandler, PropsWithChildren } from 'react'
+import { ChangeEventHandler, MouseEventHandler, PropsWithChildren } from 'react'
 
 type ButtonType = 'fill' | 'outline'
 
 interface ButtonProps {
-  tag?: 'a' | 'button' | 'input'
+  tag?: 'a' | 'button' | 'input' | 'file-input'
   label?: string
   type?: ButtonType
   floating?: boolean
   href?: string
   className?: string
   onClick?: MouseEventHandler
+  onChange?: ChangeEventHandler<HTMLInputElement>
 }
 
 function extraStylesForType(type: ButtonType) {
@@ -24,7 +25,7 @@ function stylesForType(type: ButtonType) {
   return styles + ' ' + extraStylesForType(type)
 }
 
-export default function Button({ children, label, type, tag, floating, ...props }: PropsWithChildren<ButtonProps>) {
+export default function Button({ children, label, type, tag, floating, onChange, ...props }: PropsWithChildren<ButtonProps>) {
   props.className = stylesForType(type || 'fill') + (props.className ? ` ${props.className}` : '')
 
   // add floating classes
@@ -36,5 +37,6 @@ export default function Button({ children, label, type, tag, floating, ...props 
     case 'a': return <a {...props}>{label || children}</a>
     case 'button': return <button {...props}>{label || children}</button>
     case 'input': return <input type="submit" value={label} {...props} />
+    case 'file-input': return <input type="file" value={label} onChange={onChange} {...props} />
   }
 }

@@ -8,6 +8,10 @@ export function collection<T>(entity: Entity<T>) {
   return firebase.firestore().collection(entity.collection) as firebase.firestore.CollectionReference<T>
 }
 
+export function storage() {
+  return firebase.storage().ref()
+}
+
 // subscribe to a firestore document in a react component
 export function useDoc<T = any>(entity: Entity<T>, id: string): firebase.firestore.DocumentSnapshot<T> | null {
   const [doc, setDoc] = useState(null)
