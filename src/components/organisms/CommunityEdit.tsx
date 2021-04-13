@@ -18,6 +18,7 @@ export default function CommunityEdit({ doc, onSave }: CommunityEditProps) {
   const [headerImageSrc, setHeaderImageSrc] = useState(doc.image)
 
   useEffect(() => {
+    if (!headerImage) return
     const fr = new FileReader()
     fr.readAsDataURL(headerImage)
     fr.onload = (e) => {

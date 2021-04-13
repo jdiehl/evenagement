@@ -16,12 +16,13 @@ export default function Communities() {
   const saveDoc = async (data: Data.Community, headerImage: File) => {
     let doc: firebase.firestore.DocumentReference<Data.Community>
     try {
+      doc = await collection(Entities.Community).add(data)
       if (headerImage) {
         const headerImageRef = storage().child(`headerImage/${doc.id}.jpg`)
         const snapshot = await headerImageRef.put(headerImage)
         data.image = await snapshot.ref.getDownloadURL()
+        await doc.update({ image: data.image })
       }
-      doc = await collection(Entities.Community).add(data)
       router.push(`/communities/${doc.id}`)
     } catch (e) {
       setError(`Unable to create document: ${e.message}`)
