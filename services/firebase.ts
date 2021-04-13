@@ -5,12 +5,12 @@ import 'firebase/firestore'
 
 function initEmulator() {
   firebase.initializeApp({
-    apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
-    projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
-    storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGEBUCKET,
-    appId: process.env.NEXT_PUBLIC_FIREBASE_APPID,
+    apiKey: 'key',
     authDomain: 'domain',
-    messagingSenderId: 'sender'
+    projectId: 'project',
+    storageBucket: 'bucket',
+    messagingSenderId: 'sender',
+    appId: 'app'
   })
 
   // Enable firebase emulator
