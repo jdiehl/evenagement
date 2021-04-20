@@ -6,7 +6,7 @@ import Toast from '../../../components/atoms/Toast'
 import CommunityEdit from '../../../components/organisms/CommunityEdit'
 import Main from '../../../components/organisms/Main'
 import { Data, Entities } from '../../../services/collections'
-import { collection, useDoc } from '../../../services/firestore'
+import { collection, storage, useDoc } from '../../../services/firestore'
 
 export default function Communities() {
   const router = useRouter()
@@ -18,8 +18,13 @@ export default function Communities() {
   const doc = useDoc(Entities.Community, id)
   if (!doc) return <Loading />
 
-  const saveDoc = async (data: Data.Community) => {
+  const saveDoc = async (data: Data.Community, headerImage: File) => {
     try {
+      if (headerImage) {
+        const headerImageRef = storage().child(`headerImage/${doc.id}.jpg`)
+        const snapshot = await headerImageRef.put(headerImage)
+        data.image = await snapshot.ref.getDownloadURL()
+      }
       await collection(Entities.Community).doc(id).update(data)
       router.push(`/communities/${id}`)
     } catch (e) {
