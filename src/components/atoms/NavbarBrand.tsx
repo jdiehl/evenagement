@@ -7,7 +7,7 @@ interface NavbarProps {
 
 export default function NavbarBrand({ href, children }: PropsWithChildren<NavbarProps>) {
   const item = (
-    <a className="px-6 py-1 text-xl font-thin flex">
+    <a className="px-6 py-1 text-xl text-white font-thin flex">
       {children}
     </a>
   )
