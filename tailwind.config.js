@@ -30,8 +30,15 @@ module.exports = {
           DEFAULT: '#FF882D',
           light: '#FFB95D',
           dark: '#C65900',
+        },
+        background: {
+          dark: '#EBE5F0',
+          shaded: 'rgba(0, 0, 0, 0.15)'
         }
-      }
+      },
+      backgroundImage: theme => ({
+        'hero-image': "url('/background.jpg')"
+      })
     },
   },
   variants: {
