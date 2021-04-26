@@ -15,19 +15,21 @@ module.exports = {
           bg: colors.gray[100]
         },
         primary: {
-          DEFAULT: '#3066BE', // colors.blue[600],
-          light: '#4B7FD2', // colors.blue[500],
-          dark: '#2958A3', // colors.blue[700],
+          DEFAULT: '#70469B',
+          light: '#8A5ABA',
+          dark: '#5E3A83',
         },
+        secondary: '#C75146',
+        tertiary: '#EA8C55',
         error: {
-          DEFAULT: '#FF2D2D',
-          light: '#FF5454',
-          dark: '#E20505',
+          DEFAULT: '#E53424',
+          light: '#FF6b4F',
+          dark: '#AB0000',
         },
         warning: {
           DEFAULT: '#FF882D',
-          light: '#FF9E54',
-          dark: '#FF6F00',
+          light: '#FFB95D',
+          dark: '#C65900',
         }
       }
     },

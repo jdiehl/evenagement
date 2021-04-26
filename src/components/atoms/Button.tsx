@@ -15,8 +15,8 @@ interface ButtonProps {
 
 function extraStylesForType(type: ButtonType) {
   switch (type) {
-    case 'fill': return 'text-white bg-primary hover:bg-primary-dark border border-transparent'
-    case 'outline': return 'text-primary hover:text-white bg-transparent hover:bg-primary-dark border border-solid border-primary hover:border-primary-dark'
+    case 'fill': return 'text-white bg-primary hover:bg-primary-light border border-transparent'
+    case 'outline': return 'text-primary hover:text-white bg-transparent hover:bg-primary-light border border-solid border-primary hover:border-primary-light'
   }
 }
 

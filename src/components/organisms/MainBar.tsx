@@ -14,8 +14,7 @@ export default function MainBar() {
   return (
     <Navbar>
       <NavbarBrand href="/">
-        <Logo className="inline-block my-auto mr-1" height="1em" />
-        Evenagement
+        <Logo className="inline-block my-auto mr-1" height="1em" fill="#ffffff" />
       </NavbarBrand>
       <NavbarItem href="/">Home</NavbarItem>
       <NavbarItem href="/communities">Communities</NavbarItem>
