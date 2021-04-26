@@ -9,17 +9,30 @@ import SignInButton from '../molecules/SignInButton'
 
 import UserMenu from './UserMenu'
 
-export default function MainBar() {
+export interface IMainBarProps {
+  useTransparentBackground?: boolean
+  showMenu?: boolean
+  showLogo?: boolean
+  showUserMenu?: boolean
+}
+
+export default function MainBar({ useTransparentBackground = false, showMenu = true, showLogo = true, showUserMenu = true }: IMainBarProps) {
   const user = useContext(UserContext)
   return (
-    <Navbar>
-      <NavbarBrand href="/">
-        <Logo className="inline-block my-auto mr-1" height="1em" fill="#ffffff" />
-      </NavbarBrand>
-      <NavbarItem href="/">Home</NavbarItem>
-      <NavbarItem href="/communities">Communities</NavbarItem>
+    <Navbar useTransparentBackground={useTransparentBackground}>
+      {showLogo
+        ? <NavbarBrand href="/">
+          <Logo className="inline-block my-auto mr-1" height="1em" fill="#ffffff" />
+        </NavbarBrand>
+        : null}
+      {showMenu
+        ? <>
+          <NavbarItem href="/">Home</NavbarItem>
+          <NavbarItem href="/communities">Communities</NavbarItem>
+        </>
+        : null}
       <div className="flex-grow" />
-      {user ? <UserMenu /> : <SignInButton />}
+      {showUserMenu ? (user ? <UserMenu /> : <SignInButton />) : null}
     </Navbar>
   )
 }
