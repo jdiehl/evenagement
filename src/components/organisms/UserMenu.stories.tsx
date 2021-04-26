@@ -9,7 +9,7 @@ export default {
 } as Meta
 
 const Template: Story = () => (
-  <div className="w-64 flex flex-row-reverse">
+  <div className="w-64 flex flex-row-reverse bg-primary-dark">
     <UserMenu />
   </div>
 )

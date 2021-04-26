@@ -1,7 +1,6 @@
-import { faArrowLeft, faEdit } from '@fortawesome/free-solid-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import { ArrowLeft, NotePencil } from 'phosphor-react'
 
 import Button from '../../../components/atoms/Button'
 import Loading from '../../../components/atoms/Loading'
@@ -22,10 +21,10 @@ export default function Communities() {
     <Main>
       <div className="flex flex-row">
         <Link href="/communities">
-          <Button><FontAwesomeIcon icon={faArrowLeft} /> Back to Communities</Button>
+          <Button><ArrowLeft /> Back to Communities</Button>
         </Link>
         <Link href={`/communities/${id}/edit`}>
-          <Button tag="a"><FontAwesomeIcon icon={faEdit} /> Edit</Button>
+          <Button tag="a"><NotePencil /> Edit</Button>
         </Link>
       </div>
       {community ? <CommunityTile community={community.data()}/> : <Loading/>}
