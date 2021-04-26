@@ -15,7 +15,7 @@ export default function Hero({ title, subtitle }: HeroProps) {
         {subtitle || 'Open Source Community & Event Management'}
       </p>
       <div className="mt-5 md:mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 justify-center">
-        <Button href="#" label="Browse Communities" />
+        <Button href="/communities" label="Browse Communities" />
         <Button href="#" label="Manage Your Community" />
       </div>
     </div>

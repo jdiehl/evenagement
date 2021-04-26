@@ -13,9 +13,9 @@ export default function Communities() {
 
   return (
     <Main>
-      <Link href="communities/create">
-        <Button>Create new...</Button>
-      </Link>
+      <div className="h-9 flex justify-end">
+        <Button href="communities/create">Create new...</Button>
+      </div>
       <CommunityGrid>
         {docs.map(doc => (
           <Link key={doc.id} href={`communities/${doc.id}`}>
