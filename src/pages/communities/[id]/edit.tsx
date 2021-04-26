@@ -21,7 +21,7 @@ export default function Communities() {
   const saveDoc = async (data: Data.Community, headerImage: File) => {
     try {
       if (headerImage) {
-        const headerImageRef = storage().child(`headerImage/${doc.id}.jpg`)
+        const headerImageRef = storage().child(`communities/${doc.id}.jpg`)
         const snapshot = await headerImageRef.put(headerImage)
         data.image = await snapshot.ref.getDownloadURL()
       }
