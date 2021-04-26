@@ -8,7 +8,7 @@ function initEmulator() {
   firebase.initializeApp({
     apiKey: 'key',
     authDomain: 'domain',
-    projectId: 'project',
+    projectId: 'evenagement',
     storageBucket: 'bucket',
     messagingSenderId: 'sender',
     appId: 'app'

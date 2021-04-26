@@ -2,6 +2,7 @@ import firebase from 'firebase/app'
 import { useEffect, useState } from 'react'
 
 import { Entity } from './collections'
+import storageMock from './storageMock'
 
 // get a typed firestore collection
 export function collection<T>(entity: Entity<T>) {
@@ -9,6 +10,9 @@ export function collection<T>(entity: Entity<T>) {
 }
 
 export function storage() {
+  if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR) {
+    return storageMock
+  }
   return firebase.storage().ref()
 }
 
