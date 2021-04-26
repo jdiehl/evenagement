@@ -1,8 +1,7 @@
-import { faSpinner } from '@fortawesome/free-solid-svg-icons/faSpinner'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { SpinnerGap } from 'phosphor-react'
 
 export default function Loading() {
   return (
-    <FontAwesomeIcon icon={faSpinner} size="2x" className="animate-spin text-gray" />
+    <SpinnerGap size={32} className="animate-spin text-gray" />
   )
 }

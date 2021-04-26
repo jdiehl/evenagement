@@ -8,7 +8,11 @@ export default {
   argTypes: {}
 } as Meta
 
-const Template: Story<any> = (args) => <NavbarBrand href={args.href}>{args.label}</NavbarBrand>
+const Template: Story<any> = (args) => (
+  <div className="bg-primary-dark">
+    <NavbarBrand href={args.href}>{args.label}</NavbarBrand>
+  </div>
+)
 
 export const Primary = Template.bind({})
 Primary.args = {

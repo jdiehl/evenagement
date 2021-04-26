@@ -1,18 +1,16 @@
-import { faApple } from '@fortawesome/free-brands-svg-icons/faApple'
-import { faFacebook } from '@fortawesome/free-brands-svg-icons/faFacebook'
-import { faGoogle } from '@fortawesome/free-brands-svg-icons/faGoogle'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { AppleLogo, FacebookLogo, GoogleLogo, Envelope, IconProps } from 'phosphor-react'
 
 import { AuthProvider, signInWith } from '../../services/auth'
 import Button from '../atoms/Button'
 
-function iconForProvider(provider: AuthProvider) {
+function makeIconForProvider(provider: AuthProvider, props: IconProps = {}) {
+  props.className = 'mr-2 inline-block'
+  props.size = 20
   switch (provider) {
-    case 'apple': return faApple
-    case 'email': return faEnvelope
-    case 'facebook': return faFacebook
-    case 'google': return faGoogle
+    case 'apple': return <AppleLogo weight="fill" {...props} />
+    case 'email': return <Envelope {...props} />
+    case 'facebook': return <FacebookLogo weight="fill" {...props} />
+    case 'google': return <GoogleLogo weight="bold" {...props} />
     default: throw new Error(`Unknown auth provider: ${provider}`)
   }
 }
@@ -44,9 +42,11 @@ export default function SignInWithButton({ provider, onError, onSuccess }: SignI
     onSuccess()
   }
 
+  const icon = makeIconForProvider(provider)
+
   return (
     <Button type="fill" onClick={() => performSignInWith(provider)}>
-      <FontAwesomeIcon className="mr-2" icon={iconForProvider(provider)} />
+      {icon}
       {signInName(provider)}
     </Button>
   )

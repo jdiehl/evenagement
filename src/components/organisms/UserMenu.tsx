@@ -1,5 +1,4 @@
-import { faUserCircle } from '@fortawesome/free-solid-svg-icons/faUserCircle'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { UserCircle } from 'phosphor-react'
 import { useState } from 'react'
 
 import { signout } from '../../services/auth'
@@ -13,7 +12,7 @@ export default function UserMenu() {
   return (
     <span className="relative">
       <a className="cursor-pointer text-xl" aria-controls="usermenu" aria-haspopup="true" aria-label="User Menu" onClick={() => setShowMenu(true)}>
-        <FontAwesomeIcon icon={faUserCircle} />
+        <UserCircle size={32} weight="fill" className="text-white"/>
       </a>
       <Menu show={showMenu} className="right-0" onClose={() => setShowMenu(false)}>
         <MenuItem href="/profile" label="My Profile" />

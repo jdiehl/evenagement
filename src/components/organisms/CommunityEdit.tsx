@@ -1,5 +1,4 @@
-import { faCloudUploadAlt } from '@fortawesome/free-solid-svg-icons/faCloudUploadAlt'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { CloudArrowUp } from 'phosphor-react'
 import { useEffect, useState } from 'react'
 
 import useBinding from '../../lib/useBinding'
@@ -39,7 +38,7 @@ export default function CommunityEdit({ doc, onSave }: CommunityEditProps) {
             src={headerImageSrc}
           />
           <Button floating className="absolute right-4 -bottom-4" tag="file-input" onChange={(e) => setHeaderImage(e.target.files[0])}>
-            <FontAwesomeIcon icon={faCloudUploadAlt}/>
+            <CloudArrowUp />
           </Button>
         </div>
         <Input label="Community Name" {...docBinding('name')}/>
