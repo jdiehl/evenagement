@@ -4,7 +4,7 @@ const storageMock = ({
   child: (url: string) => ({
     put: async (arg: any) => ({
       ref: {
-        getDownloadURL: async () => { return '/headerImage/chess.jpg' }
+        getDownloadURL: async () => { return 'https://placekitten.com/1200/300' }
       }
     })
   } as unknown as firebase.storage.Reference)

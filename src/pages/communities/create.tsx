@@ -18,7 +18,7 @@ export default function Communities() {
     try {
       doc = await collection(Entities.Community).add(data)
       if (headerImage) {
-        const headerImageRef = storage().child(`headerImage/${doc.id}.jpg`)
+        const headerImageRef = storage().child(`communities/${doc.id}.jpg`)
         const snapshot = await headerImageRef.put(headerImage)
         data.image = await snapshot.ref.getDownloadURL()
         await doc.update({ image: data.image })
