@@ -1,10 +1,9 @@
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons/faEnvelope'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { Envelope } from 'phosphor-react'
 
 export default function SignUpCompleteDialog() {
   return (
-    <div>
-      <p className="text-5xl text-center mb-4 text-gray"><FontAwesomeIcon icon={faEnvelope} /></p>
+    <div className="flex flex-col items-center">
+      <Envelope size={64} weight="duotone" className="mb-4 text-primary" />
       <p className="text-base text-center">
         We have sent you an email. Click the link inside to finish your registration.
       </p>
