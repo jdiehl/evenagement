@@ -37,7 +37,7 @@ module.exports = {
         }
       },
       backgroundImage: theme => ({
-        'hero-image': "url('/background.jpg')"
+        'hero-image': "url('/system/hero.jpg')"
       })
     },
   },
