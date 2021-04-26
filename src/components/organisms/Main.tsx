@@ -18,7 +18,7 @@ export default function Main({ children, useBackgroundImage = false }: PropsWith
     <UserContextProvider>
       <div className={'flex flex-col min-h-screen ' + (useBackgroundImage ? 'bg-hero-image bg-cover bg-left-bottom' : '')}>
         <MainBar {...mainBarProps} />
-        <main className={'container mx-auto flex-grow ' + (useBackgroundImage ? 'text-white' : '')}>
+        <main className={'container mx-auto flex-grow mt-4 ' + (useBackgroundImage ? 'text-white' : '')}>
           {children}
         </main>
         <MainFooter useTransparentBackground={useBackgroundImage} />
