@@ -21,7 +21,7 @@ export default function Communities() {
   const communityDoc = useDoc(Entities.Community, id)
   const community = communityDoc?.data()
 
-  const mockEvents = new Array(10).fill({ image: 'http://placekitten.com/400/400', title: 'Daily Session' })
+  const mockEvents = new Array(10).fill({ image: 'http://placekitten.com/400/400', title: 'Daily Session', date: new Date() })
   const mockUsers = [
     {
       displayName: 'Jan-Peter Krämer',
