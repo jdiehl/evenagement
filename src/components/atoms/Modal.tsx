@@ -15,7 +15,7 @@ export default function Modal({ show, onClose, children }: PropsWithChildren<Mod
   }
 
   return (
-    <div ref={ref} className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center" onClick={onClick}>
+    <div ref={ref} className="fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center" onClick={onClick}>
       {children}
     </div>
   )
