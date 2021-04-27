@@ -13,7 +13,7 @@ export default function Communities() {
 
   return (
     <Main>
-      <div className="h-9 flex justify-end">
+      <div className="h-9 flex justify-end mt-4">
         <Button href="communities/create">Create new...</Button>
       </div>
       <CommunityGrid>
