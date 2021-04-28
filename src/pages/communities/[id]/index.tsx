@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 
+import Loading from '../../../components/atoms/Loading'
 import CommunityDetails from '../../../components/organisms/CommunityDetails'
 import Main from '../../../components/organisms/Main'
-import { Entities } from '../../../services/collections'
-import { useDoc } from '../../../services/firestore'
+import { collections, useDoc } from '../../../lib/store'
 
 export default function Communities() {
   // require the router to be ready
@@ -11,12 +11,14 @@ export default function Communities() {
   const id = router.query.id as string
 
   // subscribe to the community document
-  const communityDoc = useDoc(Entities.Community, id)
-  const community = communityDoc?.data()
+  const ref = collections.community().doc(id)
+  const community = useDoc(ref)
+
+  if (!community) return <Main><Loading /></Main>
 
   return (
     <Main>
-      <CommunityDetails community={community} />
+      <CommunityDetails community={community.data()} />
     </Main>
   )
 }

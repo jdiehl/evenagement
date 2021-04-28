@@ -5,8 +5,8 @@ import Loading from '../../../components/atoms/Loading'
 import Toast from '../../../components/atoms/Toast'
 import CommunityEdit from '../../../components/organisms/CommunityEdit'
 import Main from '../../../components/organisms/Main'
-import { Data, Entities } from '../../../services/collections'
-import { collection, storage, useDoc } from '../../../services/firestore'
+import { Community, collections, useDoc } from '../../../lib/store'
+import { storage } from '../../../services/firestore'
 
 export default function Communities() {
   const router = useRouter()
@@ -15,17 +15,18 @@ export default function Communities() {
   const id = router.query.id.toString()
   const [error, setError] = useState('')
 
-  const doc = useDoc(Entities.Community, id)
+  const ref = collections.community().doc(id)
+  const doc = useDoc(ref)
   if (!doc) return <Loading />
 
-  const saveDoc = async (data: Data.Community, headerImage: File) => {
+  const saveDoc = async (community: Community, headerImage: File) => {
     try {
       if (headerImage) {
         const headerImageRef = storage().child(`communities/${doc.id}.jpg`)
         const snapshot = await headerImageRef.put(headerImage)
-        data.image = await snapshot.ref.getDownloadURL()
+        community.image = await snapshot.ref.getDownloadURL()
       }
-      await collection(Entities.Community).doc(id).update(data)
+      await ref.update(community)
       router.push(`/communities/${id}`)
     } catch (e) {
       setError(`Unable to update document: ${e.message}`)

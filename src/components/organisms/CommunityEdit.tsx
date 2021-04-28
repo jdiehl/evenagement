@@ -1,14 +1,14 @@
 import { CloudArrowUp } from 'phosphor-react'
 import { useEffect, useState } from 'react'
 
+import { Community } from '../../lib/store'
 import useBinding from '../../lib/useBinding'
-import { Data } from '../../services/collections'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
 
 interface CommunityEditProps {
-  doc: Data.Community,
-  onSave: (doc: Data.Community, headerImage: File) => void
+  doc: Community,
+  onSave: (doc: Community, headerImage: File) => void
 }
 
 export default function CommunityEdit({ doc, onSave }: CommunityEditProps) {

@@ -6,22 +6,22 @@ import { useState } from 'react'
 import Toast from '../../components/atoms/Toast'
 import CommunityEdit from '../../components/organisms/CommunityEdit'
 import Main from '../../components/organisms/Main'
-import { Data, Entities } from '../../services/collections'
-import { collection, storage } from '../../services/firestore'
+import { collections, Community } from '../../lib/store'
+import { storage } from '../../services/firestore'
 
 export default function Communities() {
   const router = useRouter()
   const [error, setError] = useState('')
 
-  const saveDoc = async (data: Data.Community, headerImage: File) => {
-    let doc: firebase.firestore.DocumentReference<Data.Community>
+  const saveDoc = async (community: Community, headerImage: File) => {
+    let doc: firebase.firestore.DocumentReference<Community>
     try {
-      doc = await collection(Entities.Community).add(data)
+      doc = await collections.community().add(community)
       if (headerImage) {
         const headerImageRef = storage().child(`communities/${doc.id}.jpg`)
         const snapshot = await headerImageRef.put(headerImage)
-        data.image = await snapshot.ref.getDownloadURL()
-        await doc.update({ image: data.image })
+        community.image = await snapshot.ref.getDownloadURL()
+        await doc.update({ image: community.image })
       }
       router.push(`/communities/${doc.id}`)
     } catch (e) {
