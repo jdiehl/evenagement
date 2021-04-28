@@ -17,5 +17,5 @@ export const Primary = Template.bind({})
 Primary.args = {
   name: 'Some Community',
   description: 'Do laborum labore Lorem sint.',
-  image: 'http://placekitten.com/800/200'
+  image: 'http://placekitten.com/800/200',
 }
