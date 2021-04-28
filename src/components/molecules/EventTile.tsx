@@ -1,9 +1,9 @@
 import format from 'date-fns/format'
 
-import { Data } from '../../services/collections'
+import { Event } from '../../lib/store'
 
 interface EventTileProps {
-  event: Data.Event
+  event: Event
 }
 
 export default function EventTile({ event }: EventTileProps) {

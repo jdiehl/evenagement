@@ -1,19 +1,16 @@
 import firebase from 'firebase/app'
 
-import { Data } from '../../services/collections'
+import { Community } from '../../lib/store'
 import Button from '../atoms/Button'
 import HorizontalList from '../atoms/HorizontalList'
-import Loading from '../atoms/Loading'
 import EventTile from '../molecules/EventTile'
 import UserTile from '../molecules/UserTile'
 
 interface CommunityDetailsProps {
-  community: Data.Community
+  community: Community
 }
 
 export default function CommunityDetails({ community }: CommunityDetailsProps) {
-  if (!community) return <Loading />
-
   const events = new Array(10).fill({ image: 'http://placekitten.com/400/400', title: 'Daily Session', date: new Date() })
   const users = [
     {

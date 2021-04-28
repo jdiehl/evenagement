@@ -1,7 +1,7 @@
-import { Data } from '../../services/collections'
+import { Community } from '../../lib/store'
 
 interface CommunityTileProps {
-  community: Data.Community
+  community: Community
 }
 
 // eslint-disable-next-line react/display-name, react/prop-types
