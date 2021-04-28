@@ -2,6 +2,7 @@ export namespace Data {
 
   export interface Event {
     title: string
+    date: Date
     image: string
   }
 

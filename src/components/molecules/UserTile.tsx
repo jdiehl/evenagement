@@ -1,10 +1,10 @@
 import firebase from 'firebase/app'
 
-export interface IUserTile {
+interface UserTileProps {
   user: firebase.User
 }
 
-export default function UserTile({ user }: IUserTile) {
+export default function UserTile({ user }: UserTileProps) {
   const initials = user.displayName.split(' ').slice(0, 2).map(v => v.slice(0, 1).toUpperCase()).join('')
 
   return (

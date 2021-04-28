@@ -41,7 +41,7 @@ function initProduction() {
     if (process.env.NEXT_PUBLIC_DEBUG) (window as any).firebase = firebase
 
     // start analytics
-    firebase.analytics()
+    if (process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID) firebase.analytics()
   }
 }
 

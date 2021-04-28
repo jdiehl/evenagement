@@ -9,14 +9,14 @@ import SignInButton from '../molecules/SignInButton'
 
 import UserMenu from './UserMenu'
 
-export interface IMainBarProps {
+interface MainBarProps {
   useTransparentBackground?: boolean
   showMenu?: boolean
   showLogo?: boolean
   showUserMenu?: boolean
 }
 
-export default function MainBar({ useTransparentBackground = false, showMenu = true, showLogo = true, showUserMenu = true }: IMainBarProps) {
+export default function MainBar({ useTransparentBackground = false, showMenu = true, showLogo = true, showUserMenu = true }: MainBarProps) {
   const user = useContext(UserContext)
   return (
     <Navbar useTransparentBackground={useTransparentBackground}>
