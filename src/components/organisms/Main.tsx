@@ -2,11 +2,11 @@ import { PropsWithChildren } from 'react'
 
 import { UserContextProvider } from '../../context/UserContext'
 
-import MainBar, { IMainBarProps } from './MainBar'
+import MainBar from './MainBar'
 import MainFooter from './MainFooter'
 
 export default function Main({ children, useBackgroundImage = false }: PropsWithChildren<{ useBackgroundImage?: boolean }>) {
-  const mainBarProps:IMainBarProps = useBackgroundImage
+  const mainBarProps = useBackgroundImage
     ? {
         useTransparentBackground: true,
         showLogo: false,

@@ -2,11 +2,11 @@ import format from 'date-fns/format'
 
 import { Data } from '../../services/collections'
 
-export interface IEventTileProps {
+interface EventTileProps {
   event: Data.Event
 }
 
-export default function EventTile({ event }: IEventTileProps) {
+export default function EventTile({ event }: EventTileProps) {
   return (
     <div className="relative inline-block h-44 w-44">
       <img className="h-full w-full" src={event.image} />
