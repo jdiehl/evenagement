@@ -18,7 +18,7 @@ export default function Communities() {
 
   return (
     <Main>
-      <CommunityDetails community={community.data()} />
+      <CommunityDetails community={community} />
     </Main>
   )
 }
