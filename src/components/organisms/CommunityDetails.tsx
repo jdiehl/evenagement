@@ -10,10 +10,11 @@ import EventTile from '../molecules/EventTile'
 import UserTile from '../molecules/UserTile'
 
 interface CommunityDetailsProps {
-  community: Community
+  community: firebase.firestore.DocumentSnapshot<Community>
 }
 
-export default function CommunityDetails({ community }: CommunityDetailsProps) {
+export default function CommunityDetails({ community: communitySnapshot }: CommunityDetailsProps) {
+  const community = communitySnapshot.data()
   const menuContent = (<>
     <p className="font-bold text-xl">{community.name}</p>
     <p><a className="underline" href="#">Home</a></p>
@@ -27,7 +28,7 @@ export default function CommunityDetails({ community }: CommunityDetailsProps) {
     <img src={community.image} alt={community.name} className="w-full h-60 object-cover" />
 
     <SubmenuLayout menuContent={menuContent}>
-      <CommunityDetailContent community={community} />
+      <CommunityDetailContent community={communitySnapshot} />
     </SubmenuLayout>
   </div>
   )

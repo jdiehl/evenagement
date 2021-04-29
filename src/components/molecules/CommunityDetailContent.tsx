@@ -1,17 +1,23 @@
 import firebase from 'firebase/app'
+import Link from 'next/link'
 
-import { Community } from '../../lib/store/types'
+import { Community, Event } from '../../lib/store/types'
 import HorizontalList from '../atoms/HorizontalList'
 
 import EventTile from './EventTile'
 import UserTile from './UserTile'
 
 interface CommunityDetailContentProps {
-  community: Community
+  community: firebase.firestore.DocumentSnapshot<Community>
 }
 
-export default function CommunityDetailContent({ community }: CommunityDetailContentProps) {
-  const events = new Array(10).fill({ image: 'http://placekitten.com/400/400', title: 'Daily Session', date: new Date() })
+export default function CommunityDetailContent({ community: communitySnapshot }: CommunityDetailContentProps) {
+  const community = communitySnapshot.data()
+
+  const events = new Array(10).fill({
+    data: () => ({ image: 'http://placekitten.com/400/400', title: 'Daily Session', date: new Date() }),
+    id: '123'
+  } as firebase.firestore.DocumentSnapshot<Event>)
   const users = [
     {
       displayName: 'Jan-Peter Krämer',
@@ -35,7 +41,11 @@ export default function CommunityDetailContent({ community }: CommunityDetailCon
       <p>{community.description}</p>
       <p className="font-bold mt-8">Events</p>
       <HorizontalList>
-        {events.map((event, i) => <EventTile event={event} key={i} />)}
+        {events.map((event, i) => <Link href={`/communities/${communitySnapshot.id}/${event.id}`} key={i}>
+          <a>
+            <EventTile event={event.data()} />
+          </a>
+        </Link>)}
       </HorizontalList>
       <p className="font-bold mt-8">Members</p>
       <HorizontalList>
