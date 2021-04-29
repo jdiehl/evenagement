@@ -19,7 +19,7 @@ export function UserContextProvider({ children }: PropsWithChildren<{}>) {
       setUser(user)
     })
     return () => unsub()
-  })
+  }, [])
 
   return (
     <UserContext.Provider value={user}>

@@ -2,20 +2,20 @@ import { useState, useEffect } from 'react'
 
 import { CollectionRef, Document, DocumentRef, QueryRef, Query } from './collections'
 
-export function useDoc<T>(ref: DocumentRef<T>): Document<T> | null {
+export function useDoc<T>(ref: DocumentRef<T>, watch: any = ref.id): Document<T> | null {
   const [doc, setDoc] = useState<Document<T>>(null)
   useEffect(() => {
     if (!ref) return
     return ref.onSnapshot(doc => setDoc(doc))
-  }, [ref])
+  }, [watch])
   return doc
 }
 
-export function useQuery<T>(ref: CollectionRef<T> | QueryRef<T>): Query<T> | null {
+export function useQuery<T>(ref: CollectionRef<T> | QueryRef<T>, watch: any = undefined): Query<T> | null {
   const [query, setQuery] = useState<Query<T>>(null)
   useEffect(() => {
     if (!ref) return
     return ref.onSnapshot(query => setQuery(query))
-  }, [ref])
+  }, [watch])
   return query
 }
