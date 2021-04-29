@@ -1,14 +1,9 @@
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react'
 
-// type OnChangeHelper<T> = (prop: keyof T) => (ev: ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => void
-
-type Binding<T> = (prop: keyof T) => { onChange: (ev: ChangeEvent<any>) => void, value: T[typeof prop] }
-
-export default function useBinding<T>(val: T): [T, Binding<T>, Dispatch<SetStateAction<T>>] {
+export default function useBinding<T>(val: T): [T, <K extends keyof T>(prop: K) => { onChange: (ev: ChangeEvent<any>) => void, value: T[K] }, Dispatch<SetStateAction<T>>] {
   const [value, setValue] = useState(val)
-  const onChange = (prop: keyof T) => (ev: ChangeEvent<any>) => setValue({ ...value, [prop]: ev.target.value })
-  const binding = (prop: keyof T) => ({
-    onChange: onChange(prop),
+  const binding = <K extends keyof T>(prop: K) => ({
+    onChange: (ev: ChangeEvent<any>) => setValue({ ...value, [prop]: ev.target.value }),
     value: value[prop]
   })
   return [value, binding, setValue]
