@@ -1,9 +1,4 @@
-import { CommunityEvent, Document, User } from '../lib/store'
-
-export const mockEvents = new Array(10).fill({
-  data: () => ({ image: 'http://placekitten.com/400/400', title: 'Daily Session', date: new Date() }),
-  id: '123'
-} as Document<CommunityEvent>)
+import { User } from '../lib/store'
 
 export const mockUsers = [
   {
@@ -21,5 +16,3 @@ export const mockUsers = [
     photoURL: 'http://placekitten.com/400/400'
   }
 ] as User[]
-
-export const mockEvent = { image: 'http://placekitten.com/400/400', title: 'Daily Session', date: new Date() }
