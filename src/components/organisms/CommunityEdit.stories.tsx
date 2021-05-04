@@ -1,5 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
+import { MockDocument } from '../../lib/storybook'
+
 import CommunityEdit from './CommunityEdit'
 
 export default {
@@ -9,8 +11,8 @@ export default {
 } as Meta
 
 // eslint-disable-next-line react/prop-types
-const Template: Story<any> = ({ onSave, ...doc }) => {
-  return <CommunityEdit onSave={onSave} doc={doc}/>
+const Template: Story<any> = ({ onClose, onUpdate, ...args }) => {
+  return <CommunityEdit onClose={onClose} community={MockDocument(args, onUpdate)}/>
 }
 
 export const Primary = Template.bind({})

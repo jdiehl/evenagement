@@ -1,5 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
+import { MockDocument } from '../../lib/storybook'
+
 import CommunityDetails from './CommunityDetails'
 
 export default {
@@ -10,7 +12,7 @@ export default {
 
 // eslint-disable-next-line react/prop-types
 const Template: Story<any> = (args) => {
-  return <CommunityDetails community={args}/>
+  return <CommunityDetails community={MockDocument(args)}/>
 }
 
 export const Primary = Template.bind({})

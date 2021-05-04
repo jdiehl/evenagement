@@ -1,20 +1,23 @@
 import { CloudArrowUp } from 'phosphor-react'
 import { useEffect, useState } from 'react'
 
-import { Community } from '../../lib/store'
+import { Community, Document } from '../../lib/store'
 import useBinding from '../../lib/useBinding'
+import { storage } from '../../services/firestore'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
+import Toast from '../atoms/Toast'
 
 interface CommunityEditProps {
-  doc: Community,
-  onSave: (doc: Community, headerImage: File) => void
+  community: Document<Community>,
+  onClose: () => void
 }
 
-export default function CommunityEdit({ doc, onSave }: CommunityEditProps) {
-  const [localDoc, docBinding] = useBinding(doc)
+export default function CommunityEdit({ community, onClose }: CommunityEditProps) {
+  const [communityData, communityDataBinding] = useBinding(community.data())
   const [headerImage, setHeaderImage] = useState(undefined)
-  const [headerImageSrc, setHeaderImageSrc] = useState(doc.image)
+  const [headerImageSrc, setHeaderImageSrc] = useState(community.data().image)
+  const [error, setError] = useState('')
 
   useEffect(() => {
     if (!headerImage) return
@@ -25,11 +28,25 @@ export default function CommunityEdit({ doc, onSave }: CommunityEditProps) {
     }
   }, [headerImage])
 
+  const onSave = async () => {
+    try {
+      if (headerImage) {
+        const headerImageRef = storage().child(`communities/${community.id}.jpg`)
+        const snapshot = await headerImageRef.put(headerImage)
+        communityData.image = await snapshot.ref.getDownloadURL()
+      }
+      await community.ref.update(communityData)
+      onClose()
+    } catch (e) {
+      setError(`Unable to update document: ${e.message}`)
+    }
+  }
+
   return (
     <form>
       <div className="flex justify-between pb-4">
-        <Button type="outline">Cancel</Button>
-        <Button onClick={() => onSave(localDoc, headerImage)}>Save</Button>
+        <Button type="outline" onClick={onClose}>Cancel</Button>
+        <Button onClick={onSave}>Save</Button>
       </div>
       <div className="flex flex-col space-y-4">
         <div className="relative">
@@ -41,9 +58,10 @@ export default function CommunityEdit({ doc, onSave }: CommunityEditProps) {
             <CloudArrowUp />
           </Button>
         </div>
-        <Input label="Community Name" {...docBinding('name')}/>
-        <Input type="textarea" rows={6} label="Description" {...docBinding('description')} />
+        <Input label="Community Name" {...communityDataBinding('name')}/>
+        <Input type="textarea" rows={6} label="Description" {...communityDataBinding('description')} />
       </div>
+      <Toast show={!!error} onHide={() => setError('')} type="error">{error}</Toast>
     </form>
   )
 }
