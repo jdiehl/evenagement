@@ -12,7 +12,7 @@ interface CommunityEditProps {
 export default function CommunityCreate({ onClose }: CommunityEditProps) {
   const setToast = useContext(ToastContext)
 
-  const data = { name: '', description: '', image: '' }
+  const data = { name: '', description: '', image: undefined }
 
   const onSave = async (communityData: Community, headerImage?: Blob) => {
     try {
