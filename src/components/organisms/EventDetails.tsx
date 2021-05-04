@@ -1,12 +1,12 @@
 
-import { Community, Event } from '../../lib/store'
+import { Community, CommunityEvent } from '../../lib/store'
 import Button from '../atoms/Button'
 import SubmenuLayout from '../atoms/SubmenuLayout'
 import EventDetailContent from '../molecules/EventDetailContent'
 
 interface CommunityDetailsProps {
   community: Community
-  event: Event
+  event: CommunityEvent
 }
 
 export default function EventDetails({ community, event }: CommunityDetailsProps) {

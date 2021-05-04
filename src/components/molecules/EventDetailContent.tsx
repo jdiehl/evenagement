@@ -1,9 +1,9 @@
 import { format } from 'date-fns'
 
-import { Event } from '../../lib/store'
+import { CommunityEvent } from '../../lib/store'
 
 interface EventDetailContentProps {
-  event: Event
+  event: CommunityEvent
 }
 
 export default function EventDetailContent({ event }: EventDetailContentProps) {
