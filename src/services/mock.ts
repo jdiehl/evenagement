@@ -21,3 +21,5 @@ export const mockUsers = [
     photoURL: 'http://placekitten.com/400/400'
   }
 ] as User[]
+
+export const mockEvent = { image: 'http://placekitten.com/400/400', title: 'Daily Session', date: new Date() }
