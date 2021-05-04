@@ -15,7 +15,7 @@ interface CommunityEditProps {
 export default function CommunityForm({ communityData, onSave, onCancel }: CommunityEditProps) {
   const [data, dataBinding] = useBinding<Community>(communityData)
   const [headerImage, setHeaderImage] = useState(undefined)
-  const [headerImageSrc, setHeaderImageSrc] = useState(undefined)
+  const [headerImageSrc, setHeaderImageSrc] = useState(communityData?.image)
 
   useEffect(() => {
     if (!headerImage) return
