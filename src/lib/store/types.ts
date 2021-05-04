@@ -1,7 +1,8 @@
+import { Timestamp } from './collections'
 
 export interface CommunityEvent {
   title: string
-  date: Date
+  date: Timestamp
   image: string
 }
 

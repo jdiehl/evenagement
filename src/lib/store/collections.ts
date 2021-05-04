@@ -8,6 +8,7 @@ export type DocumentRef<T> = firebase.firestore.DocumentReference<T>
 export type Document<T> = firebase.firestore.DocumentSnapshot<T>
 export type Query<T> = firebase.firestore.QuerySnapshot<T>
 export type User = firebase.User
+export type Timestamp = firebase.firestore.Timestamp
 
 function makeEntity<T>(name: string): () => CollectionRef<T> {
   return () => firebase.firestore().collection(name) as CollectionRef<T>
