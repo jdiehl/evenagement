@@ -1,6 +1,6 @@
 import { PropsWithChildren, useEffect } from 'react'
 
-type ToastType = 'info' | 'warning' | 'error'
+export type ToastType = 'info' | 'warning' | 'error'
 interface ToastProps {
   show: boolean
   type?: ToastType

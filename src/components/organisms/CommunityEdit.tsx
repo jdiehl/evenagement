@@ -1,12 +1,12 @@
 import { CloudArrowUp } from 'phosphor-react'
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
 
+import ToastContext from '../../context/ToastContext'
 import { Community, Document } from '../../lib/store'
 import useBinding from '../../lib/useBinding'
 import { storage } from '../../services/firestore'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
-import Toast from '../atoms/Toast'
 
 interface CommunityEditProps {
   community: Document<Community>,
@@ -14,10 +14,11 @@ interface CommunityEditProps {
 }
 
 export default function CommunityEdit({ community, onClose }: CommunityEditProps) {
+  const setToast = useContext(ToastContext)
+
   const [communityData, communityDataBinding] = useBinding(community.data())
   const [headerImage, setHeaderImage] = useState(undefined)
   const [headerImageSrc, setHeaderImageSrc] = useState(community.data().image)
-  const [error, setError] = useState('')
 
   useEffect(() => {
     if (!headerImage) return
@@ -30,6 +31,7 @@ export default function CommunityEdit({ community, onClose }: CommunityEditProps
 
   const onSave = async () => {
     try {
+      if (communityData.name.length < 1) throw new Error('Invalid Name')
       if (headerImage) {
         const headerImageRef = storage().child(`communities/${community.id}.jpg`)
         const snapshot = await headerImageRef.put(headerImage)
@@ -38,7 +40,7 @@ export default function CommunityEdit({ community, onClose }: CommunityEditProps
       await community.ref.update(communityData)
       onClose()
     } catch (e) {
-      setError(`Unable to update document: ${e.message}`)
+      setToast({ title: 'Cannot update document', message: e.message, type: 'error' })
     }
   }
 
@@ -61,7 +63,6 @@ export default function CommunityEdit({ community, onClose }: CommunityEditProps
         <Input label="Community Name" {...communityDataBinding('name')}/>
         <Input type="textarea" rows={6} label="Description" {...communityDataBinding('description')} />
       </div>
-      <Toast show={!!error} onHide={() => setError('')} type="error">{error}</Toast>
     </form>
   )
 }
