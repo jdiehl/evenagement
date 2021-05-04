@@ -1,7 +1,7 @@
-import firebase from 'firebase/app'
+import { User } from '../../lib/store'
 
 interface UserTileProps {
-  user: firebase.User
+  user: User
 }
 
 export default function UserTile({ user }: UserTileProps) {

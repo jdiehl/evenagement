@@ -1,12 +1,11 @@
 
-import firebase from 'firebase/app'
 import { useRouter } from 'next/router'
 import { useState } from 'react'
 
 import Toast from '../../components/atoms/Toast'
 import CommunityEdit from '../../components/organisms/CommunityEdit'
 import Main from '../../components/organisms/Main'
-import { collections, Community } from '../../lib/store'
+import { collections, Community, DocumentRef } from '../../lib/store'
 import { storage } from '../../services/firestore'
 
 export default function Communities() {
@@ -14,7 +13,7 @@ export default function Communities() {
   const [error, setError] = useState('')
 
   const saveDoc = async (community: Community, headerImage: File) => {
-    let doc: firebase.firestore.DocumentReference<Community>
+    let doc: DocumentRef<Community>
     try {
       doc = await collections.community().add(community)
       if (headerImage) {
