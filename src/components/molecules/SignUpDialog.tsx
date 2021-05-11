@@ -1,9 +1,9 @@
-import { FormEvent, useState } from 'react'
+import { FormEvent, useContext, useState } from 'react'
 
+import ToastContext from '../../context/ToastContext'
 import { signup } from '../../services/auth'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
-import Toast from '../atoms/Toast'
 
 interface SignUpDialogProps {
   email?: string,
@@ -12,16 +12,17 @@ interface SignUpDialogProps {
 }
 
 export default function SignUpDialog({ email: initialEmail, onBack, onSignUp }: SignUpDialogProps) {
+  const setToast = useContext(ToastContext)
+
   const [email, setEmail] = useState(initialEmail || '')
   const [password, setPassword] = useState('')
-  const [showError, setShowError] = useState(false)
 
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault()
     try {
       await signup(email, password)
     } catch (err) {
-      setShowError(true)
+      setToast({ title: 'Email Address in Use', message: 'The provided email address has already signed up for an account.', type: 'error' })
       return
     }
     onSignUp()
@@ -34,10 +35,6 @@ export default function SignUpDialog({ email: initialEmail, onBack, onSignUp }: 
         <Input type="password" minLength={6} label="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <Button tag="input" label="Sign Up" />
         <Button type="outline" onClick={() => onBack()}>Back</Button>
-        <Toast show={showError} type="error" onHide={() => setShowError(false)}>
-          <p className="font-bold">Email Address in Use</p>
-          <p>The provided email address has already signed up for an account.</p>
-        </Toast>
       </div>
     </form>
   )

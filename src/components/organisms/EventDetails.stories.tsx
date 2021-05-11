@@ -1,5 +1,8 @@
 import { Story, Meta } from '@storybook/react'
 
+import { Community, CommunityEvent } from '../../lib/store'
+import { MockDocument } from '../../lib/storybook'
+
 import EventDetails from './EventDetails'
 
 export default {
@@ -9,18 +12,17 @@ export default {
 } as Meta
 
 // eslint-disable-next-line react/prop-types
-const Template: Story<any> = ({ event, ...args }) => {
-  return <EventDetails community={args} event={event}/>
+const Template: Story<any> = ({ communityName, communityImage, title, date, image }) => {
+  const event = MockDocument<CommunityEvent>({ title, image, date: { toDate: () => date } } as any)
+  const community = MockDocument<Community>({ name: communityName, description: '', image: communityImage })
+  return <EventDetails community={community} event={event}/>
 }
 
 export const Primary = Template.bind({})
 Primary.args = {
-  name: 'Some Community',
-  description: 'Do laborum labore Lorem sint.',
-  image: 'http://placekitten.com/800/200',
-  event: {
-    title: 'Daily Session',
-    date: Date.now(),
-    image: 'http://placekitten.com/400/400'
-  }
+  title: 'Daily Session',
+  date: Date.now(),
+  image: 'https://place-puppy.com/400x400',
+  communityName: 'Some Community',
+  communityImage: 'https://place-puppy.com/800x200'
 }

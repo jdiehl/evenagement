@@ -7,9 +7,10 @@ export default {
   component: EventTile,
 } as Meta
 
-const Template: Story<any> = (args) => (
-  <EventTile event={args}/>
-)
+const Template: Story<any> = ({ title, date, image }: any) => {
+  const event = { title, image, date: { toDate: () => date } } as any
+  return <EventTile event={event}/>
+}
 
 export const Primary = Template.bind({})
 Primary.args = {

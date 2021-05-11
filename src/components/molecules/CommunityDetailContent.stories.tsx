@@ -2,17 +2,17 @@ import { Story, Meta } from '@storybook/react'
 
 import { MockDocument } from '../../lib/storybook'
 
-import CommunityDetails from './CommunityDetails'
+import CommunityDetailContent from './CommunityDetailContent'
 
 export default {
-  title: 'Organisms/CommunityDetails',
-  component: CommunityDetails,
+  title: 'Molecules/CommunityDetailContent',
+  component: CommunityDetailContent,
   argTypes: {}
 } as Meta
 
 // eslint-disable-next-line react/prop-types
 const Template: Story<any> = (args) => {
-  return <CommunityDetails community={MockDocument(args)}/>
+  return <CommunityDetailContent community={MockDocument(args)}/>
 }
 
 export const Primary = Template.bind({})

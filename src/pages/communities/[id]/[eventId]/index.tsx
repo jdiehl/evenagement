@@ -3,7 +3,7 @@ import { useRouter } from 'next/router'
 import Loading from '../../../../components/atoms/Loading'
 import EventDetails from '../../../../components/organisms/EventDetails'
 import Main from '../../../../components/organisms/Main'
-import { useDoc, collections } from '../../../../lib/store'
+import { useDoc, collections, CommunityEvent } from '../../../../lib/store'
 
 export default function Event() {
   const router = useRouter()
@@ -11,15 +11,18 @@ export default function Event() {
   const eventId = router.query.eventId as string
 
   // subscribe to the community document
-  const ref = collections.community().doc(id)
-  const community = useDoc(ref)
+  const communityRef = collections.community().doc(id)
+  const community = useDoc(communityRef)
 
-  const mockEvent = { image: 'http://placekitten.com/400/400', title: 'Daily Session', date: new Date() }
+  // subscribe to the event document
+  const eventRef = communityRef.collection('events').doc(eventId)
+  const event = useDoc<CommunityEvent>(eventRef as any)
+
+  if (!event) return <Main><Loading /></Main>
 
   return (
     <Main>
-      {community ? <EventDetails community={community.data()} event={mockEvent} /> : <Loading />}
-
+      <EventDetails community={community} event={event} />
     </Main>
   )
 }

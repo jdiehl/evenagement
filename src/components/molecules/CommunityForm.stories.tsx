@@ -1,18 +1,16 @@
 import { Story, Meta } from '@storybook/react'
 
-import { MockDocument } from '../../lib/storybook'
-
-import CommunityEdit from './CommunityEdit'
+import CommunityForm from './CommunityForm'
 
 export default {
-  title: 'Organisms/CommunityEdit',
-  component: CommunityEdit,
+  title: 'Molecules/CommunityForm',
+  component: CommunityForm,
   argTypes: {}
 } as Meta
 
 // eslint-disable-next-line react/prop-types
-const Template: Story<any> = ({ onClose, onUpdate, ...args }) => {
-  return <CommunityEdit onClose={onClose} community={MockDocument(args, onUpdate)}/>
+const Template: Story<any> = ({ onSave, onCancel, ...args }) => {
+  return <CommunityForm communityData={args} onSave={onSave} onCancel={onCancel} />
 }
 
 export const Primary = Template.bind({})

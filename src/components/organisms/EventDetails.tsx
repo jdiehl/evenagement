@@ -1,17 +1,20 @@
 
-import { Community, Event } from '../../lib/store'
+import { Community, CommunityEvent, Document } from '../../lib/store'
 import Button from '../atoms/Button'
 import SubmenuLayout from '../atoms/SubmenuLayout'
 import EventDetailContent from '../molecules/EventDetailContent'
 
 interface CommunityDetailsProps {
-  community: Community
-  event: Event
+  community: Document<Community>
+  event: Document<CommunityEvent>
 }
 
 export default function EventDetails({ community, event }: CommunityDetailsProps) {
+  const communityData = community.data()
+  const eventData = event.data()
+
   const menuContent = (<>
-    <p className="font-bold text-xl">{community.name}</p>
+    <p className="font-bold text-xl">{communityData.name}</p>
     <p><a className="underline" href="#">Home</a></p>
     <p><a className="underline" href="#">Upcoming Events</a></p>
     <p><a className="underline" href="#">Past Events</a></p>
@@ -21,13 +24,13 @@ export default function EventDetails({ community, event }: CommunityDetailsProps
 
   return (<div className="flex flex-col flex-grow max-w-full">
     <div className="relative">
-      <img src={community.image} alt={community.name} className="w-full h-60 object-cover" />
-      <img src={event.image} className="w-44 h-44 absolute -bottom-6 left-4" />
+      <img src={communityData.image} alt={communityData.name} className="w-full h-60 object-cover" />
+      <img src={eventData.image} className="w-44 h-44 absolute -bottom-6 left-4" />
     </div>
 
     <SubmenuLayout menuContent={menuContent}>
       <div className="h-6">&nbsp;</div>
-      <EventDetailContent event={event} />
+      <EventDetailContent event={eventData} />
     </SubmenuLayout>
   </div>
   )
