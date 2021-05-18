@@ -1,17 +1,20 @@
+
 import { User } from '../../lib/store'
+import Tile from '../atoms/Tile'
 
 interface UserTileProps {
   user: User
+  href?: string
 }
 
-export default function UserTile({ user }: UserTileProps) {
+export default function UserTile({ user, href }: UserTileProps) {
   const initials = user.displayName.split(' ').slice(0, 2).map(v => v.slice(0, 1).toUpperCase()).join('')
 
   return (
-    <div className="relative inline-grid grid-cols-1 grid-rows-1 place-items-center align-top text-5xl text-white w-24 h-24 bg-green-500">
+    <Tile size={24} href={href}>
       {user.photoURL
-        ? <img src={user.photoURL} className="w-full h-full inline" />
-        : initials}
-    </div>
+        ? <img src={user.photoURL} className="w-full h-full" />
+        : <div className="absolute w-full h-full flex justify-center items-center text-5xl text-white bg-green-500">{initials}</div>}
+    </Tile>
   )
 }

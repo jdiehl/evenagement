@@ -1,8 +1,12 @@
 import { PropsWithChildren } from 'react'
 
-export default function HorizontalList({ children }: PropsWithChildren<{}>) {
+interface HorizontalListProps {
+  className?: string
+}
+
+export default function HorizontalList({ children, className }: PropsWithChildren<HorizontalListProps>) {
   return (
-    <div className="overflow-x-scroll whitespace-nowrap w-full max-w-full space-x-4">
+    <div className={'overflow-x-auto whitespace-nowrap w-full max-w-full space-x-4 ' + (className ?? '')}>
       {children}
     </div>
   )

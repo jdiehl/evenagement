@@ -27,7 +27,6 @@ export default function MainBar({ useTransparentBackground = false, showMenu = t
         : null}
       {showMenu
         ? <>
-          <NavbarItem href="/">Home</NavbarItem>
           <NavbarItem href="/communities">Communities</NavbarItem>
         </>
         : null}

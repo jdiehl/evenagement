@@ -1,19 +1,21 @@
 import format from 'date-fns/format'
 
 import { CommunityEvent } from '../../lib/store'
+import Tile from '../atoms/Tile'
 
 interface EventTileProps {
   event: CommunityEvent
+  href?: string
 }
 
-export default function EventTile({ event }: EventTileProps) {
+export default function EventTile({ event, href }: EventTileProps) {
   return (
-    <div className="relative inline-block h-44 w-44">
-      <img className="h-full w-full" src={event.image} />
+    <Tile size={44} href={href}>
+      <img className="h-full w-full" src={event.image}/>
       <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-black  bg-opacity-50 px-4 py-2 text-white">
         <h2 className=" font-medium truncate">{event.title || 'Unnamed Event'}</h2>
         <p className="text-xs">{format(event.date.toDate(), 'P – p')}</p>
       </div>
-    </div>
+    </Tile>
   )
 }
