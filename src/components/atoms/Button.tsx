@@ -3,7 +3,7 @@ import { ChangeEventHandler, MouseEventHandler, PropsWithChildren } from 'react'
 type ButtonType = 'fill' | 'outline'
 
 interface ButtonProps {
-  tag?: 'a' | 'button' | 'input' | 'file-input'
+  tag?: 'a' | 'button' | 'input'
   label?: string
   type?: ButtonType
   floating?: boolean
@@ -37,6 +37,5 @@ export default function Button({ children, label, type, tag, floating, onChange,
     case 'a': return <a {...props}>{label || children}</a>
     case 'button': return <button {...props}>{label || children}</button>
     case 'input': return <input type="submit" value={label} {...props} />
-    case 'file-input': return <input type="file" value={label} onChange={onChange} {...props} />
   }
 }
