@@ -1,4 +1,5 @@
 import { Story, Meta } from '@storybook/react'
+import { NotePencil } from 'phosphor-react'
 
 import Btn from './Button'
 
@@ -8,7 +9,7 @@ export default {
   argTypes: {}
 } as Meta
 
-const Template: Story<any> = (args) => <Btn {...args} />
+const Template: Story<any> = ({ icon, ...args }: any) => <Btn {...args}>{icon}</Btn>
 
 export const Fill = Template.bind({})
 Fill.args = {
@@ -34,8 +35,8 @@ Input.args = {
   tag: 'input'
 }
 
-export const Floating = Template.bind({})
-Floating.args = {
-  label: 'Floating Button',
-  floating: true
+export const Round = Template.bind({})
+Round.args = {
+  icon: <NotePencil />,
+  round: true
 }

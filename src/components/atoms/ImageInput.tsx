@@ -32,7 +32,7 @@ export default function ImageInput({ label, src: _src, height, className, onChan
       {label && <div className="ml-1 mb-1">{label}</div>}
       <div style={style} className={className}>
         <img className="absolute h-full w-full object-cover" src={src} />
-        <Button className="absolute right-2 -bottom-3" floating={true}>
+        <Button className="absolute right-2 -bottom-3" round={true}>
           <CloudArrowUp />
         </Button>
       </div>

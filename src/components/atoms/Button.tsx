@@ -6,7 +6,7 @@ interface ButtonProps {
   tag?: 'a' | 'button' | 'input'
   label?: string
   type?: ButtonType
-  floating?: boolean
+  round?: boolean
   href?: string
   className?: string
   onClick?: MouseEventHandler
@@ -21,16 +21,18 @@ function extraStylesForType(type: ButtonType) {
 }
 
 function stylesForType(type: ButtonType) {
-  const styles = 'transition-all inline-block px-6 py-1 select-none text-center text-base font-medium rounded shadow hover:shadow-lg outline-none focus:outline-none cursor-pointer'
+  const styles = 'transition-all inline-block select-none text-center text-base font-medium rounded shadow hover:shadow-lg outline-none focus:outline-none cursor-pointer'
   return styles + ' ' + extraStylesForType(type)
 }
 
-export default function Button({ children, label, type, tag, floating, onChange, ...props }: PropsWithChildren<ButtonProps>) {
+export default function Button({ children, label, type, tag, round, onChange, ...props }: PropsWithChildren<ButtonProps>) {
   props.className = stylesForType(type || 'fill') + (props.className ? ` ${props.className}` : '')
 
-  // add floating classes
-  if (floating) {
-    props.className += ' rounded-full shadow-xl'
+  // button is round
+  if (round) {
+    props.className += ' rounded-full shadow-xl w-10 h-10 flex justify-center items-center text-2xl'
+  } else {
+    props.className += ' px-6 py-1'
   }
 
   switch (tag || 'a') {
