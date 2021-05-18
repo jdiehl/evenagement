@@ -14,11 +14,9 @@ export default function Communities() {
   const ref = collections.community().doc(id)
   const community = useDoc(ref)
 
-  if (!community) return <Main><Loading /></Main>
-
   return (
     <Main>
-      <CommunityDetails community={community} />
+      {community ? <CommunityDetails community={community} /> : <Loading />}
     </Main>
   )
 }

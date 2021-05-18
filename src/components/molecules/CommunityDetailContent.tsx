@@ -1,8 +1,9 @@
-import { PlusCircle } from 'phosphor-react'
+import { NotePencil, PlusCircle } from 'phosphor-react'
 
 import { Document, useQuery } from '../../lib/store'
 import { Community, CommunityEvent } from '../../lib/store/types'
 import { mockUsers } from '../../services/mock'
+import Button from '../atoms/Button'
 import HorizontalList from '../atoms/HorizontalList'
 import Loading from '../atoms/Loading'
 import Tile from '../atoms/Tile'
@@ -35,7 +36,11 @@ export default function CommunityDetailContent({ community }: CommunityDetailCon
 
   return (
     <>
-      <p className="font-bold text-xl">{communityData.name}</p>
+      <h1 className="relative font-bold text-2xl">{communityData.name}
+        <Button round={true} href={`/communities/${community.id}/edit`} className="absolute right-0 top-0">
+          <NotePencil/>
+        </Button>
+      </h1>
       <p>{communityData.description}</p>
       <p className="font-bold mt-8">Events</p>
       <HorizontalList className="h-48">

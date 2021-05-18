@@ -1,7 +1,8 @@
+
 import { CloudArrowUp } from 'phosphor-react'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 
-import { Button } from './Button.stories'
+import Button from './Button'
 
 interface ImageInputProps {
   label?: string
@@ -24,7 +25,7 @@ export default function ImageInput({ label, src: _src, height, className, onChan
     return () => fileReader.abort()
   }, [value])
 
-  className = 'relative  cursor-pointer ' + (className || '')
+  className = 'relative cursor-pointer ' + (className || '')
   const style = { height }
 
   return (
@@ -32,7 +33,7 @@ export default function ImageInput({ label, src: _src, height, className, onChan
       {label && <div className="ml-1 mb-1">{label}</div>}
       <div style={style} className={className}>
         <img className="absolute h-full w-full object-cover" src={src} />
-        <Button className="absolute right-2 -bottom-3" round={true}>
+        <Button className="absolute right-2 -bottom-3" round={true} >
           <CloudArrowUp />
         </Button>
       </div>
