@@ -18,14 +18,15 @@ export default function CommunityForm({ communityData, onSave, onCancel }: Commu
 
   return (
     <form>
-      <div className="flex justify-between pb-4">
-        <Button type="outline" onClick={onCancel}>Cancel</Button>
-        <Button onClick={() => onSave(data, headerImage)}>Save</Button>
-      </div>
       <div className="flex flex-col space-y-4">
         <ImageInput height={250} src={data.image} onChange={(e) => setHeaderImage(e.target.value)} />
         <Input label="Community Name" {...dataBinding('name')}/>
         <Input type="textarea" rows={6} label="Description" {...dataBinding('description')} />
+      </div>
+
+      <div className="flex justify-end space-x-4 pt-4">
+        <Button type="outline" onClick={onCancel}>Cancel</Button>
+        <Button onClick={() => onSave(data, headerImage)}>Save</Button>
       </div>
     </form>
   )

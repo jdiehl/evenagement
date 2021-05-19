@@ -7,13 +7,11 @@ import { collections, useDoc } from '../../../lib/store'
 
 export default function Communities() {
   const router = useRouter()
-  if (!router.query.id) return <Loading />
 
-  const id = router.query.id.toString()
+  const id = router.query.id as string
 
   const ref = collections.community().doc(id)
   const community = useDoc(ref)
-  if (!community) return <Loading />
 
   const onClose = () => {
     router.push(`/communities/${id}`)
@@ -21,7 +19,7 @@ export default function Communities() {
 
   return (
     <Main>
-      <CommunityEdit community={community} onClose={onClose}/>
+      {community ? <CommunityEdit community={community} onClose={onClose}/> : <Loading />}
     </Main>
   )
 }

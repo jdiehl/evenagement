@@ -1,10 +1,12 @@
-import Link from 'next/link'
+import { NotePencil, PlusCircle } from 'phosphor-react'
 
 import { Document, useQuery } from '../../lib/store'
 import { Community, CommunityEvent } from '../../lib/store/types'
 import { mockUsers } from '../../services/mock'
+import Button from '../atoms/Button'
 import HorizontalList from '../atoms/HorizontalList'
 import Loading from '../atoms/Loading'
+import Tile from '../atoms/Tile'
 
 import EventTile from './EventTile'
 import UserTile from './UserTile'
@@ -17,24 +19,37 @@ export default function CommunityDetailContent({ community }: CommunityDetailCon
   const communityData = community.data()
 
   const eventsQuery = useQuery<CommunityEvent>(community.ref.collection('events') as any)
-  const events = eventsQuery && eventsQuery.docs
+  const events = eventsQuery?.docs
+
+  const eventTiles = events?.map((event, i) =>
+    <EventTile href={`/communities/${community.id}/${event.id}`} key={i} event={event.data()} />
+  )
+
+  if (eventTiles?.length === 0) {
+    eventTiles.push(
+      <Tile size={44} className="flex items-center justify-center text-2xl text-gray flex-col border-gray-line border">
+        <PlusCircle />
+        Add Event
+      </Tile>
+    )
+  }
 
   return (
     <>
-      <p className="font-bold text-xl">{communityData.name}</p>
+      <h1 className="relative font-bold text-2xl">{communityData.name}
+        <Button round={true} href={`/communities/${community.id}/edit`} className="absolute right-0 top-0">
+          <NotePencil/>
+        </Button>
+      </h1>
       <p>{communityData.description}</p>
       <p className="font-bold mt-8">Events</p>
-      <HorizontalList>
+      <HorizontalList className="h-48">
         {events
-          ? events.map((event, i) => <Link href={`/communities/${community.id}/${event.id}`} key={i}>
-            <a>
-              <EventTile event={event.data()} />
-            </a>
-          </Link>)
+          ? eventTiles
           : <Loading />}
       </HorizontalList>
       <p className="font-bold mt-8">Members</p>
-      <HorizontalList>
+      <HorizontalList className="h-28">
         {mockUsers.map((user, i) => <UserTile user={user} key={i} />)}
       </HorizontalList>
     </>
