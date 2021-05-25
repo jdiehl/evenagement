@@ -10,6 +10,7 @@ interface InputProps {
   minLength?: number
   className?: string
   rows?: number
+  error?: string
   onChange: ChangeEventHandler<HTMLInputElement>
 }
 
@@ -20,7 +21,7 @@ function elementForType(type: InputType, props: any) {
   }
 }
 
-export default function Input({ type, label, ...props }: InputProps) {
+export default function Input({ type, label, error, ...props }: InputProps) {
   props.className = 'shadow appearance-none border rounded w-full py-2 px-3' + (props.className ? ` ${props.className}` : '')
 
   const element = elementForType(type, props)
@@ -28,6 +29,7 @@ export default function Input({ type, label, ...props }: InputProps) {
     <label className="block text-sm font-bold">
       {label && <div className="ml-1 mb-1">{label}</div>}
       {element}
+      <div className="h-4 ml-1 mt-1 text-error">{error ?? ''}</div>
     </label>
   )
 }

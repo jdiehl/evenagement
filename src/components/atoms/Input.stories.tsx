@@ -18,7 +18,8 @@ export const Text = Template.bind({})
 Text.args = {
   type: 'text',
   label: 'Text',
-  placeholder: 'Placeholder'
+  placeholder: 'Placeholder',
+  error: 'Invalid input'
 }
 
 export const Email = Template.bind({})
