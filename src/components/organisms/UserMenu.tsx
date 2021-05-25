@@ -1,7 +1,7 @@
 import { UserCircle } from 'phosphor-react'
 import { useState } from 'react'
 
-import { signout } from '../../services/auth'
+import { signout } from '../../lib/auth'
 import Menu from '../atoms/Menu'
 import MenuItem from '../atoms/MenuItem'
 

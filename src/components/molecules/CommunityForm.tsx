@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
+import { useBinding } from '../../lib/form'
 import { Community } from '../../lib/store'
-import useBinding from '../../lib/useBinding'
 import Button from '../atoms/Button'
 import ImageInput from '../atoms/ImageInput'
 import Input from '../atoms/Input'

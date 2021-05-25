@@ -1,10 +1,10 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
-import { init } from '../services/firebase'
+import bootstrap from '../lib/bootstrap'
 import '../styles/globals.css'
 
-init()
+bootstrap()
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
