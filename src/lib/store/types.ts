@@ -12,3 +12,8 @@ export interface Community {
   image?: string
   eventIds?: string[]
 }
+
+export interface UserProfile {
+  name: string
+  image?: string
+}

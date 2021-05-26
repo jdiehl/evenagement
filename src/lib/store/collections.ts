@@ -1,6 +1,6 @@
 import firebase from 'firebase/app'
 
-import { Community, CommunityEvent } from './types'
+import { Community, CommunityEvent, UserProfile } from './types'
 
 export type CollectionRef<T> = firebase.firestore.CollectionReference<T>
 export type QueryRef<T> = firebase.firestore.Query<T>
@@ -16,5 +16,6 @@ function makeEntity<T>(name: string): () => CollectionRef<T> {
 
 export const collections = {
   community: makeEntity<Community>('communities'),
-  event: makeEntity<CommunityEvent>('events')
+  event: makeEntity<CommunityEvent>('events'),
+  userProfile: makeEntity<UserProfile>('userProfiles')
 }
