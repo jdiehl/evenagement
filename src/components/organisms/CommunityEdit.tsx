@@ -1,8 +1,8 @@
 import { useContext } from 'react'
 
 import ToastContext from '../../context/ToastContext'
+import { storage } from '../../lib/storage'
 import { Community, Document } from '../../lib/store'
-import { storage } from '../../services/storage'
 import CommunityForm from '../molecules/CommunityForm'
 
 interface CommunityEditProps {

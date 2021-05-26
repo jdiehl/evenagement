@@ -1,7 +1,7 @@
 import { FormEvent, useContext, useState } from 'react'
 
 import ToastContext from '../../context/ToastContext'
-import { signup } from '../../services/auth'
+import { signup } from '../../lib/auth'
 import Button from '../atoms/Button'
 import Input from '../atoms/Input'
 

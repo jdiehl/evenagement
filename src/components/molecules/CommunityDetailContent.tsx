@@ -1,8 +1,7 @@
 import { NotePencil, PlusCircle } from 'phosphor-react'
 
-import { Document, useQuery } from '../../lib/store'
-import { Community, CommunityEvent } from '../../lib/store/types'
-import { mockUsers } from '../../services/mock'
+import { mockUsers } from '../../lib/mock'
+import { Document, useQuery, Community, CommunityEvent } from '../../lib/store'
 import Button from '../atoms/Button'
 import HorizontalList from '../atoms/HorizontalList'
 import Loading from '../atoms/Loading'

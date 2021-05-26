@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import mail from '../../services/mail'
+import mail from '../../lib/mail'
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
   // const { to, text } = req.body as { to: string, text: string }

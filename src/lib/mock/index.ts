@@ -1,4 +1,4 @@
-import { User } from '../lib/store'
+import { User } from '../store'
 
 export const mockUsers = [
   {

@@ -1,6 +1,6 @@
 import { AppleLogo, FacebookLogo, GoogleLogo, Envelope, IconProps } from 'phosphor-react'
 
-import { AuthProvider, signInWith } from '../../services/auth'
+import { AuthProvider, signInWith } from '../../lib/auth'
 import Button from '../atoms/Button'
 
 function makeIconForProvider(provider: AuthProvider, props: IconProps = {}) {

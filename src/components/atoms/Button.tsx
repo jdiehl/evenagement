@@ -1,4 +1,5 @@
-import { ChangeEventHandler, MouseEventHandler, PropsWithChildren } from 'react'
+import Link from 'next/link'
+import { MouseEventHandler, PropsWithChildren } from 'react'
 
 type ButtonType = 'fill' | 'outline'
 
@@ -10,7 +11,6 @@ interface ButtonProps {
   href?: string
   className?: string
   onClick?: MouseEventHandler
-  onChange?: ChangeEventHandler<HTMLInputElement>
 }
 
 function extraStylesForType(type: ButtonType) {
@@ -25,19 +25,27 @@ function stylesForType(type: ButtonType) {
   return styles + ' ' + extraStylesForType(type)
 }
 
-export default function Button({ children, label, type, tag, round, onChange, ...props }: PropsWithChildren<ButtonProps>) {
-  props.className = stylesForType(type || 'fill') + (props.className ? ` ${props.className}` : '')
-
-  // button is round
-  if (round) {
-    props.className += ' rounded-full shadow-xl w-10 h-10 flex justify-center items-center text-2xl'
-  } else {
-    props.className += ' px-6 py-1'
-  }
-
+function makeButton(tag, label, props, children) {
   switch (tag || 'a') {
     case 'a': return <a {...props}>{label || children}</a>
     case 'button': return <button {...props}>{label || children}</button>
     case 'input': return <input type="submit" value={label} {...props} />
   }
+}
+
+export default function Button({ children, label, type, tag, round, href, ...props }: PropsWithChildren<ButtonProps>) {
+  props.className = stylesForType(type || 'fill') + (props.className ? ` ${props.className}` : '')
+
+  // add rounded classes
+  if (round) {
+    props.className += ' text-2xl rounded-full shadow-xl p-2'
+  } else {
+    props.className += ' px-6 py-1'
+  }
+
+  const button = makeButton(tag, label, props, children)
+  if (href) {
+    return <Link href={href}>{button}</Link>
+  }
+  return button
 }
