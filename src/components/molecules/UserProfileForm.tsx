@@ -1,15 +1,18 @@
 import Button from '@src/components/atoms/Button'
 import Input from '@src/components/atoms/Input'
+import Loading from '@src/components/atoms/Loading'
 import { useUpdateForm } from '@src/lib/form'
-import { UserProfile, Document } from '@src/lib/store'
+import { UserProfile, DocumentRef } from '@src/lib/store'
 
 interface ProfileFormProps {
-  userProfile: Document<UserProfile>
+  userProfileRef: DocumentRef<UserProfile>
   onClose?: () => void
 }
 
-export default function UserProfileForm({ userProfile, onClose }: ProfileFormProps) {
-  const { register, handleSubmit } = useUpdateForm(userProfile)
+export default function UserProfileForm({ userProfileRef, onClose }: ProfileFormProps) {
+  const { isReady, register, handleSubmit } = useUpdateForm(userProfileRef)
+
+  if (!isReady) return <Loading />
 
   return (
     <form onSubmit={handleSubmit(onClose)}>

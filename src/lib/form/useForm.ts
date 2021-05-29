@@ -1,19 +1,33 @@
-import { Document } from '@src/lib/store'
+import { Document, DocumentRef, useDoc } from '@src/lib/store'
+import { useEffect, useState } from 'react'
 import { UseFormProps, UseFormReturn, useForm, useFormState, UseFormStateReturn } from 'react-hook-form'
 
-interface UseUpdateFormReturn<T> extends UseFormReturn<T>, UseFormStateReturn<T> {}
+interface UseUpdateFormReturn<T> extends UseFormReturn<T>, UseFormStateReturn<T> {
+  doc: Document<T>
+  isReady: boolean
+}
 
-export function useUpdateForm<T>(doc: Document<T>, props: UseFormProps<T> = {}): UseUpdateFormReturn<T> {
-  // default properties
-  const defaultProps: UseFormProps<T> = {
-    defaultValues: doc?.data() as any,
-    mode: 'onBlur'
-  }
+// default properties
+const defaultProps: UseFormProps = {
+  mode: 'onBlur'
+}
+
+export function useUpdateForm<T>(ref: DocumentRef<T>, props: UseFormProps<T> = {}): UseUpdateFormReturn<T> {
+  // load the document
+  const doc = useDoc(ref)
+  const [isReady, setIsReady] = useState(false)
 
   // get the return and state objects
   const res = useForm(Object.assign({}, defaultProps, props))
   const state = useFormState({ control: res.control })
   const { register, handleSubmit } = res
+
+  useEffect(() => {
+    if (doc?.exists) {
+      res.reset(doc.data() as any)
+    }
+    setIsReady(!!doc)
+  }, [doc])
 
   // override register to also return error object
   res.register = (name, options?) => {
@@ -25,7 +39,7 @@ export function useUpdateForm<T>(doc: Document<T>, props: UseFormProps<T> = {}):
   res.handleSubmit = (onSuccess) => {
     return handleSubmit(async (data) => {
       try {
-        await doc.ref.update(data)
+        doc.exists ? await doc.ref.update(data) : await doc.ref.set(data as T)
       } catch (error) {
         res.setError(undefined, error)
         return
@@ -33,5 +47,5 @@ export function useUpdateForm<T>(doc: Document<T>, props: UseFormProps<T> = {}):
       if (onSuccess) onSuccess(data as any)
     })
   }
-  return { ...res, ...state }
+  return { doc, isReady, ...res, ...state }
 }
