@@ -7,7 +7,7 @@ specifiers:
   '@storybook/addon-links': ^6.2.9
   '@storybook/addon-postcss': ^2.0.0
   '@storybook/react': ^6.2.9
-  '@types/node': ^14.17.1
+  '@types/node': ^15.6.1
   '@typescript-eslint/eslint-plugin': ^4.25.0
   '@typescript-eslint/parser': ^4.25.0
   autoprefixer: ^10.2.6
@@ -15,12 +15,12 @@ specifiers:
   date-fns: ^2.22.1
   eslint: ^7.27.0
   eslint-config-standard: ^16.0.3
-  eslint-plugin-import: ^2.23.3
+  eslint-plugin-import: ^2.23.4
   eslint-plugin-node: ^11.1.0
-  eslint-plugin-promise: ^4.3.1
+  eslint-plugin-promise: ^5.1.0
   eslint-plugin-react: ^7.24.0
   firebase: ^8.6.3
-  husky: ^5.2.0
+  husky: ^6.0.0
   next: ^10.2.3
   phosphor-react: ^1.2.1
   postcss: ^8.3.0
@@ -46,18 +46,18 @@ devDependencies:
   '@storybook/addon-links': 6.2.9_react-dom@17.0.2+react@17.0.2
   '@storybook/addon-postcss': 2.0.0
   '@storybook/react': 6.2.9_c8cdd86752aa86fb2b6e32ae91115ebe
-  '@types/node': 14.17.1
+  '@types/node': 15.6.1
   '@typescript-eslint/eslint-plugin': 4.25.0_ec7770e83475322b368bff30b543badb
   '@typescript-eslint/parser': 4.25.0_eslint@7.27.0+typescript@4.3.2
   autoprefixer: 10.2.6_postcss@8.3.0
   concurrently: 6.2.0
   eslint: 7.27.0
-  eslint-config-standard: 16.0.3_d8c84c69fb82e6801f1b2767c5798207
-  eslint-plugin-import: 2.23.3_eslint@7.27.0
+  eslint-config-standard: 16.0.3_19ef4a5f4e72864a1e4b44b84fa6c886
+  eslint-plugin-import: 2.23.4_eslint@7.27.0
   eslint-plugin-node: 11.1.0_eslint@7.27.0
-  eslint-plugin-promise: 4.3.1
+  eslint-plugin-promise: 5.1.0_eslint@7.27.0
   eslint-plugin-react: 7.24.0_eslint@7.27.0
-  husky: 5.2.0
+  husky: 6.0.0
   postcss: 8.3.0
   tailwindcss: 2.1.2_6daa0ece57b4377652e73c9c66c3b94c
   typescript: 4.3.2
@@ -1877,7 +1877,7 @@ packages:
     resolution: {integrity: sha512-UXepkOKCATJrhHGsxt+CGfpZy9zUn1q9mop5kfcXq1fBkTePxVNPOdnISlCbJFlCtld+pSLGyZCzr9/zVprFKA==}
     engines: {node: ^8.13.0 || >=10.10.0}
     dependencies:
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
     dev: false
 
   /@grpc/proto-loader/0.5.6:
@@ -1950,7 +1950,7 @@ packages:
     dependencies:
       '@types/istanbul-lib-coverage': 2.0.3
       '@types/istanbul-reports': 3.0.0
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       '@types/yargs': 15.0.13
       chalk: 4.1.1
     dev: true
@@ -3245,13 +3245,13 @@ packages:
     resolution: {integrity: sha512-SEYeGAIQIQX8NN6LDKprLjbrd5dARM5EXsd8GI/A5l0apYI1fGMWgPHSe4ZKL4eozlAyI+doUE9XbYS4xCkQ1w==}
     dependencies:
       '@types/minimatch': 3.0.4
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
     dev: true
 
   /@types/graceful-fs/4.1.5:
     resolution: {integrity: sha512-anKkLmZZ+xm4p8JWBf4hElkM4XR+EZeA2M9BAkkTldmcyDY4mbdIJnRghDJH3Ov5ooY7/UAoENtmdMSkaAd7Cw==}
     dependencies:
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
     dev: true
 
   /@types/hast/2.3.1:
@@ -3321,12 +3321,16 @@ packages:
   /@types/node-fetch/2.5.10:
     resolution: {integrity: sha512-IpkX0AasN44hgEad0gEF/V6EgR5n69VEqPEgnmoM8GsIGro3PowbWs4tR6IhxUTyPLpOn+fiGG6nrQhcmoCuIQ==}
     dependencies:
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       form-data: 3.0.1
     dev: true
 
   /@types/node/14.17.1:
     resolution: {integrity: sha512-/tpUyFD7meeooTRwl3sYlihx2BrJE7q9XF71EguPFIySj9B7qgnRtHsHTho+0AUm4m1SvWGm6uSncrR94q6Vtw==}
+    dev: true
+
+  /@types/node/15.6.1:
+    resolution: {integrity: sha512-7EIraBEyRHEe7CH+Fm1XvgqU6uwZN8Q7jppJGcqjROMT29qhAuuOxYB1uEY5UMYQKEmA5D+5tBnhdaPXSsLONA==}
 
   /@types/normalize-package-data/2.4.0:
     resolution: {integrity: sha512-f5j5b/Gf71L+dbqxIpQ4Z2WlmI/mPJ0fOkGGmFgtb6sAu97EPczzbS3/tJKxmcYDj55OX6ssqwDAWOHIYDRDGA==}
@@ -3409,7 +3413,7 @@ packages:
   /@types/webpack-sources/2.1.0:
     resolution: {integrity: sha512-LXn/oYIpBeucgP1EIJbKQ2/4ZmpvRl+dlrFdX7+94SKRUV3Evy3FsfMZY318vGhkWUS5MPhtOM3w1/hCOAOXcg==}
     dependencies:
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       '@types/source-list-map': 0.1.2
       source-map: 0.7.3
     dev: true
@@ -3417,7 +3421,7 @@ packages:
   /@types/webpack/4.41.29:
     resolution: {integrity: sha512-6pLaORaVNZxiB3FSHbyBiWM7QdazAWda1zvAq4SbZObZqHSDbWLi62iFdblVea6SK9eyBIVp5yHhKt/yNQdR7Q==}
     dependencies:
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       '@types/tapable': 1.0.7
       '@types/uglify-js': 3.13.0
       '@types/webpack-sources': 2.1.0
@@ -5714,7 +5718,7 @@ packages:
       source-map: 0.6.1
     dev: true
 
-  /eslint-config-standard/16.0.3_d8c84c69fb82e6801f1b2767c5798207:
+  /eslint-config-standard/16.0.3_19ef4a5f4e72864a1e4b44b84fa6c886:
     resolution: {integrity: sha512-x4fmJL5hGqNJKGHSjnLdgA6U6h1YW/G2dW9fA+cyVur4SK6lyue8+UgNKWlZtUDTXvgKDD/Oa3GQjmB5kjtVvg==}
     peerDependencies:
       eslint: ^7.12.1
@@ -5723,9 +5727,9 @@ packages:
       eslint-plugin-promise: ^4.2.1 || ^5.0.0
     dependencies:
       eslint: 7.27.0
-      eslint-plugin-import: 2.23.3_eslint@7.27.0
+      eslint-plugin-import: 2.23.4_eslint@7.27.0
       eslint-plugin-node: 11.1.0_eslint@7.27.0
-      eslint-plugin-promise: 4.3.1
+      eslint-plugin-promise: 5.1.0_eslint@7.27.0
     dev: true
 
   /eslint-import-resolver-node/0.3.4:
@@ -5754,8 +5758,8 @@ packages:
       regexpp: 3.1.0
     dev: true
 
-  /eslint-plugin-import/2.23.3_eslint@7.27.0:
-    resolution: {integrity: sha512-wDxdYbSB55F7T5CC7ucDjY641VvKmlRwT0Vxh7PkY1mI4rclVRFWYfsrjDgZvwYYDZ5ee0ZtfFKXowWjqvEoRQ==}
+  /eslint-plugin-import/2.23.4_eslint@7.27.0:
+    resolution: {integrity: sha512-6/wP8zZRsnQFiR3iaPFgh5ImVRM1WN5NUWfTIRqwOdeiGJlBcSk82o1FEVq8yXmy4lkIzTo7YhHCIxlU/2HyEQ==}
     engines: {node: '>=4'}
     peerDependencies:
       eslint: ^2 || ^3 || ^4 || ^5 || ^6 || ^7.2.0
@@ -5793,9 +5797,13 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-plugin-promise/4.3.1:
-    resolution: {integrity: sha512-bY2sGqyptzFBDLh/GMbAxfdJC+b0f23ME63FOE4+Jao0oZ3E1LEwFtWJX/1pGMJLiTtrSSern2CRM/g+dfc0eQ==}
-    engines: {node: '>=6'}
+  /eslint-plugin-promise/5.1.0_eslint@7.27.0:
+    resolution: {integrity: sha512-NGmI6BH5L12pl7ScQHbg7tvtk4wPxxj8yPHH47NvSmMtFneC077PSeY3huFj06ZWZvtbfxSPt3RuOQD5XcR4ng==}
+    engines: {node: ^10.12.0 || >=12.0.0}
+    peerDependencies:
+      eslint: ^7.0.0
+    dependencies:
+      eslint: 7.27.0
     dev: true
 
   /eslint-plugin-react/7.24.0_eslint@7.27.0:
@@ -6956,9 +6964,8 @@ packages:
   /https-browserify/1.0.0:
     resolution: {integrity: sha1-7AbBDgo0wPL68Zn3/X/Hj//QPHM=}
 
-  /husky/5.2.0:
-    resolution: {integrity: sha512-AM8T/auHXRBxlrfPVLKP6jt49GCM2Zz47m8G3FOMsLmTv8Dj/fKVWE0Rh2d4Qrvmy131xEsdQnb3OXRib67PGg==}
-    engines: {node: '>= 10'}
+  /husky/6.0.0:
+    resolution: {integrity: sha512-SQS2gDTB7tBN486QSoKPKQItZw97BMOd+Kdb6ghfpBc0yXyzrddI0oDV5MkDAbuB4X2mO3/nj60TRMcYxwzZeQ==}
     hasBin: true
     dev: true
 
@@ -7510,7 +7517,7 @@ packages:
     dependencies:
       '@jest/types': 26.6.2
       '@types/graceful-fs': 4.1.5
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       anymatch: 3.1.2
       fb-watchman: 2.0.1
       graceful-fs: 4.2.6
@@ -7534,7 +7541,7 @@ packages:
     resolution: {integrity: sha512-S5wqyz0DXnNJPd/xfIzZ5Xnp1HrJWBczg8mMfMpN78OJ5eDxXyf+Ygld9wX1DnUWbIbhM1YDY95NjR4CBXkb2g==}
     engines: {node: '>= 10.14.2'}
     dependencies:
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       graceful-fs: 4.2.6
     dev: true
 
@@ -7543,7 +7550,7 @@ packages:
     engines: {node: '>= 10.14.2'}
     dependencies:
       '@jest/types': 26.6.2
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       chalk: 4.1.1
       graceful-fs: 4.2.6
       is-ci: 2.0.0
@@ -7554,7 +7561,7 @@ packages:
     resolution: {integrity: sha512-KWYVV1c4i+jbMpaBC+U++4Va0cp8OisU185o73T1vo99hqi7w8tSJfUXYswwqqrjzwxa6KpRK54WhPvwf5w6PQ==}
     engines: {node: '>= 10.13.0'}
     dependencies:
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       merge-stream: 2.0.0
       supports-color: 7.2.0
     dev: true
@@ -7563,7 +7570,7 @@ packages:
     resolution: {integrity: sha512-mk0umAQ5lT+CaOJ+Qp01N6kz48sJG2kr2n1rX0koqKf6FIygQV0qLOdN9SCYID4IVeSigDOcPeGLozdMLYfb5g==}
     engines: {node: ^10.13.0 || ^12.13.0 || ^14.15.0 || >=15.0.0}
     dependencies:
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       merge-stream: 2.0.0
       supports-color: 8.1.1
     dev: false
@@ -9253,7 +9260,7 @@ packages:
       '@protobufjs/pool': 1.1.0
       '@protobufjs/utf8': 1.1.0
       '@types/long': 4.0.1
-      '@types/node': 14.17.1
+      '@types/node': 15.6.1
       long: 4.0.0
     dev: false
 
