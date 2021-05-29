@@ -1,6 +1,5 @@
-
-import Main from '../../components/organisms/Main'
-import UserProfileEdit from '../../components/organisms/UserProfileEdit'
+import Main from '@src/components/organisms/Main'
+import UserProfileEdit from '@src/components/organisms/UserProfileEdit'
 
 export default function Profile() {
   return (

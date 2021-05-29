@@ -1,9 +1,8 @@
+import Loading from '@src/components/atoms/Loading'
+import UserProfileForm from '@src/components/molecules/UserProfileForm'
+import UserContext from '@src/context/UserContext'
+import { collections, useDoc } from '@src/lib/store'
 import { useContext } from 'react'
-
-import UserContext from '../../context/UserContext'
-import { collections, useDoc } from '../../lib/store'
-import Loading from '../atoms/Loading'
-import UserProfileForm from '../molecules/UserProfileForm'
 
 export default function UserProfileEdit() {
   const user = useContext(UserContext)

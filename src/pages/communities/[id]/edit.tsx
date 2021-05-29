@@ -1,9 +1,8 @@
+import Loading from '@src/components/atoms/Loading'
+import CommunityEdit from '@src/components/organisms/CommunityEdit'
+import Main from '@src/components/organisms/Main'
+import { collections, useDoc } from '@src/lib/store'
 import { useRouter } from 'next/router'
-
-import Loading from '../../../components/atoms/Loading'
-import CommunityEdit from '../../../components/organisms/CommunityEdit'
-import Main from '../../../components/organisms/Main'
-import { collections, useDoc } from '../../../lib/store'
 
 export default function Communities() {
   const router = useRouter()

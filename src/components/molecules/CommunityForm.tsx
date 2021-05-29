@@ -1,10 +1,9 @@
+import Button from '@src/components/atoms/Button'
+import ImageInput from '@src/components/atoms/ImageInput'
+import Input from '@src/components/atoms/Input'
+import { useBinding } from '@src/lib/form'
+import { Community } from '@src/lib/store'
 import { useState } from 'react'
-
-import { useBinding } from '../../lib/form'
-import { Community } from '../../lib/store'
-import Button from '../atoms/Button'
-import ImageInput from '../atoms/ImageInput'
-import Input from '../atoms/Input'
 
 interface CommunityEditProps {
   communityData: Community

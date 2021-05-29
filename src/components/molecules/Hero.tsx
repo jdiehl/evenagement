@@ -1,6 +1,5 @@
-import Button from '../atoms/Button'
-
-import Logo from './Logo'
+import Button from '@src/components/atoms/Button'
+import Logo from '@src/components/molecules/Logo'
 
 interface HeroProps {
   title?: string

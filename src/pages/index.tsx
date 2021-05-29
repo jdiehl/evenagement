@@ -1,5 +1,5 @@
-import Hero from '../components/molecules/Hero'
-import Main from '../components/organisms/Main'
+import Hero from '@src/components/molecules/Hero'
+import Main from '@src/components/organisms/Main'
 
 export default function Home() {
   return (

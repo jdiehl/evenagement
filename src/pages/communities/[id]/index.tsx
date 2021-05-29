@@ -1,9 +1,8 @@
+import Loading from '@src/components/atoms/Loading'
+import CommunityDetails from '@src/components/organisms/CommunityDetails'
+import Main from '@src/components/organisms/Main'
+import { collections, useDoc } from '@src/lib/store'
 import { useRouter } from 'next/router'
-
-import Loading from '../../../components/atoms/Loading'
-import CommunityDetails from '../../../components/organisms/CommunityDetails'
-import Main from '../../../components/organisms/Main'
-import { collections, useDoc } from '../../../lib/store'
 
 export default function Communities() {
   // require the router to be ready

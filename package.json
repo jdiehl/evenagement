@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^7.4.4",
-    "date-fns": "^2.21.3",
-    "firebase": "^8.6.2",
+    "date-fns": "^2.22.1",
+    "firebase": "^8.6.3",
     "next": "^10.2.3",
     "phosphor-react": "^1.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-hook-form": "^7.6.7"
+    "react-hook-form": "^7.7.0"
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.2.9",
@@ -40,7 +40,7 @@
     "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.3.1",
-    "eslint-plugin-react": "^7.23.2",
+    "eslint-plugin-react": "^7.24.0",
     "husky": "^5.2.0",
     "postcss": "^8.3.0",
     "tailwindcss": "^2.1.2",

@@ -1,6 +1,5 @@
-
-import { User } from '../../lib/store'
-import Tile from '../atoms/Tile'
+import Tile from '@src/components/atoms/Tile'
+import { User } from '@src/lib/store'
 
 interface UserTileProps {
   user: User

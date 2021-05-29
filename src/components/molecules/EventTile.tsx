@@ -1,7 +1,6 @@
+import Tile from '@src/components/atoms/Tile'
+import { CommunityEvent } from '@src/lib/store'
 import format from 'date-fns/format'
-
-import { CommunityEvent } from '../../lib/store'
-import Tile from '../atoms/Tile'
 
 interface EventTileProps {
   event: CommunityEvent

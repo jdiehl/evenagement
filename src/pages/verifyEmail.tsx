@@ -1,7 +1,6 @@
+import Button from '@src/components/atoms/Button'
+import Main from '@src/components/organisms/Main'
 import Link from 'next/link'
-
-import Button from '../components/atoms/Button'
-import Main from '../components/organisms/Main'
 
 export default function VerifyEmail() {
   return (

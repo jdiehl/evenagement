@@ -1,6 +1,5 @@
+import Toast, { ToastType } from '@src/components/atoms/Toast'
 import { createContext, useState, PropsWithChildren } from 'react'
-
-import Toast, { ToastType } from '../components/atoms/Toast'
 
 interface ToastMessage {
   title: string

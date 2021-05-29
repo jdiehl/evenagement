@@ -1,38 +1,20 @@
-import { useForm, useFormState } from 'react-hook-form'
-
-import { UserProfile, Document } from '../../lib/store'
-import Button from '../atoms/Button'
-import Input from '../atoms/Input'
+import Button from '@src/components/atoms/Button'
+import Input from '@src/components/atoms/Input'
+import { useUpdateForm } from '@src/lib/form'
+import { UserProfile, Document } from '@src/lib/store'
 
 interface ProfileFormProps {
   userProfile: Document<UserProfile>
+  onClose?: () => void
 }
 
-export default function UserProfileForm({ userProfile }: ProfileFormProps) {
-  const { handleSubmit, control, register } = useForm({ mode: 'onBlur', defaultValues: userProfile.data() })
-  const { errors } = useFormState({ control })
-
-  const onSubmit = async (data: any) => {
-    await userProfile.ref.set(data)
-  }
+export default function UserProfileForm({ userProfile, onClose }: ProfileFormProps) {
+  const { register, handleSubmit } = useUpdateForm(userProfile)
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-      <Input label="Name" error={errors.name?.message} {...register('name', { required: 'Please enter a name' })} />
+    <form onSubmit={handleSubmit(onClose)}>
+      <Input label="Name" {...register('name', { required: 'Please enter a name' })} />
       <Button className="my-4" tag="input">Update</Button>
     </form>
   )
-
-  // return (
-  //   <form onSubmit={handleSubmit(onSubmit)}>
-  //     <Controller
-  //       name="name"
-  //       control={control}
-  //       defaultValue={userProfile.data()?.name ?? ''}
-  //       rules={{ required: 'Please enter a name' }}
-  //       render={({ field, fieldState }) => <Input label="Name" error={fieldState.error?.message} {...field} />}
-  //     />
-  //     <Button className="my-4" tag="input">Update</Button>
-  //   </form>
-  // )
 }

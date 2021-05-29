@@ -1,4 +1,3 @@
-
 export default function MainFooter({ useTransparentBackground }: { useTransparentBackground?: boolean }) {
   return (
     <div className={'py-12 ' + (useTransparentBackground ? 'bg-background-shaded' : 'bg-background-dark')}>

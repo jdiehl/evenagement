@@ -1,8 +1,8 @@
+import bootstrap from '@src/lib/bootstrap'
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
-import bootstrap from '../lib/bootstrap'
-import '../styles/globals.css'
+import '@src/styles/globals.css'
 
 bootstrap()
 

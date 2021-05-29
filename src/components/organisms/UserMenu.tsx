@@ -1,9 +1,8 @@
+import Menu from '@src/components/atoms/Menu'
+import MenuItem from '@src/components/atoms/MenuItem'
+import { signout } from '@src/lib/auth'
 import { UserCircle } from 'phosphor-react'
 import { useState } from 'react'
-
-import { signout } from '../../lib/auth'
-import Menu from '../atoms/Menu'
-import MenuItem from '../atoms/MenuItem'
 
 export default function UserMenu() {
   // state: menu open?

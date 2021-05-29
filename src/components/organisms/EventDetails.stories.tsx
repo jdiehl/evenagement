@@ -1,7 +1,6 @@
+import { Community, CommunityEvent } from '@src/lib/store'
+import { MockDocument } from '@src/lib/storybook'
 import { Story, Meta } from '@storybook/react'
-
-import { Community, CommunityEvent } from '../../lib/store'
-import { MockDocument } from '../../lib/storybook'
 
 import EventDetails from './EventDetails'
 

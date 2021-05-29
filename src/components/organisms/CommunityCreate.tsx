@@ -1,9 +1,8 @@
+import CommunityForm from '@src/components/molecules/CommunityForm'
+import ToastContext from '@src/context/ToastContext'
+import { storage } from '@src/lib/storage'
+import { collections, Community, DocumentRef } from '@src/lib/store'
 import { useContext } from 'react'
-
-import ToastContext from '../../context/ToastContext'
-import { storage } from '../../lib/storage'
-import { collections, Community, DocumentRef } from '../../lib/store'
-import CommunityForm from '../molecules/CommunityForm'
 
 interface CommunityEditProps {
   onClose: (community?: DocumentRef<Community>) => void

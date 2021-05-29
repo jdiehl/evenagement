@@ -1,6 +1,5 @@
+import { MockDocument } from '@src/lib/storybook'
 import { Story, Meta } from '@storybook/react'
-
-import { MockDocument } from '../../lib/storybook'
 
 import CommunityDetailContent from './CommunityDetailContent'
 

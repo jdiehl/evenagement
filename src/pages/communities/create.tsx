@@ -1,8 +1,7 @@
+import CommunityCreate from '@src/components/organisms/CommunityCreate'
+import Main from '@src/components/organisms/Main'
+import { Community, DocumentRef } from '@src/lib/store'
 import { useRouter } from 'next/router'
-
-import CommunityCreate from '../../components/organisms/CommunityCreate'
-import Main from '../../components/organisms/Main'
-import { Community, DocumentRef } from '../../lib/store'
 
 export default function Communities() {
   const router = useRouter()
