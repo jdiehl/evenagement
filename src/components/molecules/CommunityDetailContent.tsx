@@ -18,13 +18,13 @@ export default function CommunityDetailContent({ community }: CommunityDetailCon
   const eventsQuery = useQuery<CommunityEvent>(community.ref.collection('events') as any)
   const events = eventsQuery?.docs
 
-  const eventTiles = events?.map((event, i) =>
-    <EventTile href={`/communities/${community.id}/${event.id}`} key={i} event={event.data()} />
+  const eventTiles = events?.map((event) =>
+    <EventTile href={`/communities/${community.id}/${event.id}`} key={event.id} event={event.data()} />
   )
 
   if (eventTiles?.length === 0) {
     eventTiles.push(
-      <Tile size={44} className="flex items-center justify-center text-2xl text-gray flex-col border-gray-line border">
+      <Tile key={1} size={44} className="flex items-center justify-center text-2xl text-gray flex-col border-gray-line border">
         <PlusCircle />
         Add Event
       </Tile>

@@ -1,7 +1,11 @@
 import { SpinnerGap } from 'phosphor-react'
 
-export default function Loading() {
+interface LoadingProps {
+  className?: string
+}
+
+export default function Loading({ className }: LoadingProps) {
   return (
-    <SpinnerGap size={32} className="animate-spin text-gray" />
+    <SpinnerGap size={32} className={'animate-spin text-gray ' + (className ?? '')} />
   )
 }

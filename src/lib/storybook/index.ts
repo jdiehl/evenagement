@@ -1,4 +1,4 @@
-import { Document } from '@src/lib/store'
+import { Document, DocumentRef } from '@src/lib/store'
 
 export function MockDocument<T>(document: T, onUpdate?: () => void): Document<T> {
   return {
@@ -11,4 +11,11 @@ export function MockDocument<T>(document: T, onUpdate?: () => void): Document<T>
       })
     },
   } as any as Document<T>
+}
+
+export function MockRef<T>(): DocumentRef<T> {
+  return {
+    id: 'id',
+    exists: false
+  } as any as DocumentRef<T>
 }

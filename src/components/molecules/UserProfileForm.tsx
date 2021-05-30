@@ -1,7 +1,7 @@
 import Button from '@src/components/atoms/Button'
 import Input from '@src/components/atoms/Input'
 import Loading from '@src/components/atoms/Loading'
-import { useUpdateForm } from '@src/lib/form'
+import { useDocForm } from '@src/lib/form'
 import { UserProfile, DocumentRef } from '@src/lib/store'
 
 interface ProfileFormProps {
@@ -10,7 +10,7 @@ interface ProfileFormProps {
 }
 
 export default function UserProfileForm({ userProfileRef, onClose }: ProfileFormProps) {
-  const { isReady, register, handleSubmit } = useUpdateForm(userProfileRef)
+  const { isReady, register, handleSubmit } = useDocForm(userProfileRef)
 
   if (!isReady) return <Loading />
 
