@@ -1,10 +1,9 @@
 import { PropsWithChildren } from 'react'
 
-import { ToastContextProvider } from '../../context/ToastContext'
-import { UserContextProvider } from '../../context/UserContext'
-
-import MainBar from './MainBar'
-import MainFooter from './MainFooter'
+import MainBar from '@src/components/organisms/MainBar'
+import MainFooter from '@src/components/organisms/MainFooter'
+import { ToastContextProvider } from '@src/context/ToastContext'
+import { UserContextProvider } from '@src/context/UserContext'
 
 export default function Main({ children, useBackgroundImage = false }: PropsWithChildren<{ useBackgroundImage?: boolean }>) {
   const mainBarProps = useBackgroundImage

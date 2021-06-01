@@ -1,32 +1,28 @@
-import { useState } from 'react'
-
-import { useBinding } from '../../lib/form'
-import { Community } from '../../lib/store'
-import Button from '../atoms/Button'
-import ImageInput from '../atoms/ImageInput'
-import Input from '../atoms/Input'
+import Button from '@src/components/atoms/Button'
+import ImageInput from '@src/components/atoms/ImageInput'
+import Input from '@src/components/atoms/Input'
+import { useDocForm } from '@src/lib/form'
+import { Community, DocumentRef } from '@src/lib/store'
 
 interface CommunityEditProps {
-  communityData: Community
-  onSave: (community: Community, headerImage?: Blob) => void
-  onCancel: () => void
+  communityRef: DocumentRef<Community>
+  onClose: (saved: boolean) => void
 }
 
-export default function CommunityForm({ communityData, onSave, onCancel }: CommunityEditProps) {
-  const [data, dataBinding] = useBinding<Community>(communityData)
-  const [headerImage, setHeaderImage] = useState<File>()
+export default function CommunityForm({ communityRef, onClose }: CommunityEditProps) {
+  const { register, registerFile, handleSubmit } = useDocForm(communityRef)
 
   return (
-    <form>
+    <form onSubmit={handleSubmit(() => onClose(true))}>
       <div className="flex flex-col space-y-4">
-        <ImageInput height={250} src={data.image} onChange={(e) => setHeaderImage(e.target.value)} />
-        <Input label="Community Name" {...dataBinding('name')}/>
-        <Input type="textarea" rows={6} label="Description" {...dataBinding('description')} />
+        <ImageInput height={250} {...registerFile('image')} />
+        <Input label="Community Name" {...register('name', { required: 'Please enter a name' })}/>
+        <Input type="textarea" rows={6} label="Description" {...register('description')} />
       </div>
 
       <div className="flex justify-end space-x-4 py-4">
-        <Button type="outline" onClick={onCancel}>Cancel</Button>
-        <Button onClick={() => onSave(data, headerImage)}>Save</Button>
+        <Button type="outline" onClick={() => onClose(false)}>Cancel</Button>
+        <Button tag="input">Save</Button>
       </div>
     </form>
   )

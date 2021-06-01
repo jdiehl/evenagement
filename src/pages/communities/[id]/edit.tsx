@@ -1,17 +1,14 @@
 import { useRouter } from 'next/router'
 
-import Loading from '../../../components/atoms/Loading'
-import CommunityEdit from '../../../components/organisms/CommunityEdit'
-import Main from '../../../components/organisms/Main'
-import { collections, useDoc } from '../../../lib/store'
+import CommunityForm from '@src/components/molecules/CommunityForm'
+import Main from '@src/components/organisms/Main'
+import { collections } from '@src/lib/store'
 
 export default function Communities() {
   const router = useRouter()
-
   const id = router.query.id as string
 
-  const ref = collections.community().doc(id)
-  const community = useDoc(ref)
+  const communityRef = collections.community().doc(id)
 
   const onClose = () => {
     router.push(`/communities/${id}`)
@@ -19,7 +16,7 @@ export default function Communities() {
 
   return (
     <Main>
-      {community ? <CommunityEdit community={community} onClose={onClose}/> : <Loading />}
+      <CommunityForm communityRef={communityRef} onClose={onClose} />
     </Main>
   )
 }

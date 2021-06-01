@@ -1,14 +1,13 @@
 import { NotePencil, PlusCircle } from 'phosphor-react'
 
-import { mockUsers } from '../../lib/mock'
-import { Document, useQuery, Community, CommunityEvent } from '../../lib/store'
-import Button from '../atoms/Button'
-import HorizontalList from '../atoms/HorizontalList'
-import Loading from '../atoms/Loading'
-import Tile from '../atoms/Tile'
-
-import EventTile from './EventTile'
-import UserTile from './UserTile'
+import Button from '@src/components/atoms/Button'
+import HorizontalList from '@src/components/atoms/HorizontalList'
+import Loading from '@src/components/atoms/Loading'
+import Tile from '@src/components/atoms/Tile'
+import EventTile from '@src/components/molecules/EventTile'
+import UserTile from '@src/components/molecules/UserTile'
+import { mockUsers } from '@src/lib/mock'
+import { Document, useQuery, Community, CommunityEvent } from '@src/lib/store'
 
 interface CommunityDetailContentProps {
   community: Document<Community>
@@ -20,13 +19,13 @@ export default function CommunityDetailContent({ community }: CommunityDetailCon
   const eventsQuery = useQuery<CommunityEvent>(community.ref.collection('events') as any)
   const events = eventsQuery?.docs
 
-  const eventTiles = events?.map((event, i) =>
-    <EventTile href={`/communities/${community.id}/${event.id}`} key={i} event={event.data()} />
+  const eventTiles = events?.map((event) =>
+    <EventTile href={`/communities/${community.id}/${event.id}`} key={event.id} event={event.data()} />
   )
 
   if (eventTiles?.length === 0) {
     eventTiles.push(
-      <Tile size={44} className="flex items-center justify-center text-2xl text-gray flex-col border-gray-line border">
+      <Tile key={1} size={44} className="flex items-center justify-center text-2xl text-gray flex-col border-gray-line border">
         <PlusCircle />
         Add Event
       </Tile>

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 
 import { CollectionRef, Document, DocumentRef, QueryRef, Query } from './collections'
 
-export function useDoc<T>(ref: DocumentRef<T>, watch: any = ref.id): Document<T> | null {
+export function useDoc<T>(ref?: DocumentRef<T>, watch: any = ref?.id): Document<T> | null {
   const [doc, setDoc] = useState<Document<T>>(null)
   useEffect(() => {
     if (!ref) return

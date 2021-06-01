@@ -1,4 +1,4 @@
-import { ChangeEventHandler } from 'react'
+import { ChangeEventHandler, ForwardedRef, forwardRef } from 'react'
 
 type InputType = 'text' | 'email' | 'password' | 'textarea'
 
@@ -10,21 +10,24 @@ interface InputProps {
   minLength?: number
   className?: string
   rows?: number
+  name?: string
   error?: string
   onChange: ChangeEventHandler<HTMLInputElement>
+  onBlur?: ChangeEventHandler<HTMLInputElement>
 }
 
-function elementForType(type: InputType, props: any) {
+function elementForType(type: InputType, props: any, ref: ForwardedRef<unknown>) {
   switch (type) {
-    case 'textarea': return <textarea {...props} />
-    default: return <input type={type} {...props} />
+    case 'textarea': return <textarea ref={ref} {...props} />
+    default: return <input ref={ref} type={type} {...props} />
   }
 }
 
-export default function Input({ type, label, error, ...props }: InputProps) {
+export default forwardRef(function Input({ type, label, error, ...props }: InputProps, ref) {
   props.className = 'shadow appearance-none border rounded w-full py-2 px-3' + (props.className ? ` ${props.className}` : '')
+  if (error) props.className += ' border-error'
 
-  const element = elementForType(type, props)
+  const element = elementForType(type, props, ref)
   return (
     <label className="block text-sm font-bold">
       {label && <div className="ml-1 mb-1">{label}</div>}
@@ -32,4 +35,4 @@ export default function Input({ type, label, error, ...props }: InputProps) {
       <div className="h-4 ml-1 mt-1 text-error">{error ?? ''}</div>
     </label>
   )
-}
+})

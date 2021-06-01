@@ -1,7 +1,7 @@
-import { Community, Document } from '../../lib/store'
-import Button from '../atoms/Button'
-import SubmenuLayout from '../atoms/SubmenuLayout'
-import CommunityDetailContent from '../molecules/CommunityDetailContent'
+import Button from '@src/components/atoms/Button'
+import SubmenuLayout from '@src/components/atoms/SubmenuLayout'
+import CommunityDetailContent from '@src/components/molecules/CommunityDetailContent'
+import { Community, Document } from '@src/lib/store'
 
 interface CommunityDetailsProps {
   community: Document<Community>

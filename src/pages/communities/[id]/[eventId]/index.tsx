@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 
-import Loading from '../../../../components/atoms/Loading'
-import EventDetails from '../../../../components/organisms/EventDetails'
-import Main from '../../../../components/organisms/Main'
-import { useDoc, collections, CommunityEvent } from '../../../../lib/store'
+import Loading from '@src/components/atoms/Loading'
+import EventDetails from '@src/components/organisms/EventDetails'
+import Main from '@src/components/organisms/Main'
+import { useDoc, collections, CommunityEvent } from '@src/lib/store'
 
 export default function Event() {
   const router = useRouter()

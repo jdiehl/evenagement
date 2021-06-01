@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   settings: {
+    'import/internal-regex': '^@src/',
     react: {
       version: 'detect'
     }
@@ -29,6 +30,7 @@ module.exports = {
     'comma-dangle': 0,
     'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index'], 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
     'no-console': ['warn'],
+    'no-multiple-empty-lines': ['warn', { max: 1, maxEOF: 0, maxBOF: 0 }],
     'no-unreachable': ['warn'],
     'no-unused-vars': ['warn', { args: 'none' }],
     'react/jsx-indent': [2, 2],

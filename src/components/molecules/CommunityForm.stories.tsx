@@ -2,6 +2,9 @@ import { Story, Meta } from '@storybook/react'
 
 import CommunityForm from './CommunityForm'
 
+import { Community } from '@src/lib/store'
+import { MockRef } from '@src/lib/storybook'
+
 export default {
   title: 'Molecules/CommunityForm',
   component: CommunityForm,
@@ -9,8 +12,11 @@ export default {
 } as Meta
 
 // eslint-disable-next-line react/prop-types
-const Template: Story<any> = ({ onSave, onCancel, ...args }) => {
-  return <CommunityForm communityData={args} onSave={onSave} onCancel={onCancel} />
+const Template: Story<any> = ({ onClose, ...args }) => {
+  const ref = MockRef<Community>()
+  return (
+    <CommunityForm communityRef={ref} onClose={onClose} />
+  )
 }
 
 export const Primary = Template.bind({})

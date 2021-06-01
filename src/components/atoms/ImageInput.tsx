@@ -1,29 +1,41 @@
-
-import { CloudArrowUp } from 'phosphor-react'
+import { CloudArrowUp, Image } from 'phosphor-react'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 
 import Button from './Button'
+import Loading from './Loading'
 
 interface ImageInputProps {
   label?: string
   src?: string
   className?: string
   height: number
-  onChange: ChangeEventHandler<{ value: File }>
+  onChange: ChangeEventHandler<HTMLInputElement>
+}
+
+function makeImageView(loading: boolean, src?: string) {
+  if (loading) return <Loading className="absolute h-full w-full text-gray-light" />
+  if (!src) return <Image className="absolute h-full w-full text-gray-light" />
+  return <img className="absolute h-full w-full object-cover" src={src} />
 }
 
 export default function ImageInput({ label, src: _src, height, className, onChange }: ImageInputProps) {
-  const [src, setSrc] = useState(_src)
-  const [value, setValue] = useState<File>()
+  const [src, setSrc] = useState<string>(_src)
+  const [loading, setLoading] = useState(false)
 
   useEffect(() => {
-    if (!value) return
-    onChange({ target: { value } } as any)
+    setSrc(_src)
+  }, [_src])
+
+  const onInputChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+    setLoading(true)
+    onChange(e)
     const fileReader = new FileReader()
-    fileReader.readAsDataURL(value)
-    fileReader.onload = (e) => setSrc(e.target.result as string)
-    return () => fileReader.abort()
-  }, [value])
+    fileReader.readAsDataURL(e.target.files[0])
+    fileReader.onload = (e) => {
+      setSrc(e.target.result as string)
+      setLoading(false)
+    }
+  }
 
   className = 'relative cursor-pointer ' + (className || '')
   const style = { height }
@@ -32,12 +44,12 @@ export default function ImageInput({ label, src: _src, height, className, onChan
     <label className="block text-sm font-bold">
       {label && <div className="ml-1 mb-1">{label}</div>}
       <div style={style} className={className}>
-        <img className="absolute h-full w-full object-cover" src={src} />
+        {makeImageView(loading, src)}
         <Button className="absolute right-2 -bottom-3" round={true} >
           <CloudArrowUp />
         </Button>
       </div>
-      <input className="hidden" type="file" onChange={(e) => setValue(e.target.files[0])} />
+      <input className="hidden" type="file" onChange={onInputChange} />
     </label>
   )
 }

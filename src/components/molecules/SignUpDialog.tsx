@@ -1,9 +1,9 @@
 import { FormEvent, useContext, useState } from 'react'
 
-import ToastContext from '../../context/ToastContext'
-import { signup } from '../../lib/auth'
-import Button from '../atoms/Button'
-import Input from '../atoms/Input'
+import Button from '@src/components/atoms/Button'
+import Input from '@src/components/atoms/Input'
+import ToastContext from '@src/context/ToastContext'
+import { signup } from '@src/lib/auth'
 
 interface SignUpDialogProps {
   email?: string,

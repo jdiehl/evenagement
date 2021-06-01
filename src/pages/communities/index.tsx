@@ -1,11 +1,11 @@
 import Link from 'next/link'
 
-import Button from '../../components/atoms/Button'
-import Loading from '../../components/atoms/Loading'
-import CommunityGrid from '../../components/molecules/CommunityGrid'
-import CommunityTile from '../../components/molecules/CommunityTile'
-import Main from '../../components/organisms/Main'
-import { collections, useQuery } from '../../lib/store'
+import Button from '@src/components/atoms/Button'
+import Loading from '@src/components/atoms/Loading'
+import CommunityGrid from '@src/components/molecules/CommunityGrid'
+import CommunityTile from '@src/components/molecules/CommunityTile'
+import Main from '@src/components/organisms/Main'
+import { collections, useQuery } from '@src/lib/store'
 
 export default function Communities() {
   const ref = collections.community().limit(10)

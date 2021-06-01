@@ -1,12 +1,11 @@
 import { useEffect, useState } from 'react'
 
-import Carousell from '../atoms/Carousell'
-import Dialog from '../atoms/Dialog'
-import Modal from '../atoms/Modal'
-
-import SignInDialog from './SignInDialog'
-import SignUpCompleteDialog from './SignUpCompleteDialog'
-import SignUpDialog from './SignUpDialog'
+import Carousell from '@src/components/atoms/Carousell'
+import Dialog from '@src/components/atoms/Dialog'
+import Modal from '@src/components/atoms/Modal'
+import SignInDialog from '@src/components/molecules/SignInDialog'
+import SignUpCompleteDialog from '@src/components/molecules/SignUpCompleteDialog'
+import SignUpDialog from '@src/components/molecules/SignUpDialog'
 
 interface SignInModalProps {
   show: boolean

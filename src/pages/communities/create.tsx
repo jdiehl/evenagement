@@ -1,19 +1,20 @@
 import { useRouter } from 'next/router'
 
-import CommunityCreate from '../../components/organisms/CommunityCreate'
-import Main from '../../components/organisms/Main'
-import { Community, DocumentRef } from '../../lib/store'
+import CommunityForm from '@src/components/molecules/CommunityForm'
+import Main from '@src/components/organisms/Main'
+import { collections } from '@src/lib/store'
 
 export default function Communities() {
   const router = useRouter()
+  const communityRef = collections.community().doc()
 
-  const onClose = (communityRef?: DocumentRef<Community>) => {
-    router.push(communityRef ? `/communities/${communityRef.id}` : '/communities')
+  const onClose = (saved: boolean) => {
+    router.push(saved ? `/communities/${communityRef.id}` : '/communities')
   }
 
   return (
     <Main>
-      <CommunityCreate onClose={onClose}/>
+      <CommunityForm communityRef={communityRef} onClose={onClose} />
     </Main>
   )
 }
