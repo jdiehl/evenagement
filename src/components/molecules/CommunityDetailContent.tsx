@@ -4,6 +4,7 @@ import { NotePencil, PlusCircle } from 'phosphor-react'
 import Button from '@src/components/atoms/Button'
 import HorizontalList from '@src/components/atoms/HorizontalList'
 import Loading from '@src/components/atoms/Loading'
+import Text from '@src/components/atoms/Text'
 import Tile from '@src/components/atoms/Tile'
 import EventTile from '@src/components/molecules/EventTile'
 import UserTile from '@src/components/molecules/UserTile'
@@ -39,23 +40,26 @@ export default function CommunityDetailContent({ community }: CommunityDetailCon
   }
 
   return (
-    <>
-      <h1 className="relative font-bold text-2xl">{communityData.name}
-        <Button round={true} href={`/communities/${community.id}/edit`} className="absolute right-0 top-0">
-          <NotePencil/>
-        </Button>
-      </h1>
-      <p>{communityData.description}</p>
-      <p className="font-bold mt-8">Events</p>
-      <HorizontalList className="h-48">
-        {events
-          ? eventTiles
-          : <Loading />}
-      </HorizontalList>
-      <p className="font-bold mt-8">Members</p>
-      <HorizontalList className="h-28">
-        {memberProfiles?.map((memberProfile) => <UserTile userProfile={memberProfile.data()} key={memberProfile.id} />)}
-      </HorizontalList>
-    </>
+    <div className="relative">
+      <Text type="h1">{communityData.name}</Text>
+      <Button round={true} href={`/communities/${community.id}/edit`} className="absolute right-0 top-0">
+        <NotePencil/>
+      </Button>
+      <Text>{communityData.description}</Text>
+      <div className="mt-8">
+        <Text type="h2">Events</Text>
+        <HorizontalList className="h-48">
+          {events
+            ? eventTiles
+            : <Loading />}
+        </HorizontalList>
+      </div>
+      <div className="mt-8">
+        <Text type="h2">Members</Text>
+        <HorizontalList className="h-28">
+          {memberProfiles?.map((memberProfile) => <UserTile userProfile={memberProfile.data()} key={memberProfile.id} />)}
+        </HorizontalList>
+      </div>
+    </div>
   )
 }
