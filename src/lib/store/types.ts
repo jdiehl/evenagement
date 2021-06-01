@@ -6,6 +6,11 @@ export interface CommunityEvent {
   image: string
 }
 
+export interface CommunityMember {
+  role: 'member' | 'admin'
+  joined: Date
+}
+
 export interface Community {
   name: string
   description?: string

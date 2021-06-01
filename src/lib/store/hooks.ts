@@ -16,6 +16,6 @@ export function useQuery<T>(ref: CollectionRef<T> | QueryRef<T>, watch: any = un
   useEffect(() => {
     if (!ref) return
     return ref.onSnapshot(query => setQuery(query))
-  }, [watch])
+  }, [typeof watch === 'object' ? JSON.stringify(watch) : watch])
   return query
 }
