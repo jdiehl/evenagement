@@ -1,5 +1,5 @@
 import { ChangeEventHandler, useEffect, useState } from 'react'
-import { UseFormProps, UseFormReturn, useForm, useFormState, UseFormStateReturn, FieldPath } from 'react-hook-form'
+import { UseFormProps, UseFormReturn, useForm, useFormState, UseFormStateReturn, FieldPath, get } from 'react-hook-form'
 
 import { storage } from '@src/lib/storage'
 import { Document, DocumentRef, useDoc } from '@src/lib/store'
@@ -71,7 +71,7 @@ export function useDocForm<T>(ref: DocumentRef<T>, props: UseFormProps<T> = {}):
 
   // add registerFile for handling file input
   const registerFile = (name: FieldPath<T>) => {
-    const src: string | undefined = doc?.exists && doc.data()[name as string]
+    const src: string | undefined = doc?.exists && get(doc.data(), name)
     const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
       res.setValue(name, e.target.files[0] as any)
     }
