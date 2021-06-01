@@ -1,6 +1,7 @@
+import { useState } from 'react'
+
 import Button from '@src/components/atoms/Button'
 import SignInModal from '@src/components/molecules/SignInModal'
-import { useState } from 'react'
 
 interface SignInButtonProps {
   label?: string

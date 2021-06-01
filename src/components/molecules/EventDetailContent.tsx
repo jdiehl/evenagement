@@ -1,5 +1,6 @@
-import { CommunityEvent } from '@src/lib/store'
 import { format } from 'date-fns'
+
+import { CommunityEvent } from '@src/lib/store'
 
 interface EventDetailContentProps {
   event: CommunityEvent

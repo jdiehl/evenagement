@@ -1,7 +1,8 @@
-import { MockDocument } from '@src/lib/storybook'
 import { Story, Meta } from '@storybook/react'
 
 import CommunityDetails from './CommunityDetails'
+
+import { MockDocument } from '@src/lib/storybook'
 
 export default {
   title: 'Organisms/CommunityDetails',

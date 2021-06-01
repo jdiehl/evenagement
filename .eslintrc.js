@@ -20,6 +20,7 @@ module.exports = {
     '@typescript-eslint'
   ],
   settings: {
+    'import/internal-regex': '^@src/',
     react: {
       version: 'detect'
     }

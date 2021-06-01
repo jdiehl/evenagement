@@ -1,10 +1,11 @@
+import Link from 'next/link'
+
 import Button from '@src/components/atoms/Button'
 import Loading from '@src/components/atoms/Loading'
 import CommunityGrid from '@src/components/molecules/CommunityGrid'
 import CommunityTile from '@src/components/molecules/CommunityTile'
 import Main from '@src/components/organisms/Main'
 import { collections, useQuery } from '@src/lib/store'
-import Link from 'next/link'
 
 export default function Communities() {
   const ref = collections.community().limit(10)

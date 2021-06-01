@@ -1,6 +1,7 @@
+import { Story, Meta } from '@storybook/react'
+
 import MainBar from '@src/components/organisms/MainBar'
 import UserContext from '@src/context/UserContext'
-import { Story, Meta } from '@storybook/react'
 
 export default {
   title: 'Organisms/MainBar',

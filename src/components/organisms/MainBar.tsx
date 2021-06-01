@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+
 import Navbar from '@src/components/atoms/Navbar'
 import NavbarBrand from '@src/components/atoms/NavbarBrand'
 import NavbarItem from '@src/components/atoms/NavbarItem'
@@ -5,7 +7,6 @@ import Logo from '@src/components/molecules/Logo'
 import SignInButton from '@src/components/molecules/SignInButton'
 import UserMenu from '@src/components/organisms/UserMenu'
 import UserContext from '@src/context/UserContext'
-import { useContext } from 'react'
 
 interface MainBarProps {
   useTransparentBackground?: boolean

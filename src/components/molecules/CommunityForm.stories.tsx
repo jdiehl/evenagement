@@ -1,8 +1,9 @@
-import { Community } from '@src/lib/store'
-import { MockRef } from '@src/lib/storybook'
 import { Story, Meta } from '@storybook/react'
 
 import CommunityForm from './CommunityForm'
+
+import { Community } from '@src/lib/store'
+import { MockRef } from '@src/lib/storybook'
 
 export default {
   title: 'Molecules/CommunityForm',

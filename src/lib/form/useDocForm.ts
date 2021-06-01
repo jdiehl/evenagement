@@ -1,7 +1,8 @@
-import { storage } from '@src/lib/storage'
-import { Document, DocumentRef, useDoc } from '@src/lib/store'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import { UseFormProps, UseFormReturn, useForm, useFormState, UseFormStateReturn, FieldPath } from 'react-hook-form'
+
+import { storage } from '@src/lib/storage'
+import { Document, DocumentRef, useDoc } from '@src/lib/store'
 
 interface RegisterFileReturn {
   src?: string
