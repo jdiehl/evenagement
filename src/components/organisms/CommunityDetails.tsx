@@ -1,6 +1,3 @@
-import { useContext } from 'react'
-
-import Button from '@src/components/atoms/Button'
 import SubmenuLayout from '@src/components/atoms/SubmenuLayout'
 import CommunityDetailContent from '@src/components/molecules/CommunityDetailContent'
 import JoinCommunityButton from '@src/components/molecules/JoinCommunityButton'
