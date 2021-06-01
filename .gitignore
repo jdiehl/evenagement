@@ -41,3 +41,4 @@ emulator-data
 # other lockfiles
 package-lock.json
 yarn.lock
+/prod.env
