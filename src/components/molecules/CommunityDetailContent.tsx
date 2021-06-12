@@ -8,7 +8,7 @@ import Text from '@src/components/atoms/Text'
 import Tile from '@src/components/atoms/Tile'
 import EventTile from '@src/components/molecules/EventTile'
 import UserTile from '@src/components/molecules/UserTile'
-import { Document, useQuery, Community, CommunityEvent, CommunityMember, collections } from '@src/lib/store'
+import { Document, useQuery, Community, CommunityEvent, collections } from '@src/lib/store'
 
 interface CommunityDetailContentProps {
   community: Document<Community>
@@ -20,10 +20,8 @@ export default function CommunityDetailContent({ community }: CommunityDetailCon
   const eventsQuery = useQuery<CommunityEvent>(community.ref.collection('events') as any)
   const events = eventsQuery?.docs
 
-  const membersQuery = useQuery<CommunityMember>(community.ref.collection('members') as any)
-  const members = membersQuery?.docs.map(m => m.id)
-
-  const memberProfilesQuery = useQuery(members && collections.userProfile().where(firebase.firestore.FieldPath.documentId(), 'in', members), members)
+  const members = communityData.members || []
+  const memberProfilesQuery = useQuery(members && members.length > 0 && collections.userProfile().where(firebase.firestore.FieldPath.documentId(), 'in', members), members)
   const memberProfiles = memberProfilesQuery?.docs
 
   const eventTiles = events?.map((event) =>

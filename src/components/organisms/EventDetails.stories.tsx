@@ -14,7 +14,7 @@ export default {
 // eslint-disable-next-line react/prop-types
 const Template: Story<any> = ({ communityName, communityImage, title, date, image }) => {
   const event = MockDocument<CommunityEvent>({ title, image, date: { toDate: () => date } } as any)
-  const community = MockDocument<Community>({ name: communityName, description: '', image: communityImage })
+  const community = MockDocument<Community>({ name: communityName, description: '', image: communityImage, members: [] })
   return <EventDetails community={community} event={event}/>
 }
 

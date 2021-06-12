@@ -4,7 +4,7 @@ import Main from '@src/components/organisms/Main'
 export default function Communities() {
   return (
     <Main>
-      <CommunityGrid />
+      <CommunityGrid filter="mine" />
     </Main>
   )
 }
