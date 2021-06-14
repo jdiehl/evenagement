@@ -17,7 +17,7 @@ export default function JoinCommunityButton({ community }: JoinCommunityButtonPr
     if (!isValidUser(user)) {
       throw new Error('Not logged in')
     }
-    await community.ref.collection('members').doc(user.uid).set({ role: 'member', joined: new Date() })
+    await community.ref.collection('members').doc(user.uid).set({ uid: user.uid, role: 'member', joined: new Date() })
   }
 
   const leaveCommunity = async () => {
