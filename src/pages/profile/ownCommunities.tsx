@@ -16,7 +16,7 @@ export default function Communities() {
 
   const query = useQuery(firebase.firestore().collectionGroup('members')
     .where('role', '==', 'organizer')
-    .where('uid', '==', user.uid))
+    .where('uid', '==', user?.uid ?? ''))
 
   useEffect(() => {
     if (!query) { return }
