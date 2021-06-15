@@ -1,6 +1,7 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
+import { UserContextProvider } from '@src/context/UserContext'
 import bootstrap from '@src/lib/bootstrap'
 
 import '@src/styles/globals.css'
@@ -14,7 +15,9 @@ export default function MyApp({ Component, pageProps }: AppProps) {
         <title>Evenagement</title>
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
       </Head>
-      <Component {...pageProps} />
+      <UserContextProvider>
+        <Component {...pageProps} />
+      </UserContextProvider>
     </>
   )
 }

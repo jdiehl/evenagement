@@ -7,6 +7,7 @@ export interface CommunityEvent {
 }
 
 export interface CommunityMember {
+  uid: string
   role: 'member' | 'admin'
   joined: Date
 }
