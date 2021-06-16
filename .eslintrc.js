@@ -1,29 +1,9 @@
 module.exports = {
-  env: {
-    browser: true,
-    es2021: true
-  },
   extends: [
-    'plugin:react/recommended',
-    'standard'
-  ],
-  parser: '@typescript-eslint/parser',
-  parserOptions: {
-    ecmaFeatures: {
-      jsx: true
-    },
-    ecmaVersion: 12,
-    sourceType: 'module'
-  },
-  plugins: [
-    'react',
-    '@typescript-eslint'
+    'next'
   ],
   settings: {
-    'import/internal-regex': '^@src/',
-    react: {
-      version: 'detect'
-    }
+    'import/internal-regex': '^@src/'
   },
   rules: {
     'arrow-parens': 0,
@@ -33,6 +13,7 @@ module.exports = {
     'no-multiple-empty-lines': ['warn', { max: 1, maxEOF: 0, maxBOF: 0 }],
     'no-unreachable': ['warn'],
     'no-unused-vars': ['warn', { args: 'none' }],
+    'quotes': ['warn', 'single'],
     'react/jsx-indent': [2, 2],
     'react/react-in-jsx-scope': 0,
     'require-await': 0,
