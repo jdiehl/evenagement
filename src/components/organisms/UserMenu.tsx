@@ -16,7 +16,7 @@ export default function UserMenu() {
       </a>
       <Menu show={showMenu} className="right-0" onClose={() => setShowMenu(false)}>
         <MenuItem href="/profile" label="My Profile" />
-        <MenuItem href="/profile/ownCommunities" label="My Communities" />
+        <MenuItem href="/communities/mine" label="My Communities" />
         <MenuItem onClick={signout} label="Sign Out" />
       </Menu>
     </span>
