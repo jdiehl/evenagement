@@ -8,7 +8,7 @@ export default function VerifyEmail() {
     <Main>
       <div className="text-center text-base my-24">
         <p className="mb-12">Welcome on board. Start by exploring some communities.</p>
-        <Link href="/communities">
+        <Link href="/communities" passHref>
           <Button>Go to Communities</Button>
         </Link>
       </div>

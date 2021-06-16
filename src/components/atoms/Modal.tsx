@@ -6,7 +6,6 @@ interface ModalProps {
 }
 
 export default function Modal({ show, onClose, children }: PropsWithChildren<ModalProps>) {
-  if (!show) return null
 
   // execute onClose only if the background is clicked (not a child)
   const ref = useRef()
@@ -14,6 +13,7 @@ export default function Modal({ show, onClose, children }: PropsWithChildren<Mod
     if (event.target === ref.current) onClose()
   }
 
+  if (!show) return null
   return (
     <div ref={ref} className="fixed z-10 inset-0 bg-black bg-opacity-50 flex items-center justify-center" onClick={onClick}>
       {children}

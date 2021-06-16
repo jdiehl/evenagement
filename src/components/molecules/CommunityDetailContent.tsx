@@ -23,7 +23,7 @@ export default function CommunityDetailContent({ community }: CommunityDetailCon
   const membersQuery = useQuery<CommunityMember>(community.ref.collection('members') as any)
   const members = membersQuery?.docs.map(m => m.id)
 
-  const memberProfilesQuery = useQuery(members && collections.userProfile().where(firebase.firestore.FieldPath.documentId(), 'in', members), members)
+  const memberProfilesQuery = useQuery(members && members.length && collections.userProfile().where(firebase.firestore.FieldPath.documentId(), 'in', members), members)
   const memberProfiles = memberProfilesQuery?.docs
 
   const eventTiles = events?.map((event) =>
