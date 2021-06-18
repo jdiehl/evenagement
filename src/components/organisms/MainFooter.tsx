@@ -1,4 +1,8 @@
-export default function MainFooter({ useTransparentBackground }: { useTransparentBackground?: boolean }) {
+interface MainFooterProps {
+  useTransparentBackground?: boolean
+}
+
+export default function MainFooter({ useTransparentBackground }: MainFooterProps) {
   return (
     <div className={'py-12 ' + (useTransparentBackground ? 'bg-background-shaded' : 'bg-background-dark')}>
       <footer className="container flex items-center mx-auto">

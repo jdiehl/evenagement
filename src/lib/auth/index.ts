@@ -30,7 +30,7 @@ export async function signout(): Promise<void> {
 export async function signup(email: string, password: string): Promise<void> {
   const { user } = await firebase.auth().createUserWithEmailAndPassword(email, password)
   if (!user.emailVerified) {
-    await user.sendEmailVerification({ url: `${getURLRoot()}/verifyEmail` })
+    await user.sendEmailVerification({ url: `${getURLRoot()}/verify-email` })
   }
 }
 

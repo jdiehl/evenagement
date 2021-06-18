@@ -1,12 +1,10 @@
-import { useContext } from 'react'
-
 import Navbar from '@src/components/atoms/Navbar'
 import NavbarBrand from '@src/components/atoms/NavbarBrand'
 import NavbarItem from '@src/components/atoms/NavbarItem'
 import Logo from '@src/components/molecules/Logo'
 import SignInButton from '@src/components/molecules/SignInButton'
 import UserMenu from '@src/components/organisms/UserMenu'
-import UserContext from '@src/context/UserContext'
+import { useUser } from '@src/context/UserContext'
 
 interface MainBarProps {
   useTransparentBackground?: boolean
@@ -16,7 +14,7 @@ interface MainBarProps {
 }
 
 export default function MainBar({ useTransparentBackground = false, showMenu = true, showLogo = true, showUserMenu = true }: MainBarProps) {
-  const user = useContext(UserContext)
+  const { user } = useUser()
   return (
     <Navbar useTransparentBackground={useTransparentBackground}>
       {showLogo

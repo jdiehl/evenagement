@@ -13,11 +13,11 @@ export default function CommunitiesList({ communities }: CommunitiesListProps) {
   return (
     <>
       <div className="h-9 flex justify-end mt-4">
-        <Button href="communities/create">Create new...</Button>
+        <Button href="/communities/create">Create new...</Button>
       </div>
       <CommunityGrid>
         {communities.map(doc => (
-          <Link key={doc.id} href={`communities/${doc.id}`}>
+          <Link key={doc.id} href={`/communities/${doc.id}`}>
             <a>
               <CommunityTile community={doc.data()} />
             </a>

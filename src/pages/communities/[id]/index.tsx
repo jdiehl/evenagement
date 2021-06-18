@@ -1,22 +1,24 @@
-import { useRouter } from 'next/router'
+import { GetServerSideProps } from 'next'
 
-import Loading from '@src/components/atoms/Loading'
-import CommunityDetails from '@src/components/organisms/CommunityDetails'
-import Main from '@src/components/organisms/Main'
-import { collections, useDoc } from '@src/lib/store'
+import CommunityContent from '@src/content/CommunityContent'
+import MainLayout from '@src/layouts/MainLayout'
 
-export default function Communities() {
-  // require the router to be ready
-  const router = useRouter()
-  const id = router.query.id as string
+interface CommunityProps {
+  id: string
+}
 
-  // subscribe to the community document
-  const ref = collections.community().doc(id)
-  const community = useDoc(ref)
-
+export default function Community({ id }: CommunityProps) {
   return (
-    <Main>
-      {community ? <CommunityDetails community={community} /> : <Loading />}
-    </Main>
+    <MainLayout>
+      <CommunityContent id={id} />
+    </MainLayout>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {
+      id: context.params?.id
+    }
+  }
 }

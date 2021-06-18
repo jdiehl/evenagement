@@ -1,7 +1,5 @@
-import { useContext } from 'react'
-
 import Button from '@src/components/atoms/Button'
-import UserContext from '@src/context/UserContext'
+import { useUser } from '@src/context/UserContext'
 import { isValidUser } from '@src/lib/auth'
 import { Community, Document, useDoc } from '@src/lib/store'
 
@@ -10,7 +8,7 @@ interface JoinCommunityButtonProps {
 }
 
 export default function JoinCommunityButton({ community }: JoinCommunityButtonProps) {
-  const user = useContext(UserContext)
+  const { user } = useUser()
   const userMember = useDoc(community.ref.collection('members').doc(user.uid))
 
   const joinCommunity = async () => {
