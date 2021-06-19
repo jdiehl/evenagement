@@ -10,11 +10,11 @@ interface CommunitiesListProps {
 
 export default function CommunitiesGrid({ communities }: CommunitiesListProps) {
   return (
-    <Container padding={true}>
+    <Container gap={true} padding={true}>
       <Container direction="row" justify="end">
         <Button href="/communities/create">Create new...</Button>
       </Container>
-      <Grid cols={3}>
+      <Grid cols={3} gap={true}>
         {communities.map(doc => (
           <CommunityTile key={doc.id} community={doc.data()} href={`/communities/${doc.id}`} />
         ))}

@@ -11,7 +11,7 @@ export default function Grid({ children, cols, gap, padding }: PropsWithChildren
     'grid',
     `md:grid-cols-${cols}`,
     'grid-cols-1',
-    gap !== false && 'gap-4',
+    gap && 'gap-4',
     padding && 'p-4'
   ]
   return (

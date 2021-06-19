@@ -12,7 +12,7 @@ export default function Container({ children, direction, justify, gap, padding }
     'flex',
     `flex-${direction ?? 'col'}`,
     `justify-${justify ?? 'start'}`,
-    gap !== false && 'gap-4',
+    gap && 'gap-4',
     padding && 'p-4'
   ]
   return (
