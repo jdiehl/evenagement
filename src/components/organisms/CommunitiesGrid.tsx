@@ -1,7 +1,8 @@
 import Link from 'next/link'
 
 import Button from '@src/components/atoms/Button'
-import LargeGrid from '@src/components/atoms/LargeGrid'
+import Container from '@src/components/atoms/Container'
+import Grid from '@src/components/atoms/Grid'
 import CommunityTile from '@src/components/molecules/CommunityTile'
 import { CommunityDocument } from '@src/model/Community'
 
@@ -11,11 +12,11 @@ interface CommunitiesListProps {
 
 export default function CommunitiesGrid({ communities }: CommunitiesListProps) {
   return (
-    <>
-      <div className="h-9 flex justify-end mt-4">
+    <Container padding={true}>
+      <Container direction="row" justify="end">
         <Button href="/communities/create">Create new...</Button>
-      </div>
-      <LargeGrid>
+      </Container>
+      <Grid cols={3}>
         {communities.map(doc => (
           <Link key={doc.id} href={`/communities/${doc.id}`}>
             <a>
@@ -23,7 +24,7 @@ export default function CommunitiesGrid({ communities }: CommunitiesListProps) {
             </a>
           </Link>
         ))}
-      </LargeGrid>
-    </>
+      </Grid>
+    </Container>
   )
 }
