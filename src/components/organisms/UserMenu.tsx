@@ -3,7 +3,7 @@ import { useState } from 'react'
 
 import Menu from '@src/components/atoms/Menu'
 import MenuItem from '@src/components/atoms/MenuItem'
-import { signout } from '@src/lib/auth'
+import { signOut } from '@src/lib/firebase'
 
 export default function UserMenu() {
   // state: menu open?
@@ -17,7 +17,7 @@ export default function UserMenu() {
       <Menu show={showMenu} className="right-0" onClose={() => setShowMenu(false)}>
         <MenuItem href="/profile" label="My Profile" />
         <MenuItem href="/communities/mine" label="My Communities" />
-        <MenuItem onClick={signout} label="Sign Out" />
+        <MenuItem onClick={signOut} label="Sign Out" />
       </Menu>
     </span>
   )

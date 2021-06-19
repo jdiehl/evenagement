@@ -15,7 +15,7 @@ function makeAuthProvider(authProvider: AuthProvider) {
   }
 }
 
-export async function email(email: string): Promise<void> {
+export async function signinWithEmail(email: string): Promise<void> {
   const actionCodeSettings = {
     url: 'http://localhost:3000/signin',
     dynamicLinkDomain: 'evenagement.com'
@@ -23,18 +23,18 @@ export async function email(email: string): Promise<void> {
   await firebase.auth().sendSignInLinkToEmail(email, actionCodeSettings)
 }
 
-export async function signout(): Promise<void> {
+export async function signOut(): Promise<void> {
   return firebase.auth().signOut()
 }
 
-export async function signup(email: string, password: string): Promise<void> {
+export async function signUp(email: string, password: string): Promise<void> {
   const { user } = await firebase.auth().createUserWithEmailAndPassword(email, password)
   if (!user.emailVerified) {
     await user.sendEmailVerification({ url: `${getURLRoot()}/verify-email` })
   }
 }
 
-export async function signin(email: string, password: string): Promise<void> {
+export async function signIn(email: string, password: string): Promise<void> {
   const { user } = await firebase.auth().signInWithEmailAndPassword(email, password)
   if (!user.emailVerified) throw new Error('Email address is not verified')
 }

@@ -3,7 +3,7 @@ import { FormEvent, useContext, useState } from 'react'
 import Button from '@src/components/atoms/Button'
 import Input from '@src/components/atoms/Input'
 import ToastContext from '@src/context/ToastContext'
-import { signup } from '@src/lib/auth'
+import { signUp } from '@src/lib/firebase'
 
 interface SignUpDialogProps {
   email?: string,
@@ -20,7 +20,7 @@ export default function SignUpDialog({ email: initialEmail, onBack, onSignUp }: 
   const onSubmit = async (event: FormEvent) => {
     event.preventDefault()
     try {
-      await signup(email, password)
+      await signUp(email, password)
     } catch (err) {
       setToast({ title: 'Email Address in Use', message: 'The provided email address has already signed up for an account.', type: 'error' })
       return

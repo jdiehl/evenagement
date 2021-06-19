@@ -1,6 +1,6 @@
 import Button from '@src/components/atoms/Button'
 import { useUser } from '@src/context/UserContext'
-import { isValidUser } from '@src/lib/auth'
+import { isValidUser } from '@src/lib/firebase'
 import { CommunityDocument } from '@src/model/Community'
 import { useCommunityMember } from '@src/model/CommunityMember'
 

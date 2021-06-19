@@ -1,7 +1,7 @@
 import firebase from 'firebase/app'
 import { createContext, useContext, useState, useEffect, PropsWithChildren } from 'react'
 
-import { isValidUser } from '@src/lib/auth'
+import { isValidUser } from '@src/lib/firebase'
 
 interface UserContextProps {
   loading: boolean

@@ -5,7 +5,7 @@ import Input from '@src/components/atoms/Input'
 import Line from '@src/components/atoms/Line'
 import SignInWithButton from '@src/components/molecules/SignInWithButton'
 import ToastContext from '@src/context/ToastContext'
-import { AuthProvider, signin } from '@src/lib/auth'
+import { AuthProvider, signIn } from '@src/lib/firebase'
 
 const providers: AuthProvider[] = ['apple', 'facebook', 'google']
 
@@ -24,7 +24,7 @@ export default function SignInDialog({ onSignUp, onClose }: SignInDialogProps) {
   const onSubmit = async (e: FormEvent) => {
     e.preventDefault()
     try {
-      await signin(email, password)
+      await signIn(email, password)
     } catch (err) {
       setToast({ title: 'Cannot sign in', message: 'Please verify that you have entered the correct email and password.', type: 'error' })
       return
