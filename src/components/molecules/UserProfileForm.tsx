@@ -1,11 +1,12 @@
 import Button from '@src/components/atoms/Button'
 import Input from '@src/components/atoms/Input'
 import Loading from '@src/components/atoms/Loading'
+import { DocumentReference } from '@src/lib/firebase'
 import { useDocForm } from '@src/lib/form'
-import { UserProfile, DocumentRef } from '@src/lib/store'
+import { UserProfile } from '@src/model/UserProfile'
 
 interface ProfileFormProps {
-  userProfileRef: DocumentRef<UserProfile>
+  userProfileRef: DocumentReference<UserProfile>
   onClose?: () => void
 }
 

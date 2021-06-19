@@ -1,7 +1,7 @@
 import Loading from '@src/components/atoms/Loading'
 import EventDetails from '@src/components/organisms/EventDetails'
 import { useCommunity } from '@src/model/Community'
-import { useEvent } from '@src/model/Event'
+import { useEvent } from '@src/model/CommunityEvent'
 
 interface EventContentProps {
   id: string

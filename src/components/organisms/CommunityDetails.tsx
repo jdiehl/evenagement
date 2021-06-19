@@ -1,13 +1,17 @@
 import SubmenuLayout from '@src/components/atoms/SubmenuLayout'
 import CommunityDetailContent from '@src/components/molecules/CommunityDetailContent'
 import JoinCommunityButton from '@src/components/molecules/JoinCommunityButton'
-import { Community, Document } from '@src/lib/store'
+import { CommunityDocument } from '@src/model/Community'
+import { CommunityEventDocument } from '@src/model/CommunityEvent'
+import { UserProfileDocument } from '@src/model/UserProfile'
 
 interface CommunityDetailsProps {
-  community: Document<Community>
+  community: CommunityDocument
+  events: CommunityEventDocument[]
+  members: UserProfileDocument[]
 }
 
-export default function CommunityDetails({ community }: CommunityDetailsProps) {
+export default function CommunityDetails({ community, events, members }: CommunityDetailsProps) {
   const communityData = community.data()
 
   const menuContent = (<>
@@ -23,7 +27,7 @@ export default function CommunityDetails({ community }: CommunityDetailsProps) {
     <img src={communityData.image} alt={communityData.name} className="w-full h-60 object-cover" />
 
     <SubmenuLayout menuContent={menuContent}>
-      <CommunityDetailContent community={community} />
+      <CommunityDetailContent community={community} events={events} members={members} />
     </SubmenuLayout>
   </div>
   )

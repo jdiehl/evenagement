@@ -2,8 +2,8 @@ import { Story, Meta } from '@storybook/react'
 
 import CommunityForm from './CommunityForm'
 
-import { Community } from '@src/lib/store'
 import { MockRef } from '@src/lib/storybook'
+import { Community } from '@src/model/Community'
 
 export default {
   title: 'Molecules/CommunityForm',

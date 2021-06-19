@@ -1,4 +1,4 @@
-import { Community } from '@src/lib/store'
+import { Community } from '@src/model/Community'
 
 interface CommunityTileProps {
   community: Community

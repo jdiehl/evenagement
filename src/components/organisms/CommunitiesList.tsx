@@ -3,10 +3,10 @@ import Link from 'next/link'
 import Button from '@src/components/atoms/Button'
 import CommunityGrid from '@src/components/molecules/CommunityGrid'
 import CommunityTile from '@src/components/molecules/CommunityTile'
-import { Document, Community } from '@src/lib/store'
+import { CommunityDocument } from '@src/model/Community'
 
 interface CommunitiesListProps {
-  communities: Document<Community>[]
+  communities: CommunityDocument[]
 }
 
 export default function CommunitiesList({ communities }: CommunitiesListProps) {

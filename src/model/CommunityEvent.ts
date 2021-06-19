@@ -4,6 +4,8 @@ import { collection, CollectionReference, DocumentSnapshot, Timestamp } from '@s
 
 const events = (communityId: string) => collection('communities').doc(communityId).collection('events') as CollectionReference<CommunityEvent>
 
+export type CommunityEventDocument = DocumentSnapshot<CommunityEvent>
+
 export interface CommunityEvent {
   title: string
   date: Timestamp
@@ -16,7 +18,7 @@ export function getEventRef(communityId: string, id?: string) {
 
 // observe one event
 export function useEvent(communityId: string, id: string) {
-  const [result, setResult] = useState<DocumentSnapshot<CommunityEvent>>()
+  const [result, setResult] = useState<CommunityEventDocument>()
 
   useEffect(() => {
     if (!id) return
@@ -29,7 +31,7 @@ export function useEvent(communityId: string, id: string) {
 
 // observe all events
 export function useEvents(communityId: string) {
-  const [result, setResult] = useState<DocumentSnapshot<CommunityEvent>[]>()
+  const [result, setResult] = useState<CommunityEventDocument[]>()
 
   useEffect(() => {
     const ref = events(communityId)

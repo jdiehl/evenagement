@@ -1,11 +1,12 @@
 import Button from '@src/components/atoms/Button'
 import ImageInput from '@src/components/atoms/ImageInput'
 import Input from '@src/components/atoms/Input'
+import { DocumentReference } from '@src/lib/firebase'
 import { useDocForm } from '@src/lib/form'
-import { Community, DocumentRef } from '@src/lib/store'
+import { Community } from '@src/model/Community'
 
 interface CommunityEditProps {
-  communityRef: DocumentRef<Community>
+  communityRef: DocumentReference<Community>
   onClose: (saved: boolean) => void
 }
 

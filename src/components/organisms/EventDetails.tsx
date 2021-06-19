@@ -1,11 +1,12 @@
 import Button from '@src/components/atoms/Button'
 import SubmenuLayout from '@src/components/atoms/SubmenuLayout'
 import EventDetailContent from '@src/components/molecules/EventDetailContent'
-import { Community, CommunityEvent, Document } from '@src/lib/store'
+import { CommunityDocument } from '@src/model/Community'
+import { CommunityEventDocument } from '@src/model/CommunityEvent'
 
 interface CommunityDetailsProps {
-  community: Document<Community>
-  event: Document<CommunityEvent>
+  community: CommunityDocument
+  event: CommunityEventDocument
 }
 
 export default function EventDetails({ community, event }: CommunityDetailsProps) {

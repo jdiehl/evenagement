@@ -1,15 +1,16 @@
 import Button from '@src/components/atoms/Button'
 import { useUser } from '@src/context/UserContext'
 import { isValidUser } from '@src/lib/auth'
-import { Community, Document, useDoc } from '@src/lib/store'
+import { CommunityDocument } from '@src/model/Community'
+import { useCommunityMember } from '@src/model/CommunityMember'
 
 interface JoinCommunityButtonProps {
-  community: Document<Community>
+  community: CommunityDocument
 }
 
 export default function JoinCommunityButton({ community }: JoinCommunityButtonProps) {
   const { user } = useUser()
-  const userMember = useDoc(community.ref.collection('members').doc(user.uid))
+  const userMember = useCommunityMember(community.id, user.uid)
 
   const joinCommunity = async () => {
     if (!isValidUser(user)) {

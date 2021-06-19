@@ -6,6 +6,8 @@ import { collection, collectionGroup, DocumentSnapshot } from '@src/lib/firebase
 const communities = () => collection<Community>('communities')
 const members = () => collectionGroup<CommunityMember>('members')
 
+export type CommunityDocument = DocumentSnapshot<Community>
+
 export interface Community {
   name: string
   description?: string
@@ -25,7 +27,7 @@ export function getCommunityRef(id?: string) {
 
 // observe one community
 export function useCommunity(id: string) {
-  const [result, setResult] = useState<DocumentSnapshot<Community>>()
+  const [result, setResult] = useState<CommunityDocument>()
 
   useEffect(() => {
     if (!id) return
@@ -38,7 +40,7 @@ export function useCommunity(id: string) {
 
 // observe all public community
 export function usePublicCommunities() {
-  const [result, setResult] = useState<DocumentSnapshot<Community>[]>()
+  const [result, setResult] = useState<CommunityDocument[]>()
 
   useEffect(() => {
     const ref = communities().where('private', '!=', true)
@@ -51,12 +53,12 @@ export function usePublicCommunities() {
 // observe communities where the user is member or admin
 export function useMyCommunities() {
   const { user } = useUser()
-  const [result, setResult] = useState<DocumentSnapshot<Community>[]>()
+  const [result, setResult] = useState<CommunityDocument[]>()
 
   useEffect(() => {
     const ref = members().where('uid', '==', user.uid)
     return ref.onSnapshot(async (snapshot) => {
-      const parents = await Promise.all(snapshot.docs.map(d => d.ref.parent.parent.get() as Promise<DocumentSnapshot<Community>>))
+      const parents = await Promise.all(snapshot.docs.map(d => d.ref.parent.parent.get() as Promise<CommunityDocument>))
       setResult(parents)
     })
   }, [user])

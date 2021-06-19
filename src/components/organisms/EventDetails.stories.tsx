@@ -2,8 +2,9 @@ import { Story, Meta } from '@storybook/react'
 
 import EventDetails from './EventDetails'
 
-import { Community, CommunityEvent } from '@src/lib/store'
 import { MockDocument } from '@src/lib/storybook'
+import { Community } from '@src/model/Community'
+import { CommunityEvent } from '@src/model/CommunityEvent'
 
 export default {
   title: 'Organisms/EventDetails',

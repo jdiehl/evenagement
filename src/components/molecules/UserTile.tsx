@@ -1,5 +1,5 @@
 import Tile from '@src/components/atoms/Tile'
-import { UserProfile } from '@src/lib/store'
+import { UserProfile } from '@src/model/UserProfile'
 
 interface UserTileProps {
   userProfile: UserProfile
