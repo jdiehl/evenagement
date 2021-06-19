@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router'
 
 import CommunityForm from '@src/components/molecules/CommunityForm'
-import { collections } from '@src/lib/store'
+import { getCommunityRef } from '@src/model/Community'
 
 interface CommunityEditContentProps {
   id: string
@@ -10,7 +10,7 @@ interface CommunityEditContentProps {
 export default function CommunityEditContent({ id }: CommunityEditContentProps) {
   const router = useRouter()
 
-  const communityRef = collections.community().doc(id)
+  const communityRef = getCommunityRef(id)
   const onClose = () => router.push(`/communities/${id}`)
 
   return (

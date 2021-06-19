@@ -1,6 +1,7 @@
 import Loading from '@src/components/atoms/Loading'
 import EventDetails from '@src/components/organisms/EventDetails'
-import { useDoc, collections, CommunityEvent } from '@src/lib/store'
+import { useCommunity } from '@src/model/Community'
+import { useEvent } from '@src/model/Event'
 
 interface EventContentProps {
   id: string
@@ -8,14 +9,10 @@ interface EventContentProps {
 }
 
 export default function EventContent({ id, eventId }: EventContentProps) {
-  const communityRef = collections.community().doc(id)
-  const eventRef = communityRef.collection('events').doc(eventId)
-
-  const community = useDoc(communityRef)
-  const event = useDoc<CommunityEvent>(eventRef as any)
+  const community = useCommunity(id)
+  const event = useEvent(id, eventId)
 
   if (!event) return <Loading />
-
   return (
     <EventDetails community={community} event={event} />
   )

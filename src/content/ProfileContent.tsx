@@ -1,16 +1,21 @@
+import { useRouter } from 'next/router'
+
+import Loading from '@src/components/atoms/Loading'
 import Text from '@src/components/atoms/Text'
 import UserProfileForm from '@src/components/molecules/UserProfileForm'
-import { useUser } from '@src/context/UserContext'
-import { collections } from '@src/lib/store'
+import { useMyUserProfileRef } from '@src/model/UserProfile'
 
 export default function ProfileContent() {
-  const { user } = useUser()
-  const ref = user && collections.userProfile().doc(user.uid)
+  const userProfileRef = useMyUserProfileRef()
+  const router = useRouter()
 
+  const onClose = () => router.push('/communities/mine')
+
+  if (!userProfileRef) return <Loading />
   return (
     <>
       <Text type="h1">Edit User Profile</Text>
-      <UserProfileForm userProfileRef={ref} />
+      <UserProfileForm userProfileRef={userProfileRef} onClose={onClose}/>
     </>
   )
 }

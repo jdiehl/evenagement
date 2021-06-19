@@ -1,12 +1,12 @@
 import Loading from '@src/components/atoms/Loading'
 import CommunitiesList from '@src/components/organisms/CommunitiesList'
-import { collections, useQuery } from '@src/lib/store'
+import { usePublicCommunities } from '@src/model/Community'
 
 export default function CommunitiesContent() {
-  const query = useQuery(collections.community())
-  if (!query) return <Loading />
+  const communities = usePublicCommunities()
+  if (!communities) return <Loading />
 
   return (
-    <CommunitiesList communities={query.docs} />
+    <CommunitiesList communities={communities} />
   )
 }

@@ -1,13 +1,13 @@
 import Loading from '@src/components/atoms/Loading'
 import CommunityDetails from '@src/components/organisms/CommunityDetails'
-import { collections, useDoc } from '@src/lib/store'
+import { useCommunity } from '@src/model/Community'
 
 interface CommunityContentProps {
   id: string
 }
 
 export default function CommunityContent({ id }: CommunityContentProps) {
-  const community = useDoc(collections.community().doc(id))
+  const community = useCommunity(id)
   if (!community) return <Loading />
   return (
     <CommunityDetails community={community} />
