@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import { useUser } from '@src/context/UserContext'
-import { collection, collectionGroup, DocumentSnapshot } from '@src/lib/firestore'
+import { collection, collectionGroup, DocumentSnapshot } from '@src/lib/firebase'
 
 const communities = () => collection<Community>('communities')
 const members = () => collectionGroup<CommunityMember>('members')

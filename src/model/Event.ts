@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 
-import { collection, CollectionReference, DocumentSnapshot, Timestamp } from '@src/lib/firestore'
+import { collection, CollectionReference, DocumentSnapshot, Timestamp } from '@src/lib/firebase'
 
 const events = (communityId: string) => collection('communities').doc(communityId).collection('events') as CollectionReference<CommunityEvent>
 

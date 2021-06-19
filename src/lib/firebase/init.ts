@@ -46,7 +46,7 @@ function initProduction() {
 }
 
 // Initialize Firebase
-export default function init() {
+export function initFirebase() {
   if (firebase.apps.length > 0) return
   if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR || !process.env.NEXT_PUBLIC_FIREBASE_APIKEY) {
     initEmulator()

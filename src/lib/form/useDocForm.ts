@@ -1,7 +1,7 @@
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import { UseFormProps, UseFormReturn, useForm, useFormState, UseFormStateReturn, FieldPath, get } from 'react-hook-form'
 
-import { storage } from '@src/lib/storage'
+import { storage } from '@src/lib/firebase'
 import { Document, DocumentRef, useDoc } from '@src/lib/store'
 
 interface RegisterFileReturn {
@@ -52,7 +52,7 @@ export function useDocForm<T>(ref: DocumentRef<T>, props: UseFormProps<T> = {}):
         if (data[key] instanceof File) {
           const file: File = data[key]
           const typeParts = file.type.split('/')
-          const storageRef = storage().child(`store/${doc.ref.path}/${key}.${typeParts[typeParts.length - 1]}`)
+          const storageRef = storage().ref().child(`store/${doc.ref.path}/${key}.${typeParts[typeParts.length - 1]}`)
           await storageRef.put(file)
           data[key] = await storageRef.getDownloadURL()
         }

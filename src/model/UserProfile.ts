@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import { useUser } from '@src/context/UserContext'
-import { collection, DocumentSnapshot } from '@src/lib/firestore'
+import { collection, DocumentSnapshot } from '@src/lib/firebase'
 
 const userProfiles = () => collection<UserProfile>('userProfiles')
 
