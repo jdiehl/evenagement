@@ -9,7 +9,7 @@ interface CommunitiesListProps {
   communities: CommunityDocument[]
 }
 
-export default function CommunitiesList({ communities }: CommunitiesListProps) {
+export default function CommunitiesGrid({ communities }: CommunitiesListProps) {
   return (
     <>
       <div className="h-9 flex justify-end mt-4">
