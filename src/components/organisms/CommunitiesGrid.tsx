@@ -1,5 +1,3 @@
-import Link from 'next/link'
-
 import Button from '@src/components/atoms/Button'
 import Container from '@src/components/atoms/Container'
 import Grid from '@src/components/atoms/Grid'
@@ -18,11 +16,7 @@ export default function CommunitiesGrid({ communities }: CommunitiesListProps) {
       </Container>
       <Grid cols={3}>
         {communities.map(doc => (
-          <Link key={doc.id} href={`/communities/${doc.id}`}>
-            <a>
-              <CommunityTile community={doc.data()} />
-            </a>
-          </Link>
+          <CommunityTile key={doc.id} community={doc.data()} href={`/communities/${doc.id}`} />
         ))}
       </Grid>
     </Container>
