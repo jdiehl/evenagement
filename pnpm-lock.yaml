@@ -20,7 +20,7 @@ specifiers:
   postcss: ^8.3.5
   react: ^17.0.2
   react-dom: ^17.0.2
-  react-hook-form: ^7.8.8
+  react-hook-form: ^7.9.0
   tailwindcss: ^2.2.2
   typescript: ^4.3.4
 
@@ -32,7 +32,7 @@ dependencies:
   phosphor-react: 1.2.1_react@17.0.2
   react: 17.0.2
   react-dom: 17.0.2_react@17.0.2
-  react-hook-form: 7.8.8_react@17.0.2
+  react-hook-form: 7.9.0_react@17.0.2
 
 devDependencies:
   '@storybook/addon-actions': 6.2.9_react-dom@17.0.2+react@17.0.2
@@ -2977,7 +2977,7 @@ packages:
       express: 4.17.1
       file-system-cache: 1.0.5
       find-up: 5.0.0
-      fork-ts-checker-webpack-plugin: 6.2.10
+      fork-ts-checker-webpack-plugin: 6.2.12
       glob: 7.1.7
       glob-base: 0.3.0
       interpret: 2.2.0
@@ -4116,7 +4116,7 @@ packages:
       postcss: ^8.1.0
     dependencies:
       browserslist: 4.16.6
-      caniuse-lite: 1.0.30001238
+      caniuse-lite: 1.0.30001239
       colorette: 1.2.2
       fraction.js: 4.1.1
       normalize-range: 0.1.2
@@ -4129,7 +4129,7 @@ packages:
     hasBin: true
     dependencies:
       browserslist: 4.16.6
-      caniuse-lite: 1.0.30001238
+      caniuse-lite: 1.0.30001239
       colorette: 1.2.2
       normalize-range: 0.1.2
       num2fraction: 1.2.2
@@ -4497,7 +4497,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001238
+      caniuse-lite: 1.0.30001239
       electron-to-chromium: 1.3.752
       escalade: 3.1.1
       node-releases: 1.1.73
@@ -4508,7 +4508,7 @@ packages:
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
     dependencies:
-      caniuse-lite: 1.0.30001238
+      caniuse-lite: 1.0.30001239
       colorette: 1.2.2
       electron-to-chromium: 1.3.752
       escalade: 3.1.1
@@ -4657,8 +4657,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /caniuse-lite/1.0.30001238:
-    resolution: {integrity: sha512-bZGam2MxEt7YNsa2VwshqWQMwrYs5tR5WZQRYSuFxsBQunWjBuXhN4cS9nV5FFb1Z9y+DoQcQ0COyQbv6A+CKw==}
+  /caniuse-lite/1.0.30001239:
+    resolution: {integrity: sha512-cyBkXJDMeI4wthy8xJ2FvDU6+0dtcZSJW3voUF8+e9f1bBeuvyZfc3PNbkOETyhbR+dGCPzn9E7MA3iwzusOhQ==}
 
   /capture-exit/2.0.0:
     resolution: {integrity: sha512-PiT/hQmTonHhl/HFGN+Lx3JJUznrVYJ3+AQsnthneZbvW7x+f08Tk7yLJTLEOUvBTbduLeeBkxEaYXUOUrRq6g==}
@@ -5274,7 +5274,7 @@ packages:
     peerDependencies:
       postcss: ^8.2.1
     dependencies:
-      caniuse-lite: 1.0.30001238
+      caniuse-lite: 1.0.30001239
       postcss: 8.2.13
     dev: false
 
@@ -6451,8 +6451,8 @@ packages:
       worker-rpc: 0.1.1
     dev: true
 
-  /fork-ts-checker-webpack-plugin/6.2.10:
-    resolution: {integrity: sha512-HveFCHWSH2WlYU1tU3PkrupvW8lNFMTfH3Jk0TfC2mtktE9ibHGcifhCsCFvj+kqlDfNIlwmNLiNqR9jnSA7OQ==}
+  /fork-ts-checker-webpack-plugin/6.2.12:
+    resolution: {integrity: sha512-BzXGIfM47q1WFwXsNLl22dQVMFwSBgldL07lvqRJFxgrhT76QQ3nri5PX01Rxfa2RYvv/hqACULO8K5gT8fFuA==}
     engines: {node: '>=10', yarn: '>=1.0.0'}
     dependencies:
       '@babel/code-frame': 7.14.5
@@ -8458,7 +8458,7 @@ packages:
       browserify-zlib: 0.2.0
       browserslist: 4.16.6
       buffer: 5.6.0
-      caniuse-lite: 1.0.30001238
+      caniuse-lite: 1.0.30001239
       chalk: 2.4.2
       chokidar: 3.5.1
       constants-browserify: 1.0.0
@@ -9690,8 +9690,8 @@ packages:
       shallowequal: 1.1.0
     dev: true
 
-  /react-hook-form/7.8.8_react@17.0.2:
-    resolution: {integrity: sha512-hFMPFxAhjqQu2aiUXHHrX87oIUG3wEYFRGWhONdxy5szeMWR7xKlpRj8xJr81oagv0bpTtBvkZWY3nk/uP09EA==}
+  /react-hook-form/7.9.0_react@17.0.2:
+    resolution: {integrity: sha512-1SazsTvsC5A4jLxc8fIf0bB92kEp4MGjP69k8s+2nI1spHPha5UkLwaebOXhO9vY95aGqcyBU67pRiv+6T5KZQ==}
     peerDependencies:
       react: ^16.8.0 || ^17
     dependencies:
