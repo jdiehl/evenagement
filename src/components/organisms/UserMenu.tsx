@@ -3,11 +3,16 @@ import { useState } from 'react'
 
 import Menu from '@src/components/atoms/Menu'
 import MenuItem from '@src/components/atoms/MenuItem'
+import SignInButton from '@src/components/molecules/SignInButton'
+import { useUser } from '@src/context/UserContext'
 import { signOut } from '@src/lib/firebase'
 
 export default function UserMenu() {
   // state: menu open?
+  const { user } = useUser()
   const [showMenu, setShowMenu] = useState(false)
+
+  if (!user) return <SignInButton />
 
   return (
     <span className="relative">

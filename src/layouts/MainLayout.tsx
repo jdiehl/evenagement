@@ -1,16 +1,17 @@
 import { PropsWithChildren } from 'react'
 
+import Container from '@src/components/atoms/Container'
 import MainBar from '@src/components/organisms/MainBar'
 import MainFooter from '@src/components/organisms/MainFooter'
 
 export default function MainLayout({ children }: PropsWithChildren<{}>) {
   return (
-    <div className="flex flex-col min-h-screen">
+    <Container fill>
       <MainBar />
-      <main className="container mx-auto flex flex-col flex-grow">
+      <Container page grow>
         {children}
-      </main>
+      </Container>
       <MainFooter />
-    </div>
+    </Container>
   )
 }

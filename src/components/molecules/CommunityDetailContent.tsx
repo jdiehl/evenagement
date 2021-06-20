@@ -34,7 +34,7 @@ export default function CommunityDetailContent({ community, events, members }: C
   return (
     <div className="relative">
       <Text type="h1">{community.data().name}</Text>
-      <Button round={true} href={`/communities/${community.id}/edit`} className="absolute right-0 top-0">
+      <Button href={`/communities/${community.id}/edit`} className="absolute right-0 top-0" round>
         <NotePencil/>
       </Button>
       <Text>{community.data().description}</Text>

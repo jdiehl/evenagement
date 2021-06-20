@@ -1,15 +1,17 @@
 import { PropsWithChildren } from 'react'
 
+import Container from './Container'
+
 interface NavbarProps {
   useTransparentBackground?: boolean
 }
 
-export default function Navbar({ children, useTransparentBackground = false }: PropsWithChildren<NavbarProps>) {
+export default function Navbar({ children }: PropsWithChildren<NavbarProps>) {
   return (
-    <div className={useTransparentBackground ? '' : 'bg-primary-dark border-b-2 border-tertiary'}>
-      <nav className="container mx-auto h-12 flex px-4 items-center">
+    <nav className="bg-primary-dark border-b-2 border-tertiary">
+      <Container direction="row" align="center" page>
         {children}
-      </nav>
-    </div>
+      </Container>
+    </nav>
   )
 }

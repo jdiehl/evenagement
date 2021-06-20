@@ -16,7 +16,7 @@ export default function EventDetails({ community, event }: CommunityDetailsProps
     <Container>
       <BannerImage community={community} event={event} />
       <SubmenuLayout menuContent={<CommunityMenu community={community} />}>
-        <Container padding={true} />
+        <Container padding />
         <EventDetailContent event={event.data()} />
       </SubmenuLayout>
     </Container>

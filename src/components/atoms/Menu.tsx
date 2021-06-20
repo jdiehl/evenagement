@@ -16,7 +16,7 @@ export default function Menu({ className, show, onClose, children }: PropsWithCh
 
   if (!show) return null
 
-  let classes = 'absolute overflow-hidden rounded shadow bg-white z-20'
+  let classes = 'absolute overflow-hidden rounded shadow bg-white text-black z-20'
   if (className) classes += ' ' + className
 
   return (

@@ -45,7 +45,7 @@ export default function ImageInput({ label, src: _src, height, className, onChan
       {label && <div className="ml-1 mb-1">{label}</div>}
       <div style={style} className={className}>
         {makeImageView(loading, src)}
-        <Button className="absolute right-2 -bottom-3" round={true} >
+        <Button className="absolute right-2 -bottom-3" round>
           <CloudArrowUp />
         </Button>
       </div>

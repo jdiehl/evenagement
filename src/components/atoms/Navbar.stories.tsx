@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
 import Button from './Button'
+import Container from './Container'
 import Navbar from './Navbar'
 import NavbarBrand from './NavbarBrand'
 import NavbarItem from './NavbarItem'
@@ -15,7 +16,7 @@ const Template: Story<any> = (args) => (
   <Navbar>
     <NavbarBrand>{args.brand}</NavbarBrand>
     {[...Array(args.items)].map((_, i) => <NavbarItem key={i} href="#">Item {i}</NavbarItem>)}
-    <div className="flex-grow" />
+    <Container grow />
     <Button>{args.button}</Button>
   </Navbar>
 )

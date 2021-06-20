@@ -10,7 +10,7 @@ interface EventDetailContentProps {
 
 export default function EventDetailContent({ event }: EventDetailContentProps) {
   return (
-    <Container gap={true}>
+    <Container gap>
       <Text type="h1">{event.title}</Text>
       <Text type="h2">{format(event.date.toDate(), 'P – p')}</Text>
       <Text>Eu do pariatur consectetur officia cillum cupidatat aliqua duis incididunt irure. Sint qui duis velit excepteur pariatur minim fugiat tempor mollit labore. Officia cupidatat aute nisi duis. Nisi ea veniam ut occaecat ipsum eu ipsum velit labore incididunt. Adipisicing sit nulla cillum amet quis sunt id et labore deserunt veniam cupidatat cillum.</Text>
