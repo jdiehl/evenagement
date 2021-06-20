@@ -1,6 +1,9 @@
 import format from 'date-fns/format'
 
+import Text from '@src/components//atoms/Text'
+import CoverImage from '@src/components/atoms/CoverImage'
 import Tile from '@src/components/atoms/Tile'
+import TileBar from '@src/components/atoms/TileBar'
 import { CommunityEvent } from '@src/model/CommunityEvent'
 
 interface EventTileProps {
@@ -11,11 +14,11 @@ interface EventTileProps {
 export default function EventTile({ event, href }: EventTileProps) {
   return (
     <Tile size={44} href={href}>
-      <img src={event.image} alt={event.title} className="h-full w-full" />
-      <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-black  bg-opacity-50 px-4 py-2 text-white">
-        <h2 className=" font-medium truncate">{event.title || 'Unnamed Event'}</h2>
-        <p className="text-xs">{format(event.date.toDate(), 'P – p')}</p>
-      </div>
+      <CoverImage src={event.image} alt={event.title} />
+      <TileBar>
+        <Text size="m">{event.title || 'Unnamed Event'}</Text>
+        <Text size="s">{format(event.date.toDate(), 'P – p')}</Text>
+      </TileBar>
     </Tile>
   )
 }

@@ -1,4 +1,7 @@
+import CoverImage from '@src/components/atoms/CoverImage'
+import CoverText from '@src/components/atoms/CoverText'
 import Tile from '@src/components/atoms/Tile'
+import { initialsFromName, colorFromName } from '@src/lib/helpers'
 import { UserProfile } from '@src/model/UserProfile'
 
 interface UserTileProps {
@@ -7,13 +10,14 @@ interface UserTileProps {
 }
 
 export default function UserTile({ userProfile, href }: UserTileProps) {
-  const initials = userProfile.name.split(' ').slice(0, 2).map(v => v.slice(0, 1).toUpperCase()).join('')
+  const initials = initialsFromName(userProfile.name)
+  const bgColor = colorFromName(userProfile.name)
 
   return (
     <Tile size={24} href={href}>
       {userProfile.image
-        ? <img src={userProfile.image} alt={userProfile.name} className="w-full h-full" />
-        : <div className="absolute w-full h-full flex justify-center items-center text-5xl text-white bg-green-500">{initials}</div>}
+        ? <CoverImage src={userProfile.image} alt={userProfile.name} />
+        : <CoverText bgColor={bgColor}>{initials}</CoverText>}
     </Tile>
   )
 }
