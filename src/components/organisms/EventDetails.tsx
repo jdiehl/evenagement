@@ -24,7 +24,7 @@ export default function EventDetails({ community, event }: CommunityDetailsProps
   return (<div className="flex flex-col flex-grow max-w-full">
     <div className="relative">
       <img src={communityData.image} alt={communityData.name} className="w-full h-60 object-cover" />
-      <img src={eventData.image} className="w-44 h-44 absolute -bottom-6 left-4" />
+      <img src={eventData.image} alt={eventData.title} className="w-44 h-44 absolute -bottom-6 left-4" />
     </div>
 
     <SubmenuLayout menuContent={menuContent}>

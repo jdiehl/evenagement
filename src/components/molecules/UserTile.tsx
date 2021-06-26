@@ -12,7 +12,7 @@ export default function UserTile({ userProfile, href }: UserTileProps) {
   return (
     <Tile size={24} href={href}>
       {userProfile.image
-        ? <img src={userProfile.image} className="w-full h-full" />
+        ? <img src={userProfile.image} alt={userProfile.name} className="w-full h-full" />
         : <div className="absolute w-full h-full flex justify-center items-center text-5xl text-white bg-green-500">{initials}</div>}
     </Tile>
   )
