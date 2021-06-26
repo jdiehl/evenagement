@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react'
 
 import Container from '@src/components/atoms/Container'
-import MainBar from '@src/components/organisms/MainBar'
-import MainFooter from '@src/components/organisms/MainFooter'
+import MainBar from '@src/fragments/MainBar'
+import MainFooter from '@src/fragments/MainFooter'
 
 export default function MainLayout({ children }: PropsWithChildren<{}>) {
   return (

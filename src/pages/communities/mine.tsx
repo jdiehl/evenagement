@@ -1,4 +1,4 @@
-import MyCommunitiesContent from '@src/content/MyCommunitiesContent copy'
+import MyCommunitiesContent from '@src/content/MyCommunitiesContent'
 import MainLayoutWithUser from '@src/layouts/MainLayoutWithUser'
 
 export default function CommunitiesMine() {

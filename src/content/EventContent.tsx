@@ -1,5 +1,5 @@
 import Loading from '@src/components/atoms/Loading'
-import EventDetails from '@src/components/organisms/EventDetails'
+import EventDetails from '@src/fragments/EventDetails'
 import { useCommunity } from '@src/model/Community'
 import { useEvent } from '@src/model/CommunityEvent'
 

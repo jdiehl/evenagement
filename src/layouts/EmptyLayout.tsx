@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react'
 
 import Container from '@src/components/atoms/Container'
-import MainFooter from '@src/components/organisms/MainFooter'
-import UserMenu from '@src/components/organisms/UserMenu'
+import MainFooter from '@src/fragments/MainFooter'
+import UserMenu from '@src/fragments/UserMenu'
 
 export default function EmptyLayout({ children }: PropsWithChildren<{}>) {
   return (
