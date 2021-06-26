@@ -1,10 +1,10 @@
-import MyCommunitiesContent from '@src/content/MyCommunitiesContent'
+import CommunityOverview from '@src/content/CommunityOverview'
 import MainLayoutWithUser from '@src/layouts/MainLayoutWithUser'
 
 export default function CommunitiesMine() {
   return (
     <MainLayoutWithUser>
-      <MyCommunitiesContent />
+      <CommunityOverview mine />
     </MainLayoutWithUser>
   )
 }

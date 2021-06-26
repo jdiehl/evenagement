@@ -1,8 +1,8 @@
-import Container from '@src/components/atoms/Container'
-import SubmenuLayout from '@src/components/atoms/SubmenuLayout'
-import BannerImage from '@src/components/molecules/BannerImage'
-import CommunityMenu from '@src/components/molecules/CommunityMenu'
-import EventDetailContent from '@src/components/molecules/EventDetailContent'
+import BannerImage from '@src/components/BannerImage'
+import Container from '@src/components/Container'
+import CommunityMenu from '@src/fragments/CommunityMenu'
+import EventDetailContent from '@src/fragments/EventDetailContent'
+import SubmenuLayout from '@src/layouts/SubmenuLayout'
 import { CommunityDocument } from '@src/model/Community'
 import { CommunityEventDocument } from '@src/model/CommunityEvent'
 
@@ -14,7 +14,7 @@ interface CommunityDetailsProps {
 export default function EventDetails({ community, event }: CommunityDetailsProps) {
   return (
     <Container>
-      <BannerImage community={community} event={event} />
+      <BannerImage community={community.data()} event={event.data()} />
       <SubmenuLayout menuContent={<CommunityMenu community={community} />}>
         <Container padding />
         <EventDetailContent event={event.data()} />

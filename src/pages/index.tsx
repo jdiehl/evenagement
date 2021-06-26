@@ -1,10 +1,10 @@
-import HomeContent from '@src/content/HomeContent'
+import Home from '@src/content/Home'
 import EmptyLayout from '@src/layouts/EmptyLayout'
 
-export default function Home() {
+export default function Index() {
   return (
     <EmptyLayout>
-      <HomeContent />
+      <Home />
     </EmptyLayout>
   )
 }

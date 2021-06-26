@@ -1,9 +1,9 @@
 import { UserCircle } from 'phosphor-react'
 import { useState } from 'react'
 
-import Menu from '@src/components/atoms/Menu'
-import MenuItem from '@src/components/atoms/MenuItem'
-import SignInButton from '@src/components/molecules/SignInButton'
+import Menu from '@src/components/Menu'
+import MenuItem from '@src/components/MenuItem'
+import SignInButton from '@src/components/SignInButton'
 import { useUser } from '@src/context/UserContext'
 import { signOut } from '@src/lib/firebase'
 

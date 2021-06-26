@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 
-import CommunityEditContent from '@src/content/CommunityEditContent'
+import CommunityNewEdit from '@src/content/CommunityNewEdit'
 import MainLayoutWithUser from '@src/layouts/MainLayoutWithUser'
 
 interface CommunityEditProps {
@@ -10,7 +10,7 @@ interface CommunityEditProps {
 export default function CommunityEdit({ id }: CommunityEditProps) {
   return (
     <MainLayoutWithUser>
-      <CommunityEditContent id={id} />
+      <CommunityNewEdit id={id} />
     </MainLayoutWithUser>
   )
 }

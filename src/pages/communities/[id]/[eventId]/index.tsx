@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 
-import EventContent from '@src/content/EventContent'
+import EventView from '@src/content/EventView'
 import MainLayout from '@src/layouts/MainLayout'
 
 interface EventProps {
@@ -11,7 +11,7 @@ interface EventProps {
 export default function Event({ id, eventId }: EventProps) {
   return (
     <MainLayout>
-      <EventContent id={id} eventId={eventId} />
+      <EventView id={id} eventId={eventId} />
     </MainLayout>
   )
 }

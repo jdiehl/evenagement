@@ -1,8 +1,8 @@
-import Container from '@src/components/atoms/Container'
-import Navbar from '@src/components/atoms/Navbar'
-import NavbarBrand from '@src/components/atoms/NavbarBrand'
-import NavbarItem from '@src/components/atoms/NavbarItem'
-import Logo from '@src/components/molecules/Logo'
+import Container from '@src/components/Container'
+import Navbar from '@src/components/Navbar'
+import NavbarBrand from '@src/components/NavbarBrand'
+import NavbarItem from '@src/components/NavbarItem'
+import Logo from '@src/components/Logo'
 import UserMenu from '@src/fragments/UserMenu'
 
 export default function MainBar() {

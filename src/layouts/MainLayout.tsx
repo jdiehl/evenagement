@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react'
 
-import Container from '@src/components/atoms/Container'
+import Container from '@src/components/Container'
 import MainBar from '@src/fragments/MainBar'
 import MainFooter from '@src/fragments/MainFooter'
 

@@ -39,23 +39,20 @@ export function useCommunity(id: string) {
 }
 
 // observe all public community
-export function usePublicCommunities() {
-  const [result, setResult] = useState<CommunityDocument[]>()
-
-  useEffect(() => {
-    const ref = communities().where('private', '!=', true)
-    return ref.onSnapshot(snapshot => setResult(snapshot.docs))
-  }, [])
-
-  return result
-}
-
-// observe communities where the user is member or admin
-export function useMyCommunities() {
+export function useCommunities(mine?: boolean) {
   const { user } = useUser()
   const [result, setResult] = useState<CommunityDocument[]>()
 
+  // load public communities (only if mine is not set)
   useEffect(() => {
+    if (mine) return
+    const ref = communities().where('private', '!=', true)
+    return ref.onSnapshot(snapshot => setResult(snapshot.docs))
+  }, [mine])
+
+  // load my communities (if mine is set)
+  useEffect(() => {
+    if (!mine || !user) return
     const ref = members().where('uid', '==', user.uid)
     return ref.onSnapshot(async (snapshot) => {
       const parents = await Promise.all(snapshot.docs.map(d => d.ref.parent.parent.get() as Promise<CommunityDocument>))

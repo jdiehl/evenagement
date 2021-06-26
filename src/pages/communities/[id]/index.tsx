@@ -1,6 +1,6 @@
 import { GetServerSideProps } from 'next'
 
-import CommunityContent from '@src/content/CommunityContent'
+import CommunityView from '@src/content/CommunityView'
 import MainLayout from '@src/layouts/MainLayout'
 
 interface CommunityProps {
@@ -10,7 +10,7 @@ interface CommunityProps {
 export default function Community({ id }: CommunityProps) {
   return (
     <MainLayout>
-      <CommunityContent id={id} />
+      <CommunityView id={id} />
     </MainLayout>
   )
 }

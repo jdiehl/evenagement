@@ -7,7 +7,7 @@ const events = (communityId: string) => collection('communities').doc(communityI
 export type CommunityEventDocument = DocumentSnapshot<CommunityEvent>
 
 export interface CommunityEvent {
-  title: string
+  name: string
   date: Timestamp
   image: string
 }
