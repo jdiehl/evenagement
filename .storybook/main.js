@@ -1,3 +1,5 @@
+const { resolve } = require('path')
+
 module.exports = {
   stories: [
     '../src/**/*.stories.@(js|jsx|ts|tsx)',
@@ -15,4 +17,9 @@ module.exports = {
       },
     },
   ],
+  webpackFinal: async (config) => {
+    // define @src alias
+    config.resolve.alias['@src'] = resolve(__dirname, '..', 'src')
+    return config
+  },
 }
