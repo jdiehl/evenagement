@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "test": "tsc --project . && next lint && node scripts/check-stories.js",
+    "test": "tsc --project . && next lint",
     "lint": "next lint",
     "prepare": "husky install",
     "dev": "next dev",
