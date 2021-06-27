@@ -2,6 +2,9 @@ module.exports = {
   extends: [
     'next'
   ],
+  plugins: [
+    'evenagement'
+  ],
   settings: {
     'import/internal-regex': '^@src/'
   },
@@ -24,5 +27,7 @@ module.exports = {
     'require-await': 0,
     'semi': ['error', 'never'],
     'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
+    'evenagement/separate-ui-components': 2,
+    'evenagement/ui-has-storybook': 2
   }
 }

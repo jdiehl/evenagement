@@ -13,6 +13,7 @@ specifiers:
   date-fns: ^2.22.1
   eslint: ^7.29.0
   eslint-config-next: ^11.0.1
+  eslint-plugin-evenagement: ^1.0.0
   firebase: ^8.6.8
   husky: ^6.0.0
   next: ^11.0.1
@@ -27,6 +28,7 @@ specifiers:
 dependencies:
   '@sendgrid/mail': 7.4.5
   date-fns: 2.22.1
+  eslint-plugin-evenagement: 1.0.0
   firebase: 8.6.8
   next: 11.0.1_2dbe935e140170ce01c975771f1adcbd
   phosphor-react: 1.2.1_react@17.0.2
@@ -6930,6 +6932,11 @@ packages:
       debug: 3.2.7
       pkg-dir: 2.0.0
     dev: true
+
+  /eslint-plugin-evenagement/1.0.0:
+    resolution: {integrity: sha512-9I3mRjRLNhnq+9DEPGRUAf7Hma3IUCUVshxc/HUQFj0m/Ix9PdIhVRnScVPjMaSbICbbGhYiYno/eVV3mehgcw==}
+    engines: {node: '>=0.10.0'}
+    dev: false
 
   /eslint-plugin-import/2.23.4_eslint@7.29.0:
     resolution: {integrity: sha512-6/wP8zZRsnQFiR3iaPFgh5ImVRM1WN5NUWfTIRqwOdeiGJlBcSk82o1FEVq8yXmy4lkIzTo7YhHCIxlU/2HyEQ==}
