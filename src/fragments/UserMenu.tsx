@@ -3,8 +3,8 @@ import { useState } from 'react'
 
 import Menu from '@src/components/Menu'
 import MenuItem from '@src/components/MenuItem'
-import SignInButton from '@src/components/SignInButton'
 import { useUser } from '@src/context/UserContext'
+import SignInButton from '@src/fragments/SignInButton'
 import { signOut } from '@src/lib/firebase'
 
 export default function UserMenu() {

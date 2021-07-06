@@ -5,7 +5,7 @@ import Dialog from '@src/components/Dialog'
 import Modal from '@src/components/Modal'
 import SignInDialog from '@src/components/SignInDialog'
 import SignUpCompleteDialog from '@src/components/SignUpCompleteDialog'
-import SignUpDialog from '@src/components/SignUpDialog'
+import SignUpDialog from '@src/fragments/SignUpDialog'
 
 interface SignInModalProps {
   show: boolean

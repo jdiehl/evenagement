@@ -1,6 +1,7 @@
 import { FormEvent, useContext, useState } from 'react'
 
 import Button from '@src/components/Button'
+import Container from '@src/components/Container'
 import Input from '@src/components/Input'
 import ToastContext from '@src/context/ToastContext'
 import { signUp } from '@src/lib/firebase'
@@ -30,12 +31,12 @@ export default function SignUpDialog({ email: initialEmail, onBack, onSignUp }: 
 
   return (
     <form onSubmit={onSubmit}>
-      <div className="flex flex-col space-y-4">
+      <Container gap>
         <Input type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
         <Input type="password" minLength={6} label="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <Button tag="input" label="Sign Up" />
         <Button type="outline" onClick={() => onBack()}>Back</Button>
-      </div>
+      </Container>
     </form>
   )
 }
