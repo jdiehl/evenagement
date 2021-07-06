@@ -1,22 +1,24 @@
-import { useRouter } from 'next/router'
+import { GetServerSideProps } from 'next'
 
-import CommunityForm from '@src/components/molecules/CommunityForm'
-import Main from '@src/components/organisms/Main'
-import { collections } from '@src/lib/store'
+import CommunityNewEdit from '@src/content/CommunityNewEdit'
+import MainLayoutWithUser from '@src/layouts/MainLayoutWithUser'
 
-export default function Communities() {
-  const router = useRouter()
-  const id = router.query.id as string
+interface CommunityEditProps {
+  id: string
+}
 
-  const communityRef = collections.community().doc(id)
-
-  const onClose = () => {
-    router.push(`/communities/${id}`)
-  }
-
+export default function CommunityEdit({ id }: CommunityEditProps) {
   return (
-    <Main>
-      <CommunityForm communityRef={communityRef} onClose={onClose} />
-    </Main>
+    <MainLayoutWithUser>
+      <CommunityNewEdit id={id} />
+    </MainLayoutWithUser>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {
+      id: context.params?.id
+    }
+  }
 }

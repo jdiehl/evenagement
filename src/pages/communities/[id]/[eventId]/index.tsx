@@ -1,28 +1,26 @@
-import { useRouter } from 'next/router'
+import { GetServerSideProps } from 'next'
 
-import Loading from '@src/components/atoms/Loading'
-import EventDetails from '@src/components/organisms/EventDetails'
-import Main from '@src/components/organisms/Main'
-import { useDoc, collections, CommunityEvent } from '@src/lib/store'
+import EventView from '@src/content/EventView'
+import MainLayout from '@src/layouts/MainLayout'
 
-export default function Event() {
-  const router = useRouter()
-  const id = router.query.id as string
-  const eventId = router.query.eventId as string
+interface EventProps {
+  id: string
+  eventId: string
+}
 
-  // subscribe to the community document
-  const communityRef = collections.community().doc(id)
-  const community = useDoc(communityRef)
-
-  // subscribe to the event document
-  const eventRef = communityRef.collection('events').doc(eventId)
-  const event = useDoc<CommunityEvent>(eventRef as any)
-
-  if (!event) return <Main><Loading /></Main>
-
+export default function Event({ id, eventId }: EventProps) {
   return (
-    <Main>
-      <EventDetails community={community} event={event} />
-    </Main>
+    <MainLayout>
+      <EventView id={id} eventId={eventId} />
+    </MainLayout>
   )
+}
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  return {
+    props: {
+      id: context.params?.id,
+      eventId: context.params?.eventId
+    }
+  }
 }

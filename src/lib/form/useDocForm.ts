@@ -1,8 +1,7 @@
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import { UseFormProps, UseFormReturn, useForm, useFormState, UseFormStateReturn, FieldPath, get } from 'react-hook-form'
 
-import { storage } from '@src/lib/storage'
-import { Document, DocumentRef, useDoc } from '@src/lib/store'
+import { DocumentReference, DocumentSnapshot, storage } from '@src/lib/firebase'
 
 interface RegisterFileReturn {
   src?: string
@@ -12,7 +11,7 @@ interface RegisterFileReturn {
 interface useDocFormReturn<T> extends UseFormReturn<T>, UseFormStateReturn<T> {
   registerFile: (name: FieldPath<T>) => RegisterFileReturn
   isReady: boolean
-  doc: Document<T>
+  doc: DocumentSnapshot<T>
 }
 
 // default properties
@@ -20,10 +19,12 @@ const defaultProps: UseFormProps = {
   mode: 'onBlur'
 }
 
-export function useDocForm<T>(ref: DocumentRef<T>, props: UseFormProps<T> = {}): useDocFormReturn<T> {
-  // load the document
-  const doc = useDoc(ref)
+export function useDocForm<T>(ref: DocumentReference<T>, props: UseFormProps<T> = {}): useDocFormReturn<T> {
+  const [doc, setDoc] = useState<DocumentSnapshot<T>>(null)
   const [isReady, setIsReady] = useState(false)
+
+  // load the document
+  useEffect(() => ref.onSnapshot(snapshot => setDoc(snapshot)), [ref.id])
 
   // get the return and state objects
   const res = useForm(Object.assign({}, defaultProps, props))
@@ -52,7 +53,7 @@ export function useDocForm<T>(ref: DocumentRef<T>, props: UseFormProps<T> = {}):
         if (data[key] instanceof File) {
           const file: File = data[key]
           const typeParts = file.type.split('/')
-          const storageRef = storage().child(`store/${doc.ref.path}/${key}.${typeParts[typeParts.length - 1]}`)
+          const storageRef = storage().ref().child(`store/${doc.ref.path}/${key}.${typeParts[typeParts.length - 1]}`)
           await storageRef.put(file)
           data[key] = await storageRef.getDownloadURL()
         }

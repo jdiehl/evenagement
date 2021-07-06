@@ -1,21 +1,21 @@
-import { Document, DocumentRef } from '@src/lib/store'
+import { DocumentReference, DocumentSnapshot } from '@src/lib/firebase'
 
-export function MockDocument<T>(document: T, onUpdate?: () => void): Document<T> {
+export function MockDocument<T>(document: T, onUpdate?: () => void): DocumentSnapshot<T> {
   return {
     data: () => document,
     id: 'id',
     ref: {
-      update: onUpdate ?? (async (t: Partial<T>) => {}),
+      update: onUpdate ?? (async (_: Partial<T>) => {}),
       collection: () => ({
-        onSnapshot: (handler) => handler({ docs: [] })
+        onSnapshot: (handler: any) => handler({ docs: [] })
       })
     },
-  } as any as Document<T>
+  } as any as DocumentSnapshot<T>
 }
 
-export function MockRef<T>(): DocumentRef<T> {
+export function MockRef<T>(): DocumentReference<T> {
   return {
     id: 'id',
     exists: false
-  } as any as DocumentRef<T>
+  } as any as DocumentReference<T>
 }
