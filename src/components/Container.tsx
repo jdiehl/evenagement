@@ -14,6 +14,7 @@ interface ContainerProps {
 }
 
 export default function Container(props: PropsWithChildren<ContainerProps>) {
+  // Tailwind classes: justify-start justify-center justify-end items-start items-center items-end items-baseline items-stretch
   const className = [
     'flex',
     props.row ? 'flex-row' : 'flex-col',

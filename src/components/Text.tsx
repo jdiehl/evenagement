@@ -38,6 +38,7 @@ function defaultMargin(type: TextType) {
 export default function Text({ children, type = 'p', size, margin, align }: PropsWithChildren<TextProps>) {
   size = size ?? defaultSize(type)
   margin = margin ?? defaultMargin(type)
+  // Tailwind classes my-4 text-left text-center text-right text-justify
   const props = { className: sizeClass(size) + (margin ? ` my-${margin}` : '') + (align ? ` text-${align}` : '') }
   switch (type) {
     case 'p': return <p {...props}>{children}</p>
