@@ -58,7 +58,7 @@ export function useCommunities(mine?: boolean) {
       const parents = await Promise.all(snapshot.docs.map(d => d.ref.parent.parent.get() as Promise<CommunityDocument>))
       setResult(parents)
     })
-  }, [user])
+  }, [mine, user])
 
   return result
 }
