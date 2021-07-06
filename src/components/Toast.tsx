@@ -27,7 +27,7 @@ export default function Toast({ show, type, onHide, children }: PropsWithChildre
 
   const className = colorForType(type || 'info') + ' border-l-4 text-white rounded shadow p-4 text-base max-w-prose'
   return (
-    <div className="fixed top-2 left-2 right-2 flex justify-center">
+    <div className="z-20 fixed top-2 left-2 right-2 flex justify-center">
       <div className={className} role="alert">
         {children}
       </div>
