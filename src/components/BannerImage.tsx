@@ -1,4 +1,4 @@
-import CoverImage from "./CoverImage";
+import CoverImage from '@src/components/CoverImage'
 
 interface BannerPresentable {
   name?: string
