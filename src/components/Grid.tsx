@@ -7,7 +7,6 @@ interface GridProps {
 }
 
 export default function Grid({ children, cols, gap, padding }: PropsWithChildren<GridProps>) {
-  // Tailwind classes: md:grid-cols-2 md:grid-cols-3 md:grid-cols-4
   const classes = [
     'grid',
     `md:grid-cols-${cols}`,
