@@ -10,5 +10,5 @@ export default function VerifyEmailContent() {
         <Button href="/communities">Go to Communities</Button>
       </Container>
     </Container>
-)
+  )
 }
