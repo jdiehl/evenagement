@@ -8,6 +8,7 @@ interface TextProps {
   size?: TextSize
   margin?: number
   align?: TextAlign
+  className?: String
 }
 
 function defaultSize(type: TextType) {
@@ -35,10 +36,10 @@ function defaultMargin(type: TextType) {
   }
 }
 
-export default function Text({ children, type = 'p', size, margin, align }: PropsWithChildren<TextProps>) {
+export default function Text({ children, type = 'p', size, margin, align, className }: PropsWithChildren<TextProps>) {
   size = size ?? defaultSize(type)
   margin = margin ?? defaultMargin(type)
-  const props = { className: sizeClass(size) + (margin ? ` my-${margin}` : '') + (align ? ` text-${align}` : '') }
+  const props = { className: className + ' ' + sizeClass(size) + (margin ? ` my-${margin}` : '') + (align ? ` text-${align}` : '') }
   switch (type) {
     case 'p': return <p {...props}>{children}</p>
     case 'h1': return <h1 {...props}>{children}</h1>

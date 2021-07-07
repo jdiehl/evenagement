@@ -2,18 +2,16 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { PropsWithChildren } from 'react'
 
-interface NavBarItemProps {
+interface SidebarItemProps {
   href: string
   active?: boolean
 }
 
-export default function NavbarItem({ active, children, href }: PropsWithChildren<NavBarItemProps>) {
+export default function SidebarItem({ active, children, href }: PropsWithChildren<SidebarItemProps>) {
   const router = useRouter()
-  let className = 'px-6 py-3 text-base text-medium text-white hover:bg-primary-light transition-all'
+  let className = 'px-4 py-1 underline hover:bg-primary-light transition-all'
   if (active ?? (router && router.pathname === href)) {
     className += ' bg-primary'
-  } else {
-    className += ' bg-primary-dark'
   }
   return (
     <Link href={href}>
