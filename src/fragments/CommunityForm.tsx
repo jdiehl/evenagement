@@ -1,4 +1,6 @@
 import Button from '@src/components/Button'
+import ButtonBar from '@src/components/ButtonBar'
+import Container from '@src/components/Container'
 import ImageInput from '@src/components/ImageInput'
 import Input from '@src/components/Input'
 import { DocumentReference } from '@src/lib/firebase'
@@ -15,16 +17,15 @@ export default function CommunityForm({ communityRef, onClose }: CommunityEditPr
 
   return (
     <form onSubmit={handleSubmit(() => onClose(true))}>
-      <div className="flex flex-col space-y-4">
+      <Container gap>
         <ImageInput height={250} {...registerFile('image')} />
         <Input label="Community Name" {...register('name', { required: 'Please enter a name' })}/>
         <Input type="textarea" rows={6} label="Description" {...register('description')} />
-      </div>
-
-      <div className="flex justify-end space-x-4 py-4">
-        <Button type="outline" onClick={() => onClose(false)}>Cancel</Button>
-        <Button tag="input">Save</Button>
-      </div>
+        <ButtonBar>
+          <Button type="outline" onClick={() => onClose(false)}>Cancel</Button>
+          <Button tag="input">Save</Button>
+        </ButtonBar>
+      </Container>
     </form>
   )
 }

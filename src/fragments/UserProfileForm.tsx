@@ -1,4 +1,6 @@
 import Button from '@src/components/Button'
+import ButtonBar from '@src/components/ButtonBar'
+import Container from '@src/components/Container'
 import Input from '@src/components/Input'
 import Loading from '@src/components/Loading'
 import { DocumentReference } from '@src/lib/firebase'
@@ -17,8 +19,12 @@ export default function UserProfileForm({ userProfileRef, onClose }: ProfileForm
 
   return (
     <form onSubmit={handleSubmit(onClose)}>
-      <Input label="Name" {...register('name', { required: 'Please enter a name' })} />
-      <Button className="my-4" tag="input">Update</Button>
+      <Container gap>
+        <Input label="Name" {...register('name', { required: 'Please enter a name' })} />
+        <ButtonBar>
+          <Button tag="input">Update</Button>
+        </ButtonBar>
+      </Container>
     </form>
   )
 }
