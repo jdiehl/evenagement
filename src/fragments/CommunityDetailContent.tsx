@@ -1,11 +1,12 @@
-import { NotePencil, PlusCircle } from 'phosphor-react'
+import { NotePencil } from 'phosphor-react'
 
+import AddTile from '@src/components/AddTile'
 import Button from '@src/components/Button'
+import Container from '@src/components/Container'
 import EventTile from '@src/components/EventTile'
 import HorizontalList from '@src/components/HorizontalList'
 import Loading from '@src/components/Loading'
 import Text from '@src/components/Text'
-import Tile from '@src/components/Tile'
 import UserTile from '@src/components/UserTile'
 import { CommunityDocument } from '@src/model/Community'
 import { CommunityEventDocument } from '@src/model/CommunityEvent'
@@ -24,34 +25,30 @@ export default function CommunityDetailContent({ community, events, members }: C
 
   if (eventTiles?.length === 0) {
     eventTiles.push(
-      <Tile key={1} size={44} className="flex items-center justify-center text-2xl text-gray flex-col border-gray-line border">
-        <PlusCircle />
-        Add Event
-      </Tile>
+      <AddTile label="Add Event" />
     )
   }
 
   return (
-    <div className="relative">
-      <Text type="h1">{community.data().name}</Text>
-      <Button href={`/communities/${community.id}/edit`} className="absolute right-0 top-0" round>
-        <NotePencil/>
-      </Button>
+    <Container gap>
+      <Container row align="start">
+        <Text type="h1" margin={0}>{community.data().name}</Text>
+        <Container grow />
+        <Button href={`/communities/${community.id}/edit`} round>
+          <NotePencil/>
+        </Button>
+      </Container>
       <Text>{community.data().description}</Text>
-      <div className="mt-8">
-        <Text type="h2">Events</Text>
-        <HorizontalList className="h-48">
-          {events
-            ? eventTiles
-            : <Loading />}
-        </HorizontalList>
-      </div>
-      <div className="mt-8">
-        <Text type="h2">Members</Text>
-        <HorizontalList className="h-28">
-          {members?.map((memberProfile) => <UserTile userProfile={memberProfile.data()} key={memberProfile.id} />)}
-        </HorizontalList>
-      </div>
-    </div>
+      <Text type="h2">Events</Text>
+      <HorizontalList>
+        {events
+          ? eventTiles
+          : <Loading />}
+      </HorizontalList>
+      <Text type="h2">Members</Text>
+      <HorizontalList>
+        {members?.map((memberProfile) => <UserTile userProfile={memberProfile.data()} key={memberProfile.id} />)}
+      </HorizontalList>
+    </Container>
   )
 }
