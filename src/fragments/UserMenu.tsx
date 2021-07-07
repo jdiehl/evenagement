@@ -1,3 +1,4 @@
+/* eslint-disable evenagement/separate-ui-components */
 import { UserCircle } from 'phosphor-react'
 import { useState } from 'react'
 
