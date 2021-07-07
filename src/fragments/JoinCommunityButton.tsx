@@ -28,7 +28,7 @@ export default function JoinCommunityButton({ community }: JoinCommunityButtonPr
 
   if (!userMember) return null
   if (userMember.exists) {
-    return <Button className="w-full h-12 py-3 mt-4" onClick={leaveCommunity}>Leave</Button>
+    return <Button onClick={leaveCommunity}>Leave</Button>
   }
-  return <Button className="w-full h-12 py-3 mt-4" onClick={joinCommunity}>Join Community</Button>
+  return <Button onClick={joinCommunity}>Join Community</Button>
 }

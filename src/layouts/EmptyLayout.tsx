@@ -14,7 +14,7 @@ export default function EmptyLayout({ children }: PropsWithChildren<{}>) {
         </Container>
         {children}
       </Container>
-      <MainFooter bgTransparent />
+      <MainFooter dark />
     </HeroContainer>
   )
 }

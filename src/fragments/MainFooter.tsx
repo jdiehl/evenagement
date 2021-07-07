@@ -1,23 +1,22 @@
+import Button from '@src/components/Button'
+import Footer from '@src/components/Footer'
+
 interface MainFooterProps {
-  bgTransparent?: boolean
+  dark?: boolean
 }
 
-export default function MainFooter({ bgTransparent }: MainFooterProps) {
+export default function MainFooter({ dark }: MainFooterProps) {
   return (
-    <div className={'py-12 ' + (bgTransparent ? 'bg-background-shaded' : 'bg-background-dark')}>
-      <footer className="container flex items-center mx-auto">
-        <div className={'grid grid-cols-3 gap-4 text-sm w-1/2 mx-auto text-center ' + (bgTransparent ? 'text-white hover:text-gray-100' : 'text-primary hover:text-primary-dark')}>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">About</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">API</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Imprint</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Pricing</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Status</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Terms</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Get in Touch</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Source</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Privacy</a>
-        </div>
-      </footer>
-    </div>
+    <Footer dark={dark}>
+      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>API</Button>
+      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Imprint</Button>
+      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Pricing</Button>
+      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Status</Button>
+      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Terms</Button>
+      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Get in Touch</Button>
+      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Source</Button>
+      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Privacy</Button>
+      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>About</Button>
+    </Footer>
   )
 }

@@ -9,6 +9,7 @@ interface ButtonProps {
   type?: ButtonType
   round?: boolean
   href?: string
+  external?: boolean
   className?: string
   onClick?: MouseEventHandler
 }
@@ -41,8 +42,14 @@ function makeButton(tag, label, props, children) {
   }
 }
 
-export default function Button({ children, label, type, tag, round, href, ...props }: PropsWithChildren<ButtonProps>) {
+export default function Button({ children, label, type, tag, round, href, external, ...props }: PropsWithChildren<ButtonProps>) {
   props.className = stylesForType(type ?? 'fill', round) + (props.className ? ` ${props.className}` : '')
+
+  // external button must use a tag and special link logic
+  if (external) {
+    return makeButton('a', label, { href, target: '_blank', rel: 'noreferrer', ...props }, children)
+  }
+
   const button = makeButton(tag, label, props, children)
   if (href) {
     return <Link href={href}>{button}</Link>
