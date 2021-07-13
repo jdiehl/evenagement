@@ -1,5 +1,5 @@
-import Button from '@src/components/Button'
 import Footer from '@src/components/Footer'
+import FooterItem from '@src/components/FooterItem'
 
 interface MainFooterProps {
   dark?: boolean
@@ -8,15 +8,15 @@ interface MainFooterProps {
 export default function MainFooter({ dark }: MainFooterProps) {
   return (
     <Footer dark={dark}>
-      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>API</Button>
-      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Imprint</Button>
-      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Pricing</Button>
-      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Status</Button>
-      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Terms</Button>
-      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Get in Touch</Button>
-      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Source</Button>
-      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>Privacy</Button>
-      <Button type="underline" href="https://github.com/jdiehl/evenagement" external>About</Button>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>API</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Imprint</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Pricing</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Status</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Terms</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Get in Touch</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Source</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Privacy</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>About</FooterItem>
     </Footer>
   )
 }

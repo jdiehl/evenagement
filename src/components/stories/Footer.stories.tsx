@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
-import Button from '@src/components/Button'
 import Footer from '@src/components/Footer'
+import FooterItem from '@src/components/FooterItem'
 
 export default {
   title: 'Footer',
@@ -11,7 +11,7 @@ export default {
 
 const Template: Story = (args) => (
   <Footer>
-    {[...Array(args.buttons)].map((_, i) => <Button key={i}>Button {i + 1}</Button>)}
+    {[...Array(args.buttons)].map((_, i) => <FooterItem key={i}>Item {i + 1}</FooterItem>)}
   </Footer>
 )
 
