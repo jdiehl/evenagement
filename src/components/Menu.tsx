@@ -1,12 +1,16 @@
-import { PropsWithChildren, useEffect } from 'react'
+import { PropsWithChildren, ReactNode, useEffect, useState } from 'react'
 
 interface MenuProps {
-  show: boolean
-  className?: string
-  onClose: () => void
+  trigger: ReactNode
+  right?: boolean
 }
 
-export default function Menu({ className, show, onClose, children }: PropsWithChildren<MenuProps>) {
+export default function Menu({ trigger, right, children }: PropsWithChildren<MenuProps>) {
+  const [show, setShow] = useState(false)
+
+  // close handler for clicking outside the menu
+  const onClose = () => setShow(false)
+
   // trigger on close on mouse click
   useEffect(() => {
     if (!show) return
@@ -14,14 +18,23 @@ export default function Menu({ className, show, onClose, children }: PropsWithCh
     return () => document.removeEventListener('click', onClose)
   }, [show])
 
-  if (!show) return null
-
-  let classes = 'absolute overflow-hidden rounded shadow bg-white text-black z-20'
-  if (className) classes += ' ' + className
+  // menu factory
+  const makeMenu = () => {
+    if (!show) return null
+    const className = 'absolute overflow-hidden rounded shadow bg-white text-black z-20' + (right ? ' right-0' : '')
+    return (
+      <div className={className} role="menu" aria-orientation="vertical">
+        {children}
+      </div>
+    )
+  }
 
   return (
-    <div className={classes} role="menu" aria-orientation="vertical">
-      {children}
-    </div>
+    <span className="relative">
+      <a className="cursor-pointer text-xl" aria-controls="usermenu" aria-haspopup="true" aria-label="User Menu" onClick={() => setShow(true)}>
+        {trigger}
+      </a>
+      {makeMenu()}
+    </span>
   )
 }

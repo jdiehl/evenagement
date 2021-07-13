@@ -3,7 +3,11 @@ import { PropsWithChildren, ReactNode } from 'react'
 import Container from '@src/components/Container'
 import Sidebar from '@src/components/Sidebar'
 
-export default function SidebarLayout({ children, menuContent }: PropsWithChildren<{ menuContent: ReactNode }>) {
+interface SidebarLayoutProps {
+  menuContent: ReactNode
+}
+
+export default function SidebarLayout({ children, menuContent }: PropsWithChildren<SidebarLayoutProps>) {
   return (
     <Container row grow>
       <Container grow padding>

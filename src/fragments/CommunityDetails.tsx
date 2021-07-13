@@ -1,5 +1,4 @@
 import BannerImage from '@src/components/BannerImage'
-import Container from '@src/components/Container'
 import CommunityDetailContent from '@src/fragments/CommunityDetailContent'
 import CommunityMenu from '@src/fragments/CommunityMenu'
 import SidebarLayout from '@src/layouts/SidebarLayout'

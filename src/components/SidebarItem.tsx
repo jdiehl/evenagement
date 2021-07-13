@@ -9,7 +9,7 @@ interface SidebarItemProps {
 
 export default function SidebarItem({ active, children, href }: PropsWithChildren<SidebarItemProps>) {
   const router = useRouter()
-  let className = 'px-4 py-1 underline hover:bg-primary-light transition-all'
+  let className = 'select-none px-4 py-1 underline hover:bg-primary-light transition-all'
   if (active ?? (router && router.pathname === href)) {
     className += ' bg-primary'
   }
