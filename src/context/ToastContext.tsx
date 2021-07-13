@@ -1,5 +1,6 @@
 import { createContext, useState, PropsWithChildren } from 'react'
 
+import Text from '@src/components/Text'
 import Toast, { ToastType } from '@src/components/Toast'
 
 interface ToastMessage {
@@ -21,8 +22,8 @@ export function ToastContextProvider({ children }: PropsWithChildren<{}>) {
     <ToastContext.Provider value={setMessage}>
       {children}
       <Toast show={show} onHide={onHide} type={message?.type}>{show && <>
-        <p className="font-bold">{message.title}</p>
-        <p>{message.message}</p>
+        <Text type="h2">{message.title}</Text>
+        <Text>{message.message}</Text>
       </>}</Toast>
     </ToastContext.Provider>
   )

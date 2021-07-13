@@ -12,7 +12,7 @@ interface InputProps {
   rows?: number
   name?: string
   error?: string
-  onChange: ChangeEventHandler<HTMLInputElement>
+  onChange?: ChangeEventHandler<HTMLInputElement>
   onBlur?: ChangeEventHandler<HTMLInputElement>
 }
 

@@ -1,23 +1,22 @@
+import Footer from '@src/components/Footer'
+import FooterItem from '@src/components/FooterItem'
+
 interface MainFooterProps {
-  bgTransparent?: boolean
+  dark?: boolean
 }
 
-export default function MainFooter({ bgTransparent }: MainFooterProps) {
+export default function MainFooter({ dark }: MainFooterProps) {
   return (
-    <div className={'py-12 ' + (bgTransparent ? 'bg-background-shaded' : 'bg-background-dark')}>
-      <footer className="container flex items-center mx-auto">
-        <div className={'grid grid-cols-3 gap-4 text-sm w-1/2 mx-auto text-center ' + (bgTransparent ? 'text-white hover:text-gray-100' : 'text-primary hover:text-primary-dark')}>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">About</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">API</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Imprint</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Pricing</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Status</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Terms</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Get in Touch</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Source</a>
-          <a className="transition-all hover:underline" href="https://github.com/jdiehl/evenagement" target="_blank" rel="noreferrer">Privacy</a>
-        </div>
-      </footer>
-    </div>
+    <Footer dark={dark}>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>API</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Imprint</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Pricing</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Status</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Terms</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Get in Touch</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Source</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>Privacy</FooterItem>
+      <FooterItem href="https://github.com/jdiehl/evenagement" external>About</FooterItem>
+    </Footer>
   )
 }

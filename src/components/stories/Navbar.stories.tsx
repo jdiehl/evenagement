@@ -15,7 +15,7 @@ export default {
 const Template: Story<any> = (args) => (
   <Navbar>
     <NavbarBrand>{args.brand}</NavbarBrand>
-    {[...Array(args.items)].map((_, i) => <NavbarItem key={i} href="#">Item {i}</NavbarItem>)}
+    {[...Array(args.items)].map((_, i) => <NavbarItem key={i} href={`#${i}`}>Item {i + 1}</NavbarItem>)}
     <Container grow />
     <Button>{args.button}</Button>
   </Navbar>

@@ -1,6 +1,6 @@
-import Button from '@src/components/Button'
 import Container from '@src/components/Container'
-import Text from '@src/components/Text'
+import SidebarHeader from '@src/components/SidebarHeader'
+import SidebarItem from '@src/components/SidebarItem'
 import JoinCommunityButton from '@src/fragments/JoinCommunityButton'
 import { CommunityDocument } from '@src/model/Community'
 
@@ -10,13 +10,15 @@ interface CommunityMenuProps {
 
 export default function CommunityMenu({ community }: CommunityMenuProps) {
 return (
-  <Container>
-    <Text type="h2">{community.data().name}</Text>
-    <Button type="underline" href={`/communities/${community.id}`}>Home</Button>
-    <Button type="underline" href={`/communities/${community.id}`}>Upcoming Events</Button>
-    <Button type="underline" href={`/communities/${community.id}`}>Past Events</Button>
-    <Button type="underline" href={`/communities/${community.id}`}>Members</Button>
-    <JoinCommunityButton community={community} />
-  </Container>
+  <>
+    <SidebarHeader>{community.data().name}</SidebarHeader>
+    <SidebarItem href={`/communities/${community.id}`}>Home</SidebarItem>
+    <SidebarItem href={`/communities/${community.id}/events`}>Upcoming Events</SidebarItem>
+    <SidebarItem href={`/communities/${community.id}/archive`}>Past Events</SidebarItem>
+    <SidebarItem href={`/communities/${community.id}/members`}>Members</SidebarItem>
+    <Container padding>
+      <JoinCommunityButton community={community} />
+    </Container>
+  </>
   )
 }

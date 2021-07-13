@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import { PropsWithChildren } from 'react'
 
-interface NavbarProps {
+interface NavbarBrandProps {
   href?: string
 }
 
-export default function NavbarBrand({ href, children }: PropsWithChildren<NavbarProps>) {
+export default function NavbarBrand({ href, children }: PropsWithChildren<NavbarBrandProps>) {
   const item = (
     <a className="px-6 py-1 text-xl text-white font-thin flex">
       {children}

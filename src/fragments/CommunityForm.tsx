@@ -1,4 +1,6 @@
 import Button from '@src/components/Button'
+import Container from '@src/components/Container'
+import Form from '@src/components/Form'
 import ImageInput from '@src/components/ImageInput'
 import Input from '@src/components/Input'
 import { DocumentReference } from '@src/lib/firebase'
@@ -12,19 +14,16 @@ interface CommunityEditProps {
 
 export default function CommunityForm({ communityRef, onClose }: CommunityEditProps) {
   const { register, registerFile, handleSubmit } = useDocForm(communityRef)
+  const buttons = <>
+    <Button type="outline" onClick={() => onClose(false)}>Cancel</Button>
+    <Button tag="input">Save</Button>
+  </>
 
   return (
-    <form onSubmit={handleSubmit(() => onClose(true))}>
-      <div className="flex flex-col space-y-4">
-        <ImageInput height={250} {...registerFile('image')} />
-        <Input label="Community Name" {...register('name', { required: 'Please enter a name' })}/>
-        <Input type="textarea" rows={6} label="Description" {...register('description')} />
-      </div>
-
-      <div className="flex justify-end space-x-4 py-4">
-        <Button type="outline" onClick={() => onClose(false)}>Cancel</Button>
-        <Button tag="input">Save</Button>
-      </div>
-    </form>
+    <Form onSubmit={handleSubmit(() => onClose(true))} buttons={buttons}>
+      <ImageInput height={250} {...registerFile('image')} />
+      <Input label="Community Name" {...register('name', { required: 'Please enter a name' })}/>
+      <Input type="textarea" rows={6} label="Description" {...register('description')} />
+    </Form>
   )
 }

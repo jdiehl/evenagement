@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { CSSProperties, PropsWithChildren } from 'react'
+import { CSSProperties, PropsWithChildren, MouseEventHandler } from 'react'
 
 interface TileProps {
   size?: number
@@ -7,9 +7,10 @@ interface TileProps {
   height?: number
   className?: string
   href?: string
+  onClick?: MouseEventHandler<HTMLElement>
 }
 
-export default function Tile({ children, className, size, width, height, href }: PropsWithChildren<TileProps>) {
+export default function Tile({ children, className, size, width, height, href, onClick }: PropsWithChildren<TileProps>) {
   const style: CSSProperties = {}
   if (size) {
     height = width = size
@@ -19,7 +20,7 @@ export default function Tile({ children, className, size, width, height, href }:
 
   className = 'relative overflow-hidden inline-block rounded shadow' + (className ? ` ${className}` : '')
 
-  const props = { style, className }
+  const props = { style, className, onClick }
 
   if (!href) {
     return <div {...props}>{children}</div>

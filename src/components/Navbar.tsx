@@ -2,13 +2,9 @@ import { PropsWithChildren } from 'react'
 
 import Container from '@src/components/Container'
 
-interface NavbarProps {
-  useTransparentBackground?: boolean
-}
-
-export default function Navbar({ children }: PropsWithChildren<NavbarProps>) {
+export default function Navbar({ children }: PropsWithChildren<{}>) {
   return (
-    <nav className="bg-primary-dark border-b-2 border-tertiary">
+    <nav className="bg-primary-dark border-b-2 border-tertiary text-white">
       <Container row align="center" page>
         {children}
       </Container>

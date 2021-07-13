@@ -10,6 +10,7 @@ interface ContainerProps {
   page?: boolean
   grow?: boolean
   shadow?: boolean
+  scroll?: boolean
   className?: string
 }
 
@@ -25,6 +26,7 @@ export default function Container(props: PropsWithChildren<ContainerProps>) {
     props.fill && 'min-h-screen',
     props.page && 'w-full max-w-screen-xl mx-auto',
     props.shadow && 'shadow',
+    props.scroll && 'overflow-auto',
     props.className
   ].filter(x => x).join(' ')
   return (
