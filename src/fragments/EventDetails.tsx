@@ -13,12 +13,12 @@ interface CommunityDetailsProps {
 
 export default function EventDetails({ community, event }: CommunityDetailsProps) {
   return (
-    <Container>
+    <>
       <BannerImage community={community.data()} event={event.data()} />
       <SidebarLayout menuContent={<CommunityMenu community={community} />}>
         <Container padding />
         <EventDetailContent event={event.data()} />
       </SidebarLayout>
-    </Container>
+    </>
   )
 }

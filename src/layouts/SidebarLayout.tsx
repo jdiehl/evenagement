@@ -5,7 +5,7 @@ import Sidebar from '@src/components/Sidebar'
 
 export default function SidebarLayout({ children, menuContent }: PropsWithChildren<{ menuContent: ReactNode }>) {
   return (
-    <Container row>
+    <Container row grow>
       <Container grow padding>
         {children}
       </Container>

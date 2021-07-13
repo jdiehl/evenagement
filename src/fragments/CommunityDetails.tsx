@@ -15,11 +15,11 @@ interface CommunityDetailsProps {
 
 export default function CommunityDetails({ community, events, members }: CommunityDetailsProps) {
   return (
-    <Container>
+    <>
       <BannerImage community={community.data()} />
       <SidebarLayout menuContent={<CommunityMenu community={community} />}>
         <CommunityDetailContent community={community} events={events} members={members} />
       </SidebarLayout>
-    </Container>
+    </>
   )
 }
