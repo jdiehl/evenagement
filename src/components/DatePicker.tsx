@@ -1,5 +1,4 @@
-import Dayzed, { useDayzed } from 'dayzed'
-import { ChangeEventHandler, ChangeEvent } from 'react'
+import Dayzed from 'dayzed'
 
 const monthNamesShort = [
   'Jan',
@@ -98,7 +97,7 @@ function Calendar({ calendars, getBackProps, getForwardProps, getDateProps }) {
 /*----------- Render Prop -----------*/
 
 interface DatePickerProps {
-  value: Date
+  value?: Date
   onChange: (date: Date) => void
   label?: string
 }
@@ -106,13 +105,14 @@ interface DatePickerProps {
 export default function DatePicker({ value, onChange, label }: DatePickerProps) {
   
   return (
-    <label className="block text-sm font-bold">
+    <div className="block text-sm font-bold">
       {label && <div className="ml-1 mb-1">{label}</div>}
       <Dayzed
-        onDateSelected={(dateObj) => onChange(dateObj.date)}
+        date={value}
+        onDateSelected={({date}) => onChange(date)}
         selected={value}
         render={dayzedData => <Calendar {...dayzedData} />}
       />
-    </label>
+    </div>
   )
 }

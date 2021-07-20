@@ -17,7 +17,7 @@ export default function EventDetails({ community, event }: CommunityDetailsProps
       <BannerImage community={community.data()} event={event.data()} />
       <SidebarLayout menuContent={<CommunityMenu community={community} />}>
         <Container padding />
-        <EventDetailContent event={event.data()} />
+        <EventDetailContent community={community} event={event} />
       </SidebarLayout>
     </>
   )
