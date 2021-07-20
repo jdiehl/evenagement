@@ -100,15 +100,19 @@ function Calendar({ calendars, getBackProps, getForwardProps, getDateProps }) {
 interface DatePickerProps {
   value: Date
   onChange: (date: Date) => void
+  label?: string
 }
 
-export default function DatePicker({ value, onChange }: DatePickerProps) {
+export default function DatePicker({ value, onChange, label }: DatePickerProps) {
   
   return (
-    <Dayzed
-      onDateSelected={(dateObj) => onChange(dateObj.date)}
-      selected={value}
-      render={dayzedData => <Calendar {...dayzedData} />}
-    />
+    <label className="block text-sm font-bold">
+      {label && <div className="ml-1 mb-1">{label}</div>}
+      <Dayzed
+        onDateSelected={(dateObj) => onChange(dateObj.date)}
+        selected={value}
+        render={dayzedData => <Calendar {...dayzedData} />}
+      />
+    </label>
   )
 }

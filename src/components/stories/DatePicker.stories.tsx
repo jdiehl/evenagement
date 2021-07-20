@@ -12,11 +12,10 @@ export default {
 const Template: Story = (args) => {
   const [date, setDate] = useState(new Date()) 
   return (
-    <DatePicker value={date} onChange={setDate} />
+    <DatePicker label={args.label} value={date} onChange={setDate} />
 )}
 
 export const Primary = Template.bind({})
 Primary.args = {
-  index: 1,
-  items: 4
+  label: 'Date'
 }
