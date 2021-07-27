@@ -1,4 +1,8 @@
 import Dayzed from 'dayzed'
+import { CaretRight, CaretLeft } from 'phosphor-react'
+import { useState } from 'react'
+
+import Input from './Input'
 
 const monthNamesShort = [
   'Jan',
@@ -16,76 +20,51 @@ const monthNamesShort = [
 ]
 const weekdayNamesShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-function Calendar({ calendars, getBackProps, getForwardProps, getDateProps }) {
+function Calendar({ calendars, getBackProps, getForwardProps, getDateProps, visible }) {
+  const navButtonClasses = 'transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-full text-gray'
   if (calendars.length) {
     return (
-      <div style={{ maxWidth: 800, margin: '0 auto', textAlign: 'center' }}>
-        <div>
-          <button {...getBackProps({ calendars })}>Back</button>
-          <button {...getForwardProps({ calendars })}>Next</button>
-        </div>
+      <div className="absolute w-72 -mt-4" hidden={!visible}>
         {calendars.map(calendar => (
-          <div
-            key={`${calendar.month}${calendar.year}`}
-            style={{
-              display: 'inline-block',
-              width: '50%',
-              padding: '0 10px 30px',
-              boxSizing: 'border-box'
-            }}
-          >
-            <div>
-              {monthNamesShort[calendar.month]} {calendar.year}
-            </div>
-            {weekdayNamesShort.map(weekday => (
-              <div
-                key={`${calendar.month}${calendar.year}${weekday}`}
-                style={{
-                  display: 'inline-block',
-                  width: 'calc(100% / 7)',
-                  border: 'none',
-                  background: 'transparent'
-                }}
-              >
-                {weekday}
+          <div className="bg-white mt-2 rounded-lg shadow p-4 absolute top-0 left-0" key={`${calendar.month}${calendar.year}`}>
+            <div className="flex justify-between items-center mb-2" >
+              <div>
+                <span className="text-lg font-bold text-gray-800" >{monthNamesShort[calendar.month]}</span>
+                <span className="ml-1 text-lg text-gray-600 font-normal">{calendar.year}</span>
               </div>
-            ))}
-            {calendar.weeks.map((week, weekIndex) =>
-              week.map((dateObj, index) => {
-                let key = `${calendar.month}${calendar.year}${weekIndex}${index}`
-                if (!dateObj) {
+              <div>
+                <button className={navButtonClasses} {...getBackProps({ calendars })}>
+                  <CaretLeft size={24} />
+                </button>
+                <button className={navButtonClasses} {...getForwardProps({ calendars })}>
+                  <CaretRight size={24} />							  
+                </button>
+              </div>
+            </div>
+            <div className="grid grid-cols-7 gap-2 mb-3 -mx-1">
+              {weekdayNamesShort.map(day => (
+                <div className="px-1" key={day}>
+                  <div className="text-gray-800 font-medium text-center text-xs">{day}</div>
+                </div>
+                ))}
+              {calendar.weeks.map((week, weekIndex) =>
+                week.map((dateObj, index) => {
+                  let key = `${calendar.month}${calendar.year}${weekIndex}${index}`
+                  if (!dateObj) {
+                    return (<div className="text-center border p-1 border-transparent text-sm" key={key}></div>)
+                  }
+                  let { date, selected, today } = dateObj
+                  let dayClasses = today ? 'font-bold ' : ''
+                  dayClasses += selected ? 'text-white bg-primary-dark ' : ''
+                  dayClasses += 'cursor-pointer text-center text-sm leading-none rounded leading-loose transition ease-in-out duration-100  hover:bg-blue-200'
                   return (
-                    <div
-                      key={key}
-                      style={{
-                        display: 'inline-block',
-                        width: 'calc(100% / 7)',
-                        border: 'none',
-                        background: 'transparent'
-                      }}
-                    />
+                    <div key="key" {...getDateProps({ dateObj })}>
+                      <div className={dayClasses}>{date.getDate()}</div>
+                    </div>
                   )
-                }
-                let { date, selected, selectable, today } = dateObj
-                let background = today ? 'cornflowerblue' : ''
-                background = selected ? 'purple' : background
-                background = !selectable ? 'teal' : background
-                return (
-                  <button
-                    style={{
-                      display: 'inline-block',
-                      width: 'calc(100% / 7)',
-                      border: 'none',
-                      background
-                    }}
-                    key={key}
-                    {...getDateProps({ dateObj })}
-                  >
-                    {selectable ? date.getDate() : 'X'}
-                  </button>
-                )
-              })
-            )}
+                }))
+              }
+            </div>
           </div>
         ))}
       </div>
@@ -104,14 +83,21 @@ interface DatePickerProps {
 
 export default function DatePicker({ value, onChange, label }: DatePickerProps) {
   
+  let [visible, setVisible] = useState(false)
+
   return (
-    <div className="block text-sm font-bold">
-      {label && <div className="ml-1 mb-1">{label}</div>}
+    <div>
+      <Input 
+        type="text" 
+        label={label}
+        onClick={() => setVisible(!visible)}
+        value={value?.toDateString()}
+        placeholder="Select date"></Input>
       <Dayzed
         date={value}
-        onDateSelected={({date}) => onChange(date)}
+        onDateSelected={({date}) => { onChange(date); setVisible(false) }}
         selected={value}
-        render={dayzedData => <Calendar {...dayzedData} />}
+        render={dayzedData => <Calendar {...dayzedData} visible={visible} />}
       />
     </div>
   )

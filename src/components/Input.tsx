@@ -1,4 +1,4 @@
-import { ChangeEventHandler, ForwardedRef, forwardRef } from 'react'
+import { ChangeEventHandler, MouseEventHandler, ForwardedRef, forwardRef } from 'react'
 
 type InputType = 'text' | 'email' | 'password' | 'textarea'
 
@@ -14,6 +14,7 @@ interface InputProps {
   error?: string
   onChange?: ChangeEventHandler<HTMLInputElement>
   onBlur?: ChangeEventHandler<HTMLInputElement>
+  onClick?: MouseEventHandler<HTMLInputElement>
 }
 
 function elementForType(type: InputType, props: any, ref: ForwardedRef<unknown>) {
