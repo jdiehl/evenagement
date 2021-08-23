@@ -1,4 +1,5 @@
 import Button from '@src/components/Button'
+import Container from '@src/components/Container'
 import Form from '@src/components/Form'
 import Input from '@src/components/Input'
 import Loading from '@src/components/Loading'
@@ -19,8 +20,10 @@ export default function UserProfileForm({ userProfileRef, onClose }: ProfileForm
   const buttons = <Button tag="input">Update</Button>
 
   return (
-    <Form onSubmit={handleSubmit(onClose)} buttons={buttons}>
-      <Input label="Name" {...register('name', { required: 'Please enter a name' })} />
-    </Form>
+    <Container padding>
+      <Form onSubmit={handleSubmit(onClose)} buttons={buttons}>
+        <Input label="Name" {...register('name', { required: 'Please enter a name' })} />
+      </Form>
+    </Container>
   )
 }

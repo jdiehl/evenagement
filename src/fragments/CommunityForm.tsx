@@ -1,4 +1,5 @@
 import Button from '@src/components/Button'
+import Container from '@src/components/Container'
 import Form from '@src/components/Form'
 import ImageInput from '@src/components/ImageInput'
 import Input from '@src/components/Input'
@@ -19,10 +20,12 @@ export default function CommunityForm({ communityRef, onClose }: CommunityEditPr
   </>
 
   return (
-    <Form onSubmit={handleSubmit(() => onClose(true))} buttons={buttons}>
-      <ImageInput height={250} {...registerFile('image')} />
-      <Input label="Community Name" {...register('name', { required: 'Please enter a name' })}/>
-      <Input type="textarea" rows={6} label="Description" {...register('description')} />
-    </Form>
+    <Container padding>
+      <Form onSubmit={handleSubmit(() => onClose(true))} buttons={buttons}>
+        <ImageInput height={250} {...registerFile('image')} />
+        <Input label="Community Name" {...register('name', { required: 'Please enter a name' })}/>
+        <Input type="textarea" rows={6} label="Description" {...register('description')} />
+      </Form>
+    </Container>
   )
 }
