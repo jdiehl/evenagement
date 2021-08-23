@@ -25,6 +25,7 @@ export default function CommunityForm({ communityRef, onClose }: CommunityEditPr
         <ImageInput height={250} {...registerFile('image')} />
         <Input label="Community Name" {...register('name', { required: 'Please enter a name' })}/>
         <Input type="textarea" rows={6} label="Description" {...register('description')} />
+        <Input type="checkbox" label="Private" {...register('private')} />
       </Form>
     </Container>
   )

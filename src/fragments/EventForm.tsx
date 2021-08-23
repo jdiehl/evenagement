@@ -1,4 +1,5 @@
 import Button from '@src/components/Button'
+import Container from '@src/components/Container'
 import DatePicker from '@src/components/DatePicker'
 import Form from '@src/components/Form'
 import ImageInput from '@src/components/ImageInput'
@@ -20,10 +21,12 @@ export default function EventForm({ eventRef, onClose }: EventFormProps) {
   </>
 
   return (
-    <Form onSubmit={handleSubmit(() => onClose(true))} buttons={buttons}>
-      <ImageInput height={250} {...registerFile('image')} />
-      <Input label="Event Name" {...register('name', { required: 'Please enter a name' })}/>
-      <DatePicker label="Date" {...registerDatePicker('date')} />
-    </Form>
+    <Container padding>
+      <Form onSubmit={handleSubmit(() => onClose(true))} buttons={buttons}>
+        <ImageInput height={250} {...registerFile('image')} />
+        <Input label="Event Name" {...register('name', { required: 'Please enter a name' })}/>
+        <DatePicker label="Date" {...registerDatePicker('date')} />
+      </Form>
+    </Container>
   )
 }

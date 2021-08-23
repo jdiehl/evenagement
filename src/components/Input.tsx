@@ -1,6 +1,6 @@
 import { ChangeEventHandler, MouseEventHandler, ForwardedRef, forwardRef } from 'react'
 
-type InputType = 'text' | 'email' | 'password' | 'textarea'
+type InputType = 'text' | 'email' | 'password' | 'textarea' | 'checkbox'
 
 interface InputProps {
   type?: InputType
@@ -25,7 +25,9 @@ function elementForType(type: InputType, props: any, ref: ForwardedRef<unknown>)
 }
 
 export default forwardRef(function Input({ type, label, error, ...props }: InputProps, ref) {
-  props.className = 'shadow appearance-none border rounded w-full py-2 px-3' + (props.className ? ` ${props.className}` : '')
+  props.className = 'shadow border border-gray-line rounded' + (props.className ? ` ${props.className}` : '')
+  if (type !== 'checkbox') props.className += ' appearance-none w-full py-2 px-3'
+  if (type === 'checkbox') props.className += ' w-6 h-6 cursor-pointer'
   if (error) props.className += ' border-error'
 
   const element = elementForType(type, props, ref)
