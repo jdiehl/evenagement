@@ -20,7 +20,7 @@ interface CommunityDetailContentProps {
 
 export default function CommunityDetailContent({ community, events, members }: CommunityDetailContentProps) {
   const eventTiles = events?.map((event) =>
-    <EventTile href={`/communities/${community.id}/${event.id}`} key={event.id} event={event.data()} />
+    <EventTile href={`/communities/${community.id}/events/${event.id}`} key={event.id} event={event.data()} />
   )
 
   if (eventTiles?.length === 0) {
