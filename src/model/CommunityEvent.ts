@@ -1,10 +1,13 @@
+import { User } from 'firebase/auth'
+import { CollectionReference, DocumentSnapshot, DocumentReference, Timestamp, doc, onSnapshot, collection as getCollection, setDoc, deleteDoc } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 
-import { collection, CollectionReference, DocumentSnapshot, Timestamp } from '@src/lib/firebase'
+import { collection } from '@src/lib/firebase'
 
-const events = (communityId: string) => collection('communities').doc(communityId).collection('events') as CollectionReference<CommunityEvent>
+const events = (communityId: string) => getCollection(doc(collection('communities'), communityId), 'events') as CollectionReference<CommunityEvent>
 
 export type CommunityEventDocument = DocumentSnapshot<CommunityEvent>
+export type CommunityEventMemberRole = 'organizer' | 'attendee'
 
 export interface CommunityEvent {
   name: string
@@ -13,7 +16,7 @@ export interface CommunityEvent {
 }
 
 export function getEventRef(communityId: string, id?: string) {
-  return events(communityId).doc(id)
+  return doc(events(communityId), id)
 }
 
 // observe one event
@@ -22,8 +25,8 @@ export function useEvent(communityId: string, id: string) {
 
   useEffect(() => {
     if (!id) return
-    const ref = events(communityId).doc(id)
-    return ref.onSnapshot(snapshot => setResult(snapshot))
+    const ref = doc(events(communityId), id)
+    return onSnapshot(ref, snapshot => setResult(snapshot))
   }, [id])
 
   return result
@@ -35,8 +38,17 @@ export function useEvents(communityId: string) {
 
   useEffect(() => {
     const ref = events(communityId)
-    return ref.onSnapshot(snapshot => setResult(snapshot.docs))
+    return onSnapshot(ref, snapshot => setResult(snapshot.docs))
   }, [])
 
   return result
+}
+
+export async function setMemberRole(eventRef: DocumentReference<CommunityEvent>, user: User, role?: CommunityEventMemberRole) {
+  const memberRef = doc(getCollection(eventRef, 'members'), user.uid)
+  if (role) {
+    await setDoc(memberRef, { uid: user.uid, role: 'organizer', registered: new Date() })
+  } else {
+    await deleteDoc(memberRef)
+  }
 }

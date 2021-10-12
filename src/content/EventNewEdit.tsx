@@ -2,7 +2,7 @@ import { useRouter } from 'next/router'
 
 import { useUser } from '@src/context/UserContext'
 import EventForm from '@src/fragments/EventForm'
-import { getEventRef } from '@src/model/CommunityEvent'
+import { getEventRef, setMemberRole } from '@src/model/CommunityEvent'
 
 interface EventNewEditProps {
   id: string
@@ -18,7 +18,7 @@ export default function EventNewEdit({ id, eventId }: EventNewEditProps) {
   const onClose = async (saved: boolean) => {
     if (!eventId) {
       // add the current user as admin for created event
-      await eventRef.collection('members').doc(user.uid).set({ uid: user.uid, role: 'organizer', registered: new Date() })
+      await setMemberRole(eventRef, user, 'organizer')
     }
     router.push(saved ? `/communities/${id}/events/${eventRef.id}` : `/communities/${id}`)
   }

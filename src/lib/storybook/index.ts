@@ -1,4 +1,4 @@
-import { DocumentReference, DocumentSnapshot } from '@src/lib/firebase'
+import { DocumentReference, DocumentSnapshot } from 'firebase/firestore'
 
 export function MockDocument<T>(document: T, onUpdate?: () => void): DocumentSnapshot<T> {
   return {

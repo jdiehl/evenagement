@@ -1,12 +1,15 @@
+import { User } from 'firebase/auth'
+import { DocumentSnapshot, DocumentReference, doc, onSnapshot, query, where, getDoc, collection as getCollection, setDoc, deleteDoc } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 
 import { useUser } from '@src/context/UserContext'
-import { collection, collectionGroup, DocumentSnapshot } from '@src/lib/firebase'
+import { collection, collectionGroup } from '@src/lib/firebase'
 
 const communities = () => collection<Community>('communities')
 const members = () => collectionGroup<CommunityMember>('members')
 
 export type CommunityDocument = DocumentSnapshot<Community>
+export type CommunityMemberRole = 'member' | 'organizer'
 
 export interface Community {
   name: string
@@ -22,7 +25,7 @@ export interface CommunityMember {
 }
 
 export function getCommunityRef(id?: string) {
-  return communities().doc(id)
+  return doc(communities(), id)
 }
 
 // observe one community
@@ -31,8 +34,8 @@ export function useCommunity(id: string) {
 
   useEffect(() => {
     if (!id) return
-    const ref = communities().doc(id)
-    return ref.onSnapshot(snapshot => setResult(snapshot))
+    const ref = doc(communities(), id)
+    return onSnapshot(ref, snapshot => setResult(snapshot))
   }, [id])
 
   return result
@@ -46,19 +49,28 @@ export function useCommunities(mine?: boolean) {
   // load public communities (only if mine is not set)
   useEffect(() => {
     if (mine) return
-    const ref = communities().where('private', '!=', true)
-    return ref.onSnapshot(snapshot => setResult(snapshot.docs))
+    const ref = query(communities(), where('private', '!=', true))
+    return onSnapshot(ref, snapshot => setResult(snapshot.docs))
   }, [mine])
 
   // load my communities (if mine is set)
   useEffect(() => {
     if (!mine || !user) return
-    const ref = members().where('uid', '==', user.uid)
-    return ref.onSnapshot(async (snapshot) => {
-      const parents = await Promise.all(snapshot.docs.map(d => d.ref.parent.parent.get() as Promise<CommunityDocument>))
+    const ref = query(members(), where('uid', '==', user.uid))
+    return onSnapshot(ref, async (snapshot) => {
+      const parents = await Promise.all(snapshot.docs.map(d => getDoc(d.ref.parent.parent) as Promise<CommunityDocument>))
       setResult(parents)
     })
   }, [mine, user])
 
   return result
+}
+
+export async function setCommunityRole(communityRef: DocumentReference<Community>, user: User, role?: CommunityMemberRole) {
+  const memberDoc = doc(getCollection(communityRef, 'members'), user.uid)
+  if (role) {
+    await setDoc(memberDoc, { uid: user.uid, role, joined: new Date() })
+  } else {
+    await deleteDoc(memberDoc)
+  }
 }

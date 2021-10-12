@@ -1,8 +1,9 @@
+import { doc, CollectionReference, DocumentSnapshot, collection as getCollection, onSnapshot } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 
-import { collection, CollectionReference, DocumentSnapshot } from '@src/lib/firebase'
+import { collection } from '@src/lib/firebase'
 
-const members = (communityId: string) => collection('communities').doc(communityId).collection('members') as CollectionReference<CommunityMember>
+const members = (communityId: string) => getCollection(doc(collection('communities'), communityId), 'members') as CollectionReference<CommunityMember>
 
 export type CommunityMemberDocument = DocumentSnapshot<CommunityMember>
 
@@ -13,7 +14,7 @@ export interface CommunityMember {
 }
 
 export function getCommunityMemberRef(communityId: string, id?: string) {
-  return members(communityId).doc(id)
+  return doc(members(communityId), id)
 }
 
 // observe one community
@@ -22,8 +23,8 @@ export function useCommunityMember(communityId: string, id: string) {
 
   useEffect(() => {
     if (!id) return
-    const ref = members(communityId).doc(id)
-    return ref.onSnapshot(snapshot => setResult(snapshot))
+    const ref = doc(members(communityId), id)
+    return onSnapshot(ref, snapshot => setResult(snapshot))
   }, [id])
 
   return result
