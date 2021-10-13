@@ -23,11 +23,9 @@ export default function CommunityDetailContent({ community, events, members }: C
     <EventTile href={`/communities/${community.id}/events/${event.id}`} key={event.id} event={event.data()} />
   )
 
-  if (eventTiles?.length === 0) {
-    eventTiles.push(
-      <AddTile label="Add Event" />
-    )
-  }
+  eventTiles?.push(
+    <AddTile key={eventTiles.length} label="Add Event" />
+  )
 
   return (
     <Container gap>
