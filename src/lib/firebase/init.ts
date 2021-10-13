@@ -1,6 +1,7 @@
 import { getAnalytics } from 'firebase/analytics'
 import { getApps, initializeApp } from 'firebase/app'
 import { getAuth, connectAuthEmulator } from 'firebase/auth'
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
 import 'firebase/firestore'
 import 'firebase/storage'
 
@@ -16,6 +17,7 @@ function initEmulator() {
 
   // Enable firebase emulator
   connectAuthEmulator(getAuth(), 'http://localhost:9099/')
+  connectFirestoreEmulator(getFirestore(), 'localhost', 8080)
 }
 
 function initProduction() {
