@@ -63,7 +63,7 @@ export function useDocForm<T>(ref: DocumentReference<T>, props: UseFormProps<T> 
         if (data[key] instanceof File) {
           const file: File = data[key]
           const typeParts = file.type.split('/')
-          const storageRef = getRef(getRef(storage()), `store/${ref.path}/${key}.${typeParts[typeParts.length - 1]}`)
+          const storageRef = getRef(storage(), `store/${ref.path}/${key}.${typeParts[typeParts.length - 1]}`)
           await uploadBytes(storageRef, file)
           data[key] = await getDownloadURL(storageRef)
         }
