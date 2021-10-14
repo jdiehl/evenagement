@@ -1,5 +1,6 @@
-import firebase from 'firebase/app'
+import { getApp } from 'firebase/app'
+import { getStorage } from 'firebase/storage'
 
 export function storage() {
-  return firebase.storage()
+  return getStorage(getApp())
 }

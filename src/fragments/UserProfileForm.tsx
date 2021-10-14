@@ -1,9 +1,10 @@
+import { DocumentReference } from 'firebase/firestore'
+
 import Button from '@src/components/Button'
 import Container from '@src/components/Container'
 import Form from '@src/components/Form'
 import Input from '@src/components/Input'
 import Loading from '@src/components/Loading'
-import { DocumentReference } from '@src/lib/firebase'
 import { useDocForm } from '@src/lib/form'
 import { UserProfile } from '@src/model/UserProfile'
 

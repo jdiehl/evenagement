@@ -1,7 +1,7 @@
 import Button from '@src/components/Button'
 import { useUser } from '@src/context/UserContext'
 import { isValidUser } from '@src/lib/firebase'
-import { CommunityDocument } from '@src/model/Community'
+import { CommunityDocument, setCommunityRole } from '@src/model/Community'
 import { useCommunityMember } from '@src/model/CommunityMember'
 
 interface JoinCommunityButtonProps {
@@ -16,14 +16,14 @@ export default function JoinCommunityButton({ community }: JoinCommunityButtonPr
     if (!isValidUser(user)) {
       throw new Error('Not logged in')
     }
-    await community.ref.collection('members').doc(user.uid).set({ uid: user.uid, role: 'member', joined: new Date() })
+    setCommunityRole(community.ref, user, 'member')
   }
 
   const leaveCommunity = async () => {
     if (!isValidUser(user)) {
       throw new Error('Not logged in')
     }
-    await community.ref.collection('members').doc(user.uid).delete()
+    setCommunityRole(community.ref, user)
   }
 
   if (!userMember) return null

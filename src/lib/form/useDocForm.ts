@@ -1,9 +1,11 @@
+import { DocumentReference, DocumentSnapshot, onSnapshot, updateDoc, setDoc as set } from 'firebase/firestore'
+import { getDownloadURL, ref as getRef, uploadBytes } from 'firebase/storage'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import { UseFormProps, UseFormReturn, useForm, useFormState, UseFormStateReturn, FieldPath, get } from 'react-hook-form'
 
 import { convertTimestampsToDate } from '../helpers'
 
-import { DocumentReference, DocumentSnapshot, storage } from '@src/lib/firebase'
+import { storage } from '@src/lib/firebase'
 
 interface RegisterFileReturn {
   src?: string
@@ -15,10 +17,10 @@ interface RegisterDatePickerReturn {
 }
 
 interface useDocFormReturn<T> extends UseFormReturn<T>, UseFormStateReturn<T> {
-  registerFile: (path: FieldPath<T>) => RegisterFileReturn
   registerDatePicker: (path: FieldPath<T>) => RegisterDatePickerReturn
-  isReady: boolean
+  registerFile: (path: FieldPath<T>) => RegisterFileReturn
   doc: DocumentSnapshot<T>
+  isReady: boolean
 }
 
 // default properties
@@ -31,10 +33,10 @@ export function useDocForm<T>(ref: DocumentReference<T>, props: UseFormProps<T> 
   const [isReady, setIsReady] = useState(false)
 
   // load the document
-  useEffect(() => ref.onSnapshot(snapshot => setDoc(snapshot)), [ref.id])
+  useEffect(() => onSnapshot(ref, snapshot => setDoc(snapshot)), [ref.id])
 
   // get the return and state objects
-  const res = useForm(Object.assign({}, defaultProps, props))
+  const res = useForm(Object.assign({}, defaultProps, props) as any)
   const state = useFormState({ control: res.control })
   const { register, handleSubmit } = res
 
@@ -61,15 +63,15 @@ export function useDocForm<T>(ref: DocumentReference<T>, props: UseFormProps<T> 
         if (data[key] instanceof File) {
           const file: File = data[key]
           const typeParts = file.type.split('/')
-          const storageRef = storage().ref().child(`store/${ref.path}/${key}.${typeParts[typeParts.length - 1]}`)
-          await storageRef.put(file)
-          data[key] = await storageRef.getDownloadURL()
+          const storageRef = getRef(storage(), `store/${ref.path}/${key}.${typeParts[typeParts.length - 1]}`)
+          await uploadBytes(storageRef, file)
+          data[key] = await getDownloadURL(storageRef)
         }
       }
 
       // update or create the document
       try {
-        doc?.exists ? await doc.ref.update(data) : await ref.set(data as T)
+        doc?.exists ? await updateDoc(doc.ref, data) : await set(ref, data as any)
       } catch (error) {
         res.setError(undefined, error)
         return
@@ -96,5 +98,5 @@ export function useDocForm<T>(ref: DocumentReference<T>, props: UseFormProps<T> 
     return { value, onChange } as RegisterDatePickerReturn
   }
 
-  return { registerDatePicker, registerFile, doc, isReady, ...res, ...state }
+  return { registerDatePicker, registerFile, doc, isReady, ...res, ...state } as any
 }

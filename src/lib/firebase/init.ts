@@ -1,11 +1,13 @@
-import firebase from 'firebase/app'
-import 'firebase/analytics'
-import 'firebase/auth'
+import { getAnalytics } from 'firebase/analytics'
+import { getApps, initializeApp } from 'firebase/app'
+import { getAuth, connectAuthEmulator } from 'firebase/auth'
+import { connectFirestoreEmulator, getFirestore } from 'firebase/firestore'
+import { connectStorageEmulator, getStorage } from 'firebase/storage'
 import 'firebase/firestore'
 import 'firebase/storage'
 
 function initEmulator() {
-  firebase.initializeApp({
+  initializeApp({
     apiKey: 'key',
     authDomain: 'domain',
     projectId: 'evenagement',
@@ -14,18 +16,14 @@ function initEmulator() {
     appId: 'app'
   })
 
-  // Enable firebase emulator
-  firebase.auth().useEmulator('http://localhost:9099/')
-  firebase.firestore().useEmulator('localhost', 8080)
-
-  // make firebase available globally
-  if (typeof window !== 'undefined') {
-    (window as any).firebase = firebase
-  }
+  // Enable emulators
+  connectAuthEmulator(getAuth(), 'http://localhost:9099/')
+  connectFirestoreEmulator(getFirestore(), 'localhost', 8080)
+  connectStorageEmulator(getStorage(), 'localhost', 9199)
 }
 
 function initProduction() {
-  firebase.initializeApp({
+  initializeApp({
     apiKey: process.env.NEXT_PUBLIC_FIREBASE_APIKEY,
     authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTHDOMAIN,
     projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECTID,
@@ -37,17 +35,14 @@ function initProduction() {
 
   // Only run this in the browser
   if (typeof window !== 'undefined') {
-    // make firebase available globally
-    if (process.env.NEXT_PUBLIC_DEBUG) (window as any).firebase = firebase
 
-    // start analytics
-    if (process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID) firebase.analytics()
+    if (process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENTID) getAnalytics()
   }
 }
 
 // Initialize Firebase
 export function initFirebase() {
-  if (firebase.apps.length > 0) return
+  if (getApps().length > 0) return
   if (process.env.NEXT_PUBLIC_USE_FIREBASE_EMULATOR || !process.env.NEXT_PUBLIC_FIREBASE_APIKEY) {
     initEmulator()
   } else {

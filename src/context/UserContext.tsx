@@ -1,21 +1,21 @@
-import firebase from 'firebase/app'
+import { User, onAuthStateChanged } from 'firebase/auth'
 import { createContext, useContext, useState, useEffect, PropsWithChildren } from 'react'
 
-import { isValidUser } from '@src/lib/firebase'
+import { auth as getAuth, isValidUser } from '@src/lib/firebase'
 
 interface UserContextProps {
   loading: boolean
-  user?: firebase.User
+  user?: User
 }
 
 export const UserContext = createContext<UserContextProps>(null)
 
 export function UserContextProvider({ children }: PropsWithChildren<{}>) {
-  const auth = firebase.auth()
+  const auth = getAuth()
   const [state, setState] = useState<UserContextProps>({ loading: true })
 
   useEffect(() => {
-    return auth.onAuthStateChanged(() => {
+    return onAuthStateChanged(auth, () => {
       const user = isValidUser(auth.currentUser) && auth.currentUser
       setState({ loading: false, user })
     })
