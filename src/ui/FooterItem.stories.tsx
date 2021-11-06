@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import FooterItem from './FooterItem'
 
 export default {
-  title: 'FooterItem',
+  title: 'UI/FooterItem',
   component: FooterItem,
   argTypes: {}
 } as Meta

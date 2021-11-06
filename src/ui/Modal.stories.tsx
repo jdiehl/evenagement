@@ -4,7 +4,7 @@ import Dialog from './Dialog'
 import Modal from './Modal'
 
 export default {
-  title: 'Modal',
+  title: 'UI/Modal',
   component: Modal,
 } as Meta
 

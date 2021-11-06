@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import Hero from './Hero'
 
 export default {
-  title: 'Hero',
+  title: 'UI/Hero',
   component: Hero,
   argTypes: {}
 } as Meta

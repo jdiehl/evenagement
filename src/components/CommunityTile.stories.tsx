@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import CommunityTile from './CommunityTile'
 
 export default {
-  title: 'CommunityTile',
+  title: 'Evenagement/CommunityTile',
   component: CommunityTile,
 } as Meta
 

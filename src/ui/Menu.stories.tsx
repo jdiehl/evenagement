@@ -4,7 +4,7 @@ import Menu from './Menu'
 import MenuItem from './MenuItem'
 
 export default {
-  title: 'Menu',
+  title: 'UI/Menu',
   component: Menu,
   argTypes: {}
 } as Meta

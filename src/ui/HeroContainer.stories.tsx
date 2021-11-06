@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import HeroContainer from './HeroContainer'
 
 export default {
-  title: 'HeroContainer',
+  title: 'UI/HeroContainer',
   component: HeroContainer,
   argTypes: {}
 } as Meta

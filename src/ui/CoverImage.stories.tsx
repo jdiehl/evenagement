@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import CoverImage from './CoverImage'
 
 export default {
-  title: 'CoverImage',
+  title: 'UI/CoverImage',
   component: CoverImage,
   argTypes: {}
 } as Meta

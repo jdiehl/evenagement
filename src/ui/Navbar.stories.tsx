@@ -7,7 +7,7 @@ import NavbarBrand from './NavbarBrand'
 import NavbarItem from './NavbarItem'
 
 export default {
-  title: 'Navbar',
+  title: 'UI/Navbar',
   component: Navbar,
   argTypes: {}
 } as Meta

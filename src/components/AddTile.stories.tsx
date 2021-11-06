@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import AddTile from '@src/components/AddTile'
 
 export default {
-  title: 'AddTile',
+  title: 'Evenagement/AddTile',
   component: AddTile,
   argTypes: {}
 } as Meta

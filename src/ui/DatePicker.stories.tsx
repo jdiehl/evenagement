@@ -4,7 +4,7 @@ import { useState } from 'react'
 import DatePicker from './DatePicker'
 
 export default {
-  title: 'DatePicker',
+  title: 'UI/DatePicker',
   component: DatePicker,
   argTypes: {}
 } as Meta

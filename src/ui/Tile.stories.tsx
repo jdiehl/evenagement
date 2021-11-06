@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import Tile from './Tile'
 
 export default {
-  title: 'Tile',
+  title: 'UI/Tile',
   component: Tile,
   argTypes: {}
 } as Meta

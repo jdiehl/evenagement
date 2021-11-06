@@ -4,7 +4,7 @@ import { useState } from 'react'
 import ImageInput from './ImageInput'
 
 export default {
-  title: 'ImageInput',
+  title: 'UI/ImageInput',
   component: ImageInput,
   argTypes: {}
 } as Meta

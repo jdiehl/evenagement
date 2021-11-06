@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import SignInDialog from './SignInDialog'
 
 export default {
-  title: 'SignInDialog',
+  title: 'Evenagement/SignInDialog',
   component: SignInDialog,
   argTypes: {}
 } as Meta

@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import EventTile from './EventTile'
 
 export default {
-  title: 'EventTile',
+  title: 'Evenagement/EventTile',
   component: EventTile,
 } as Meta
 

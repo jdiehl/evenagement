@@ -4,7 +4,7 @@ import { NotePencil } from 'phosphor-react'
 import Btn from './Button'
 
 export default {
-  title: 'Button',
+  title: 'UI/Button',
   component: Btn,
   argTypes: {}
 } as Meta

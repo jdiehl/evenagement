@@ -5,7 +5,7 @@ import Button from './Button'
 import Toast from './Toast'
 
 export default {
-  title: 'Toast',
+  title: 'UI/Toast',
   component: Toast,
   argTypes: {}
 } as Meta

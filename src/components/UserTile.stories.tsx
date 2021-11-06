@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import UserTile from './UserTile'
 
 export default {
-  title: 'UserTile',
+  title: 'Evenagement/UserTile',
   component: UserTile,
 } as Meta
 

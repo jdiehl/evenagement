@@ -4,7 +4,7 @@ import Sidebar from './Sidebar'
 import SidebarHeader from './SidebarHeader'
 
 export default {
-  title: 'SidebarHeader',
+  title: 'UI/SidebarHeader',
   component: SidebarHeader,
   argTypes: {}
 } as Meta

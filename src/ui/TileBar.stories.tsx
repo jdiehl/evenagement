@@ -4,7 +4,7 @@ import Tile from './Tile'
 import TileBar from './TileBar'
 
 export default {
-  title: 'TileBar',
+  title: 'UI/TileBar',
   component: TileBar,
   argTypes: {}
 } as Meta

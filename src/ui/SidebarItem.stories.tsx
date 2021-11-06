@@ -4,7 +4,7 @@ import Sidebar from './Sidebar'
 import SidebarItem from './SidebarItem'
 
 export default {
-  title: 'SidebarItem',
+  title: 'UI/SidebarItem',
   component: SidebarItem,
   argTypes: {}
 } as Meta

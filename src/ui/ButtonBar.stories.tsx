@@ -4,7 +4,7 @@ import Button from './Button'
 import ButtonBar from './ButtonBar'
 
 export default {
-  title: 'ButtonBar',
+  title: 'UI/ButtonBar',
   component: ButtonBar,
   argTypes: {}
 } as Meta

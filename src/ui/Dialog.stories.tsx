@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import Dialog from './Dialog'
 
 export default {
-  title: 'Dialog',
+  title: 'UI/Dialog',
   component: Dialog,
 } as Meta
 

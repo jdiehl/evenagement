@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import Grid from './Grid'
 
 export default {
-  title: 'Grid',
+  title: 'UI/Grid',
   component: Grid,
 } as Meta
 

@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import Logo from './Logo'
 
 export default {
-  title: 'Logo',
+  title: 'Evenagement/Logo',
   component: Logo,
   argTypes: {}
 } as Meta

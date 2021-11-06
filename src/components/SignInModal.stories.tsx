@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import SignInModal from './SignInModal'
 
 export default {
-  title: 'SignInModal',
+  title: 'Evenagement/SignInModal',
   component: SignInModal,
   argTypes: {}
 } as Meta

@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import NavbarItem from './NavbarItem'
 
 export default {
-  title: 'NavbarItem',
+  title: 'UI/NavbarItem',
   component: NavbarItem,
   argTypes: {}
 } as Meta

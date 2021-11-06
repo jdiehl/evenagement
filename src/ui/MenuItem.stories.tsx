@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import MenuItem from './MenuItem'
 
 export default {
-  title: 'MenuItem',
+  title: 'UI/MenuItem',
   component: MenuItem,
   argTypes: {}
 } as Meta

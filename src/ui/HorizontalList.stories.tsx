@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import HorizontalList from './HorizontalList'
 
 export default {
-  title: 'HorizontalList',
+  title: 'UI/HorizontalList',
   component: HorizontalList,
 } as Meta
 

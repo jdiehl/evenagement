@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import Line from './Line'
 
 export default {
-  title: 'Line',
+  title: 'UI/Line',
   component: Line,
   argTypes: {}
 } as Meta

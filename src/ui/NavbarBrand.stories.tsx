@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import NavbarBrand from './NavbarBrand'
 
 export default {
-  title: 'NavbarBrand',
+  title: 'UI/NavbarBrand',
   component: NavbarBrand,
   argTypes: {}
 } as Meta

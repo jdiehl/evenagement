@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import CoverText from './CoverText'
 
 export default {
-  title: 'CoverText',
+  title: 'UI/CoverText',
   component: CoverText,
   argTypes: {}
 } as Meta

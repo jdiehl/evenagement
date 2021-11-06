@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import Carousell from './Carousell'
 
 export default {
-  title: 'Carousell',
+  title: 'UI/Carousell',
   component: Carousell,
   argTypes: {}
 } as Meta

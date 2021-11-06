@@ -4,7 +4,7 @@ import Footer from './Footer'
 import FooterItem from './FooterItem'
 
 export default {
-  title: 'Footer',
+  title: 'UI/Footer',
   component: Footer,
   argTypes: {}
 } as Meta
