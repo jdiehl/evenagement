@@ -1,9 +1,9 @@
 import { PropsWithChildren } from 'react'
 
-import Container from '@src/components/Container'
-import HeroContainer from '@src/components/HeroContainer'
 import MainFooter from '@src/fragments/MainFooter'
 import UserMenu from '@src/fragments/UserMenu'
+import Container from '@src/ui/Container'
+import HeroContainer from '@src/ui/HeroContainer'
 
 export default function EmptyLayout({ children }: PropsWithChildren<{}>) {
   return (

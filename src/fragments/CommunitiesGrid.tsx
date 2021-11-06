@@ -1,8 +1,8 @@
-import Button from '@src/components/Button'
 import CommunityTile from '@src/components/CommunityTile'
-import Container from '@src/components/Container'
-import Grid from '@src/components/Grid'
 import { CommunityDocument } from '@src/model/Community'
+import Button from '@src/ui/Button'
+import Container from '@src/ui/Container'
+import Grid from '@src/ui/Grid'
 
 interface CommunitiesListProps {
   communities: CommunityDocument[]

@@ -1,5 +1,5 @@
-import Footer from '@src/components/Footer'
-import FooterItem from '@src/components/FooterItem'
+import Footer from '@src/ui/Footer'
+import FooterItem from '@src/ui/FooterItem'
 
 interface MainFooterProps {
   dark?: boolean

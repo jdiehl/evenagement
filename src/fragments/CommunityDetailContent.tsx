@@ -1,16 +1,16 @@
 import { NotePencil } from 'phosphor-react'
 
 import AddTile from '@src/components/AddTile'
-import Button from '@src/components/Button'
-import Container from '@src/components/Container'
 import EventTile from '@src/components/EventTile'
-import HorizontalList from '@src/components/HorizontalList'
-import Loading from '@src/components/Loading'
-import Text from '@src/components/Text'
 import UserTile from '@src/components/UserTile'
 import { CommunityDocument } from '@src/model/Community'
 import { CommunityEventDocument } from '@src/model/CommunityEvent'
 import { UserProfileDocument } from '@src/model/UserProfile'
+import Button from '@src/ui/Button'
+import Container from '@src/ui/Container'
+import HorizontalList from '@src/ui/HorizontalList'
+import Loading from '@src/ui/Loading'
+import Text from '@src/ui/Text'
 
 interface CommunityDetailContentProps {
   community: CommunityDocument

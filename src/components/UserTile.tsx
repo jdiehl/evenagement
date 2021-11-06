@@ -1,8 +1,8 @@
-import CoverImage from '@src/components/CoverImage'
-import CoverText from '@src/components/CoverText'
-import Tile from '@src/components/Tile'
 import { initialsFromName, colorFromName } from '@src/lib/helpers'
 import { UserProfile } from '@src/model/UserProfile'
+import CoverImage from '@src/ui/CoverImage'
+import CoverText from '@src/ui/CoverText'
+import Tile from '@src/ui/Tile'
 
 interface UserTileProps {
   userProfile: UserProfile

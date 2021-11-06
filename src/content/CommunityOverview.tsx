@@ -1,6 +1,6 @@
-import Loading from '@src/components/Loading'
 import CommunitiesGrid from '@src/fragments/CommunitiesGrid'
 import { useCommunities } from '@src/model/Community'
+import Loading from '@src/ui/Loading'
 
 interface CommunityOverviewProps {
   mine?: boolean

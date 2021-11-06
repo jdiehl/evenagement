@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 
-import Carousell from '@src/components/Carousell'
-import Dialog from '@src/components/Dialog'
-import Modal from '@src/components/Modal'
 import SignInDialog from '@src/components/SignInDialog'
 import SignUpCompleteDialog from '@src/components/SignUpCompleteDialog'
 import SignUpDialog from '@src/fragments/SignUpDialog'
+import Carousell from '@src/ui/Carousell'
+import Dialog from '@src/ui/Dialog'
+import Modal from '@src/ui/Modal'
 
 interface SignInModalProps {
   show: boolean
@@ -29,7 +29,7 @@ export default function SignInModal({ show, onClose, index: initialIndex }: Sign
   return (
     <Modal show={show} onClose={onClose}>
       <Dialog>
-        <Carousell className="w-80" index={index}>
+        <Carousell width={80} index={index}>
           <SignInDialog onSignUp={onSignUp} onClose={onClose} />
           <SignUpDialog email={email} onBack={() => setIndex(0)} onSignUp={() => setIndex(2)} />
           <SignUpCompleteDialog />

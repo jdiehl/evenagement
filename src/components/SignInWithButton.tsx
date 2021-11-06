@@ -1,7 +1,7 @@
 import { AppleLogo, FacebookLogo, GoogleLogo, Envelope, IconProps } from 'phosphor-react'
 
-import Button from '@src/components/Button'
 import { AuthProvider, signInWith } from '@src/lib/firebase'
+import Button from '@src/ui/Button'
 
 function makeIconForProvider(provider: AuthProvider, props: IconProps = {}) {
   props.className = 'mr-2 inline-block'

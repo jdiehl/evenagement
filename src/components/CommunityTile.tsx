@@ -1,10 +1,10 @@
 import Link from 'next/link'
 
-import CoverImage from '@src/components/CoverImage'
-import Text from '@src/components/Text'
-import Tile from '@src/components/Tile'
-import TileBar from '@src/components/TileBar'
 import { Community } from '@src/model/Community'
+import CoverImage from '@src/ui/CoverImage'
+import Text from '@src/ui/Text'
+import Tile from '@src/ui/Tile'
+import TileBar from '@src/ui/TileBar'
 
 interface CommunityTileProps {
   community: Community

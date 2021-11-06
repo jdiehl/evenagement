@@ -1,7 +1,7 @@
 import { PropsWithChildren, ReactNode } from 'react'
 
-import Container from '@src/components/Container'
-import Sidebar from '@src/components/Sidebar'
+import Container from '@src/ui/Container'
+import Sidebar from '@src/ui/Sidebar'
 
 interface SidebarLayoutProps {
   menuContent: ReactNode

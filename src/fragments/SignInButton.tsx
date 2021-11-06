@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
-import Button from '@src/components/Button'
 import SignInModal from '@src/components/SignInModal'
+import Button from '@src/ui/Button'
 
 interface SignInButtonProps {
   label?: string

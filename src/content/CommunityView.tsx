@@ -1,8 +1,8 @@
-import Loading from '@src/components/Loading'
 import CommunityDetails from '@src/fragments/CommunityDetails'
 import { useCommunity } from '@src/model/Community'
 import { useEvents } from '@src/model/CommunityEvent'
 import { useCommunityMemberProfiles } from '@src/model/UserProfile'
+import Loading from '@src/ui/Loading'
 
 interface CommunityViewProps {
   id: string

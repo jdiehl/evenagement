@@ -1,9 +1,9 @@
-import Container from '@src/components/Container'
 import Logo from '@src/components/Logo'
-import Navbar from '@src/components/Navbar'
-import NavbarBrand from '@src/components/NavbarBrand'
-import NavbarItem from '@src/components/NavbarItem'
 import UserMenu from '@src/fragments/UserMenu'
+import Container from '@src/ui/Container'
+import Navbar from '@src/ui/Navbar'
+import NavbarBrand from '@src/ui/NavbarBrand'
+import NavbarItem from '@src/ui/NavbarItem'
 
 export default function MainBar() {
   return (

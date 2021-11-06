@@ -1,10 +1,10 @@
 import { FormEvent, useContext, useState } from 'react'
 
-import Button from '@src/components/Button'
-import Container from '@src/components/Container'
-import Input from '@src/components/Input'
 import ToastContext from '@src/context/ToastContext'
 import { signUp } from '@src/lib/firebase'
+import Button from '@src/ui/Button'
+import Container from '@src/ui/Container'
+import Input from '@src/ui/Input'
 
 interface SignUpDialogProps {
   email?: string,

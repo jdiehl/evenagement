@@ -1,11 +1,11 @@
 import { format } from 'date-fns'
 import { NotePencil } from 'phosphor-react'
 
-import Button from '@src/components/Button'
-import Container from '@src/components/Container'
-import Text from '@src/components/Text'
 import { CommunityDocument } from '@src/model/Community'
 import { CommunityEventDocument } from '@src/model/CommunityEvent'
+import Button from '@src/ui/Button'
+import Container from '@src/ui/Container'
+import Text from '@src/ui/Text'
 
 interface EventDetailContentProps {
   community: CommunityDocument
@@ -23,7 +23,7 @@ export default function EventDetailContent({ community, event }: EventDetailCont
           <NotePencil/>
         </Button>
       </Container>
-      
+
       <Text type="h2">{format(event.data().date.toDate(), 'P – p')}</Text>
       <Text>Eu do pariatur consectetur officia cillum cupidatat aliqua duis incididunt irure. Sint qui duis velit excepteur pariatur minim fugiat tempor mollit labore. Officia cupidatat aute nisi duis. Nisi ea veniam ut occaecat ipsum eu ipsum velit labore incididunt. Adipisicing sit nulla cillum amet quis sunt id et labore deserunt veniam cupidatat cillum.</Text>
       <Text>Lorem veniam tempor minim aliqua cupidatat anim dolor fugiat fugiat officia tempor esse. Enim sunt elit ea ea. Amet occaecat exercitation labore incididunt reprehenderit laborum et cillum veniam tempor duis consequat cillum. Cillum aute fugiat irure reprehenderit aliquip fugiat fugiat ipsum.</Text>

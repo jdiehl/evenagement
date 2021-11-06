@@ -1,10 +1,10 @@
-import BannerImage from '@src/components/BannerImage'
-import Container from '@src/components/Container'
 import CommunityMenu from '@src/fragments/CommunityMenu'
 import EventDetailContent from '@src/fragments/EventDetailContent'
 import SidebarLayout from '@src/layouts/SidebarLayout'
 import { CommunityDocument } from '@src/model/Community'
 import { CommunityEventDocument } from '@src/model/CommunityEvent'
+import BannerImage from '@src/ui/BannerImage'
+import Container from '@src/ui/Container'
 
 interface CommunityDetailsProps {
   community: CommunityDocument

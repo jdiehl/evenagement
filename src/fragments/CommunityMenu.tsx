@@ -1,8 +1,8 @@
-import Container from '@src/components/Container'
-import SidebarHeader from '@src/components/SidebarHeader'
-import SidebarItem from '@src/components/SidebarItem'
 import JoinCommunityButton from '@src/fragments/JoinCommunityButton'
 import { CommunityDocument } from '@src/model/Community'
+import Container from '@src/ui/Container'
+import SidebarHeader from '@src/ui/SidebarHeader'
+import SidebarItem from '@src/ui/SidebarItem'
 
 interface CommunityMenuProps {
   community: CommunityDocument

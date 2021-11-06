@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router'
 
-import Loading from '@src/components/Loading'
-import Text from '@src/components/Text'
 import UserProfileForm from '@src/fragments/UserProfileForm'
 import { useMyUserProfileRef } from '@src/model/UserProfile'
+import Loading from '@src/ui/Loading'
+import Text from '@src/ui/Text'
 
 export default function ProfileEdit() {
   const userProfileRef = useMyUserProfileRef()

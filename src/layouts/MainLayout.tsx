@@ -1,8 +1,8 @@
 import { PropsWithChildren } from 'react'
 
-import Container from '@src/components/Container'
 import MainBar from '@src/fragments/MainBar'
 import MainFooter from '@src/fragments/MainFooter'
+import Container from '@src/ui/Container'
 
 export default function MainLayout({ children }: PropsWithChildren<{}>) {
   return (

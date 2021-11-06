@@ -1,12 +1,17 @@
 import { Envelope } from 'phosphor-react'
 
+import Container from '@src/ui/Container'
+import Text from '@src/ui/Text'
+
 export default function SignUpCompleteDialog() {
   return (
-    <div className="flex flex-col items-center">
-      <Envelope size={64} weight="duotone" className="mb-4 text-primary" />
-      <p className="text-base text-center">
+    <Container align="center">
+      <Text color="primary" margin={4}>
+        <Envelope size={64} weight="duotone" />
+      </Text>
+      <Text align="center">
         We have sent you an email. Click the link inside to finish your registration.
-      </p>
-    </div>
+      </Text>
+    </Container>
   )
 }

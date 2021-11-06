@@ -1,6 +1,6 @@
-import Button from '@src/components/Button'
-import Container from '@src/components/Container'
-import Text from '@src/components/Text'
+import Button from '@src/ui/Button'
+import Container from '@src/ui/Container'
+import Text from '@src/ui/Text'
 
 export default function VerifyEmailContent() {
   return (

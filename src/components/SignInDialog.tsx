@@ -1,11 +1,12 @@
 import { FormEvent, useContext, useState } from 'react'
 
-import Button from '@src/components/Button'
-import Input from '@src/components/Input'
-import Line from '@src/components/Line'
 import SignInWithButton from '@src/components/SignInWithButton'
 import ToastContext from '@src/context/ToastContext'
 import { AuthProvider, signIn } from '@src/lib/firebase'
+import Button from '@src/ui/Button'
+import Form from '@src/ui/Form'
+import Input from '@src/ui/Input'
+import Line from '@src/ui/Line'
 
 const providers: AuthProvider[] = ['apple', 'facebook', 'google']
 
@@ -33,15 +34,13 @@ export default function SignInDialog({ onSignUp, onClose }: SignInDialogProps) {
   }
 
   return (
-    <form onSubmit={onSubmit}>
-      <div className="flex flex-col space-y-4">
-        {providers.map(provider => <SignInWithButton key={provider} provider={provider} onSuccess={onClose}/>)}
-        <Line label="or" />
-        <Input type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <Input type="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
-        <Button tag="input" label="Sign In" />
-        <Button type="outline" onClick={() => onSignUp(email)}>Sign Up With Email</Button>
-      </div>
-    </form>
+    <Form onSubmit={onSubmit}>
+      {providers.map(provider => <SignInWithButton key={provider} provider={provider} onSuccess={onClose}/>)}
+      <Line label="or" />
+      <Input type="email" label="Email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+      <Input type="password" label="Password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+      <Button tag="input" label="Sign In" />
+      <Button type="outline" onClick={() => onSignUp(email)}>Sign Up With Email</Button>
+    </Form>
   )
 }

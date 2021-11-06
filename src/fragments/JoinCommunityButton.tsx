@@ -1,8 +1,8 @@
-import Button from '@src/components/Button'
 import { useUser } from '@src/context/UserContext'
 import { isValidUser } from '@src/lib/firebase'
 import { CommunityDocument, setCommunityRole } from '@src/model/Community'
 import { useCommunityMember } from '@src/model/CommunityMember'
+import Button from '@src/ui/Button'
 
 interface JoinCommunityButtonProps {
   community: CommunityDocument

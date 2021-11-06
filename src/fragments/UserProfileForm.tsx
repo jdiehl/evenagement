@@ -1,12 +1,12 @@
 import { DocumentReference } from 'firebase/firestore'
 
-import Button from '@src/components/Button'
-import Container from '@src/components/Container'
-import Form from '@src/components/Form'
-import Input from '@src/components/Input'
-import Loading from '@src/components/Loading'
 import { useDocForm } from '@src/lib/form'
 import { UserProfile } from '@src/model/UserProfile'
+import Button from '@src/ui/Button'
+import Container from '@src/ui/Container'
+import Form from '@src/ui/Form'
+import Input from '@src/ui/Input'
+import Loading from '@src/ui/Loading'
 
 interface ProfileFormProps {
   userProfileRef: DocumentReference<UserProfile>

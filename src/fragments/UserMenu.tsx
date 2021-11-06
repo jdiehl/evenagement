@@ -1,10 +1,10 @@
 import { UserCircle } from 'phosphor-react'
 
-import Menu from '@src/components/Menu'
-import MenuItem from '@src/components/MenuItem'
 import { useUser } from '@src/context/UserContext'
 import SignInButton from '@src/fragments/SignInButton'
 import { signOut } from '@src/lib/firebase'
+import Menu from '@src/ui/Menu'
+import MenuItem from '@src/ui/MenuItem'
 
 export default function UserMenu() {
   const { user } = useUser()

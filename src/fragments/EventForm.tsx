@@ -1,13 +1,13 @@
 import { DocumentReference } from 'firebase/firestore'
 
-import Button from '@src/components/Button'
-import Container from '@src/components/Container'
-import DatePicker from '@src/components/DatePicker'
-import Form from '@src/components/Form'
-import ImageInput from '@src/components/ImageInput'
-import Input from '@src/components/Input'
 import { useDocForm } from '@src/lib/form'
 import { CommunityEvent } from '@src/model/CommunityEvent'
+import Button from '@src/ui/Button'
+import Container from '@src/ui/Container'
+import DatePicker from '@src/ui/DatePicker'
+import Form from '@src/ui/Form'
+import ImageInput from '@src/ui/ImageInput'
+import Input from '@src/ui/Input'
 
 interface EventFormProps {
   eventRef: DocumentReference<CommunityEvent>

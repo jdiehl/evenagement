@@ -1,7 +1,7 @@
-import Loading from '@src/components/Loading'
 import EventDetails from '@src/fragments/EventDetails'
 import { useCommunity } from '@src/model/Community'
 import { useEvent } from '@src/model/CommunityEvent'
+import Loading from '@src/ui/Loading'
 
 interface EventViewProps {
   id: string

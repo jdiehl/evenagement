@@ -1,10 +1,10 @@
 import format from 'date-fns/format'
 
-import Text from '@src/components//Text'
-import CoverImage from '@src/components/CoverImage'
-import Tile from '@src/components/Tile'
-import TileBar from '@src/components/TileBar'
 import { CommunityEvent } from '@src/model/CommunityEvent'
+import CoverImage from '@src/ui/CoverImage'
+import Text from '@src/ui/Text'
+import Tile from '@src/ui/Tile'
+import TileBar from '@src/ui/TileBar'
 
 interface EventTileProps {
   event: CommunityEvent
