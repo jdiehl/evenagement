@@ -3,9 +3,9 @@ import { getDownloadURL, ref as getRef, uploadBytes } from 'firebase/storage'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 import { UseFormProps, UseFormReturn, useForm, useFormState, UseFormStateReturn, FieldPath, get } from 'react-hook-form'
 
-import { convertTimestampsToDate } from '../helpers'
-
 import { storage } from '@src/lib/firebase'
+
+import { convertTimestampsToDate } from '../helpers'
 
 interface RegisterFileReturn {
   src?: string

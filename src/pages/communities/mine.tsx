@@ -1,5 +1,5 @@
-import CommunityOverview from '@src/content/CommunityOverview'
-import MainLayoutWithUser from '@src/layouts/MainLayoutWithUser'
+import CommunityOverview from '@community/pages/CommunityOverview'
+import MainLayoutWithUser from '@main/layouts/MainLayoutWithUser'
 
 export default function CommunitiesMine() {
   return (

@@ -1,5 +1,5 @@
-import VerifyEmailStatic from '@src/content/VerifyEmailStatic'
-import MainLayout from '@src/layouts/MainLayout'
+import MainLayout from '@main/layouts/MainLayout'
+import VerifyEmailStatic from '@user/pages/VerifyEmailStatic'
 
 export default function VerifyEmail() {
   return (

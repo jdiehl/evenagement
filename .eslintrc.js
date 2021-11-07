@@ -14,7 +14,7 @@ module.exports = {
     'camelcase': 0,
     'comma-dangle': 0,
     'curly': ['error', 'multi-line'],
-    'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index'], 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
+    'import/order': ['error', { groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'], 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
     'no-console': ['warn'],
     'no-multiple-empty-lines': ['warn', { max: 1, maxEOF: 0, maxBOF: 0 }],
     'no-unreachable': ['warn'],

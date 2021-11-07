@@ -1,5 +1,5 @@
-import Home from '@src/content/Home'
-import EmptyLayout from '@src/layouts/EmptyLayout'
+import EmptyLayout from '@main/layouts/EmptyLayout'
+import Home from '@main/pages/Home'
 
 export default function Index() {
   return (

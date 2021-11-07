@@ -1,5 +1,5 @@
-import ProfileEdit from '@src/content/ProfileEdit'
-import MainLayoutWithUser from '@src/layouts/MainLayoutWithUser'
+import MainLayoutWithUser from '@main/layouts/MainLayoutWithUser'
+import ProfileEdit from '@user/pages/ProfileEdit'
 
 export default function Profile() {
   return (
