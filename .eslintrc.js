@@ -2,11 +2,12 @@ module.exports = {
   extends: [
     'next'
   ],
+  ignorePatterns: ['node_modules', '.next'],
   plugins: [
     'evenagement'
   ],
   settings: {
-    'import/internal-regex': '^@src/'
+    'import/internal-regex': '^@(src|community|event|main|ui|user)/'
   },
   rules: {
     '@next/next/no-img-element': 0,
