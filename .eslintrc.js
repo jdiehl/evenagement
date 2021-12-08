@@ -28,7 +28,7 @@ module.exports = {
     'require-await': 0,
     'semi': ['error', 'never'],
     'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
-    'evenagement/separate-ui-components': 2,
+    'evenagement/separate-ui-components': 0,
     'evenagement/ui-has-storybook': 2
   }
 }
