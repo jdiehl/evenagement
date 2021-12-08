@@ -42,3 +42,6 @@ emulator-data
 package-lock.json
 yarn.lock
 /prod.env
+
+# typescript
+tsconfig.tsbuildinfo

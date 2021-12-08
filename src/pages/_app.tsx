@@ -1,9 +1,9 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 
-import { ToastContextProvider } from '@src/context/ToastContext'
-import { UserContextProvider } from '@src/context/UserContext'
 import bootstrap from '@src/lib/bootstrap'
+import { ToastContextProvider } from '@ui/context/ToastContext'
+import { UserContextProvider } from '@user/context/UserContext'
 
 import '@src/styles/globals.css'
 

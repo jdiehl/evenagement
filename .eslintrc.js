@@ -2,11 +2,12 @@ module.exports = {
   extends: [
     'next'
   ],
+  ignorePatterns: ['node_modules', '.next'],
   plugins: [
     'evenagement'
   ],
   settings: {
-    'import/internal-regex': '^@src/'
+    'import/internal-regex': '^@(src|community|event|main|ui|user)/'
   },
   rules: {
     '@next/next/no-img-element': 0,
@@ -14,7 +15,7 @@ module.exports = {
     'camelcase': 0,
     'comma-dangle': 0,
     'curly': ['error', 'multi-line'],
-    'import/order': ['error', { groups: ['builtin', 'external', 'parent', 'sibling', 'index'], 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
+    'import/order': ['error', { groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'], 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
     'no-console': ['warn'],
     'no-multiple-empty-lines': ['warn', { max: 1, maxEOF: 0, maxBOF: 0 }],
     'no-unreachable': ['warn'],
@@ -27,7 +28,7 @@ module.exports = {
     'require-await': 0,
     'semi': ['error', 'never'],
     'space-before-function-paren': ['warn', { anonymous: 'always', named: 'never', asyncArrow: 'always' }],
-    'evenagement/separate-ui-components': 2,
+    'evenagement/separate-ui-components': 0,
     'evenagement/ui-has-storybook': 2
   }
 }

@@ -1,7 +1,7 @@
 import { GetServerSideProps } from 'next'
 
-import EventView from '@src/content/EventView'
-import MainLayout from '@src/layouts/MainLayout'
+import EventView from '@event/pages/EventView'
+import MainLayout from '@main/layouts/MainLayout'
 
 interface EventProps {
   id: string
