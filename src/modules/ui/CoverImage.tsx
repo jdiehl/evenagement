@@ -6,6 +6,7 @@ interface CoverImageProps {
 }
 
 export default function CoverImage({ src, alt }: CoverImageProps) {
+  if (!src) return null
   return (
     <Image src={src} alt={alt} layout="fill" objectFit="cover" />
   )
