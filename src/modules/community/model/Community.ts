@@ -25,7 +25,8 @@ export interface CommunityMember {
 }
 
 export function getCommunityRef(id?: string) {
-  return doc(communities(), id)
+  const collection = communities()
+  return id == undefined ? doc(collection) : doc(collection, id)
 }
 
 // observe one community
