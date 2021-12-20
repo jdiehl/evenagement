@@ -2,7 +2,7 @@ module.exports = {
   extends: ['next'],
   settings: {
     next: {
-      rootDir: ["apps/*/", "packages/*/"],
+      rootDir: ['apps/*/', 'packages/*/'],
     },
     'import/internal-regex': '^@(src|community|event|main|ui|user)/'
   },
@@ -14,7 +14,7 @@ module.exports = {
     'comma-dangle': 0,
     'curly': ['error', 'multi-line'],
     'evenagement/separate-ui-components': 0,
-    'evenagement/ui-has-storybook': 2,
+    'evenagement/ui-has-storybook': 0,
     'import/order': ['error', { groups: ['builtin', 'external', 'internal', 'parent', 'sibling', 'index', 'object', 'type'], 'newlines-between': 'always', alphabetize: { order: 'asc' } }],
     'no-console': ['warn'],
     'no-multiple-empty-lines': ['warn', { max: 1, maxEOF: 0, maxBOF: 0 }],

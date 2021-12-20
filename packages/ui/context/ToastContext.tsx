@@ -1,7 +1,6 @@
 import { createContext, useState, PropsWithChildren } from 'react'
 
-import { Text } from '../Text'
-import { Toast, ToastType } from '../Toast'
+import { Text, Toast, ToastType } from '../components'
 
 interface ToastMessage {
   title: string
