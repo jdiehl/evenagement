@@ -3,7 +3,7 @@ interface LineProps {
   label?: string
 }
 
-export default function Line({ className, label }: LineProps) {
+export function Line({ className, label }: LineProps) {
   if (!label) return <hr className={`my-4 border-t-1 border-gray-line ${className || ''}`} />
 
   return (

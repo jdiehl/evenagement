@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { useState } from 'react'
 
-import Input from './Input'
+import { Input } from './Input'
 
 export default {
   title: 'UI/Input',

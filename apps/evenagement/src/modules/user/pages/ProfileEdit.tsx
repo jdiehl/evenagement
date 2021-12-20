@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
-import Loading from 'ui/Loading'
-import Text from 'ui/Text'
+import { Loading, Text } from 'ui'
 
 import UserProfileForm from '../UserProfileForm'
 import { useMyUserProfileRef } from '../model/UserProfile'

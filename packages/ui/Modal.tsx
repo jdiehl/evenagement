@@ -5,7 +5,7 @@ interface ModalProps {
   onClose: () => void
 }
 
-export default function Modal({ show, onClose, children }: PropsWithChildren<ModalProps>) {
+export function Modal({ show, onClose, children }: PropsWithChildren<ModalProps>) {
 
   // execute onClose only if the background is clicked (not a child)
   const ref = useRef()

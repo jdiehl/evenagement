@@ -1,9 +1,5 @@
 import { DocumentReference } from 'firebase/firestore'
-import Button from 'ui/Button'
-import Container from 'ui/Container'
-import Form from 'ui/Form'
-import Input from 'ui/Input'
-import Loading from 'ui/Loading'
+import { Button, Container, Form, Input, Loading }from 'ui'
 
 import { useDocForm } from '@src/lib/form'
 

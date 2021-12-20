@@ -4,7 +4,7 @@ interface FooterProps {
   dark?: boolean
 }
 
-export default function Footer({ children, dark }: PropsWithChildren<FooterProps>) {
+export function Footer({ children, dark }: PropsWithChildren<FooterProps>) {
   return (
     <div className={'py-12 ' + (dark ? 'bg-background-shaded' : 'bg-background-dark')}>
       <footer className="container flex items-center mx-auto">

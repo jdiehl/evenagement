@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { useState } from 'react'
 
-import DatePicker from './DatePicker'
+import { DatePicker } from './DatePicker'
 
 export default {
   title: 'UI/DatePicker',

@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
-import Sidebar from './Sidebar'
-import SidebarHeader from './SidebarHeader'
+import { Sidebar } from './Sidebar'
+import { SidebarHeader } from './SidebarHeader'
 
 export default {
   title: 'UI/SidebarHeader',

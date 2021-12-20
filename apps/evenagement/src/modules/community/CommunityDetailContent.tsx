@@ -1,9 +1,5 @@
 import { NotePencil } from 'phosphor-react'
-import Button from 'ui/Button'
-import Container from 'ui/Container'
-import HorizontalList from 'ui/HorizontalList'
-import Loading from 'ui/Loading'
-import Text from 'ui/Text'
+import { Button, Container, HorizontalList, Loading, Text } from 'ui'
 
 import AddTile from '@event/AddTile'
 import EventTile from '@event/EventTile'

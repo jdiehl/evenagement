@@ -15,7 +15,7 @@ function colorForType(type: ToastType): string {
   }
 }
 
-export default function Toast({ show, type, onHide, children }: PropsWithChildren<ToastProps>) {
+export function Toast({ show, type, onHide, children }: PropsWithChildren<ToastProps>) {
   useEffect(() => {
     if (show) {
       const id = setTimeout(() => onHide(), 3000)

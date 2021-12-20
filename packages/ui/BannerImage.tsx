@@ -1,4 +1,4 @@
-import CoverImage from './CoverImage'
+import { CoverImage } from './CoverImage'
 
 interface BannerPresentable {
   name?: string
@@ -10,7 +10,7 @@ interface BannerImageProps {
   event?: BannerPresentable
 }
 
-export default function BannerImage({ community, event }: BannerImageProps) {
+export function BannerImage({ community, event }: BannerImageProps) {
   return (
     <div className="relative h-60">
       <CoverImage src={community.image} alt={community.name ?? 'Unnamed community'} />

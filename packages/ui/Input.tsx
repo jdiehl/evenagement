@@ -17,14 +17,14 @@ interface InputProps {
   onClick?: MouseEventHandler<HTMLInputElement>
 }
 
-function elementForType(type: InputType, props: any, ref: ForwardedRef<unknown>) {
+function elementForType(type: InputType | undefined, props: any, ref: ForwardedRef<unknown>) {
   switch (type) {
     case 'textarea': return <textarea ref={ref} {...props} />
     default: return <input ref={ref} type={type} {...props} />
   }
 }
 
-export default forwardRef(function Input({ type, label, error, ...props }: InputProps, ref) {
+export const Input = forwardRef(function Input({ type, label, error, ...props }: InputProps, ref) {
   props.className = 'shadow border border-gray-line rounded' + (props.className ? ` ${props.className}` : '')
   if (type !== 'checkbox') props.className += ' appearance-none w-full py-2 px-3'
   if (type === 'checkbox') props.className += ' w-6 h-6 cursor-pointer'

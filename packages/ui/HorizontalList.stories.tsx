@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import HorizontalList from './HorizontalList'
+import { HorizontalList } from './HorizontalList'
 
 export default {
   title: 'UI/HorizontalList',

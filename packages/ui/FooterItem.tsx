@@ -6,7 +6,7 @@ interface FooterItemProps {
   external?: boolean
 }
 
-export default function FooterItem({ href, external, children }: PropsWithChildren<FooterItemProps>) {
+export function FooterItem({ href, external, children }: PropsWithChildren<FooterItemProps>) {
 
   // external button -> added target and do not use Link
   if (external) {

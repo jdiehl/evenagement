@@ -1,8 +1,5 @@
 import Link from 'next/link'
-import CoverImage from 'ui/CoverImage'
-import Text from 'ui/Text'
-import Tile from 'ui/Tile'
-import TileBar from 'ui/TileBar'
+import { CoverImage, Text, Tile, TileBar } from 'ui'
 
 import { Community } from './model/Community'
 

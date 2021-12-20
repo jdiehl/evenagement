@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import HeroDescription from './HeroDescription'
+import { HeroDescription } from './HeroDescription'
 
 export default {
   title: 'UI/HeroDescription',

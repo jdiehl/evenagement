@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import Carousell from './Carousell'
+import { Carousell } from './Carousell'
 
 export default {
   title: 'UI/Carousell',

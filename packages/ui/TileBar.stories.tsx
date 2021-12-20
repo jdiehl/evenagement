@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
-import Tile from './Tile'
-import TileBar from './TileBar'
+import { Tile } from './Tile'
+import { TileBar } from './TileBar'
 
 export default {
   title: 'UI/TileBar',

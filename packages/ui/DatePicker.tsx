@@ -2,7 +2,7 @@ import Dayzed from 'dayzed'
 import { CaretRight, CaretLeft } from 'phosphor-react'
 import { useState } from 'react'
 
-import Input from './Input'
+import { Input } from './Input'
 
 const monthNamesShort = [
   'Jan',
@@ -20,7 +20,7 @@ const monthNamesShort = [
 ]
 const weekdayNamesShort = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
 
-function Calendar({ calendars, getBackProps, getForwardProps, getDateProps, visible }) {
+function Calendar({ calendars, getBackProps, getForwardProps, getDateProps, visible }: any) {
   const navButtonClasses = 'transition ease-in-out duration-100 inline-flex cursor-pointer hover:bg-gray-200 p-1 rounded-full text-gray'
   if (calendars.length) {
     return (
@@ -81,7 +81,7 @@ interface DatePickerProps {
   label?: string
 }
 
-export default function DatePicker({ value, onChange, label }: DatePickerProps) {
+export function DatePicker({ value, onChange, label }: DatePickerProps) {
 
   let [visible, setVisible] = useState(false)
 
@@ -95,7 +95,7 @@ export default function DatePicker({ value, onChange, label }: DatePickerProps) 
         placeholder="Select date"></Input>
       <Dayzed
         date={value}
-        onDateSelected={({date}) => { onChange(date); setVisible(false) }}
+        onDateSelected={({ date }) => { onChange(date); setVisible(false) }}
         selected={value}
         render={dayzedData => <Calendar {...dayzedData} visible={visible} />}
       />

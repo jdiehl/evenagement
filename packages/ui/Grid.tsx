@@ -6,7 +6,7 @@ interface GridProps {
   padding?: boolean
 }
 
-export default function Grid({ children, cols, gap, padding }: PropsWithChildren<GridProps>) {
+export function Grid({ children, cols, gap, padding }: PropsWithChildren<GridProps>) {
   const classes = [
     'grid',
     `md:grid-cols-${cols}`,

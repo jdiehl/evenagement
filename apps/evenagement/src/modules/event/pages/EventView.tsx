@@ -1,4 +1,4 @@
-import Loading from 'ui/Loading'
+import { Loading } from 'ui'
 
 import { useCommunity } from '@community/model/Community'
 

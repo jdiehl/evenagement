@@ -7,7 +7,7 @@ interface EventCreatePageProps  {
   id: string
 }
 
-export default function EventCreatePage({id}: EventCreatePageProps) {
+export default function EventCreatePage({ id }: EventCreatePageProps) {
   return (
     <MainLayoutWithUser>
       <EventNewEdit id={id} />

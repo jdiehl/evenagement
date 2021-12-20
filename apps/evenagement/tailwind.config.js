@@ -2,7 +2,7 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
   purge: {
-    content: ['./src/**/*.{js,ts,jsx,tsx}'],
+    content: ['./src/**/*.tsx', '../../packages/**/*.tsx'],
     safelist: [
       /^items-/,
       /^justify-/,
@@ -46,7 +46,7 @@ module.exports = {
         }
       },
       backgroundImage: theme => ({
-        'hero-image': "url('/system/hero.jpg')"
+        'hero-image': 'url(\'/system/hero.jpg\')'
       })
     },
   },

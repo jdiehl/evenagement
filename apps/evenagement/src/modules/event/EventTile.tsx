@@ -1,8 +1,5 @@
 import format from 'date-fns/format'
-import CoverImage from 'ui/CoverImage'
-import Text from 'ui/Text'
-import Tile from 'ui/Tile'
-import TileBar from 'ui/TileBar'
+import { CoverImage, Text, Tile, TileBar } from 'ui'
 
 import { CommunityEvent } from './model/CommunityEvent'
 

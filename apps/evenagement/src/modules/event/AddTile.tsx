@@ -1,15 +1,13 @@
 import { PlusCircle } from 'phosphor-react'
 import { MouseEventHandler } from 'react'
-import Container from 'ui/Container'
-import Text from 'ui/Text'
-import Tile from 'ui/Tile'
+import { Container, Text, Tile } from 'ui'
 
 interface AddTileProps {
   label: String
   onClick?: MouseEventHandler<HTMLElement>
 }
 
-export default function AddTile({ label, onClick}: AddTileProps) {
+export default function AddTile({ label, onClick }: AddTileProps) {
   return (
     <Tile key={1} size={44} onClick={onClick}>
       <Container align="center" justify="center" padding border fill>

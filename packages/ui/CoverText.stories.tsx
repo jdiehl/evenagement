@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import CoverText from './CoverText'
+import { CoverText } from './CoverText'
 
 export default {
   title: 'UI/CoverText',

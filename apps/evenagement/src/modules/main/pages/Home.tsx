@@ -1,5 +1,4 @@
-import Hero from 'ui/Hero'
-import HeroDescription from 'ui/HeroDescription'
+import { Hero, HeroDescription } from 'ui'
 
 import Logo from '../Logo'
 

@@ -1,4 +1,4 @@
-import BannerImage from 'ui/BannerImage'
+import { BannerImage } from 'ui'
 
 import { CommunityEventDocument } from '@event/model/CommunityEvent'
 import SidebarLayout from '@main/layouts/SidebarLayout'

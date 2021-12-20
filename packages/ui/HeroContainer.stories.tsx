@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import HeroContainer from './HeroContainer'
+import { HeroContainer } from './HeroContainer'
 
 export default {
   title: 'UI/HeroContainer',

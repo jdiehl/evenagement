@@ -5,7 +5,7 @@ interface MenuProps {
   right?: boolean
 }
 
-export default function Menu({ trigger, right, children }: PropsWithChildren<MenuProps>) {
+export function Menu({ trigger, right, children }: PropsWithChildren<MenuProps>) {
   const [show, setShow] = useState(false)
 
   // close handler for clicking outside the menu

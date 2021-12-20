@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import BannerImage from './BannerImage'
+import { BannerImage } from './BannerImage'
 
 export default {
   title: 'UI/BannerImage',

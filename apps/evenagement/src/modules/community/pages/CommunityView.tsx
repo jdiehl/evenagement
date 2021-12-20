@@ -1,4 +1,4 @@
-import Loading from 'ui/Loading'
+import { Loading } from 'ui'
 
 import { useEvents } from '@event/model/CommunityEvent'
 import { useCommunityMemberProfiles } from '@user/model/UserProfile'

@@ -1,8 +1,8 @@
 import { CloudArrowUp, Image as ImageIcon} from 'phosphor-react'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 
-import Button from './Button'
-import Loading from './Loading'
+import { Button } from './Button'
+import { Loading } from './Loading'
 
 interface ImageInputProps {
   label?: string
@@ -18,7 +18,7 @@ function makeImageView(loading: boolean, src?: string) {
   return <img src={src} alt="Preview" className="absolute h-full w-full object-cover" />
 }
 
-export default function ImageInput({ label, src: _src, height, className, onChange }: ImageInputProps) {
+export function ImageInput({ label, src: _src, height, className, onChange }: ImageInputProps) {
   const [src, setSrc] = useState<string>(_src)
   const [loading, setLoading] = useState(false)
 

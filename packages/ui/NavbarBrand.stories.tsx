@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import NavbarBrand from './NavbarBrand'
+import { NavbarBrand } from './NavbarBrand'
 
 export default {
   title: 'UI/NavbarBrand',

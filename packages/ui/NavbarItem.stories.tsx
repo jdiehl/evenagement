@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import NavbarItem from './NavbarItem'
+import { NavbarItem } from './NavbarItem'
 
 export default {
   title: 'UI/NavbarItem',

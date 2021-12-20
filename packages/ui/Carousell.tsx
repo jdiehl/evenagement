@@ -6,7 +6,7 @@ interface CarousellProps {
   index: number
 }
 
-export default function Carousell({ className, index, width, children }: PropsWithChildren<CarousellProps>) {
+export function Carousell({ className, index, width, children }: PropsWithChildren<CarousellProps>) {
   const activeChild = Children.toArray(children)[index]
   return (
     <div style={{width: `${width / 4}rem`}}>

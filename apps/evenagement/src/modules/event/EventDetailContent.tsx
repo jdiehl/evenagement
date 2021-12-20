@@ -1,8 +1,6 @@
 import { format } from 'date-fns'
 import { NotePencil } from 'phosphor-react'
-import Button from 'ui/Button'
-import Container from 'ui/Container'
-import Text from 'ui/Text'
+import { Button, Container, Text } from 'ui'
 
 import { CommunityDocument } from '@community/model/Community'
 

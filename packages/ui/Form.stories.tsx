@@ -1,8 +1,8 @@
 import { Story, Meta } from '@storybook/react'
 
-import Button from './Button'
-import Form from './Form'
-import Input from './Input'
+import { Button } from './Button'
+import { Form } from './Form'
+import { Input } from './Input'
 
 export default {
   title: 'UI/Form',

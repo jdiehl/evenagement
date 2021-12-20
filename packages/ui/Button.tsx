@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { MouseEventHandler, PropsWithChildren } from 'react'
+import { MouseEventHandler, PropsWithChildren, ReactNode } from 'react'
 
 type ButtonType = 'fill' | 'outline' | 'underline'
 
@@ -21,7 +21,7 @@ function extraStylesForType(type: ButtonType) {
   }
 }
 
-function stylesForType(type: ButtonType, round: boolean) {
+function stylesForType(type: ButtonType, round = false) {
   if (type === 'underline') {
     return 'underline'
   }
@@ -34,15 +34,16 @@ function stylesForType(type: ButtonType, round: boolean) {
   return styles + ' ' + extraStylesForType(type)
 }
 
-function makeButton(tag, label, props, children) {
+function makeButton(tag?: string, label?: string, props?: any, children?: ReactNode) {
   switch (tag || 'a') {
     case 'a': return <a {...props}>{label || children}</a>
     case 'button': return <button {...props}>{label || children}</button>
     case 'input': return <input type="submit" value={label} {...props} />
+    default: return null
   }
 }
 
-export default function Button({ children, label, type, tag, round, href, external, ...props }: PropsWithChildren<ButtonProps>) {
+export function Button({ children, label, type, tag, round, href, external, ...props }: PropsWithChildren<ButtonProps>) {
   props.className = stylesForType(type ?? 'fill', round) + (props.className ? ` ${props.className}` : '')
 
   // external button must use a tag and special link logic
@@ -56,3 +57,5 @@ export default function Button({ children, label, type, tag, round, href, extern
   }
   return button
 }
+
+if (typeof window === 'object') (window as any).Button = Button

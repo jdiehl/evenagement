@@ -1,6 +1,4 @@
-import Button from 'ui/Button'
-import Container from 'ui/Container'
-import Grid from 'ui/Grid'
+import { Button, Container, Grid } from 'ui'
 
 import CommunityTile from './CommunityTile'
 import { CommunityDocument } from './model/Community'

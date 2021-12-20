@@ -1,5 +1,5 @@
 import { AppleLogo, FacebookLogo, GoogleLogo, Envelope, IconProps } from 'phosphor-react'
-import Button from 'ui/Button'
+import { Button } from 'ui'
 
 import { AuthProvider, signInWith } from '@src/lib/firebase'
 

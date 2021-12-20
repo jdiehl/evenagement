@@ -1,6 +1,6 @@
 import { ReactNode } from 'react'
 
-import Button from './Button'
+import { Button } from './Button'
 
 interface HeroProps {
   logo: ReactNode
@@ -8,7 +8,7 @@ interface HeroProps {
   subtitle?: string
 }
 
-export default function Hero({ title, subtitle, logo }: HeroProps) {
+export function Hero({ title, subtitle, logo }: HeroProps) {
   return (
     <div className="text-center p-4 mb-4 md:mb-12 text-white">
       <div className="mx-auto mt-4 sm:mt-6 md:mt-12 lg:w-1/2 md:w-3/4">

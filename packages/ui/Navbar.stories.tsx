@@ -1,10 +1,10 @@
 import { Story, Meta } from '@storybook/react'
 
-import Button from './Button'
-import Container from './Container'
-import Navbar from './Navbar'
-import NavbarBrand from './NavbarBrand'
-import NavbarItem from './NavbarItem'
+import { Button } from './Button'
+import { Container } from './Container'
+import { Navbar } from './Navbar'
+import { NavbarBrand } from './NavbarBrand'
+import { NavbarItem } from './NavbarItem'
 
 export default {
   title: 'UI/Navbar',

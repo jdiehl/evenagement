@@ -1,10 +1,5 @@
 import { DocumentReference } from 'firebase/firestore'
-import Button from 'ui/Button'
-import Container from 'ui/Container'
-import DatePicker from 'ui/DatePicker'
-import Form from 'ui/Form'
-import ImageInput from 'ui/ImageInput'
-import Input from 'ui/Input'
+import { Button, Container, DatePicker, Form, ImageInput, Input } from 'ui'
 
 import { useDocForm } from '@src/lib/form'
 

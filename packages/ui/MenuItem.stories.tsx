@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import MenuItem from './MenuItem'
+import { MenuItem } from './MenuItem'
 
 export default {
   title: 'UI/MenuItem',

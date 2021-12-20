@@ -1,7 +1,5 @@
 import { useEffect, useState } from 'react'
-import Carousell from 'ui/Carousell'
-import Dialog from 'ui/Dialog'
-import Modal from 'ui/Modal'
+import { Carousell, Dialog, Modal } from 'ui'
 
 import SignInDialog from './SignInDialog'
 import SignUpCompleteDialog from './SignUpCompleteDialog'

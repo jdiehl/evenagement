@@ -1,7 +1,7 @@
 import { createContext, useState, PropsWithChildren } from 'react'
 
-import Text from '../Text'
-import Toast, { ToastType } from '../Toast'
+import { Text } from '../Text'
+import { Toast, ToastType } from '../Toast'
 
 interface ToastMessage {
   title: string
@@ -11,7 +11,7 @@ interface ToastMessage {
 
 type ToastMessageSetter = (message: ToastMessage) => void
 
-const ToastContext = createContext<ToastMessageSetter>(_ => {})
+export const ToastContext = createContext<ToastMessageSetter>(_ => {})
 
 export function ToastContextProvider({ children }: PropsWithChildren<{}>) {
   const [message, setMessage] = useState<ToastMessage | null>(null)
@@ -22,11 +22,9 @@ export function ToastContextProvider({ children }: PropsWithChildren<{}>) {
     <ToastContext.Provider value={setMessage}>
       {children}
       <Toast show={show} onHide={onHide} type={message?.type}>{show && <>
-        <Text type="h2">{message.title}</Text>
-        <Text>{message.message}</Text>
+        <Text type="h2">{message!.title}</Text>
+        <Text>{message!.message}</Text>
       </>}</Toast>
     </ToastContext.Provider>
   )
 }
-
-export default ToastContext

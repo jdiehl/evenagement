@@ -1,6 +1,4 @@
-import CoverImage from 'ui/CoverImage'
-import CoverText from 'ui/CoverText'
-import Tile from 'ui/Tile'
+import { CoverImage, CoverText, Tile } from 'ui'
 
 import { initialsFromName, colorFromName } from '@src/lib/helpers'
 

@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import CoverImage from './CoverImage'
+import { CoverImage } from './CoverImage'
 
 export default {
   title: 'UI/CoverImage',

@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { NotePencil } from 'phosphor-react'
 
-import Btn from './Button'
+import { Button as Btn } from './Button'
 
 export default {
   title: 'UI/Button',

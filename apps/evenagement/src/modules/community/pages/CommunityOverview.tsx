@@ -1,4 +1,4 @@
-import Loading from 'ui/Loading'
+import { Loading } from 'ui'
 
 import CommunitiesGrid from '../CommunitiesGrid'
 import { useCommunities } from '../model/Community'

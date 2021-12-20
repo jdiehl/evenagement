@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react'
-import Container from 'ui/Container'
+import { Container } from 'ui'
 
 import MainBar from '../MainBar'
 import MainFooter from '../MainFooter'

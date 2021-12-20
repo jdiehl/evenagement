@@ -1,6 +1,4 @@
-import Container from 'ui/Container'
-import SidebarHeader from 'ui/SidebarHeader'
-import SidebarItem from 'ui/SidebarItem'
+import { Container, SidebarHeader, SidebarItem } from 'ui'
 
 import JoinCommunityButton from './JoinCommunityButton'
 import { CommunityDocument } from './model/Community'

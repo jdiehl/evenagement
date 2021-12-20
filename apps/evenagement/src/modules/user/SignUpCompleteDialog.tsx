@@ -1,6 +1,5 @@
 import { Envelope } from 'phosphor-react'
-import Container from 'ui/Container'
-import Text from 'ui/Text'
+import { Container, Text } from 'ui'
 
 export default function SignUpCompleteDialog() {
   return (

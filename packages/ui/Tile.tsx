@@ -10,7 +10,7 @@ interface TileProps {
   onClick?: MouseEventHandler<HTMLElement>
 }
 
-export default function Tile({ children, className, size, width, height, href, onClick }: PropsWithChildren<TileProps>) {
+export function Tile({ children, className, size, width, height, href, onClick }: PropsWithChildren<TileProps>) {
   const style: CSSProperties = {}
   if (size) {
     height = width = size

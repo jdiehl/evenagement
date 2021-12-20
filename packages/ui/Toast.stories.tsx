@@ -1,8 +1,8 @@
 import { Story, Meta } from '@storybook/react'
 import { useState } from 'react'
 
-import Button from './Button'
-import Toast from './Toast'
+import { Button } from './Button'
+import { Toast } from './Toast'
 
 export default {
   title: 'UI/Toast',

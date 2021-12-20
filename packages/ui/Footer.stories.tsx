@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
-import Footer from './Footer'
-import FooterItem from './FooterItem'
+import { Footer } from './Footer'
+import { FooterItem } from './FooterItem'
 
 export default {
   title: 'UI/Footer',

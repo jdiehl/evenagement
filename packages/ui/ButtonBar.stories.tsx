@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
-import Button from './Button'
-import ButtonBar from './ButtonBar'
+import { Button } from './Button'
+import { ButtonBar } from './ButtonBar'
 
 export default {
   title: 'UI/ButtonBar',

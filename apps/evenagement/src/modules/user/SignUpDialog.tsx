@@ -1,8 +1,5 @@
 import { FormEvent, useContext, useState } from 'react'
-import Button from 'ui/Button'
-import Container from 'ui/Container'
-import Input from 'ui/Input'
-import ToastContext from 'ui/context/ToastContext'
+import { Button, Container, Input, ToastContext } from 'ui'
 
 import { signUp } from '@src/lib/firebase'
 

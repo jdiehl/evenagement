@@ -1,6 +1,6 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
-import { ToastContextProvider } from 'ui/context/ToastContext'
+import { ToastContextProvider } from 'ui'
 
 import bootstrap from '@src/lib/bootstrap'
 import { UserContextProvider } from '@user/context/UserContext'

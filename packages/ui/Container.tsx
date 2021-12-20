@@ -15,7 +15,7 @@ interface ContainerProps {
   border?: boolean
 }
 
-export default function Container(props: PropsWithChildren<ContainerProps>) {
+export function Container(props: PropsWithChildren<ContainerProps>) {
   const className = [
     'flex',
     props.row ? 'flex-row' : 'flex-col',

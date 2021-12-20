@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 
-import Dialog from './Dialog'
-import Modal from './Modal'
+import { Dialog } from './Dialog'
+import { Modal } from './Modal'
 
 export default {
   title: 'UI/Modal',

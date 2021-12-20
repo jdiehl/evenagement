@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { PropsWithChildren } from 'react'
-import Loading from 'ui/Loading'
+import { Loading } from 'ui'
 
 import { useUser } from '@user/context/UserContext'
 

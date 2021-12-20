@@ -1,6 +1,6 @@
 import { Story, Meta } from '@storybook/react'
 
-import Line from './Line'
+import { Line } from './Line'
 
 export default {
   title: 'UI/Line',

@@ -1,5 +1,4 @@
-import BannerImage from 'ui/BannerImage'
-import Container from 'ui/Container'
+import { BannerImage, Container } from 'ui'
 
 import CommunityMenu from '@community/CommunityMenu'
 import { CommunityDocument } from '@community/model/Community'

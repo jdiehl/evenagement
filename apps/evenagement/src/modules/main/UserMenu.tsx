@@ -1,6 +1,5 @@
 import { UserCircle } from 'phosphor-react'
-import Menu from 'ui/Menu'
-import MenuItem from 'ui/MenuItem'
+import { Menu, MenuItem } from 'ui'
 
 import { signOut } from '@src/lib/firebase'
 import SignInButton from '@user/SignInButton'

@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react'
 import { useState } from 'react'
 
-import ImageInput from './ImageInput'
+import { ImageInput } from './ImageInput'
 
 export default {
   title: 'UI/ImageInput',
