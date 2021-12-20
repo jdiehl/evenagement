@@ -57,5 +57,3 @@ export function Button({ children, label, type, tag, round, href, external, ...p
   }
   return button
 }
-
-if (typeof window === 'object') (window as any).Button = Button
