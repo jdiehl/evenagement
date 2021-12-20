@@ -1,9 +1,8 @@
 import { DocumentReference } from 'firebase/firestore'
+import { UserProfile } from 'types'
 import { Button, Container, Form, Input, Loading }from 'ui'
 
 import { useDocForm } from '@src/lib/form'
-
-import { UserProfile } from './model/UserProfile'
 
 interface ProfileFormProps {
   userProfileRef: DocumentReference<UserProfile>

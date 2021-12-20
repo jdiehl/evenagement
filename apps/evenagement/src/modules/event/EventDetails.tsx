@@ -1,11 +1,10 @@
+import { CommunityDocument, CommunityEventDocument } from 'types'
 import { BannerImage, Container } from 'ui'
 
 import CommunityMenu from '@community/CommunityMenu'
-import { CommunityDocument } from '@community/model/Community'
 import SidebarLayout from '@main/layouts/SidebarLayout'
 
 import EventDetailContent from './EventDetailContent'
-import { CommunityEventDocument } from './model/CommunityEvent'
 
 interface CommunityDetailsProps {
   community: CommunityDocument

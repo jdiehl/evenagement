@@ -1,18 +1,12 @@
-import { DocumentSnapshot, doc, onSnapshot, collection as getCollection, where, query, documentId } from 'firebase/firestore'
+import { doc, onSnapshot, collection as getCollection, where, query, documentId } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
+import { UserProfile, UserProfileDocument } from 'types'
 
 import { collection } from '@src/lib/firebase'
 
 import { useUser } from '../context/UserContext'
 
 const userProfiles = () => collection<UserProfile>('userProfiles')
-
-export type UserProfileDocument = DocumentSnapshot<UserProfile>
-
-export interface UserProfile {
-  name: string
-  image?: string
-}
 
 export function useMyUserProfileRef() {
   const { user } = useUser()

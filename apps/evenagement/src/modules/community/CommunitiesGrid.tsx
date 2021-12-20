@@ -1,7 +1,7 @@
+import { CommunityDocument } from 'types'
 import { Button, Container, Grid } from 'ui'
 
 import CommunityTile from './CommunityTile'
-import { CommunityDocument } from './model/Community'
 
 interface CommunitiesListProps {
   communities: CommunityDocument[]

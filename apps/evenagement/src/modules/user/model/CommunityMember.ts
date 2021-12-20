@@ -1,17 +1,10 @@
-import { doc, CollectionReference, DocumentSnapshot, collection as getCollection, onSnapshot } from 'firebase/firestore'
+import { doc, CollectionReference, collection as getCollection, onSnapshot } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
+import { CommunityMember, CommunityMemberDocument } from 'types'
 
 import { collection } from '@src/lib/firebase'
 
 const members = (communityId: string) => getCollection(doc(collection('communities'), communityId), 'members') as CollectionReference<CommunityMember>
-
-export type CommunityMemberDocument = DocumentSnapshot<CommunityMember>
-
-export interface CommunityMember {
-  uid: string
-  role: 'member' | 'admin'
-  joined: Date
-}
 
 export function getCommunityMemberRef(communityId: string, id?: string) {
   return doc(members(communityId), id)

@@ -1,8 +1,7 @@
+import { UserProfile } from 'types'
 import { CoverImage, CoverText, Tile } from 'ui'
 
 import { initialsFromName, colorFromName } from '@src/lib/helpers'
-
-import { UserProfile } from './model/UserProfile'
 
 interface UserTileProps {
   userProfile: UserProfile

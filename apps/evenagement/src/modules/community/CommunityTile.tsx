@@ -1,7 +1,6 @@
 import Link from 'next/link'
+import { Community } from 'types'
 import { CoverImage, Text, Tile, TileBar } from 'ui'
-
-import { Community } from './model/Community'
 
 interface CommunityTileProps {
   community: Community

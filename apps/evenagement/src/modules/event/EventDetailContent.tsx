@@ -1,10 +1,7 @@
 import { format } from 'date-fns'
 import { NotePencil } from 'phosphor-react'
+import { CommunityDocument, CommunityEventDocument } from 'types'
 import { Button, Container, Text } from 'ui'
-
-import { CommunityDocument } from '@community/model/Community'
-
-import { CommunityEventDocument } from './model/CommunityEvent'
 
 interface EventDetailContentProps {
   community: CommunityDocument

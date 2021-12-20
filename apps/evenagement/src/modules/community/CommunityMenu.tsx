@@ -1,7 +1,7 @@
+import { CommunityDocument } from 'types'
 import { Container, SidebarHeader, SidebarItem } from 'ui'
 
 import JoinCommunityButton from './JoinCommunityButton'
-import { CommunityDocument } from './model/Community'
 
 interface CommunityMenuProps {
   community: CommunityDocument

@@ -1,28 +1,13 @@
 import { User } from 'firebase/auth'
-import { DocumentSnapshot, DocumentReference, doc, onSnapshot, query, where, getDoc, collection as getCollection, setDoc, deleteDoc } from 'firebase/firestore'
+import { DocumentReference, doc, onSnapshot, query, where, getDoc, collection as getCollection, setDoc, deleteDoc } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
+import { Community, CommunityMember, CommunityMemberRole, CommunityDocument } from 'types'
 
 import { collection, collectionGroup } from '@src/lib/firebase'
 import { useUser } from '@user/context/UserContext'
 
 const communities = () => collection<Community>('communities')
 const members = () => collectionGroup<CommunityMember>('members')
-
-export type CommunityDocument = DocumentSnapshot<Community>
-export type CommunityMemberRole = 'member' | 'organizer'
-
-export interface Community {
-  name: string
-  description?: string
-  image?: string
-  private?: boolean
-}
-
-export interface CommunityMember {
-  uid: string
-  role: 'member' | 'admin'
-  joined: Date
-}
 
 export function getCommunityRef(id?: string) {
   const collection = communities()

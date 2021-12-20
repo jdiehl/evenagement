@@ -1,9 +1,8 @@
 import { DocumentReference } from 'firebase/firestore'
+import { Community } from 'types'
 import { Button, Container, Form, ImageInput, Input } from 'ui'
 
 import { useDocForm } from '@src/lib/form'
-
-import { Community } from './model/Community'
 
 interface CommunityEditProps {
   communityRef: DocumentReference<Community>

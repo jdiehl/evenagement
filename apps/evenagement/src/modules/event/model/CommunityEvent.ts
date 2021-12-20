@@ -1,19 +1,11 @@
 import { User } from 'firebase/auth'
-import { CollectionReference, DocumentSnapshot, DocumentReference, Timestamp, doc, onSnapshot, collection as getCollection, setDoc, deleteDoc } from 'firebase/firestore'
+import { CollectionReference, DocumentReference, doc, onSnapshot, collection as getCollection, setDoc, deleteDoc } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
+import { CommunityEvent, CommunityEventDocument, CommunityEventMemberRole } from 'types'
 
 import { collection } from '@src/lib/firebase'
 
 const events = (communityId: string) => getCollection(doc(collection('communities'), communityId), 'events') as CollectionReference<CommunityEvent>
-
-export type CommunityEventDocument = DocumentSnapshot<CommunityEvent>
-export type CommunityEventMemberRole = 'organizer' | 'attendee'
-
-export interface CommunityEvent {
-  name: string
-  date: Timestamp
-  image: string
-}
 
 export function getEventRef(communityId: string, id?: string) {
   return doc(events(communityId), id)

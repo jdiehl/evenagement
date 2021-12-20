@@ -1,7 +1,6 @@
 import format from 'date-fns/format'
+import { CommunityEvent } from 'types'
 import { CoverImage, Text, Tile, TileBar } from 'ui'
-
-import { CommunityEvent } from './model/CommunityEvent'
 
 interface EventTileProps {
   event: CommunityEvent
