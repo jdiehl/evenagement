@@ -8,9 +8,9 @@ export function Line({ className, label }: LineProps) {
 
   return (
     <div className={`flex items-center my-1 ${className || ''}`}>
-      <div className="flex-grow border-b border-gray-line" style={{ lineHeight: '0.1em' }}></div>
+      <div className="grow border-b border-gray-line" style={{ lineHeight: '0.1em' }}></div>
       <div className="px-2">{label}</div>
-      <div className="flex-grow border-b border-gray-line" style={{ lineHeight: '0.1em' }}></div>
+      <div className="grow border-b border-gray-line" style={{ lineHeight: '0.1em' }}></div>
     </div>
   )
 }

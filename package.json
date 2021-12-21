@@ -43,5 +43,8 @@
   "engines": {
     "npm": ">=7.0.0",
     "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.2"
   }
 }

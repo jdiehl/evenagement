@@ -1,9 +1,10 @@
 const modules = [
   'firebase-helpers',
+  'main',
   'ui',
   'use-binding',
   'use-doc-form',
-  'user',
+  'user'
 ]
 
 const withTM = require('next-transpile-modules')(modules)

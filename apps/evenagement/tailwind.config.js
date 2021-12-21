@@ -1,17 +1,17 @@
 const colors = require('tailwindcss/colors')
 
 module.exports = {
-  purge: {
-    content: ['./src/**/*.tsx', '../../packages/**/*.tsx'],
-    safelist: [
-      /^items-/,
-      /^justify-/,
-      /^md:grid-cols-/,
-      /^my-/,
-      /^text-/
-    ],
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './src/**/*.tsx',
+    '../../packages/**/*.tsx'
+  ],
+  safelist: [
+    { pattern: /^items-/ },
+    { pattern: /^justify-/ },
+    { pattern: /^grid-cols-/, variants: ['md'] },
+    { pattern: /^my-/ },
+    { pattern: /^text-/ }
+  ],
   theme: {
     extend: {
       colors: {
@@ -49,9 +49,6 @@ module.exports = {
         'hero-image': 'url(\'/system/hero.jpg\')'
       })
     },
-  },
-  variants: {
-    extend: {},
   },
   plugins: [],
 }

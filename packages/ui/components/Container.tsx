@@ -19,7 +19,7 @@ export function Container(props: PropsWithChildren<ContainerProps>) {
   const className = [
     'flex',
     props.row ? 'flex-row' : 'flex-col',
-    props.grow && 'flex-grow',
+    props.grow && 'grow',
     props.justify && `justify-${props.justify}`,
     props.align && `items-${props.align}`,
     props.gap && 'gap-4',

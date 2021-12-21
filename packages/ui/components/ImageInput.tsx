@@ -16,7 +16,7 @@ interface ImageInputProps {
 function makeImageView(loading: boolean, src?: string) {
   if (loading) return <Loading className="absolute h-full w-full text-gray-light" />
   if (!src) return <ImageIcon className="absolute h-full w-full text-gray-light" />
-  return <Image src={src} alt="Preview" className="absolute h-full w-full object-cover" />
+  return <Image src={src} alt="Preview" layout="fill" objectFit="cover" />
 }
 
 export function ImageInput({ label, src: _src, height, className, onChange }: ImageInputProps) {
