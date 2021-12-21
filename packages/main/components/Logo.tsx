@@ -1,6 +1,6 @@
 import { SVGProps } from 'react'
 
-export default function Logo(props: SVGProps<SVGSVGElement>) {
+export function Logo(props: SVGProps<SVGSVGElement>) {
   return (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 710 80" version="1.1" {...props}>
       <g transform="matrix(1.44613,0,0,1.44623,-229.653,-1459.55)">

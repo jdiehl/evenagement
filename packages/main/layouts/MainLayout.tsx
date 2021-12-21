@@ -1,10 +1,9 @@
 import { PropsWithChildren } from 'react'
 import { Container } from 'ui'
 
-import MainBar from '../MainBar'
-import MainFooter from '../MainFooter'
+import { MainBar, MainFooter } from '../components'
 
-export default function MainLayout({ children }: PropsWithChildren<{}>) {
+export function MainLayout({ children }: PropsWithChildren<{}>) {
   return (
     <Container fill>
       <MainBar />

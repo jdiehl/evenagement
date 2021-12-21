@@ -1,5 +1,4 @@
-import EmptyLayout from '@main/layouts/EmptyLayout'
-import Home from '@main/pages/Home'
+import { EmptyLayout, Home } from 'main'
 
 export default function Index() {
   return (

@@ -1,8 +1,8 @@
 import { Hero, HeroDescription } from 'ui'
 
-import Logo from '../Logo'
+import { Logo } from '../components'
 
-export default function Home() {
+export function Home() {
   return (
     <>
       <Hero logo={<Logo fill="#ffffff" />}/>

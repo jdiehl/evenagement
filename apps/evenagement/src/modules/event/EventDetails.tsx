@@ -1,8 +1,8 @@
+import { SidebarLayout } from 'main'
 import { CommunityDocument, CommunityEventDocument } from 'types'
 import { BannerImage, Container } from 'ui'
 
 import CommunityMenu from '@community/CommunityMenu'
-import SidebarLayout from '@main/layouts/SidebarLayout'
 
 import EventDetailContent from './EventDetailContent'
 

@@ -3,9 +3,9 @@ import { PropsWithChildren } from 'react'
 import { Loading } from 'ui'
 import { useUser } from 'user'
 
-import MainLayout from './MainLayout'
+import { MainLayout } from './MainLayout'
 
-export default function MainLayoutWithUser({ children }: PropsWithChildren<{}>) {
+export function MainLayoutWithUser({ children }: PropsWithChildren<{}>) {
   const router = useRouter()
   const { loading, user } = useUser()
   if (!loading && user === null) {

@@ -1,9 +1,9 @@
 import { Container, Navbar, NavbarBrand, NavbarItem } from 'ui'
 
-import Logo from './Logo'
-import UserMenu from './UserMenu'
+import { Logo } from './Logo'
+import { UserMenu } from './UserMenu'
 
-export default function MainBar() {
+export function MainBar() {
   return (
     <Navbar>
       <NavbarBrand href="/">

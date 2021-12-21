@@ -1,7 +1,7 @@
+import { MainLayoutWithUser } from 'main'
 import { GetServerSideProps } from 'next'
 
 import EventNewEdit from '@event/pages/EventNewEdit'
-import MainLayoutWithUser from '@main/layouts/MainLayoutWithUser'
 
 interface EventCreatePageProps  {
   id: string

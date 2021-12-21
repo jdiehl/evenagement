@@ -1,7 +1,7 @@
+import { MainLayout } from 'main'
 import { GetServerSideProps } from 'next'
 
 import CommunityView from '@community/pages/CommunityView'
-import MainLayout from '@main/layouts/MainLayout'
 
 interface CommunityProps {
   id: string

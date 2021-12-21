@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { CloudArrowUp, Image as ImageIcon } from 'phosphor-react'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 
@@ -15,7 +16,7 @@ interface ImageInputProps {
 function makeImageView(loading: boolean, src?: string) {
   if (loading) return <Loading className="absolute h-full w-full text-gray-light" />
   if (!src) return <ImageIcon className="absolute h-full w-full text-gray-light" />
-  return <img src={src} alt="Preview" className="absolute h-full w-full object-cover" />
+  return <Image src={src} alt="Preview" className="absolute h-full w-full object-cover" />
 }
 
 export function ImageInput({ label, src: _src, height, className, onChange }: ImageInputProps) {

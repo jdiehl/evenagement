@@ -5638,7 +5638,7 @@ eslint-plugin-evenagement@^1.0.0:
   resolved "https://registry.yarnpkg.com/eslint-plugin-evenagement/-/eslint-plugin-evenagement-1.0.0.tgz#8f56543b68ba2616e8ff92dd173d5ce1bfdd1136"
   integrity sha512-9I3mRjRLNhnq+9DEPGRUAf7Hma3IUCUVshxc/HUQFj0m/Ix9PdIhVRnScVPjMaSbICbbGhYiYno/eVV3mehgcw==
 
-eslint-plugin-import@^2.22.1, eslint-plugin-import@^2.25.2:
+eslint-plugin-import@^2.22.1, eslint-plugin-import@^2.25.2, eslint-plugin-import@^2.25.3:
   version "2.25.3"
   resolved "https://registry.yarnpkg.com/eslint-plugin-import/-/eslint-plugin-import-2.25.3.tgz#a554b5f66e08fb4f6dc99221866e57cfff824766"
   integrity sha512-RzAVbby+72IB3iOEL8clzPLzL3wpDrlwjsTBAQXgyp5SeTqqY+0bFubwuo+y/HLhNZcXV4XqTBO4LGsfyHIDXg==

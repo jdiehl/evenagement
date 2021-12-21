@@ -1,8 +1,6 @@
-import { CommunityDocument, CommunityEventDocument } from 'types'
-import { UserProfileDocument } from 'types'
+import { SidebarLayout } from 'main'
+import { CommunityDocument, CommunityEventDocument, UserProfileDocument } from 'types'
 import { BannerImage } from 'ui'
-
-import SidebarLayout from '@main/layouts/SidebarLayout'
 
 import CommunityDetailContent from './CommunityDetailContent'
 import CommunityMenu from './CommunityMenu'

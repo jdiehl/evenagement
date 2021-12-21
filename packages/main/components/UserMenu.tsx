@@ -3,7 +3,7 @@ import { UserCircle } from 'phosphor-react'
 import { Menu, MenuItem } from 'ui'
 import { SignInButton, useUser } from 'user'
 
-export default function UserMenu() {
+export function UserMenu() {
   const { user } = useUser()
 
   if (!user) return <SignInButton />

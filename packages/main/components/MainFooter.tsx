@@ -4,7 +4,7 @@ interface MainFooterProps {
   dark?: boolean
 }
 
-export default function MainFooter({ dark }: MainFooterProps) {
+export function MainFooter({ dark }: MainFooterProps) {
   return (
     <Footer dark={dark}>
       <FooterItem href="https://github.com/jdiehl/evenagement" external>API</FooterItem>

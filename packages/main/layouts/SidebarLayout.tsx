@@ -5,7 +5,7 @@ interface SidebarLayoutProps {
   menuContent: ReactNode
 }
 
-export default function SidebarLayout({ children, menuContent }: PropsWithChildren<SidebarLayoutProps>) {
+export function SidebarLayout({ children, menuContent }: PropsWithChildren<SidebarLayoutProps>) {
   return (
     <Container row grow>
       <Container grow padding>

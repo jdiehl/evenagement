@@ -1,10 +1,11 @@
+import { MainLayout } from 'main'
+
 import CommunityOverview from '@community/pages/CommunityOverview'
-import Main from '@main/layouts/MainLayout'
 
 export default function Communities() {
   return (
-    <Main>
+    <MainLayout>
       <CommunityOverview />
-    </Main>
+    </MainLayout>
   )
 }

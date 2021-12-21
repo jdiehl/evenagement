@@ -41,7 +41,7 @@ function defaultMargin(type: TextType) {
 export function Text({ children, type = 'p', size, margin, align, color, className }: PropsWithChildren<TextProps>) {
   size = size ?? defaultSize(type)
   margin = margin ?? defaultMargin(type)
-  const props = { className: className + ' ' + sizeClass(size) + ` my-${margin}` + (align ? ` text-${align}` : '')  + (color ? ` text-${color}` : '')}
+  const props = { className: className + ' ' + sizeClass(size) + ` my-${margin}` + (align ? ` text-${align}` : '')  + (color ? ` text-${color}` : '') }
   switch (type) {
     case 'p': return <p {...props}>{children}</p>
     case 'h1': return <h1 {...props}>{children}</h1>
