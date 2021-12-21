@@ -1,9 +1,7 @@
+import { signOut } from 'firebase-helpers'
 import { UserCircle } from 'phosphor-react'
 import { Menu, MenuItem } from 'ui'
-
-import { signOut } from '@src/lib/firebase'
-import SignInButton from '@user/SignInButton'
-import { useUser } from '@user/context/UserContext'
+import { SignInButton, useUser } from 'user'
 
 export default function UserMenu() {
   const { user } = useUser()

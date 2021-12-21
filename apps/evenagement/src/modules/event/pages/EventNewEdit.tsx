@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
-
-import { useUser } from '@user/context/UserContext'
+import { useUser } from 'user'
 
 import EventForm from '../EventForm'
 import { getEventRef, setMemberRole } from '../model/CommunityEvent'

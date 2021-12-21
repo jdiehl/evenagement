@@ -1,8 +1,8 @@
 import Image from 'next/image'
 
 interface CoverImageProps {
-  src: string
-  alt: string
+  src?: string
+  alt?: string
 }
 
 export function CoverImage({ src, alt }: CoverImageProps) {

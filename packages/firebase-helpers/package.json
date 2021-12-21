@@ -1,0 +1,13 @@
+{
+  "name": "firebase-helpers",
+  "version": "1.0.0",
+  "main": "./index.ts",
+  "license": "MIT",
+  "dependencies": {
+    "firebase": "^9.6.1"
+  },
+  "devDependencies": {
+    "tsconfig": "*",
+    "typescript": "^4.5.3"
+  }
+}

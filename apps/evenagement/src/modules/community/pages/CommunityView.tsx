@@ -1,7 +1,7 @@
 import { Loading } from 'ui'
+import { useCommunityMemberProfiles } from 'user'
 
 import { useEvents } from '@event/model/CommunityEvent'
-import { useCommunityMemberProfiles } from '@user/model/UserProfile'
 
 import CommunityDetails from '../CommunityDetails'
 import { useCommunity } from '../model/Community'

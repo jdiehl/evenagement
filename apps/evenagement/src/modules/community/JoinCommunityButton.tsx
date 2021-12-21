@@ -1,9 +1,7 @@
+import { isValidUser } from 'firebase-helpers'
 import { CommunityDocument } from 'types'
 import { Button } from 'ui'
-
-import { isValidUser } from '@src/lib/firebase'
-import { useUser } from '@user/context/UserContext'
-import { useCommunityMember } from '@user/model/CommunityMember'
+import { useUser, useCommunityMember } from 'user'
 
 import { setCommunityRole } from './model/Community'
 

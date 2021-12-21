@@ -1,6 +1,7 @@
+import * as mail from '@sendgrid/mail'
 import { NextApiRequest, NextApiResponse } from 'next'
 
-import mail from '@src/lib/mail'
+mail.setApiKey(process.env.SENDGRID_API_KEY)
 
 export default async function send(req: NextApiRequest, res: NextApiResponse) {
   // const { to, text } = req.body as { to: string, text: string }

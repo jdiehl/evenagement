@@ -1,13 +1,9 @@
 import { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ToastContextProvider } from 'ui'
-
-import bootstrap from '@src/lib/bootstrap'
-import { UserContextProvider } from '@user/context/UserContext'
+import { UserContextProvider } from 'user'
 
 import '@src/styles/globals.css'
-
-bootstrap()
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (

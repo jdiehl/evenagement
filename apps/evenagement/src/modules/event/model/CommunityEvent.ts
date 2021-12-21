@@ -1,9 +1,8 @@
+import { collection } from 'firebase-helpers'
 import { User } from 'firebase/auth'
 import { CollectionReference, DocumentReference, doc, onSnapshot, collection as getCollection, setDoc, deleteDoc } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 import { CommunityEvent, CommunityEventDocument, CommunityEventMemberRole } from 'types'
-
-import { collection } from '@src/lib/firebase'
 
 const events = (communityId: string) => getCollection(doc(collection('communities'), communityId), 'events') as CollectionReference<CommunityEvent>
 

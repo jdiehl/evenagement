@@ -1,10 +1,9 @@
+import { collection, collectionGroup } from 'firebase-helpers'
 import { User } from 'firebase/auth'
 import { DocumentReference, doc, onSnapshot, query, where, getDoc, collection as getCollection, setDoc, deleteDoc } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 import { Community, CommunityMember, CommunityMemberRole, CommunityDocument } from 'types'
-
-import { collection, collectionGroup } from '@src/lib/firebase'
-import { useUser } from '@user/context/UserContext'
+import { useUser } from 'user'
 
 const communities = () => collection<Community>('communities')
 const members = () => collectionGroup<CommunityMember>('members')

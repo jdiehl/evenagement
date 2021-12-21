@@ -8,7 +8,7 @@ interface ModalProps {
 export function Modal({ show, onClose, children }: PropsWithChildren<ModalProps>) {
 
   // execute onClose only if the background is clicked (not a child)
-  const ref = useRef()
+  const ref = useRef<HTMLDivElement>(null)
   const onClick: MouseEventHandler = event => {
     if (event.target === ref.current) onClose()
   }

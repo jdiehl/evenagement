@@ -1,4 +1,4 @@
-import { CloudArrowUp, Image as ImageIcon} from 'phosphor-react'
+import { CloudArrowUp, Image as ImageIcon } from 'phosphor-react'
 import { ChangeEventHandler, useEffect, useState } from 'react'
 
 import { Button } from './Button'
