@@ -19,7 +19,7 @@ function makeImageView(loading: boolean, src?: string) {
 }
 
 export function ImageInput({ label, src: _src, height, className, onChange }: ImageInputProps) {
-  const [src, setSrc] = useState<string>(_src)
+  const [src, setSrc] = useState<string | undefined>(_src)
   const [loading, setLoading] = useState(false)
 
   useEffect(() => {
@@ -30,9 +30,9 @@ export function ImageInput({ label, src: _src, height, className, onChange }: Im
     setLoading(true)
     onChange(e)
     const fileReader = new FileReader()
-    fileReader.readAsDataURL(e.target.files[0])
+    fileReader.readAsDataURL(e.target.files![0])
     fileReader.onload = (e) => {
-      setSrc(e.target.result as string)
+      setSrc(e.target!.result as string)
       setLoading(false)
     }
   }

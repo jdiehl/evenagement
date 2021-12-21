@@ -17,7 +17,7 @@ export function UserProfileForm({ userProfileRef, onClose }: ProfileFormProps) {
 
   return (
     <Container padding>
-      <Form onSubmit={handleSubmit(onClose)} buttons={buttons}>
+      <Form onSubmit={handleSubmit(onClose as any)} buttons={buttons}>
         <Input label="Name" {...register('name', { required: 'Please enter a name' })} />
       </Form>
     </Container>

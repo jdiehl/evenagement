@@ -47,7 +47,7 @@ export async function signInWith(authProvider: AuthProvider) {
 }
 
 // check if the user is valid
-export function isValidUser(user: User | undefined): Boolean {
+export function isValidUser(user: User | null | undefined): Boolean {
   if (!user) return false
   if (user.providerData[0].providerId === EmailAuthProvider.EMAIL_PASSWORD_SIGN_IN_METHOD && !user.emailVerified) return false
   return true

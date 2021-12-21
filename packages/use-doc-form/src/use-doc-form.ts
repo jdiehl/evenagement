@@ -36,7 +36,7 @@ const defaultProps: UseFormProps = {
 }
 
 export function useDocForm<T>(ref: DocumentReference<T>, props: UseFormProps<T> = {}): useDocFormReturn<T> {
-  const [doc, setDoc] = useState<DocumentSnapshot<T>>(null)
+  const [doc, setDoc] = useState<DocumentSnapshot<T> | null>(null)
   const [isReady, setIsReady] = useState(false)
 
   // load the document
@@ -50,7 +50,7 @@ export function useDocForm<T>(ref: DocumentReference<T>, props: UseFormProps<T> 
   // initialize default values after loading the document
   useEffect(() => {
     if (doc?.exists) {
-      res.reset(convertTimestampsToDate(doc.data()) as any)
+      res.reset(convertTimestampsToDate(doc.data() as Record<string, any>) as any)
     }
     setIsReady(!!doc)
   }, [doc])
@@ -80,7 +80,7 @@ export function useDocForm<T>(ref: DocumentReference<T>, props: UseFormProps<T> 
       try {
         doc?.exists ? await updateDoc(doc.ref, data) : await set(ref, data as any)
       } catch (error) {
-        res.setError(undefined, error)
+        res.setError(undefined as any, error as any)
         return
       }
       if (onSuccess) onSuccess(data as any)
@@ -91,7 +91,7 @@ export function useDocForm<T>(ref: DocumentReference<T>, props: UseFormProps<T> 
   const registerFile = (name: FieldPath<T>) => {
     const src: string | undefined = doc?.exists && get(doc.data(), name)
     const onChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-      res.setValue(name, e.target.files[0] as any)
+      res.setValue(name, e.target.files![0] as any)
     }
     return { src, onChange } as RegisterFileReturn
   }

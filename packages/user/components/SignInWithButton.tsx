@@ -35,10 +35,10 @@ export function SignInWithButton({ provider, onError, onSuccess }: SignInWithBut
     try {
       await signInWith(authProvider)
     } catch (error) {
-      onError && onError(error)
+      onError && onError(error as any)
       return
     }
-    onSuccess()
+    onSuccess && onSuccess()
   }
 
   const icon = makeIconForProvider(provider)

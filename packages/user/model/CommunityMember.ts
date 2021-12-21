@@ -3,7 +3,7 @@ import { doc, CollectionReference, collection as getCollection, onSnapshot } fro
 import { useState, useEffect } from 'react'
 import { CommunityMember, CommunityMemberDocument } from 'types'
 
-const members = (communityId: string) => getCollection(doc(collection('communities'), communityId), 'members') as CollectionReference<CommunityMember>
+const members = (communityId: string) => getCollection(doc(collection('communities'), communityId) as any, 'members') as CollectionReference<CommunityMember>
 
 export function getCommunityMemberRef(communityId: string, id?: string) {
   return doc(members(communityId), id)

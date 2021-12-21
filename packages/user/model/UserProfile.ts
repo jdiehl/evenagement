@@ -32,7 +32,7 @@ export function useCommunityMemberProfiles(communityId: string) {
 
   useEffect(() => {
     if (!communityId) return
-    const ref = getCollection(doc(collection('communities'), communityId), 'members')
+    const ref = getCollection(doc(collection('communities'), communityId) as any, 'members')
     return onSnapshot(ref, snapshot => setMemberIds(snapshot.docs.map(doc => doc.id)))
   }, [communityId])
 

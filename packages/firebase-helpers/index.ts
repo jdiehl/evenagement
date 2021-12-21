@@ -1,3 +1,3 @@
-export * from './init'
-export * from './firestore'
-export * from './auth'
+export * from './src/init'
+export * from './src/firestore'
+export * from './src/auth'

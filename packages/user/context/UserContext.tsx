@@ -7,7 +7,7 @@ interface UserContextProps {
   user?: User
 }
 
-export const UserContext = createContext<UserContextProps>(null)
+export const UserContext = createContext<UserContextProps>({ loading: false })
 
 export function UserContextProvider({ children }: PropsWithChildren<{}>) {
   const auth = getAuth()
@@ -16,7 +16,7 @@ export function UserContextProvider({ children }: PropsWithChildren<{}>) {
   useEffect(() => {
     return onAuthStateChanged(auth, () => {
       const user = isValidUser(auth.currentUser) && auth.currentUser
-      setState({ loading: false, user })
+      setState({ loading: false, user: user || undefined })
     })
   }, [])
 

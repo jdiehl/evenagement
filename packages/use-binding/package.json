@@ -1,7 +1,7 @@
 {
   "name": "use-binding",
   "version": "1.0.0",
-  "main": "./use-binding.ts",
+  "main": "./index.ts",
   "license": "MIT",
   "dependencies": {
   },

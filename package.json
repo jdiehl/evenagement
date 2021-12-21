@@ -8,6 +8,7 @@
   ],
   "scripts": {
     "start": "npm start --prefix apps/evenagement",
+    "test": "turbo run test",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
@@ -27,6 +28,9 @@
           "dist/**",
           ".next/**"
         ]
+      },
+      "test": {
+        "outputs": []
       },
       "lint": {
         "outputs": []

@@ -25,7 +25,7 @@ function Calendar({ calendars, getBackProps, getForwardProps, getDateProps, visi
   if (calendars.length) {
     return (
       <div className="absolute w-72 -mt-4" hidden={!visible}>
-        {calendars.map(calendar => (
+        {calendars.map((calendar: any) => (
           <div className="bg-white mt-2 rounded-lg shadow p-4 absolute top-0 left-0" key={`${calendar.month}${calendar.year}`}>
             <div className="flex justify-between items-center mb-2" >
               <div>
@@ -47,8 +47,8 @@ function Calendar({ calendars, getBackProps, getForwardProps, getDateProps, visi
                   <div className="text-gray-800 font-medium text-center text-xs">{day}</div>
                 </div>
                 ))}
-              {calendar.weeks.map((week, weekIndex) =>
-                week.map((dateObj, index) => {
+              {calendar.weeks.map((week: any, weekIndex : any) =>
+                week.map((dateObj: any, index: any) => {
                   let key = `${calendar.month}${calendar.year}${weekIndex}${index}`
                   if (!dateObj) {
                     return (<div className="text-center border p-1 border-transparent text-sm" key={key}></div>)
