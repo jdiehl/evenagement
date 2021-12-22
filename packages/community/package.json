@@ -5,7 +5,8 @@
   "license": "MIT",
   "scripts": {
     "test": "tsc --noEmit",
-    "lint": "eslint components/** model/** pages/**"
+    "lint": "eslint components/** model/** pages/**",
+    "build": "tsc --outDir dist"
   },
   "dependencies": {
     "event": "*",

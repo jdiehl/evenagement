@@ -1,11 +1,13 @@
 {
   "name": "event",
   "version": "1.0.0",
-  "main": ".",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "test": "tsc --noEmit",
-    "lint": "eslint components/** model/** pages/**"
+    "lint": "eslint components/** model/** pages/**",
+    "build": "tsc --outDir dist"
   },
   "dependencies": {
     "next": "^12.0.7",

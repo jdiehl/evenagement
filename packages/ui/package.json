@@ -1,12 +1,13 @@
 {
   "name": "ui",
   "version": "1.0.0",
-  "main": "./index.tsx",
-  "types": "./index.tsx",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "test": "tsc --noEmit",
-    "lint": "eslint components/** context/**"
+    "lint": "eslint components/** context/**",
+    "build": "tsc --outDir dist"
   },
   "dependencies": {
     "dayzed": "^3.2.2",

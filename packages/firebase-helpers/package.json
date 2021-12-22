@@ -1,11 +1,13 @@
 {
   "name": "firebase-helpers",
   "version": "1.0.0",
-  "main": "./index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "test": "tsc --noEmit",
-    "lint": "eslint src/**"
+    "lint": "eslint src/**",
+    "build": "tsc --outDir dist"
   },
   "dependencies": {
     "firebase": "^9.6.1"

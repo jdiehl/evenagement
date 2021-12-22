@@ -1,11 +1,13 @@
 {
   "name": "user",
   "version": "1.0.0",
-  "main": ".",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "test": "tsc --noEmit",
-    "lint": "eslint components/** context/** helpers/** model/** pages/**"
+    "lint": "eslint components/** context/** helpers/** model/** pages/**",
+    "build": "tsc --outDir dist"
   },
   "dependencies": {
     "firebase": "^9.6.1",
