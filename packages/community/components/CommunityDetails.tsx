@@ -14,7 +14,7 @@ interface CommunityDetailsProps {
 export function CommunityDetails({ community, events, members }: CommunityDetailsProps) {
   return (
     <>
-      <BannerImage community={community.data()} />
+      <BannerImage community={community.data()!} />
       <SidebarLayout menuContent={<CommunityMenu community={community} />}>
         <CommunityDetailContent community={community} events={events} members={members} />
       </SidebarLayout>

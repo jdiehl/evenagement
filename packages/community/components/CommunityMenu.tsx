@@ -10,7 +10,7 @@ interface CommunityMenuProps {
 export function CommunityMenu({ community }: CommunityMenuProps) {
 return (
   <>
-    <SidebarHeader>{community.data().name}</SidebarHeader>
+    <SidebarHeader>{community.data()!.name}</SidebarHeader>
     <SidebarItem href={`/communities/${community.id}`}>Home</SidebarItem>
     <SidebarItem href={`/communities/${community.id}/events`}>Upcoming Events</SidebarItem>
     <SidebarItem href={`/communities/${community.id}/archive`}>Past Events</SidebarItem>

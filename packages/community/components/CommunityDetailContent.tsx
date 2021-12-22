@@ -13,7 +13,7 @@ interface CommunityDetailContentProps {
 
 export function CommunityDetailContent({ community, events, members }: CommunityDetailContentProps) {
   const eventTiles = events?.map((event) =>
-    <EventTile href={`/communities/${community.id}/events/${event.id}`} key={event.id} event={event.data()} />
+    <EventTile href={`/communities/${community.id}/events/${event.id}`} key={event.id} event={event.data()!} />
   )
 
   eventTiles?.push(
@@ -23,13 +23,13 @@ export function CommunityDetailContent({ community, events, members }: Community
   return (
     <Container gap>
       <Container row align="start">
-        <Text type="h1" margin={0}>{community.data().name}</Text>
+        <Text type="h1" margin={0}>{community.data()!.name}</Text>
         <Container grow />
         <Button href={`/communities/${community.id}/edit`} round>
           <NotePencil/>
         </Button>
       </Container>
-      <Text>{community.data().description}</Text>
+      <Text>{community.data()!.description}</Text>
       <Text type="h2">Events</Text>
       <HorizontalList>
         {events
@@ -38,7 +38,7 @@ export function CommunityDetailContent({ community, events, members }: Community
       </HorizontalList>
       <Text type="h2">Members</Text>
       <HorizontalList>
-        {members?.map((memberProfile) => <UserTile userProfile={memberProfile.data()} key={memberProfile.id} />)}
+        {members?.map((memberProfile) => <UserTile userProfile={memberProfile.data()!} key={memberProfile.id} />)}
       </HorizontalList>
     </Container>
   )
