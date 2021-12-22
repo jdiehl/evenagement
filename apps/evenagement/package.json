@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "test": "tsc --noEmit",
-    "lint": "eslint src/",
+    "lint": "eslint pages/",
     "prepare": "husky install",
     "dev": "next dev",
     "dev-emulator": "concurrently -k \"npm:dev\" \"npm:emulator\"",
@@ -17,8 +17,10 @@
   },
   "dependencies": {
     "@sendgrid/mail": "^7.6.0",
+    "community": "*",
     "date-fns": "^2.27.0",
     "dayzed": "^3.2.2",
+    "event": "*",
     "firebase": "^9.6.1",
     "firebase-helpers": "*",
     "main": "*",

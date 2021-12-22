@@ -1,0 +1,5 @@
+{
+  "extends": "tsconfig/react-library.json",
+  "include": [".", "../community/components/EventDetails.tsx"],
+  "exclude": ["dist", "build", "node_modules"]
+}

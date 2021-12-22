@@ -1,4 +1,6 @@
 const modules = [
+  'community',
+  'event',
   'firebase-helpers',
   'main',
   'ui',
