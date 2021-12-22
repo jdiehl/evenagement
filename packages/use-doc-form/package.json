@@ -8,6 +8,7 @@
     "lint": "eslint src/**"
   },
   "dependencies": {
+    "react-hook-form": "^7.22.3"
   },
   "devDependencies": {
     "@types/react": "^17.0.37",
