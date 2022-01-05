@@ -47,7 +47,7 @@ export function Logo(props: SVGProps<SVGSVGElement>) {
       <g transform="matrix(0.648473,0,0,1.2686,-16.6147,-96.6782)">
         <rect x="74.968" y="103.798" width="74.02" height="18.918" fill="#70469B"/>
       </g>
-      <style jsx>{`
+      <style>{`
         * {
           fill-rule: evenodd;
           clip-rule: evenodd;
