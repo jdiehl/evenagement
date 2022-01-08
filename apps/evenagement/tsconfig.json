@@ -1,16 +1,5 @@
 {
   "extends": "tsconfig/nextjs.json",
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
-  "exclude": ["node_modules"],
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@src/*": ["src/*"],
-      "@community/*": ["src/modules/community/*"],
-      "@event/*": ["src/modules/event/*"],
-      "@main/*": ["src/modules/main/*"],
-      "@ui/*": ["src/modules/ui/*"],
-      "@user/*": ["../../packages/user/*"],
-    }
-  }
+  "exclude": ["node_modules"]
 }

@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { ToastContextProvider } from 'ui'
 import { UserContextProvider } from 'user'
 
-import '../styles/globals.css'
+import 'styles'
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   return (
