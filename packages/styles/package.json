@@ -1,0 +1,7 @@
+{
+  "name": "styles",
+  "version": "1.0.0",
+  "main": "styles.css",
+  "license": "MIT",
+  "private": true
+}

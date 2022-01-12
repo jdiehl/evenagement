@@ -2,63 +2,77 @@
 
 Evenagement is a web application to manage communities.
 
+## What's inside?
+
+This turborepo uses [Yarn](https://classic.yarnpkg.com/lang/en/) as a package manager. It includes the following packages/apps:
+
+### Apps and Packages
+
+- `docs`: a [Next.js](https://nextjs.org) app
+- `web`: another [Next.js](https://nextjs.org) app
+- `ui`: a stub React component library shared by both `web` and `docs` applications
+- `config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
+- `tsconfig`: `tsconfig.json`s used throughout the monorepo
+
+Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
+
+### Utilities
+
+This turborepo has some additional tools already setup for you:
+
+- [TypeScript](https://www.typescriptlang.org/) for static type checking
+- [ESLint](https://eslint.org/) for code linting
+- [Jest](https://jestjs.io) test runner for all things JavaScript
+- [Prettier](https://prettier.io) for code formatting
 
 ## Setup
 
-1. Install [pnpm](https://pnpm.js.org): `npm i -g pnpm`
-2. Install [firebase-tools](https://firebase.google.com/docs/cli): `pnpm i -g firebase-tools` (only if you plan to use the emulator or use their hosting)
+This repository is used in the `npx create-turbo` command, and selected when choosing which package manager you wish to use with your monorepo (Yarn).
 
-### Production Build
+### Build
 
-1. Install packages: `pnpm i --frozen-lockfile`
-2. Configure environment (see below)
-3. Build: `pnpm build`
-4. Start: `pnpm start`
-5. Open [http://localhost:3000/]
-
-### Development
-
-1. Install packages: `pnpm i`
-2. Start [Firebase Emulator](https://firebase.google.com/docs/emulator-suite): `pnpm run emulator`
-2. Start development server: `pnpm run dev`
-3. Open [http://localhost:3000/]
-
-### Storybook
-
-We use [Storybook](https://storybook.js.org) to test and showcase our components.
-
-1. Run `pnpm run storybook`
-2. Open [http://localhost:9009]
-
-Edit `[component].stories.tsx` to configure the options of a component
-
-
-## Configuration
-
-Environment variables can be se in `.env.local`.
-
-Firebase Configuration:
+To build all apps and packages, run the following command:
 
 ```
-NEXT_PUBLIC_FIREBASE_APIKEY=
-NEXT_PUBLIC_FIREBASE_AUTHDOMAIN=
-NEXT_PUBLIC_FIREBASE_PROJECTID=
-NEXT_PUBLIC_FIREBASE_STORAGEBUCKET=
-NEXT_PUBLIC_FIREBASE_MESSAGINGSENDERID=
-NEXT_PUBLIC_FIREBASE_APPID=
-NEXT_PUBLIC_FIREBASE_MEASUREMENTID=
+cd my-turborepo
+yarn run build
 ```
 
-Development Configuration:
+### Develop
+
+To develop all apps and packages, run the following command:
 
 ```
-NEXT_PUBLIC_USE_FIREBASE_EMULATOR=1  #enable the emulator
-NEXT_PUBLIC_DEBUG=1  #enable debug support (sets window.firebase)
+cd my-turborepo
+yarn run dev
 ```
 
-Sendgrid Configuration:
+### Remote Caching
+
+Turborepo can use a technique known as [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
+
+By default, Turborepo will cache locally. To enable Remote Caching (Beta) you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup), then enter the following commands:
 
 ```
-SENDGRID_API_KEY=
-SENDGRID_FROM=
+cd my-turborepo
+npx turbo login
 ```
+
+This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
+
+Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your turborepo:
+
+```
+npx turbo link
+```
+
+## Useful Links
+
+Learn more about the power of Turborepo:
+
+- [Pipelines](https://turborepo.org/docs/features/pipelines)
+- [Caching](https://turborepo.org/docs/features/caching)
+- [Remote Caching (Beta)](https://turborepo.org/docs/features/remote-caching)
+- [Scoped Tasks](https://turborepo.org/docs/features/scopes)
+- [Configuration Options](https://turborepo.org/docs/reference/configuration)
+- [CLI Usage](https://turborepo.org/docs/reference/command-line-reference)

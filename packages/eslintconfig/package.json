@@ -1,0 +1,10 @@
+{
+  "name": "eslintconfig",
+  "version": "0.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "files": [
+    "base.js",
+    "next.js"
+  ]
+}
