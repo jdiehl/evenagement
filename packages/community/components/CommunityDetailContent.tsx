@@ -1,13 +1,13 @@
 import { EventTile } from 'event'
 import { NotePencil } from 'phosphor-react'
-import { CommunityDocument, CommunityEventDocument } from 'types'
+import { CommunityDocument, EventDocument } from 'types'
 import { UserProfileDocument } from 'types'
 import { AddTile,Button, Container, HorizontalList, Loading, Text } from 'ui'
 import { UserTile } from 'user'
 
 interface CommunityDetailContentProps {
   community: CommunityDocument
-  events: CommunityEventDocument[]
+  events: EventDocument[]
   members: UserProfileDocument[]
 }
 
@@ -17,7 +17,7 @@ export function CommunityDetailContent({ community, events, members }: Community
   )
 
   eventTiles?.push(
-    <AddTile key={eventTiles.length} label="Add Event" />
+    <AddTile key={eventTiles.length} label="Add Event" href={`/communities/${community.id}/events/create`} />
   )
 
   return (

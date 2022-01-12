@@ -14,5 +14,6 @@ const Template: Story<any> = (args) => (
 
 export const Primary = Template.bind({})
 Primary.args = {
-  label: 'Add Something'
+  label: 'Add Something',
+  href: 'https://google.de'
 }

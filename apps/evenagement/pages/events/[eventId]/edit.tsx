@@ -2,15 +2,14 @@ import { EventNewEdit } from 'event'
 import { MainLayoutWithUser } from 'main'
 import { GetServerSideProps } from 'next'
 
-interface CommunityEventEditPageProps  {
-  id: string
+interface EventEditPageProps  {
   eventId: string
 }
 
-export default function CommunityEventEditPage({ id, eventId }: CommunityEventEditPageProps) {
+export default function EventEditPage({ eventId }: EventEditPageProps) {
   return (
     <MainLayoutWithUser>
-      <EventNewEdit id={id} eventId={eventId} />
+      <EventNewEdit eventId={eventId} />
     </MainLayoutWithUser>
   )
 }
@@ -18,7 +17,6 @@ export default function CommunityEventEditPage({ id, eventId }: CommunityEventEd
 export const getServerSideProps: GetServerSideProps = async (context) => {
   return {
     props: {
-      id: context.params?.id,
       eventId: context.params?.eventId
     }
   }

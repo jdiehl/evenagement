@@ -2,11 +2,11 @@ import { EventNewEdit } from 'event'
 import { MainLayoutWithUser } from 'main'
 import { GetServerSideProps } from 'next'
 
-interface EventCreatePageProps  {
+interface CommunityEventCreatePageProps  {
   id: string
 }
 
-export default function EventCreatePage({ id }: EventCreatePageProps) {
+export default function CommunityEventCreatePage({ id }: CommunityEventCreatePageProps) {
   return (
     <MainLayoutWithUser>
       <EventNewEdit id={id} />

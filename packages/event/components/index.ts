@@ -1,3 +1,5 @@
 export * from './EventDetailContent'
+export * from './EventDetails'
 export * from './EventForm'
+export * from './EventsGrid'
 export * from './EventTile'

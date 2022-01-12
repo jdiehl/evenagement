@@ -1,15 +1,20 @@
 import { DocumentReference } from 'firebase/firestore'
-import { CommunityEvent } from 'types'
+import { Event } from 'types'
 import { Button, Container, DatePicker, Form, ImageInput, Input } from 'ui'
 import { useDocForm } from 'use-doc-form'
 
 interface EventFormProps {
-  eventRef: DocumentReference<CommunityEvent>
+  eventRef: DocumentReference<Event>
+  communityId?: string
   onClose: (saved: boolean) => void
 }
 
-export function EventForm({ eventRef, onClose }: EventFormProps) {
-  const { register, registerFile, registerDatePicker, handleSubmit } = useDocForm(eventRef)
+export function EventForm({ eventRef, onClose, communityId }: EventFormProps) {
+  const { register, registerFile, registerDatePicker, handleSubmit, setValue } = useDocForm(eventRef)
+
+  // set the community id if given
+  setValue('communityId', communityId || null)
+
   const buttons = <>
     <Button type="outline" onClick={() => onClose(false)}>Cancel</Button>
     <Button tag="input">Save</Button>

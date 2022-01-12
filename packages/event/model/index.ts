@@ -1,1 +1,1 @@
-export * from './CommunityEvent'
+export * from './Event'

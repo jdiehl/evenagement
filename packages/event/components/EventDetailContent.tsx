@@ -1,21 +1,23 @@
 import { format } from 'date-fns'
 import { NotePencil } from 'phosphor-react'
-import { CommunityDocument, CommunityEventDocument } from 'types'
+import { CommunityDocument, EventDocument } from 'types'
 import { Button, Container, Text } from 'ui'
 
 interface EventDetailContentProps {
-  community: CommunityDocument
-  event: CommunityEventDocument
+  community?: CommunityDocument
+  event: EventDocument
 }
 
 export function EventDetailContent({ community, event }: EventDetailContentProps) {
+
+  const href = community ? `/communities/${community.id}/events/${event.id}/edit` : `/events/${event.id}/edit`
 
   return (
     <Container gap>
       <Container row align="start">
         <Text type="h1">{event.data()!.name}</Text>
         <Container grow />
-        <Button href={`/communities/${community.id}/events/${event.id}/edit`} round>
+        <Button href={href} round>
           <NotePencil/>
         </Button>
       </Container>

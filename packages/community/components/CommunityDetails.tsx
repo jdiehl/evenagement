@@ -1,5 +1,5 @@
 import { SidebarLayout } from 'main'
-import { CommunityDocument, CommunityEventDocument, UserProfileDocument } from 'types'
+import { CommunityDocument, EventDocument, UserProfileDocument } from 'types'
 import { BannerImage } from 'ui'
 
 import { CommunityDetailContent } from './CommunityDetailContent'
@@ -7,7 +7,7 @@ import { CommunityMenu } from './CommunityMenu'
 
 interface CommunityDetailsProps {
   community: CommunityDocument
-  events: CommunityEventDocument[]
+  events: EventDocument[]
   members: UserProfileDocument[]
 }
 

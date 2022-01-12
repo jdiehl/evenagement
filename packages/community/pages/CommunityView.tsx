@@ -1,4 +1,4 @@
-import { useEvents } from 'event'
+import { useEventsForCommunity } from 'event'
 import { Loading } from 'ui'
 import { useCommunityMemberProfiles } from 'user'
 
@@ -11,7 +11,7 @@ interface CommunityViewProps {
 
 export function CommunityView({ id }: CommunityViewProps) {
   const community = useCommunity(id)
-  const events = useEvents(id)
+  const events = useEventsForCommunity(id)
   const members = useCommunityMemberProfiles(id)
 
   if (!community) return <Loading />

@@ -1,7 +1,8 @@
 import { DocumentSnapshot, Timestamp } from 'firebase/firestore'
+import { Community } from 'types'
 
 export type CommunityMemberRole = 'member' | 'organizer'
-export type CommunityEventMemberRole = 'organizer' | 'attendee'
+export type EventMemberRole = 'organizer' | 'attendee'
 
 export interface Community {
   name: string
@@ -10,10 +11,11 @@ export interface Community {
   private?: boolean
 }
 
-export interface CommunityEvent {
+export interface Event {
   name: string
   date: Timestamp
   image: string
+  communityId: string | null
 }
 
 export interface CommunityMember {
@@ -22,9 +24,9 @@ export interface CommunityMember {
   joined: Date
 }
 
-export interface CommunityEventMember {
+export interface EventMember {
   uid: string
-  role: CommunityEventMemberRole
+  role: EventMemberRole
   registered: Date
 }
 
@@ -34,6 +36,6 @@ export interface UserProfile {
 }
 
 export type CommunityDocument = DocumentSnapshot<Community>
-export type CommunityEventDocument = DocumentSnapshot<CommunityEvent>
+export type EventDocument = DocumentSnapshot<Event>
 export type CommunityMemberDocument = DocumentSnapshot<CommunityMember>
 export type UserProfileDocument = DocumentSnapshot<UserProfile>

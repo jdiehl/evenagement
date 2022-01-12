@@ -11,7 +11,7 @@ interface EventViewProps {
 
 export function CommunityEventView({ id, eventId }: EventViewProps) {
   const community = useCommunity(id)
-  const event = useEvent(id, eventId)
+  const event = useEvent(eventId)
 
   if (!event) return <Loading />
   return (

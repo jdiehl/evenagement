@@ -1,13 +1,13 @@
 import { EventDetailContent } from 'event'
 import { SidebarLayout } from 'main'
-import { CommunityDocument, CommunityEventDocument } from 'types'
+import { CommunityDocument, EventDocument } from 'types'
 import { BannerImage, Container } from 'ui'
 
 import { CommunityMenu } from './CommunityMenu'
 
 interface CommunityDetailsProps {
   community: CommunityDocument
-  event: CommunityEventDocument
+  event: EventDocument
 }
 
 export function CommunityEvent({ community, event }: CommunityDetailsProps) {

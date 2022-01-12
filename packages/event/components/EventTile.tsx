@@ -1,9 +1,9 @@
 import format from 'date-fns/format'
-import { CommunityEvent } from 'types'
+import { Event } from 'types'
 import { CoverImage, Text, Tile, TileBar } from 'ui'
 
 interface EventTileProps {
-  event: CommunityEvent
+  event: Event
   href?: string
 }
 
