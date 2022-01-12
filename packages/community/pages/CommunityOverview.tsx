@@ -9,7 +9,7 @@ interface CommunityOverviewProps {
 
 export function CommunityOverview({ mine }: CommunityOverviewProps) {
   const communities = useCommunities(mine)
-  if (!communities) return <Loading />
+  if (communities === undefined) return <Loading />
 
   return (
     <CommunitiesGrid communities={communities} />

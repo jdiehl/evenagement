@@ -6,6 +6,7 @@
     "test": "tsc --noEmit",
     "lint": "eslint pages/",
     "dev": "next dev",
+    "emulator": "NEXT_PUBLIC_USE_FIREBASE_EMULATOR=1 next dev",
     "build": "next build",
     "start": "next start"
   },

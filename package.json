@@ -14,13 +14,10 @@
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
     "lint": "turbo run lint",
-    "deploy": "firebase deploy",
-    "dev-emulator": "concurrently -k \"npm:dev\" \"npm:emulator\"",
-    "emulator": "firebase emulators:start --import=./emulator-data --export-on-exit"
+    "emulator": "turbo run emulator --parallel",
+    "deploy": "turbo run deploy"
   },
   "devDependencies": {
-    "concurrently": "^7.0.0",
-    "firebase-tools": "^10.0.1",
     "husky": "^7.0.4",
     "turbo": "^1.0.26"
   },
@@ -42,6 +39,12 @@
         "outputs": []
       },
       "dev": {
+        "cache": false
+      },
+      "emulator": {
+        "cache": false
+      },
+      "deploy": {
         "cache": false
       },
       "storybook": {
