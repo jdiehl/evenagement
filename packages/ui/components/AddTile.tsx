@@ -1,6 +1,9 @@
 import { PlusCircle } from 'phosphor-react'
 import { MouseEventHandler } from 'react'
-import { Container, Text, Tile } from 'ui'
+
+import { Container } from './Container'
+import { Text } from './Text'
+import { Tile } from './Tile'
 
 interface AddTileProps {
   label: String

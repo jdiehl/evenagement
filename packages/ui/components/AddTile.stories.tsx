@@ -3,7 +3,7 @@ import { Story, Meta } from '@storybook/react'
 import { AddTile } from './AddTile'
 
 export default {
-  title: 'Event/AddTile',
+  title: 'UI/AddTile',
   component: AddTile,
   argTypes: {}
 } as Meta

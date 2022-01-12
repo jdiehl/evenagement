@@ -1,3 +1,4 @@
+export * from './AddTile'
 export * from './BannerImage'
 export * from './Button'
 export * from './ButtonBar'
