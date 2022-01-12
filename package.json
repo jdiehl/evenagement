@@ -9,7 +9,7 @@
   "scripts": {
     "prepare": "husky install",
     "start": "turbo run start",
-    "sb": "turbo run storybook",
+    "storybook": "turbo run storybook",
     "test": "turbo run test",
     "build": "turbo run build",
     "dev": "turbo run dev --parallel",
