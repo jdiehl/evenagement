@@ -11,6 +11,12 @@ export interface Community {
   private?: boolean
 }
 
+export interface CommunityMember {
+  uid: string
+  role: CommunityMemberRole
+  joined: Date
+}
+
 export interface Event {
   name: string
   date: Timestamp
@@ -18,16 +24,21 @@ export interface Event {
   communityId: string | null
 }
 
-export interface CommunityMember {
-  uid: string
-  role: CommunityMemberRole
-  joined: Date
+export interface EventContact {
+  name: string
+  email: string
+}
+
+export interface EventInvite {
+  code: string
+  contacts: EventContact[]
 }
 
 export interface EventMember {
   uid: string
   role: EventMemberRole
   registered: Date
+  inviteId: string | null
 }
 
 export interface UserProfile {
