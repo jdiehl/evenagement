@@ -1,6 +1,6 @@
 import { collection } from 'firebase-helpers'
 import { User } from 'firebase/auth'
-import { doc, onSnapshot, collection as getCollection, setDoc, deleteDoc, query, where, orderBy, DocumentReference } from 'firebase/firestore'
+import { doc, onSnapshot, collection as getCollection, setDoc, deleteDoc, query, where, DocumentReference } from 'firebase/firestore'
 import { useState, useEffect } from 'react'
 import { Event, EventDocument, EventMemberRole } from 'types'
 

@@ -5,6 +5,6 @@ export function HeroDescription({ children }: PropsWithChildren<{}>) {
     <p className="text-large text-center my-32 w-9/12 mx-auto">
       {children}
     </p>
-)
+  )
 
 }
