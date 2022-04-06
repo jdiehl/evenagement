@@ -14,7 +14,7 @@ export function Menu({ trigger, right, children }: PropsWithChildren<MenuProps>)
   // trigger on close on mouse click
   useEffect(() => {
     if (!show) return
-    document.addEventListener('click', onClose)
+    setTimeout(() => document.addEventListener('click', onClose))
     return () => document.removeEventListener('click', onClose)
   }, [show])
 
